@@ -3,17 +3,14 @@
 
 # Description
 
-this is a dystopia where the main entertainment is a TV show called Smash TV, where the contestant (the main character) needs to pass some rooms killing all the enemies, recollecting the money given.
+This is a dystopia where the main entertainment is a TV show called Smash TV, where the contestant (the main character) needs to pass some rooms killing all the enemies, recollecting the money given.
 Superate some floors and kill the final boss to escape from the TV show and become rich.
-
-
 
 # How to play the game
 
 The game is played in a TV show, your objective is to kill enemies to make it to the end. 
 You will be having some help from different weapons and pick-ups.
 Come across different enemies and rooms to reach the final boss, glory is awaiting.
-
 
 # Controls
 
@@ -49,7 +46,6 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 
 This project is licensed under an unmodified MIT license, which is an OSI-certified license that allows static linking with closed source software. 
 Check [LICENSE](LICENSE) for further details.
-
 
 # GitHub Link
 
