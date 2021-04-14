@@ -35,11 +35,11 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 
 # Members
 
-[Biel Rabasa Galan](https://github.com/bielrabasa).
-[Roger Salas Bernadó](https://github.com/Draquian).
-[Gerard Josep Ramon Catasus](https://github.com/kramtron).
-[Adrián Martín Murillo](https://github.com/Astrorey776).
-[Pau Olmos Serrano](https://github.com/PauOlmos).
+[Biel Rabasa Galan](https://github.com/bielrabasa).\n
+[Roger Salas Bernadó](https://github.com/Draquian).\n
+[Gerard Josep Ramon Catasus](https://github.com/kramtron).\n
+[Adrián Martín Murillo](https://github.com/Astrorey776).\n
+[Pau Olmos Serrano](https://github.com/PauOlmos).\n
 
 # How to play the game
 
