@@ -45,12 +45,6 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 
 [Pau Olmos Serrano](https://github.com/PauOlmos)
 
-# How to play the game
-
-The game is played in a TV show, your objective is to kill enemies to make it to the end. 
-You will be having some help from different weapons and pick-ups.
-Come across different enemies and rooms to reach the final boss, glory is awaiting.
-
 # License
 
 This project is licensed under an unmodified MIT license, which is an OSI-certified license that allows static linking with closed source software. 
