@@ -1,5 +1,8 @@
 # KinderBoys
 
+# GitHub Link
+
+https://github.com/bielrabasa/KinderBoys/wiki
 
 # Description
 
@@ -47,6 +50,3 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 This project is licensed under an unmodified MIT license, which is an OSI-certified license that allows static linking with closed source software. 
 Check [LICENSE](LICENSE) for further details.
 
-# GitHub Link
-
-https://github.com/bielrabasa/KinderBoys/wiki
