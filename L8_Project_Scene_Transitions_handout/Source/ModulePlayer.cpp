@@ -120,7 +120,6 @@ UpdateResult ModulePlayer::Update()
 				currentAnimation = &diagonalPAnim;
 			}
 		}
-		else diagonal = false;
 		
 		if ((currentAnimation != &rigthAnim) && (diagonal == false)) //ANIMACIÓ LEFT
 		{
@@ -144,7 +143,6 @@ UpdateResult ModulePlayer::Update()
 				currentAnimation = &diagonalPAnim;
 			}
 		}
-		else diagonal = false;
 				
 		if (currentAnimation != &rigthAnim && (diagonal == false))
 		{
@@ -166,7 +164,6 @@ UpdateResult ModulePlayer::Update()
 				currentAnimation = &diagonalSAnim;
 			}
 		}
-		else diagonal = false;
 
 		if (currentAnimation != &downAnim && (diagonal == false))
 		{
@@ -188,7 +185,6 @@ UpdateResult ModulePlayer::Update()
 				currentAnimation = &diagonalSAnim;
 			}
 		}
-		else diagonal = false;
 
 		if (currentAnimation != &upAnim && (diagonal == false))
 		{
