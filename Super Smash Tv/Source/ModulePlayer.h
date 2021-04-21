@@ -61,15 +61,20 @@ public:
 	Animation leftAnim;
 	Animation rigthAnim;
 	Animation diagonalSAnim;
+	Animation diagonalSRAnim;
 	Animation diagonalPAnim;
+	Animation diagonalPRAnim;
 
 	bool diagonal = false;
 	int MovKeyPressed = 0;
 
 	Animation topDownAnim; //Idle i Down
 	Animation topDRAnim;
+	Animation topDLAnim;
+	Animation topLeftAnim;
 	Animation topRightAnim;
 	Animation topURAnim;
+	Animation topULAnim;
 	Animation topUpAnim;
 
 	// The player's collider

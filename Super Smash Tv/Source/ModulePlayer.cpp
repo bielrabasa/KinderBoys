@@ -40,7 +40,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	upAnim.loop = true;
 	upAnim.speed = 0.1f;
 
-	//Move rigth  (left es igual invertit) 
+	//Move rigth 
 	rigthAnim.PushBack({ 0, 16, 16, 16 });
 	rigthAnim.PushBack({ 16, 16, 16, 16 });
 	rigthAnim.PushBack({ 32, 16, 16, 16 });
@@ -50,6 +50,17 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rigthAnim.PushBack({ 96, 16, 16, 16 });
 	rigthAnim.loop = true;
 	rigthAnim.speed = 0.1f;
+
+	//Move left
+	leftAnim.PushBack({ 0, 208, 16, 16 });
+	leftAnim.PushBack({ 16, 208, 16, 16 });
+	leftAnim.PushBack({ 32, 208, 16, 16 });
+	leftAnim.PushBack({ 48, 208, 16, 16 });
+	leftAnim.PushBack({ 64, 208, 16, 16 });
+	leftAnim.PushBack({ 80, 208, 16, 16 });
+	leftAnim.PushBack({ 96, 208, 16, 16 });
+	leftAnim.loop = true;
+	leftAnim.speed = 0.1f;
 
 	//Diagonal Secundaria
 	diagonalSAnim.PushBack({ 128, 0, 16, 16 });
@@ -72,14 +83,39 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	diagonalPAnim.loop = true;
 	diagonalPAnim.speed = 0.1f;
 
+	//Diagonal Secundaria Reverse
+	diagonalSRAnim.PushBack({ 0, 224, 16, 16 });
+	diagonalSRAnim.PushBack({ 16, 224, 16, 16 });
+	diagonalSRAnim.PushBack({ 32, 224, 16, 16 });
+	diagonalSRAnim.PushBack({ 48, 224, 16, 16 });
+	diagonalSRAnim.PushBack({ 64, 224, 16, 16 });
+	diagonalSRAnim.PushBack({ 80, 224, 16, 16 });
+	diagonalSRAnim.PushBack({ 96, 224, 16, 16 });
+	diagonalSRAnim.loop = true;
+	diagonalSRAnim.speed = 0.1f;
+
+	//Diagonal Principal Reverse
+	diagonalPRAnim.PushBack({ 0, 240, 16, 16 });
+	diagonalPRAnim.PushBack({ 16, 240, 16, 16 });
+	diagonalPRAnim.PushBack({ 32, 240, 16, 16 });
+	diagonalPRAnim.PushBack({ 48, 240, 16, 16 });
+	diagonalPRAnim.PushBack({ 64, 240, 16, 16 });
+	diagonalPRAnim.PushBack({ 80, 240, 16, 16 });
+	diagonalPRAnim.PushBack({ 96, 240, 16, 16 });
+	diagonalPRAnim.loop = true;
+	diagonalPRAnim.speed = 0.1f;
+
 
 	//ANIMACIONS TOP HOME
 	topDownAnim.PushBack({ 0, 48, 32, 32 });
 	topDRAnim.PushBack({ 32, 48, 32, 32 });
+	topDLAnim.PushBack({ 112, 208, 32, 32});
+	topLeftAnim.PushBack({ 144, 208, 32, 32 });
 	topRightAnim.PushBack({ 64, 48, 32, 32 });
 	topURAnim.PushBack({ 96, 48, 32, 32 });
+	topULAnim.PushBack({ 176, 208, 32, 32});
 	topUpAnim.PushBack({ 128, 48, 32, 32 });
-
+	
 }
 
 ModulePlayer::~ModulePlayer()
@@ -124,10 +160,12 @@ UpdateResult ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) { //LEFT UP
 			diagonal = true;
-			if (currentAnimation != &diagonalPAnim)
+			if (currentAnimation != &diagonalPRAnim)
 			{
-				diagonalPAnim.Reset();
-				currentAnimation = &diagonalPAnim;
+				diagonalPRAnim.Reset();
+				currentAnimation = &diagonalPRAnim;
+				topULAnim.Reset();
+				currentTopAnimation = &topULAnim;
 			}
 		}
 		
@@ -135,7 +173,8 @@ UpdateResult ModulePlayer::Update()
 		{
 			rigthAnim.Reset();
 			currentAnimation = &rigthAnim;
-
+			topLeftAnim.Reset();
+			currentTopAnimation = &topLeftAnim;
 			//cambiar rigthAnim por leftAnim que es el mismo pero invertido
 		}
 	}
@@ -151,6 +190,8 @@ UpdateResult ModulePlayer::Update()
 			{
 				diagonalPAnim.Reset();
 				currentAnimation = &diagonalPAnim;
+				topDRAnim.Reset();
+				currentTopAnimation = &topDRAnim;
 			}
 		}
 				
@@ -158,6 +199,8 @@ UpdateResult ModulePlayer::Update()
 		{
 			rigthAnim.Reset();
 			currentAnimation = &rigthAnim;
+			topRightAnim.Reset();
+			currentTopAnimation = &topRightAnim;
 		}
 	}
 
@@ -168,10 +211,12 @@ UpdateResult ModulePlayer::Update()
 
 		if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) { //DOWN LEFT
 			diagonal = true;
-			if (currentAnimation != &diagonalSAnim)
+			if (currentAnimation != &diagonalSRAnim)
 			{
-				diagonalSAnim.Reset();
-				currentAnimation = &diagonalSAnim;
+				diagonalSRAnim.Reset();
+				currentAnimation = &diagonalSRAnim;
+				topDLAnim.Reset();
+				currentTopAnimation = &topDLAnim;
 			}
 		}
 
@@ -179,6 +224,8 @@ UpdateResult ModulePlayer::Update()
 		{
 			downAnim.Reset();
 			currentAnimation = &downAnim;
+			topDownAnim.Reset();
+			currentTopAnimation = &topDownAnim;
 		}
 	}
 
@@ -193,6 +240,8 @@ UpdateResult ModulePlayer::Update()
 			{
 				diagonalSAnim.Reset();
 				currentAnimation = &diagonalSAnim;
+				topURAnim.Reset();
+				currentTopAnimation = &topURAnim;
 			}
 		}
 
@@ -200,6 +249,8 @@ UpdateResult ModulePlayer::Update()
 		{
 			upAnim.Reset();
 			currentAnimation = &upAnim;
+			topUpAnim.Reset();
+			currentTopAnimation = &topUpAnim;
 		}
 	}
 
@@ -287,11 +338,14 @@ UpdateResult ModulePlayer::Update()
 	}
 
 	// If no up/down movement detected, set the current animation back to idle
-	if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_IDLE 
-		&& App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_IDLE 
-		&& App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_IDLE 
-		&& App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_IDLE)
+	if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_IDLE
+		&& App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_IDLE) {
+		
 		currentAnimation = &idleUAnim;
+		currentTopAnimation = &topDownAnim;
+	}
 
 	// L6: DONE 4: Update collider position to player position
 	collider->SetPos(position.x, position.y);
