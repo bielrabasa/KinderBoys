@@ -71,6 +71,15 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	diagonalPAnim.PushBack({ 224, 16, 16, 16 });
 	diagonalPAnim.loop = true;
 	diagonalPAnim.speed = 0.1f;
+
+
+	//ANIMACIONS TOP HOME
+	topDownAnim.PushBack({ 0, 48, 32, 32 });
+	topDRAnim.PushBack({ 32, 48, 32, 32 });
+	topRightAnim.PushBack({ 64, 48, 32, 32 });
+	topURAnim.PushBack({ 96, 48, 32, 32 });
+	topUpAnim.PushBack({ 128, 48, 32, 32 });
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -86,6 +95,7 @@ bool ModulePlayer::Start()
 
 	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Player.png");
 	currentAnimation = &idleUAnim;
+	currentTopAnimation = &topDownAnim; //CANVIAR
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
@@ -215,6 +225,7 @@ UpdateResult ModulePlayer::Update()
 	collider->SetPos(position.x, position.y);
 
 	currentAnimation->Update();
+	currentTopAnimation->Update();
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
@@ -225,6 +236,9 @@ UpdateResult ModulePlayer::PostUpdate()
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
 		App->render->DrawTexture(texture, position.x, position.y, &rect);
+		
+		SDL_Rect rectTop = currentTopAnimation->GetCurrentFrame();
+		App->render->DrawTexture(texture, position.x - 8, position.y - 16, &rectTop);
 	}
 
 	return UpdateResult::UPDATE_CONTINUE;

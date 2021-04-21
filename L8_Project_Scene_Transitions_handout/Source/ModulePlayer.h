@@ -41,10 +41,12 @@ public:
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
+	SDL_Texture* toptexture = nullptr;
 	
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;
+	Animation* currentTopAnimation = nullptr;
 
 	// A set of animations
 	Animation idleUAnim;
@@ -61,6 +63,13 @@ public:
 
 	bool diagonal = false;
 	int MovKeyPressed = 0;
+
+	Animation topDownAnim; //Idle i Down
+	Animation topDRAnim;
+	Animation topRightAnim;
+	Animation topURAnim;
+	Animation topUpAnim;
+
 	// The player's collider
 	Collider* collider = nullptr;
 

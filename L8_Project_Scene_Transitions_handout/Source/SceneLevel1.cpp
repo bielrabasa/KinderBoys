@@ -64,7 +64,7 @@ bool SceneLevel1::Start()
 
 UpdateResult SceneLevel1::Update()
 {
-	App->render->camera.x += 3;
+	//App->render->camera.x += 3; //SCROLL
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
