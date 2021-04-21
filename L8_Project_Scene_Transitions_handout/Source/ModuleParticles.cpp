@@ -36,6 +36,7 @@ bool ModuleParticles::Start()
 	laser.anim.PushBack({ 232, 103, 16, 12 });
 	laser.anim.PushBack({ 249, 103, 16, 12 });
 	laser.speed.x = 5;
+	laser.speed.y = 5;
 	laser.lifetime = 180;
 	laser.anim.speed = 0.2f;
 
@@ -67,7 +68,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		if (particles[i] != nullptr && particles[i]->collider == c1)
 		{
 			// L6: DONE 6: Every time a particle hits a wall it triggers an explosion particle
-			AddParticle(explosion, particles[i]->position.x, particles[i]->position.y);
+			AddParticle(explosion, particles[i]->position.x, particles[i]->position.y,0);
 
 			delete particles[i];
 			particles[i] = nullptr;
@@ -111,7 +112,7 @@ UpdateResult ModuleParticles::PostUpdate()
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
-void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Collider::Type colliderType, uint delay)
+void ModuleParticles::AddParticle(const Particle& particle, int x, int y,int dir, Collider::Type colliderType, uint delay)
 {
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
@@ -123,6 +124,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Collid
 			p->frameCount = -(int)delay;			// We start the frameCount as the negative delay
 			p->position.x = x;						// so when frameCount reaches 0 the particle will be activated
 			p->position.y = y;
+			p->direction = dir;
 
 			// Adding the particle's collider
 			if (colliderType != Collider::Type::NONE)

@@ -44,8 +44,48 @@ bool Particle::Update()
 			ret = false;
 
 		// Update the position in the screen
-		position.x += speed.x;
-		position.y += speed.y;
+
+		switch (direction) {
+		case 0:
+			break;
+		case 1://amunt
+			position.y -= speed.y;
+			break;
+
+		case 2://Esq
+			position.x -= speed.x;
+			break;
+
+		case 3://drt
+			position.x += speed.x;
+			break;
+
+		case 4://avall
+			position.y += speed.y;
+			break;
+
+		case 5://Esq, amunt
+			position.y -= speed.y;
+			position.x -= speed.x;
+			break;
+
+		case 6://drt, amunt
+			position.y -= speed.y;
+			position.x += speed.x;
+			break;
+
+		case 7://Esq, avall
+			position.y += speed.y;
+			position.x -= speed.x;
+			break;
+
+		case 8://drt, avall
+			position.y += speed.y;
+			position.x += speed.x;
+			break;
+		}
+		/*position.x += speed.x;
+		position.y += speed.y;*/
 
 		if (collider != nullptr)
 			collider->SetPos(position.x, position.y);

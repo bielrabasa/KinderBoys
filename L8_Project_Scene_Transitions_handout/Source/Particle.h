@@ -41,6 +41,8 @@ public:
 	// Negative values mean the particle is waiting to be activated
 	int frameCount = 0;
 
+	int direction = 0;
+
 	// Defines the total amount of frames during which the particle will be active
 	uint lifetime = 0;
 
