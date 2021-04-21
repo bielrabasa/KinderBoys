@@ -12,19 +12,54 @@
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	// Idle animation - just one sprite
-	idleAnim.PushBack({ 66, 1, 32, 14 });
+	idleDAnim.PushBack({ 128, 32, 16, 16 });
+	idleURAnim.PushBack({ 144, 32, 16, 16 });
+	idleLRAnim.PushBack({ 160, 32, 16, 16 });
+	idleULAnim.PushBack({ 176, 32, 16, 16 });
+	idleUAnim.PushBack({ 192, 32, 16, 16 });
+	//nome cames
 
 	// Move upwards
-	upAnim.PushBack({ 100, 1, 32, 14 });
-	upAnim.PushBack({ 132, 0, 32, 14 });
-	upAnim.loop = false;
-	upAnim.speed = 0.1f;
+	downAnim.PushBack({ 0, 32, 16, 16 });
+	downAnim.PushBack({ 16, 32, 16, 16 });
+	downAnim.PushBack({ 32, 32, 16, 16 });
+	downAnim.PushBack({ 48, 32, 16, 16 });
+	downAnim.PushBack({ 64, 32, 16, 16 });
+	downAnim.PushBack({ 80, 32, 16, 16 });
+	downAnim.loop = true;
+	downAnim.speed = 0.1f;
 
 	// Move down
-	downAnim.PushBack({ 33, 1, 32, 14 });
-	downAnim.PushBack({ 0, 1, 32, 14 });
-	downAnim.loop = false;
-	downAnim.speed = 0.1f;
+	upAnim.PushBack({ 0, 0, 16, 16 });
+	upAnim.PushBack({ 16, 0, 16, 16 });
+	upAnim.PushBack({ 32, 0, 16, 16 });
+	upAnim.PushBack({ 48, 0, 16, 16 });
+	upAnim.PushBack({ 64, 0, 16, 16 });
+	upAnim.PushBack({ 80, 0, 16, 16 });
+	upAnim.PushBack({ 96, 0, 16, 16 });
+	upAnim.loop = true;
+	upAnim.speed = 0.1f;
+
+	//Move rigth  (left es igual invertit) 
+	rigthAnim.PushBack({ 0, 16, 16, 16 });
+	rigthAnim.PushBack({ 16, 16, 16, 16 });
+	rigthAnim.PushBack({ 32, 16, 16, 16 });
+	rigthAnim.PushBack({ 48, 16, 16, 16 });
+	rigthAnim.PushBack({ 64, 16, 16, 16 });
+	rigthAnim.PushBack({ 80, 16, 16, 16 });
+	rigthAnim.PushBack({ 96, 16, 16, 16 });
+	rigthAnim.loop = true;
+	rigthAnim.speed = 0.1f;
+
+	//Diagonal
+	diagonalAnim.PushBack({ 128, 0, 16, 16 });
+	diagonalAnim.PushBack({ 144, 0, 16, 16 });
+	diagonalAnim.PushBack({ 160, 0, 16, 16 });
+	diagonalAnim.PushBack({ 176, 0, 16, 16 });
+	diagonalAnim.PushBack({ 192, 0, 16, 16 });
+	diagonalAnim.PushBack({ 208, 0, 16, 16 });
+	diagonalAnim.loop = true;
+	diagonalAnim.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -38,8 +73,8 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	texture = App->textures->Load("Assets/Sprites/ship.png");
-	currentAnimation = &idleAnim;
+	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Player.png");
+	currentAnimation = &idleUAnim;
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
@@ -59,16 +94,22 @@ bool ModulePlayer::Start()
 UpdateResult ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
-	App->player->position.x += 1;
+	App->player->position.x += 0;
 
 	if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT)
 	{
 		position.x -= speed;
+
 	}
 
 	if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT)
 	{
 		position.x += speed;
+		if (currentAnimation != &rigthAnim)
+		{
+			rigthAnim.Reset();
+			currentAnimation = &rigthAnim;
+		}
 	}
 
 	if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT)
@@ -98,9 +139,11 @@ UpdateResult ModulePlayer::Update()
 	}
 
 	// If no up/down movement detected, set the current animation back to idle
-	if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_IDLE)
-		currentAnimation = &idleAnim;
+	if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_IDLE 
+		&& App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_IDLE 
+		&& App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_IDLE 
+		&& App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_IDLE)
+		currentAnimation = &idleUAnim;
 
 	// L6: DONE 4: Update collider position to player position
 	collider->SetPos(position.x, position.y);
