@@ -113,14 +113,20 @@ UpdateResult ModulePlayer::Update()
 		
 		if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) { //LEFT UP
 			diagonal = true;
-			diagonalPAnim.Reset();
-			currentAnimation = &diagonalPAnim;
+			if (currentAnimation != &diagonalPAnim)
+			{
+				diagonalPAnim.Reset();
+				currentAnimation = &diagonalPAnim;
+			}
 		}
+		else diagonal = false;
 		
-		if (currentAnimation != &leftAnim && (diagonal == false)) //ANIMACIÓ LEFT
+		if ((currentAnimation != &rigthAnim) && (diagonal == false)) //ANIMACIÓ LEFT
 		{
-			leftAnim.Reset();
-			currentAnimation = &leftAnim;
+			rigthAnim.Reset();
+			currentAnimation = &rigthAnim;
+
+			//cambiar rigthAnim por leftAnim que es el mismo pero invertido
 		}
 	}
 
@@ -130,10 +136,14 @@ UpdateResult ModulePlayer::Update()
 		
 		if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) { //DOWN RIGHT
 			diagonal = true;
-			diagonalPAnim.Reset();
-			currentAnimation = &diagonalPAnim;
+			if (currentAnimation != &diagonalPAnim)
+			{
+				diagonalPAnim.Reset();
+				currentAnimation = &diagonalPAnim;
+			}
 		}
-		
+		else diagonal = false;
+				
 		if (currentAnimation != &rigthAnim && (diagonal == false))
 		{
 			rigthAnim.Reset();
@@ -147,10 +157,14 @@ UpdateResult ModulePlayer::Update()
 		
 		if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) { //DOWN LEFT
 			diagonal = true;
-			diagonalSAnim.Reset();
-			currentAnimation = &diagonalSAnim;
+			if (currentAnimation != &diagonalSAnim)
+			{
+				diagonalSAnim.Reset();
+				currentAnimation = &diagonalSAnim;
+			}
 		}
-		
+		else diagonal = false;
+
 		if (currentAnimation != &downAnim && (diagonal == false))
 		{
 			downAnim.Reset();
@@ -162,12 +176,16 @@ UpdateResult ModulePlayer::Update()
 	{
 		position.y -= speed;
 		
-		if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) { // UP RIGHT
+		if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) { // UP RIGHT
 			diagonal = true;
-			diagonalSAnim.Reset();
-			currentAnimation = &diagonalSAnim;
+			if (currentAnimation != &diagonalSAnim)
+			{
+				diagonalSAnim.Reset();
+				currentAnimation = &diagonalSAnim;
+			}
 		}
-		
+		else diagonal = false;
+
 		if (currentAnimation != &upAnim && (diagonal == false))
 		{
 			upAnim.Reset();

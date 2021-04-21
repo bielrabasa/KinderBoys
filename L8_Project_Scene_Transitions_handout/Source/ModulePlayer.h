@@ -59,7 +59,7 @@ public:
 	Animation diagonalSAnim;
 	Animation diagonalPAnim;
 
-	bool diagonal;
+	bool diagonal = false;
 	// The player's collider
 	Collider* collider = nullptr;
 
