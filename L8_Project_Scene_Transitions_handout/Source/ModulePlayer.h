@@ -60,6 +60,7 @@ public:
 	Animation diagonalPAnim;
 
 	bool diagonal = false;
+	int MovKeyPressed = 0;
 	// The player's collider
 	Collider* collider = nullptr;
 

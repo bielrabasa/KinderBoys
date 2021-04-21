@@ -110,7 +110,8 @@ UpdateResult ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) //LEFT
 	{
 		position.x -= speed;
-		
+		++MovKeyPressed;
+
 		if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) { //LEFT UP
 			diagonal = true;
 			if (currentAnimation != &diagonalPAnim)
@@ -133,7 +134,8 @@ UpdateResult ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) //RIGHT
 	{
 		position.x += speed;
-		
+		++MovKeyPressed;
+
 		if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) { //DOWN RIGHT
 			diagonal = true;
 			if (currentAnimation != &diagonalPAnim)
@@ -154,7 +156,8 @@ UpdateResult ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) //DOWN
 	{
 		position.y += speed;
-		
+		++MovKeyPressed;
+
 		if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) { //DOWN LEFT
 			diagonal = true;
 			if (currentAnimation != &diagonalSAnim)
@@ -175,7 +178,8 @@ UpdateResult ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) //UP
 	{
 		position.y -= speed;
-		
+		++MovKeyPressed;
+
 		if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) { // UP RIGHT
 			diagonal = true;
 			if (currentAnimation != &diagonalSAnim)
@@ -192,6 +196,11 @@ UpdateResult ModulePlayer::Update()
 			currentAnimation = &upAnim;
 		}
 	}
+
+	if (MovKeyPressed < 2) {
+		diagonal = false;
+	}
+	MovKeyPressed = 0;
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN)
 	{
