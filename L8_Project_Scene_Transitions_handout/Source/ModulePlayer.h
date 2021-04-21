@@ -56,8 +56,10 @@ public:
 	Animation downAnim;
 	Animation leftAnim;
 	Animation rigthAnim;
-	Animation diagonalAnim;
+	Animation diagonalSAnim;
+	Animation diagonalPAnim;
 
+	bool diagonal;
 	// The player's collider
 	Collider* collider = nullptr;
 

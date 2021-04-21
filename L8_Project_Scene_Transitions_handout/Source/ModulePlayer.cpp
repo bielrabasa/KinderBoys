@@ -51,15 +51,26 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	rigthAnim.loop = true;
 	rigthAnim.speed = 0.1f;
 
-	//Diagonal
-	diagonalAnim.PushBack({ 128, 0, 16, 16 });
-	diagonalAnim.PushBack({ 144, 0, 16, 16 });
-	diagonalAnim.PushBack({ 160, 0, 16, 16 });
-	diagonalAnim.PushBack({ 176, 0, 16, 16 });
-	diagonalAnim.PushBack({ 192, 0, 16, 16 });
-	diagonalAnim.PushBack({ 208, 0, 16, 16 });
-	diagonalAnim.loop = true;
-	diagonalAnim.speed = 0.1f;
+	//Diagonal Secundaria
+	diagonalSAnim.PushBack({ 128, 0, 16, 16 });
+	diagonalSAnim.PushBack({ 144, 0, 16, 16 });
+	diagonalSAnim.PushBack({ 160, 0, 16, 16 });
+	diagonalSAnim.PushBack({ 176, 0, 16, 16 });
+	diagonalSAnim.PushBack({ 192, 0, 16, 16 });
+	diagonalSAnim.PushBack({ 208, 0, 16, 16 });
+	diagonalSAnim.loop = true;
+	diagonalSAnim.speed = 0.1f;
+
+	//Diagonal Principal
+	diagonalPAnim.PushBack({ 128, 16, 16, 16 });
+	diagonalPAnim.PushBack({ 144, 16, 16, 16 });
+	diagonalPAnim.PushBack({ 160, 16, 16, 16 });
+	diagonalPAnim.PushBack({ 176, 16, 16, 16 });
+	diagonalPAnim.PushBack({ 192, 16, 16, 16 });
+	diagonalPAnim.PushBack({ 208, 16, 16, 16 });
+	diagonalPAnim.PushBack({ 224, 16, 16, 16 });
+	diagonalPAnim.loop = true;
+	diagonalPAnim.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -96,36 +107,68 @@ UpdateResult ModulePlayer::Update()
 	// Moving the player with the camera scroll
 	App->player->position.x += 0;
 
-	if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) //LEFT
 	{
 		position.x -= speed;
-
+		
+		if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) { //LEFT UP
+			diagonal = true;
+			diagonalPAnim.Reset();
+			currentAnimation = &diagonalPAnim;
+		}
+		
+		if (currentAnimation != &leftAnim && (diagonal == false)) //ANIMACIÓ LEFT
+		{
+			leftAnim.Reset();
+			currentAnimation = &leftAnim;
+		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) //RIGHT
 	{
 		position.x += speed;
-		if (currentAnimation != &rigthAnim)
+		
+		if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) { //DOWN RIGHT
+			diagonal = true;
+			diagonalPAnim.Reset();
+			currentAnimation = &diagonalPAnim;
+		}
+		
+		if (currentAnimation != &rigthAnim && (diagonal == false))
 		{
 			rigthAnim.Reset();
 			currentAnimation = &rigthAnim;
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) //DOWN
 	{
 		position.y += speed;
-		if (currentAnimation != &downAnim)
+		
+		if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) { //DOWN LEFT
+			diagonal = true;
+			diagonalSAnim.Reset();
+			currentAnimation = &diagonalSAnim;
+		}
+		
+		if (currentAnimation != &downAnim && (diagonal == false))
 		{
 			downAnim.Reset();
 			currentAnimation = &downAnim;
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT)
+	if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) //UP
 	{
 		position.y -= speed;
-		if (currentAnimation != &upAnim)
+		
+		if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) { // UP RIGHT
+			diagonal = true;
+			diagonalSAnim.Reset();
+			currentAnimation = &diagonalSAnim;
+		}
+		
+		if (currentAnimation != &upAnim && (diagonal == false))
 		{
 			upAnim.Reset();
 			currentAnimation = &upAnim;
