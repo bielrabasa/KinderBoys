@@ -27,6 +27,7 @@ bool ModuleRender::Init()
 
 	if (VSYNC == true) flags |= SDL_RENDERER_PRESENTVSYNC;
 
+
 	renderer = SDL_CreateRenderer(App->window->window, -1, flags);
 
 	if (renderer == nullptr)

@@ -211,7 +211,7 @@ UpdateResult ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN)
 	{
 		App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		App->audio->PlayFx(laserFx);
+		//App->audio->PlayFx(laserFx);		//AUDIO DE LA MORT, FUERA
 	}
 
 	//Direccion de donde va la bala
@@ -229,28 +229,28 @@ UpdateResult ModulePlayer::Update()
 	{
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x + 20, position.y - 20, 6, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			//App->audio->PlayFx(laserFx);
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_UP] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == KeyState::KEY_REPEAT) //Esq, amunt
 	{
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x - 20, position.y - 20, 5, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			//App->audio->PlayFx(laserFx);
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_LEFT] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT) //Esq, avall
 	{
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x - 20, position.y + 20, 7, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			//App->audio->PlayFx(laserFx);
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_RIGHT] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT) //drt, avall
 	{
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x + 20, position.y + 20, 8, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			//App->audio->PlayFx(laserFx);
 		}
 	}
 	//RECTES
@@ -259,7 +259,7 @@ UpdateResult ModulePlayer::Update()
 
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x, position.y - 20, 1, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			//App->audio->PlayFx(laserFx);
 			cont = 0;
 		}
 
@@ -268,21 +268,21 @@ UpdateResult ModulePlayer::Update()
 	{
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x - 20, position.y, 2, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			//App->audio->PlayFx(laserFx);
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT) // avall
 	{
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x, position.y + 20, 4, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			//App->audio->PlayFx(laserFx);
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_RIGHT] == KeyState::KEY_REPEAT) //drt
 	{
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, 3, Collider::Type::PLAYER_SHOT);
-			App->audio->PlayFx(laserFx);
+			//App->audio->PlayFx(laserFx);
 		}
 	}
 
