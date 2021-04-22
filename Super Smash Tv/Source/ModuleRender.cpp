@@ -98,8 +98,8 @@ bool ModuleRender::DrawTexture(SDL_Texture* texture, int x, int y, SDL_Rect* sec
 	
 	if (section != nullptr)
 	{
-		rect.w = section->w;
-		rect.h = section->h;
+		rect.w = section->w * 2;
+		rect.h = section->h * 2;
 	}
 	else
 	{

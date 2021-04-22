@@ -431,10 +431,10 @@ UpdateResult ModulePlayer::PostUpdate()
 	if (!destroyed)
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
-		App->render->DrawTexture(texture, position.x + 8, position.y + 16, &rect);
+		App->render->DrawTexture(texture, position.x + 2, position.y + 25, &rect);
 		
 		SDL_Rect rectTop = currentTopAnimation->GetCurrentFrame();
-		App->render->DrawTexture(texture, position.x, position.y, &rectTop);
+		App->render->DrawTexture(texture, position.x - 14, position.y - 10, &rectTop);
 	}
 
 	return UpdateResult::UPDATE_CONTINUE;
