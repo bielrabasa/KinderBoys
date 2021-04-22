@@ -90,7 +90,6 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	diagonalSRAnim.PushBack({ 48, 224, 16, 16 });
 	diagonalSRAnim.PushBack({ 64, 224, 16, 16 });
 	diagonalSRAnim.PushBack({ 80, 224, 16, 16 });
-	diagonalSRAnim.PushBack({ 96, 224, 16, 16 });
 	diagonalSRAnim.loop = true;
 	diagonalSRAnim.speed = 0.1f;
 
@@ -165,7 +164,7 @@ bool ModulePlayer::Start()
 UpdateResult ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
-	App->player->position.x += 0;
+	//App->player->position.x += 0;
 
 	if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) //LEFT
 	{
@@ -325,7 +324,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootURAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserUR, position.x + 17, position.y - 10, 6, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserUR, position.x + 17, position.y - 8, 6, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -345,7 +344,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootDLAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserDL, position.x - 10, position.y + 20, 7, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserDL, position.x - 10, position.y + 24, 7, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -378,7 +377,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootLeftAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserL, position.x - 10, position.y + 2, 2, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserL, position.x - 10, position.y + 6, 2, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -398,7 +397,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootRightAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserR, position.x + 20, position.y + 2, 3, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserR, position.x + 20, position.y + 6, 3, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -434,7 +433,7 @@ UpdateResult ModulePlayer::PostUpdate()
 		App->render->DrawTexture(texture, position.x + 2, position.y + 25, &rect);
 		
 		SDL_Rect rectTop = currentTopAnimation->GetCurrentFrame();
-		App->render->DrawTexture(texture, position.x - 14, position.y - 10, &rectTop);
+		App->render->DrawTexture(texture, position.x - 14, position.y - 7, &rectTop);
 	}
 
 	return UpdateResult::UPDATE_CONTINUE;
