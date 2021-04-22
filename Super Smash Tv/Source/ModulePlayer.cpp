@@ -145,6 +145,11 @@ bool ModulePlayer::Start()
 	// L6: DONE 3: Add a collider to the player
 	collider = App->collisions->AddCollider({ position.x, position.y, 32, 48 }, Collider::Type::PLAYER, this);
 
+	//GodMode
+
+	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) {
+		collider = App->collisions->AddCollider({ position.x, position.y, 0, 0 }, Collider::Type::PLAYER, this);
+	}
 	return ret;
 }
 
@@ -347,6 +352,8 @@ UpdateResult ModulePlayer::Update()
 
 	currentAnimation->Update();
 	currentTopAnimation->Update();
+
+	
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
