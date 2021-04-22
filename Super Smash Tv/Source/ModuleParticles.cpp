@@ -33,11 +33,53 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
-	laser.anim.PushBack({ 0, 8, 8, 8 }); //animació del laser
-	laser.speed.x = 5;
-	laser.speed.y = 5;
-	laser.lifetime = 180;
-	laser.anim.speed = 0.2f;
+	laserL.anim.PushBack({ 0, 8, 8, 8 }); //animació del laser Left
+	laserL.speed.x = 5;
+	laserL.speed.y = 5;
+	laserL.lifetime = 180;
+	laserL.anim.speed = 0.2f;
+
+	laserR.anim.PushBack({ 16, 8, 8, 8 }); //animació del laser Right
+	laserR.speed.x = 5;
+	laserR.speed.y = 5;
+	laserR.lifetime = 180;
+	laserR.anim.speed = 0.2f;
+
+	laserU.anim.PushBack({ 8, 0, 8, 8 }); //animació del laser Up
+	laserU.speed.x = 5;
+	laserU.speed.y = 5;
+	laserU.lifetime = 180;
+	laserU.anim.speed = 0.2f;
+
+	laserD.anim.PushBack({ 8, 0, 8, 8 }); //animació del laser Down
+	laserD.speed.x = 5;
+	laserD.speed.y = 5;
+	laserD.lifetime = 180;
+	laserD.anim.speed = 0.2f;
+
+	laserDR.anim.PushBack({ 16, 16, 8, 8 }); //animació del laser Down & Right
+	laserDR.speed.x = 5;
+	laserDR.speed.y = 5;
+	laserDR.lifetime = 180;
+	laserDR.anim.speed = 0.2f;
+
+	laserDL.anim.PushBack({ 0, 16, 8, 8 }); //animació del laser Down & Left
+	laserDL.speed.x = 5;
+	laserDL.speed.y = 5;
+	laserDL.lifetime = 180;
+	laserDL.anim.speed = 0.2f;	
+	
+	laserUL.anim.PushBack({ 0, 0, 8, 8 }); //animació del laser Up & Left
+	laserUL.speed.x = 5;
+	laserUL.speed.y = 5;
+	laserUL.lifetime = 180;
+	laserUL.anim.speed = 0.2f;
+
+	laserUR.anim.PushBack({ 16, 0, 8, 8 }); //animació del laser Up & Right
+	laserUR.speed.x = 5;
+	laserUR.speed.y = 5;
+	laserUR.lifetime = 180;
+	laserUR.anim.speed = 0.2f;
 
 	return true;
 }

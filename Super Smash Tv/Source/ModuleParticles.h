@@ -60,7 +60,14 @@ public:
 	Particle explosion;
 
 	//Template particle for a laser
-	Particle laser;
+	Particle laserL;
+	Particle laserR;
+	Particle laserU;
+	Particle laserD;
+	Particle laserDR;
+	Particle laserDL;
+	Particle laserUL;
+	Particle laserUR;
 };
 
 #endif // __MODULEPARTICLES_H__
