@@ -116,6 +116,15 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	topULAnim.PushBack({ 176, 208, 32, 32});
 	topUpAnim.PushBack({ 128, 48, 32, 32 });
 	
+	//ANIMACIONS DISPARANT TOP HOME
+	shootDownAnim.PushBack({ 160, 48, 32, 32 });
+	shootDRAnim.PushBack({ 192, 48, 32, 32 });
+	shootDLAnim.PushBack({ 256, 48, 32, 32 });
+	shootLeftAnim.PushBack({ 288, 48, 32, 32 });
+	shootRightAnim.PushBack({ 224, 48, 32, 32 });
+	shootURAnim.PushBack({ 0, 80, 32, 32 });
+	shootULAnim.PushBack({ 256, 80, 32, 32 });
+	shootUpAnim.PushBack({ 32, 80, 32, 32 });
 }
 
 ModulePlayer::~ModulePlayer()
@@ -131,7 +140,7 @@ bool ModulePlayer::Start()
 
 	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Player.png");
 	currentAnimation = &idleUAnim;
-	currentTopAnimation = &topDownAnim; //CANVIAR
+	currentTopAnimation = &topDownAnim;
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
@@ -169,8 +178,11 @@ UpdateResult ModulePlayer::Update()
 			{
 				diagonalPRAnim.Reset();
 				currentAnimation = &diagonalPRAnim;
-				topULAnim.Reset();
-				currentTopAnimation = &topULAnim;
+			
+				if (shooting == false) {
+					topULAnim.Reset();
+					currentTopAnimation = &topULAnim;
+				}
 			}
 		}
 		
@@ -178,9 +190,11 @@ UpdateResult ModulePlayer::Update()
 		{
 			leftAnim.Reset();
 			currentAnimation = &leftAnim;
-			topLeftAnim.Reset();
-			currentTopAnimation = &topLeftAnim;
-			//cambiar rigthAnim por leftAnim que es el mismo pero invertido
+			
+			if (shooting == false) {
+				topLeftAnim.Reset();
+				currentTopAnimation = &topLeftAnim;
+			}
 		}
 	}
 
@@ -195,8 +209,11 @@ UpdateResult ModulePlayer::Update()
 			{
 				diagonalPAnim.Reset();
 				currentAnimation = &diagonalPAnim;
-				topDRAnim.Reset();
-				currentTopAnimation = &topDRAnim;
+				
+				if (shooting == false) {
+					topDRAnim.Reset();
+					currentTopAnimation = &topDRAnim;
+				}
 			}
 		}
 				
@@ -204,8 +221,11 @@ UpdateResult ModulePlayer::Update()
 		{
 			rigthAnim.Reset();
 			currentAnimation = &rigthAnim;
-			topRightAnim.Reset();
-			currentTopAnimation = &topRightAnim;
+			
+			if (shooting == false) {
+				topRightAnim.Reset();
+				currentTopAnimation = &topRightAnim;
+			}
 		}
 	}
 
@@ -220,8 +240,11 @@ UpdateResult ModulePlayer::Update()
 			{
 				diagonalSRAnim.Reset();
 				currentAnimation = &diagonalSRAnim;
-				topDLAnim.Reset();
-				currentTopAnimation = &topDLAnim;
+				
+				if (shooting == false) {
+					topDLAnim.Reset();
+					currentTopAnimation = &topDLAnim;
+				}
 			}
 		}
 
@@ -229,8 +252,11 @@ UpdateResult ModulePlayer::Update()
 		{
 			downAnim.Reset();
 			currentAnimation = &downAnim;
-			topDownAnim.Reset();
-			currentTopAnimation = &topDownAnim;
+			
+			if (shooting == false) {
+				topDownAnim.Reset();
+				currentTopAnimation = &topDownAnim;
+			}
 		}
 	}
 
@@ -245,8 +271,11 @@ UpdateResult ModulePlayer::Update()
 			{
 				diagonalSAnim.Reset();
 				currentAnimation = &diagonalSAnim;
-				topURAnim.Reset();
-				currentTopAnimation = &topURAnim;
+				
+				if (shooting == false) {
+					topURAnim.Reset();
+					currentTopAnimation = &topURAnim;
+				}
 			}
 		}
 
@@ -254,8 +283,11 @@ UpdateResult ModulePlayer::Update()
 		{
 			upAnim.Reset();
 			currentAnimation = &upAnim;
-			topUpAnim.Reset();
-			currentTopAnimation = &topUpAnim;
+			
+			if (shooting == false) {
+				topUpAnim.Reset();
+				currentTopAnimation = &topUpAnim;
+			}
 		}
 	}
 
@@ -276,8 +308,22 @@ UpdateResult ModulePlayer::Update()
 		bandera = false;
 	}
 
+	if (App->input->keys[SDL_SCANCODE_UP] == KeyState::KEY_REPEAT
+		|| App->input->keys[SDL_SCANCODE_LEFT] == KeyState::KEY_REPEAT
+		|| App->input->keys[SDL_SCANCODE_RIGHT] == KeyState::KEY_REPEAT
+		|| App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT) 
+	{
+		shooting = true;
+	}
+	else {
+		shooting = false;
+	}
+
 	if (App->input->keys[SDL_SCANCODE_UP] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_RIGHT] == KeyState::KEY_REPEAT) //drt, amunt
 	{
+		shootURAnim.Reset();
+		currentTopAnimation = &shootURAnim;
+
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x + 20, position.y - 20, 6, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
@@ -285,6 +331,9 @@ UpdateResult ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_UP] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == KeyState::KEY_REPEAT) //Esq, amunt
 	{
+		shootULAnim.Reset();
+		currentTopAnimation = &shootULAnim;
+
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x - 20, position.y - 20, 5, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
@@ -292,6 +341,9 @@ UpdateResult ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_LEFT] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT) //Esq, avall
 	{
+		shootDLAnim.Reset();
+		currentTopAnimation = &shootDLAnim;
+
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x - 20, position.y + 20, 7, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
@@ -299,6 +351,9 @@ UpdateResult ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_RIGHT] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT) //drt, avall
 	{
+		shootDRAnim.Reset();
+		currentTopAnimation = &shootDRAnim;
+
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x + 20, position.y + 20, 8, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
@@ -307,6 +362,8 @@ UpdateResult ModulePlayer::Update()
 	//RECTES
 	else if (App->input->keys[SDL_SCANCODE_UP] == KeyState::KEY_REPEAT) //amunt
 	{
+		shootUpAnim.Reset();
+		currentTopAnimation = &shootUpAnim;
 
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x, position.y - 20, 1, Collider::Type::PLAYER_SHOT);
@@ -317,6 +374,9 @@ UpdateResult ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_LEFT] == KeyState::KEY_REPEAT) //Esq
 	{
+		shootLeftAnim.Reset();
+		currentTopAnimation = &shootLeftAnim;
+
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x - 20, position.y, 2, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
@@ -324,6 +384,9 @@ UpdateResult ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT) // avall
 	{
+		shootDownAnim.Reset();
+		currentTopAnimation = &shootDownAnim;
+
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x, position.y + 20, 4, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
@@ -331,6 +394,9 @@ UpdateResult ModulePlayer::Update()
 	}
 	else if (App->input->keys[SDL_SCANCODE_RIGHT] == KeyState::KEY_REPEAT) //drt
 	{
+		shootRightAnim.Reset();
+		currentTopAnimation = &shootRightAnim;
+
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, 3, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
@@ -344,7 +410,9 @@ UpdateResult ModulePlayer::Update()
 		&& App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_IDLE) {
 		
 		currentAnimation = &idleUAnim;
-		currentTopAnimation = &topDownAnim;
+		if (!shooting) {
+			currentTopAnimation = &topDownAnim;
+		}
 	}
 
 	// L6: DONE 4: Update collider position to player position

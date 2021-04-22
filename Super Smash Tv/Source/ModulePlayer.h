@@ -43,8 +43,8 @@ public:
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
-	SDL_Texture* toptexture = nullptr;
-	
+	//SDL_Texture* toptexture = nullptr;
+
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;
@@ -76,6 +76,17 @@ public:
 	Animation topURAnim;
 	Animation topULAnim;
 	Animation topUpAnim;
+
+	bool shooting = false;
+
+	Animation shootDownAnim;
+	Animation shootDRAnim;
+	Animation shootDLAnim;
+	Animation shootLeftAnim;
+	Animation shootRightAnim;
+	Animation shootURAnim;
+	Animation shootULAnim;
+	Animation shootUpAnim;
 
 	// The player's collider
 	Collider* collider = nullptr;
