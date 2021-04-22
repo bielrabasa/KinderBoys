@@ -38,7 +38,7 @@ public:
 
 	// The speed in which we move the player (pixels per frame)
 	int speed = 1;
-	int cont = 40;
+	int cont = 25;
 	bool bandera = true;
 
 	// The player spritesheet loaded into an SDL_Texture

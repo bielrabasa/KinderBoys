@@ -169,17 +169,17 @@ UpdateResult ModulePlayer::Update()
 			}
 		}
 		
-		if ((currentAnimation != &rigthAnim) && (diagonal == false)) //ANIMACIÓ LEFT
+		if ((currentAnimation != &leftAnim) && (diagonal == false)) //ANIMACIÓ LEFT
 		{
-			rigthAnim.Reset();
-			currentAnimation = &rigthAnim;
+			leftAnim.Reset();
+			currentAnimation = &leftAnim;
 			topLeftAnim.Reset();
 			currentTopAnimation = &topLeftAnim;
 			//cambiar rigthAnim por leftAnim que es el mismo pero invertido
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) //RIGHT
+	 if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) //RIGHT
 	{
 		position.x += speed;
 		++MovKeyPressed;
@@ -204,7 +204,7 @@ UpdateResult ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) //DOWN
+	 if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) //DOWN
 	{
 		position.y += speed;
 		++MovKeyPressed;
@@ -229,7 +229,7 @@ UpdateResult ModulePlayer::Update()
 		}
 	}
 
-	if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) //UP
+	 if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) //UP
 	{
 		position.y -= speed;
 		++MovKeyPressed;
@@ -259,16 +259,11 @@ UpdateResult ModulePlayer::Update()
 	}
 	MovKeyPressed = 0;
 
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN)
-	{
-		App->particles->AddParticle(App->particles->laser, position.x + 20, position.y, Collider::Type::PLAYER_SHOT);
-		//App->audio->PlayFx(laserFx);		//AUDIO DE LA MORT, FUERA
-	}
 
 	//Direccion de donde va la bala
 		//DIAGONALS
 	cont++;
-	if (cont >= 30) { //DELAY
+	if (cont >= 25) { //DELAY
 		bandera = true;
 		cont = 0;
 	}
