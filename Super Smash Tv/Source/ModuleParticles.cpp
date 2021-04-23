@@ -77,8 +77,8 @@ bool ModuleParticles::Start()
 	laserUL.anim.speed = 0.2f;
 
 	laserUR.anim.PushBack({ 16, 0, 8, 11 }); //animació del laser Up & Right	//Collider Arreglat *apaño
-	laserUR.speed.x = 1;
-	laserUR.speed.y = 1;
+	laserUR.speed.x = 5;
+	laserUR.speed.y = 5;
 	laserUR.lifetime = 180;
 	laserUR.anim.speed = 0.2f;
 
