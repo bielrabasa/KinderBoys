@@ -41,6 +41,15 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::ENEMY] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::ENEMY_SHOT] = false;
+
+
+	//Falta terminar esta matrix
+	matrix[Collider::Type::Door][Collider::Type::WALL] = false;
+	matrix[Collider::Type::Door][Collider::Type::ENEMY] = true;
+	matrix[Collider::Type::Door][Collider::Type::WALL] = false;
+	matrix[Collider::Type::Door][Collider::Type::WALL] = false;
+	matrix[Collider::Type::Door][Collider::Type::WALL] = false;
+	matrix[Collider::Type::Door][Collider::Type::WALL] = false;
 }
 
 // Destructor

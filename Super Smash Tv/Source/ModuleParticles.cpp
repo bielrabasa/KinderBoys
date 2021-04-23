@@ -33,19 +33,19 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
-	laserL.anim.PushBack({ 0, 8, 8, 8 }); //animació del laser Left
+	laserL.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat
 	laserL.speed.x = 5;
 	laserL.speed.y = 5;
 	laserL.lifetime = 180;
 	laserL.anim.speed = 0.2f;
 
-	laserR.anim.PushBack({ 16, 8, 8, 8 }); //animació del laser Right
+	laserR.anim.PushBack({ 16, 11, 8, 3 }); //animació del laser Right    //Collider Arreglat
 	laserR.speed.x = 5;
 	laserR.speed.y = 5;
 	laserR.lifetime = 180;
 	laserR.anim.speed = 0.2f;
 
-	laserU.anim.PushBack({ 8, 0, 8, 8 }); //animació del laser Up
+	laserU.anim.PushBack({ 10, 1, 4, 8 }); //animació del laser Up		  //Collider Arreglat
 	laserU.speed.x = 5;
 	laserU.speed.y = 5;
 	laserU.lifetime = 180;
@@ -163,13 +163,15 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y,int dir
 			Particle* p = new Particle(particle);
 
 			p->frameCount = -(int)delay;			// We start the frameCount as the negative delay
-			p->position.x = x;						// so when frameCount reaches 0 the particle will be activated
-			p->position.y = y;
+			p->position.x = x+7;						// so when frameCount reaches 0 the particle will be activated
+			p->position.y = y+6;
 			p->direction = dir;
-
+		
 			// Adding the particle's collider
-			if (colliderType != Collider::Type::NONE)
+			if (colliderType != Collider::Type::NONE) {
+				//collider = App->collisions->AddCollider(p->anim.GetCurrentFrame(),20,20);
 				p->collider = App->collisions->AddCollider(p->anim.GetCurrentFrame(), colliderType, this);
+			}
 
 			particles[i] = p;
 			break;
