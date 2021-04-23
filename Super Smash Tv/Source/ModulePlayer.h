@@ -45,13 +45,15 @@ public:
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;
 	SDL_Texture* textureDoorTop = nullptr;
+	SDL_Texture* textureUI = nullptr;
 	//SDL_Texture* toptexture = nullptr;
+
+	int topDoor = 0;
 
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;
 	Animation* currentTopAnimation = nullptr;
-	Animation* currentDoorAnimation = nullptr;
 
 	// A set of animations
 	Animation idleUAnim;
@@ -90,11 +92,6 @@ public:
 	Animation shootURAnim;
 	Animation shootULAnim;
 	Animation shootUpAnim;
-
-	Animation doorTopGrey;
-	Animation doorTopSpecial;
-	Animation doorTopPurple;
-	
 
 	// The player's collider
 	Collider* collider = nullptr;
