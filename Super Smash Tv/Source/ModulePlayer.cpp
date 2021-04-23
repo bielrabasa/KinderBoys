@@ -151,7 +151,7 @@ bool ModulePlayer::Start()
 	destroyed = false;
 
 	// L6: DONE 3: Add a collider to the player
-	collider = App->collisions->AddCollider({ position.x, position.y, 32, 48 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 30, 45 }, Collider::Type::PLAYER, this);
 
 	//GodMode
 
