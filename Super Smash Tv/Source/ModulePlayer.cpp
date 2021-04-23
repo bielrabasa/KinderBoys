@@ -461,6 +461,7 @@ UpdateResult ModulePlayer::PostUpdate()
 
 		SDL_Rect rectDoor = currentDoorAnimation->GetCurrentFrame(); //	{ (0, 0, 512, 448) }		NO FUNCIONA BÉ, ES FA UN x2 en aquest i no ho volem
 		App->render->DrawTexture(textureDoorTop, 0, 0, &rectDoor);
+		//SDL_QueryTexture(texture, nullptr, nullptr, &rectDoor.w, &rectDoor.h);
 	}
 
 	return UpdateResult::UPDATE_CONTINUE;

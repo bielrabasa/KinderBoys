@@ -94,7 +94,6 @@ public:
 	Animation doorTopGrey;
 	Animation doorTopSpecial;
 	Animation doorTopPurple;
-	int doorTop = 0;
 	
 
 	// The player's collider
