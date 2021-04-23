@@ -125,6 +125,10 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	shootURAnim.PushBack({ 0, 80, 32, 32 });
 	shootULAnim.PushBack({ 256, 80, 32, 32 });
 	shootUpAnim.PushBack({ 32, 80, 32, 32 });
+
+	doorTopGrey.PushBack({ 0, 0, 512, 448 });
+	doorTopSpecial.PushBack({ 0, 0, 1024, 448 });
+	doorTopPurple.PushBack({ 0, 0, 1536, 448 });
 }
 
 ModulePlayer::~ModulePlayer()
@@ -141,6 +145,9 @@ bool ModulePlayer::Start()
 	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Player.png");
 	currentAnimation = &idleUAnim;
 	currentTopAnimation = &topDownAnim;
+
+	textureDoorTop = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV_Portes.png");
+	currentDoorAnimation = &doorTopGrey;
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
@@ -435,6 +442,7 @@ UpdateResult ModulePlayer::Update()
 
 	currentAnimation->Update();
 	currentTopAnimation->Update();
+	currentDoorAnimation->Update();
 
 	
 
@@ -450,6 +458,9 @@ UpdateResult ModulePlayer::PostUpdate()
 		
 		SDL_Rect rectTop = currentTopAnimation->GetCurrentFrame();
 		App->render->DrawTexture(texture, position.x - 14, position.y - 7, &rectTop);
+
+		SDL_Rect rectDoor = currentDoorAnimation->GetCurrentFrame(); //	{ (0, 0, 512, 448) }		NO FUNCIONA BÉ, ES FA UN x2 en aquest i no ho volem
+		App->render->DrawTexture(textureDoorTop, 0, 0, &rectDoor);
 	}
 
 	return UpdateResult::UPDATE_CONTINUE;
