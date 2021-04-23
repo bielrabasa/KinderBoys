@@ -40,6 +40,7 @@ public:
 	int speed = 1;
 	int cont = 25;
 	bool bandera = true;
+	//bool bandera_GodMode = false;
 
 	// The player spritesheet loaded into an SDL_Texture
 	SDL_Texture* texture = nullptr;

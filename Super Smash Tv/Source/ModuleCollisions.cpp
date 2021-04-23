@@ -18,11 +18,11 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WALL][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::WALL][Collider::Type::ENEMY_SHOT] = true;
 
-	matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
+	/*matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
 	matrix[Collider::Type::PLAYER][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_SHOT] = false;
-	matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = true;*/
 
 	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::PLAYER] = true;
@@ -106,8 +106,35 @@ UpdateResult ModuleCollisions::PreUpdate()
 
 UpdateResult ModuleCollisions::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_F1] == KEY_DOWN)
+	if (App->input->keys[SDL_SCANCODE_F1] == KEY_DOWN) {
 		debug = !debug;
+	}
+
+	//El otro GodMode que tampoco funciona :)
+	if (App->input->keys[SDL_SCANCODE_F5] == KEY_DOWN) {
+		if (bandera_GodMode == false) {
+			bandera_GodMode = true;
+		}
+		if (bandera_GodMode == true) {
+			bandera_GodMode = false;
+		}
+	}
+
+	if (bandera_GodMode == false) {
+		matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
+		matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
+		matrix[Collider::Type::PLAYER][Collider::Type::ENEMY] = true;
+		matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_SHOT] = false;
+		matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = true;
+	}
+	if (bandera_GodMode == true) {
+		matrix[Collider::Type::PLAYER][Collider::Type::WALL] = false;
+		matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
+		matrix[Collider::Type::PLAYER][Collider::Type::ENEMY] = false;
+		matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_SHOT] = false;
+		matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = false;
+	}
+
 
 	return UpdateResult::UPDATE_CONTINUE;
 }

@@ -51,23 +51,25 @@ bool ModuleParticles::Start()
 	laserU.lifetime = 180;
 	laserU.anim.speed = 0.2f;
 
-	laserD.anim.PushBack({ 8, 16, 8, 8 }); //animació del laser Down
+	laserD.anim.PushBack({ 10, 16, 3, 8 }); //animació del laser Down	  //Collider Arreglat	
 	laserD.speed.x = 5;
 	laserD.speed.y = 5;
 	laserD.lifetime = 180;
 	laserD.anim.speed = 0.2f;
 
-	laserDR.anim.PushBack({ 16, 16, 8, 8 }); //animació del laser Down & Right
+	laserDR.anim.PushBack({ 16, 16, 6, 6 }); //animació del laser Down & Right     //Collider Arreglat
 	laserDR.speed.x = 5;
 	laserDR.speed.y = 5;
 	laserDR.lifetime = 180;
 	laserDR.anim.speed = 0.2f;
+	
 
-	laserDL.anim.PushBack({ 0, 16, 8, 8 }); //animació del laser Down & Left
+	laserDL.anim.PushBack({ 0, 17, 9, 5 }); //animació del laser Down & Left  //Collider Arreglat *apaño
 	laserDL.speed.x = 5;
 	laserDL.speed.y = 5;
 	laserDL.lifetime = 180;
 	laserDL.anim.speed = 0.2f;	
+	laserDL.position.x +=20;
 	
 	laserUL.anim.PushBack({ 0, 0, 8, 8 }); //animació del laser Up & Left
 	laserUL.speed.x = 5;
@@ -133,6 +135,7 @@ UpdateResult ModuleParticles::Update()
 			particles[i] = nullptr;
 		}
 	}
+	
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
@@ -163,7 +166,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y,int dir
 			Particle* p = new Particle(particle);
 
 			p->frameCount = -(int)delay;			// We start the frameCount as the negative delay
-			p->position.x = x+7;						// so when frameCount reaches 0 the particle will be activated
+			p->position.x = x+9;						// so when frameCount reaches 0 the particle will be activated
 			p->position.y = y+6;
 			p->direction = dir;
 		

@@ -1,5 +1,6 @@
 #include "ModulePlayer.h"
 
+
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
@@ -153,11 +154,25 @@ bool ModulePlayer::Start()
 	// L6: DONE 3: Add a collider to the player
 	collider = App->collisions->AddCollider({ position.x, position.y, 30, 45 }, Collider::Type::PLAYER, this);
 
+	
 	//GodMode
+	//No funciona aun el godMode. Está tanto aqui como en el modulecollisions en la zona de update
+	
+	/*if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) {
+		if (bandera_GodMode == false) {
+			bandera_GodMode = true;
+		}
+		if (bandera_GodMode == true) {
+			bandera_GodMode = false;
+		}
+	}
 
-	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) {
+	if (bandera_GodMode==true) {
 		collider = App->collisions->AddCollider({ position.x, position.y, 0, 0 }, Collider::Type::PLAYER, this);
 	}
+	if (bandera_GodMode == false) {
+		collider = App->collisions->AddCollider({ position.x, position.y, 30, 45 }, Collider::Type::PLAYER, this);
+	}*/
 	return ret;
 }
 
@@ -166,6 +181,7 @@ UpdateResult ModulePlayer::Update()
 	// Moving the player with the camera scroll
 	//App->player->position.x += 0;
 
+	
 	if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) //LEFT
 	{
 		position.x -= speed;

@@ -32,6 +32,7 @@ public:
 	// Removes all existing colliders
 	bool CleanUp();
 
+
 	// Adds a new collider to the list
 	Collider* AddCollider(SDL_Rect rect, Collider::Type type, Module* listener = nullptr);
 
@@ -48,6 +49,9 @@ private:
 
 	// Simple debugging flag to draw all colliders
 	bool debug = false;
+
+	//GodMode
+	bool bandera_GodMode = false;
 };
 
 #endif // __MODULECOLLISIONS_H__
