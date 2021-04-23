@@ -324,7 +324,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootURAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserUR, position.x + 17, position.y - 8, 6, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserUR, position.x + 8, position.y - 10, 6, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -344,7 +344,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootDLAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserDL, position.x - 10, position.y + 24, 7, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserDL, position.x - 10, position.y + 15, 7, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -354,7 +354,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootDRAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserDR, position.x + 20, position.y + 20, 8, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserDR, position.x + 15, position.y + 15, 8, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -387,7 +387,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootDownAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserD, position.x + 10, position.y + 20, 4, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserD, position.x + 6, position.y + 20, 4, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}

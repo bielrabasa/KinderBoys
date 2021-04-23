@@ -51,7 +51,7 @@ bool ModuleParticles::Start()
 	laserU.lifetime = 180;
 	laserU.anim.speed = 0.2f;
 
-	laserD.anim.PushBack({ 8, 0, 8, 8 }); //animació del laser Down
+	laserD.anim.PushBack({ 8, 16, 8, 8 }); //animació del laser Down
 	laserD.speed.x = 5;
 	laserD.speed.y = 5;
 	laserD.lifetime = 180;
