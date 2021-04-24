@@ -39,6 +39,10 @@ public:
 	// Draws all existing colliders with some transparency
 	void DebugDraw();
 
+	//GodMode
+	bool bandera_GodMode = false;
+	
+
 private:
 	// All existing colliders in the scene
 	Collider* colliders[MAX_COLLIDERS] = { nullptr };
@@ -50,8 +54,6 @@ private:
 	// Simple debugging flag to draw all colliders
 	bool debug = false;
 
-	//GodMode
-	bool bandera_GodMode = false;
 };
 
 #endif // __MODULECOLLISIONS_H__

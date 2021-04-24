@@ -13,23 +13,23 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 		colliders[i] = nullptr;
 
 	matrix[Collider::Type::WALL][Collider::Type::WALL] = false;
-	//matrix[Collider::Type::WALL][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::WALL][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::WALL][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::WALL][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::WALL][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::WALL][Collider::Type::Door] = false;
 	matrix[Collider::Type::WALL][Collider::Type::obejcts] = false;
 
-	/*matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
 	matrix[Collider::Type::PLAYER][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::Door] = true;
-	matrix[Collider::Type::PLAYER][Collider::Type::obejcts] = true;*/
+	matrix[Collider::Type::PLAYER][Collider::Type::obejcts] = true;
 
 	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = true;
-	//matrix[Collider::Type::ENEMY][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::ENEMY][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::ENEMY] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::ENEMY_SHOT] = false;
@@ -37,7 +37,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY][Collider::Type::obejcts] = false;
 
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WALL] = true;
-	//matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER] = false;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::ENEMY_SHOT] = false;
@@ -45,7 +45,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::obejcts] = false;
 
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::WALL] = true;
-	//matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::ENEMY] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::ENEMY_SHOT] = false;
@@ -54,7 +54,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 
 	matrix[Collider::Type::Door][Collider::Type::WALL] = false;
 	matrix[Collider::Type::Door][Collider::Type::ENEMY] = false;
-	//matrix[Collider::Type::Door][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::Door][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::Door][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::Door][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::Door][Collider::Type::Door] = false;
@@ -64,7 +64,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::obejcts][Collider::Type::WALL] = false;
 	matrix[Collider::Type::obejcts][Collider::Type::Door] = false;
 	matrix[Collider::Type::obejcts][Collider::Type::ENEMY] = false;
-	//matrix[Collider::Type::obejcts][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::obejcts][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::obejcts][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::obejcts][Collider::Type::ENEMY_SHOT] = false;
 }
@@ -128,7 +128,7 @@ UpdateResult ModuleCollisions::Update()
 	}
 
 	//El otro GodMode que tampoco funciona :)
-	if (App->input->keys[SDL_SCANCODE_F5] == KEY_DOWN) {
+	/*if (App->input->keys[SDL_SCANCODE_F5] == KEY_DOWN) {
 		if (bandera_GodMode == false) {
 			bandera_GodMode = true;
 		}
@@ -153,7 +153,7 @@ UpdateResult ModuleCollisions::Update()
 		matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = false;
 		matrix[Collider::Type::PLAYER][Collider::Type::Door] = false;
 		matrix[Collider::Type::PLAYER][Collider::Type::obejcts] = false;
-	}
+	}*/
 
 
 	return UpdateResult::UPDATE_CONTINUE;
