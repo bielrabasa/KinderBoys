@@ -164,14 +164,7 @@ bool ModulePlayer::Start()
 	//GodMode
 	//No funciona aun el godMode. Está tanto aqui como en el modulecollisions en la zona de update
 	
-	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) {
-		if (bandera_GodMode == 0) {
-			bandera_GodMode = 1;
-		}
-		else{
-			bandera_GodMode = 0;
-		}
-	}
+
 	/*
 	if (bandera_GodMode==true) {
 		collider = App->collisions->AddCollider({ position.x, position.y, 0, 0 }, Collider::Type::PLAYER, this);
@@ -186,136 +179,278 @@ UpdateResult ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
 	//App->player->position.x += 0;
-
-	
-	if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT && position.x >= 28) //LEFT
-	{
-		position.x -= speed;
-		++MovKeyPressed;
-
-		if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) { //LEFT UP
-			diagonal = true;
-			if (currentAnimation != &diagonalPRAnim)
-			{
-				diagonalPRAnim.Reset();
-				currentAnimation = &diagonalPRAnim;
-			
-				if (shooting == false) {
-					topULAnim.Reset();
-					currentTopAnimation = &topULAnim;
-				}
-			}
+	if (App->input->keys[SDL_SCANCODE_F2] == KeyState::KEY_DOWN) {
+		if (bandera_GodMode == false) {
+			bandera_GodMode = true;
+		}
+		if (bandera_GodMode == true) {
+			bandera_GodMode = false;
 		}
 		
-		if ((currentAnimation != &leftAnim) && (diagonal == false)) //ANIMACIÓ LEFT
-		{
-			leftAnim.Reset();
-			currentAnimation = &leftAnim;
-			
-			if (shooting == false) {
-				topLeftAnim.Reset();
-				currentTopAnimation = &topLeftAnim;
-			}
-		}
 	}
 
-	 if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT && position.x <= 450) //RIGHT
-	{
-		position.x += speed;
-		++MovKeyPressed;
 
-		if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) { //DOWN RIGHT
-			diagonal = true;
-			if (currentAnimation != &diagonalPAnim)
-			{
-				diagonalPAnim.Reset();
-				currentAnimation = &diagonalPAnim;
-				
-				if (shooting == false) {
-					topDRAnim.Reset();
-					currentTopAnimation = &topDRAnim;
+	//Preguntar pk no funciona el martes
+	if (bandera_GodMode == false) {
+		if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT && position.x >= 28) //LEFT
+		{
+			position.x -= speed;
+			++MovKeyPressed;
+
+			if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) { //LEFT UP
+				diagonal = true;
+				if (currentAnimation != &diagonalPRAnim)
+				{
+					diagonalPRAnim.Reset();
+					currentAnimation = &diagonalPRAnim;
+
+					if (shooting == false) {
+						topULAnim.Reset();
+						currentTopAnimation = &topULAnim;
+					}
 				}
 			}
-		}
-				
-		if (currentAnimation != &rigthAnim && (diagonal == false))
-		{
-			rigthAnim.Reset();
-			currentAnimation = &rigthAnim;
-			
-			if (shooting == false) {
-				topRightAnim.Reset();
-				currentTopAnimation = &topRightAnim;
-			}
-		}
-	}
 
-	 if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT && position.y <= 378) //DOWN
-	{
-		position.y += speed;
-		++MovKeyPressed;
-
-		if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) { //DOWN LEFT
-			diagonal = true;
-			if (currentAnimation != &diagonalSRAnim)
+			if ((currentAnimation != &leftAnim) && (diagonal == false)) //ANIMACIÓ LEFT
 			{
-				diagonalSRAnim.Reset();
-				currentAnimation = &diagonalSRAnim;
-				
+				leftAnim.Reset();
+				currentAnimation = &leftAnim;
+
 				if (shooting == false) {
-					topDLAnim.Reset();
-					currentTopAnimation = &topDLAnim;
+					topLeftAnim.Reset();
+					currentTopAnimation = &topLeftAnim;
 				}
 			}
 		}
 
-		if (currentAnimation != &downAnim && (diagonal == false))
+		if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT && position.x <= 450) //RIGHT
 		{
-			downAnim.Reset();
-			currentAnimation = &downAnim;
-			
-			if (shooting == false) {
-				topDownAnim.Reset();
-				currentTopAnimation = &topDownAnim;
+			position.x += speed;
+			++MovKeyPressed;
+
+			if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) { //DOWN RIGHT
+				diagonal = true;
+				if (currentAnimation != &diagonalPAnim)
+				{
+					diagonalPAnim.Reset();
+					currentAnimation = &diagonalPAnim;
+
+					if (shooting == false) {
+						topDRAnim.Reset();
+						currentTopAnimation = &topDRAnim;
+					}
+				}
 			}
-		}
-	}
 
-	 if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT && position.y >= 37) //UP
-	{
-		position.y -= speed;
-		++MovKeyPressed;
-
-		if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) { // UP RIGHT
-			diagonal = true;
-			if (currentAnimation != &diagonalSAnim)
+			if (currentAnimation != &rigthAnim && (diagonal == false))
 			{
-				diagonalSAnim.Reset();
-				currentAnimation = &diagonalSAnim;
-				
+				rigthAnim.Reset();
+				currentAnimation = &rigthAnim;
+
 				if (shooting == false) {
-					topURAnim.Reset();
-					currentTopAnimation = &topURAnim;
+					topRightAnim.Reset();
+					currentTopAnimation = &topRightAnim;
 				}
 			}
 		}
 
-		if (currentAnimation != &upAnim && (diagonal == false))
+		if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT && position.y <= 378) //DOWN
 		{
-			upAnim.Reset();
-			currentAnimation = &upAnim;
-			
-			if (shooting == false) {
-				topUpAnim.Reset();
-				currentTopAnimation = &topUpAnim;
+			position.y += speed;
+			++MovKeyPressed;
+
+			if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) { //DOWN LEFT
+				diagonal = true;
+				if (currentAnimation != &diagonalSRAnim)
+				{
+					diagonalSRAnim.Reset();
+					currentAnimation = &diagonalSRAnim;
+
+					if (shooting == false) {
+						topDLAnim.Reset();
+						currentTopAnimation = &topDLAnim;
+					}
+				}
+			}
+
+			if (currentAnimation != &downAnim && (diagonal == false))
+			{
+				downAnim.Reset();
+				currentAnimation = &downAnim;
+
+				if (shooting == false) {
+					topDownAnim.Reset();
+					currentTopAnimation = &topDownAnim;
+				}
 			}
 		}
-	}
 
-	if (MovKeyPressed < 2) {
-		diagonal = false;
+		if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT && position.y >= 37) //UP
+		{
+			position.y -= speed;
+			++MovKeyPressed;
+
+			if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) { // UP RIGHT
+				diagonal = true;
+				if (currentAnimation != &diagonalSAnim)
+				{
+					diagonalSAnim.Reset();
+					currentAnimation = &diagonalSAnim;
+
+					if (shooting == false) {
+						topURAnim.Reset();
+						currentTopAnimation = &topURAnim;
+					}
+				}
+			}
+
+			if (currentAnimation != &upAnim && (diagonal == false))
+			{
+				upAnim.Reset();
+				currentAnimation = &upAnim;
+
+				if (shooting == false) {
+					topUpAnim.Reset();
+					currentTopAnimation = &topUpAnim;
+				}
+			}
+		}
+
+		if (MovKeyPressed < 2) {
+			diagonal = false;
+		}
+		MovKeyPressed = 0;
 	}
-	MovKeyPressed = 0;
+	if (bandera_GodMode == true) {
+		if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) //LEFT
+		{
+			position.x -= speed;
+			++MovKeyPressed;
+
+			if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) { //LEFT UP
+				diagonal = true;
+				if (currentAnimation != &diagonalPRAnim)
+				{
+					diagonalPRAnim.Reset();
+					currentAnimation = &diagonalPRAnim;
+
+					if (shooting == false) {
+						topULAnim.Reset();
+						currentTopAnimation = &topULAnim;
+					}
+				}
+			}
+
+			if ((currentAnimation != &leftAnim) && (diagonal == false)) //ANIMACIÓ LEFT
+			{
+				leftAnim.Reset();
+				currentAnimation = &leftAnim;
+
+				if (shooting == false) {
+					topLeftAnim.Reset();
+					currentTopAnimation = &topLeftAnim;
+				}
+			}
+		}
+
+		if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) //RIGHT
+		{
+			position.x += speed;
+			++MovKeyPressed;
+
+			if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) { //DOWN RIGHT
+				diagonal = true;
+				if (currentAnimation != &diagonalPAnim)
+				{
+					diagonalPAnim.Reset();
+					currentAnimation = &diagonalPAnim;
+
+					if (shooting == false) {
+						topDRAnim.Reset();
+						currentTopAnimation = &topDRAnim;
+					}
+				}
+			}
+
+			if (currentAnimation != &rigthAnim && (diagonal == false))
+			{
+				rigthAnim.Reset();
+				currentAnimation = &rigthAnim;
+
+				if (shooting == false) {
+					topRightAnim.Reset();
+					currentTopAnimation = &topRightAnim;
+				}
+			}
+		}
+
+		if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) //DOWN
+		{
+			position.y += speed;
+			++MovKeyPressed;
+
+			if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) { //DOWN LEFT
+				diagonal = true;
+				if (currentAnimation != &diagonalSRAnim)
+				{
+					diagonalSRAnim.Reset();
+					currentAnimation = &diagonalSRAnim;
+
+					if (shooting == false) {
+						topDLAnim.Reset();
+						currentTopAnimation = &topDLAnim;
+					}
+				}
+			}
+
+			if (currentAnimation != &downAnim && (diagonal == false))
+			{
+				downAnim.Reset();
+				currentAnimation = &downAnim;
+
+				if (shooting == false) {
+					topDownAnim.Reset();
+					currentTopAnimation = &topDownAnim;
+				}
+			}
+		}
+
+		if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) //UP
+		{
+			position.y -= speed;
+			++MovKeyPressed;
+
+			if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) { // UP RIGHT
+				diagonal = true;
+				if (currentAnimation != &diagonalSAnim)
+				{
+					diagonalSAnim.Reset();
+					currentAnimation = &diagonalSAnim;
+
+					if (shooting == false) {
+						topURAnim.Reset();
+						currentTopAnimation = &topURAnim;
+					}
+				}
+			}
+
+			if (currentAnimation != &upAnim && (diagonal == false))
+			{
+				upAnim.Reset();
+				currentAnimation = &upAnim;
+
+				if (shooting == false) {
+					topUpAnim.Reset();
+					currentTopAnimation = &topUpAnim;
+				}
+			}
+		}
+
+		if (MovKeyPressed < 2) {
+			diagonal = false;
+		}
+		MovKeyPressed = 0;
+	}
 
 
 	//Direccion de donde va la bala
