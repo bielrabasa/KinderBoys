@@ -1,5 +1,7 @@
 #include "SceneLevel1.h"
 
+#include <time.h>
+#include <stdlib.h>
 #include "Application.h"
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
@@ -7,6 +9,9 @@
 #include "ModuleCollisions.h"
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
+#include "ModuleInput.h"
+#include "ModuleParticles.h"
+
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
@@ -78,12 +83,21 @@ bool SceneLevel1::Start()
 	// L10: TODO 2: Enable (and properly disable) the player module
 	App->player->Enable();
 
+	srand(time(NULL));
+
 	return ret;
 }
 
 UpdateResult SceneLevel1::Update()
 {
 	//App->render->camera.x += 3; //SCROLL
+
+	if (App->input->keys[SDL_SCANCODE_Q] == KeyState::KEY_REPEAT) //LEFT
+	{
+		App->particles->randmoX = (rand() % 395 + 30);
+		App->particles->randmoY = (rand() % 285 + 120);
+		App->particles->AddParticle(App->particles->Gold, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::obejcts);
+	}
 
 	return UpdateResult::UPDATE_CONTINUE;
 }

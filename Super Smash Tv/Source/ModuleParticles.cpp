@@ -22,6 +22,7 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles.png");
+	//textureGold = App->textures->Load("Assets/SpritesSSTV/Entity_Objects.png");
 
 	// Explosion particle
 	explosion.anim.PushBack({274, 296, 33, 30});
@@ -81,6 +82,9 @@ bool ModuleParticles::Start()
 	laserUR.speed.y = 5;
 	laserUR.lifetime = 180;
 	laserUR.anim.speed = 0.2f;
+
+
+	Gold.anim.PushBack({ 0, 0, 16, 16 }); 
 
 	return true;
 }
@@ -149,6 +153,7 @@ UpdateResult ModuleParticles::PostUpdate()
 		if (particle != nullptr && particle->isAlive)
 		{
 			App->render->DrawTexture(texture, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
+			App->render->DrawTexture(textureGold, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
 		}
 	}
 
