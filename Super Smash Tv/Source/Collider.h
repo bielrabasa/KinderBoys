@@ -16,6 +16,7 @@ struct Collider
 		PLAYER_SHOT,
 		ENEMY_SHOT,
 		Door,
+		obejcts,
 
 		MAX
 	};

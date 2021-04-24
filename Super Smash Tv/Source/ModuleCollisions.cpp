@@ -17,7 +17,8 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WALL][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::WALL][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::WALL][Collider::Type::ENEMY_SHOT] = true;
-	matrix[Collider::Type::WALL][Collider::Type::Door] = true;
+	matrix[Collider::Type::WALL][Collider::Type::Door] = false;
+	matrix[Collider::Type::WALL][Collider::Type::obejcts] = false;
 
 	matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
@@ -25,6 +26,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::Door] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::obejcts] = true;
 
 	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::PLAYER] = true;
@@ -32,12 +34,15 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::Door] = false;
+	matrix[Collider::Type::ENEMY][Collider::Type::obejcts] = false;
 
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WALL] = true;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::Door] = true;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::obejcts] = false;
 
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::WALL] = true;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PLAYER] = true;
@@ -45,6 +50,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::Door] = true;
+	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::obejcts] = false;
 
 	matrix[Collider::Type::Door][Collider::Type::WALL] = false;
 	matrix[Collider::Type::Door][Collider::Type::ENEMY] = false;
@@ -52,6 +58,15 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::Door][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::Door][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::Door][Collider::Type::Door] = false;
+	matrix[Collider::Type::Door][Collider::Type::obejcts] = false;
+
+	matrix[Collider::Type::obejcts][Collider::Type::obejcts] = false;
+	matrix[Collider::Type::obejcts][Collider::Type::WALL] = false;
+	matrix[Collider::Type::obejcts][Collider::Type::Door] = false;
+	matrix[Collider::Type::obejcts][Collider::Type::ENEMY] = false;
+	matrix[Collider::Type::obejcts][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::obejcts][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::obejcts][Collider::Type::ENEMY_SHOT] = false;
 }
 
 // Destructor
@@ -177,9 +192,12 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::ENEMY_SHOT: // magenta
 			App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 0, 255, 255, alpha });
 			break;
-			case Collider::Type::Door: // magenta
+			case Collider::Type::Door: // azul claro
 				App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 0, 255, 251, alpha });
 			break;
+			case Collider::Type::obejcts: // rosa
+				App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 255, 0, 236, alpha });
+				break;
 		}
 	}
 }
