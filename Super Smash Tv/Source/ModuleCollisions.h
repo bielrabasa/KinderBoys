@@ -32,7 +32,7 @@ public:
 	// Removes all existing colliders
 	bool CleanUp();
 
-	bool bandera_GodMode = false;
+	int bandera_GodMode = 0;
 
 	// Adds a new collider to the list
 	Collider* AddCollider(SDL_Rect rect, Collider::Type type, Module* listener = nullptr);

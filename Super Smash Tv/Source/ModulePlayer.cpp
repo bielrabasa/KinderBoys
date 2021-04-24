@@ -165,11 +165,11 @@ bool ModulePlayer::Start()
 	//No funciona aun el godMode. Está tanto aqui como en el modulecollisions en la zona de update
 	
 	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) {
-		if (bandera_GodMode == false) {
-			bandera_GodMode = true;
+		if (bandera_GodMode == 0) {
+			bandera_GodMode = 1;
 		}
-		if (bandera_GodMode == true) {
-			bandera_GodMode = false;
+		else{
+			bandera_GodMode = 0;
 		}
 	}
 	/*
@@ -188,7 +188,7 @@ UpdateResult ModulePlayer::Update()
 	//App->player->position.x += 0;
 
 	
-	if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) //LEFT
+	if (App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT && position.x >= 28) //LEFT
 	{
 		position.x -= speed;
 		++MovKeyPressed;
@@ -219,7 +219,7 @@ UpdateResult ModulePlayer::Update()
 		}
 	}
 
-	 if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) //RIGHT
+	 if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT && position.x <= 450) //RIGHT
 	{
 		position.x += speed;
 		++MovKeyPressed;
@@ -250,7 +250,7 @@ UpdateResult ModulePlayer::Update()
 		}
 	}
 
-	 if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) //DOWN
+	 if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT && position.y <= 378) //DOWN
 	{
 		position.y += speed;
 		++MovKeyPressed;
@@ -281,7 +281,7 @@ UpdateResult ModulePlayer::Update()
 		}
 	}
 
-	 if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT) //UP
+	 if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT && position.y >= 37) //UP
 	{
 		position.y -= speed;
 		++MovKeyPressed;
@@ -469,7 +469,7 @@ UpdateResult ModulePlayer::PostUpdate()
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	// L6: DONE 5: Detect collision with a wall. If so, destroy the player.
-	if ((c1 == collider) && (destroyed == false) && bandera_GodMode)
+	if ((c1 == collider) && (destroyed == false) && (bandera_GodMode == 1))
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y,0, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11,0, Collider::Type::NONE, 14);
