@@ -25,7 +25,7 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/Sprites/Map.png");
+	bgTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV.png");
 	App->audio->PlayMusic("Assets/", 1.0f);
 
 	//Bottomside collider  Primer numero x, Segundo numero y, 3r numero largo del cubo, 4o anchura del cubo
@@ -77,7 +77,7 @@ UpdateResult SceneLevel1::Update()
 UpdateResult SceneLevel1::PostUpdate()
 {
 	// Draw everything
-	App->render->DrawTexture(bgTexture, 0, 0, NULL);
+	App->render->DrawTexture(bgTexture, 0, 0, NULL); //SPRITE del fons, podem posar els altres amb (bgTexture, -512*mapaActual, 0, NULL)
 
 	return UpdateResult::UPDATE_CONTINUE;
 }

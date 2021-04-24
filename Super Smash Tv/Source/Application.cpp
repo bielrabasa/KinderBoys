@@ -28,14 +28,15 @@ Application::Application()
 	modules[4] =	sceneIntro =	new SceneIntro(true);
 	modules[5] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
 	
-	modules[6] =	player =		new ModulePlayer(false);	//Player starts disabled
-	modules[7] =	particles =		new ModuleParticles(true);
-	modules[8] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
+	//L'ORDRE D'SPRITES NO ÉS CORRECTE (Original)
+	//modules[6] =	player =		new ModulePlayer(false);	//Player starts disabled
+	//modules[7] =	particles =		new ModuleParticles(true);
+	//modules[8] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
 	
-	/*
-	modules[6] =	particles =		new ModuleParticles(true);
-	modules[7] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
-	modules[8] =	player =		new ModulePlayer(false);	//Player starts disabled	*/
+	//PLAYER HA D'ESTAR PER SOBRE DE ENEMIES (pels sprites de portes), i PARTICLES (ha d'estar necessariament per sobre dels 2, sinó dona problemes)
+	modules[6] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
+	modules[7] =	player =		new ModulePlayer(false);	//Player starts disabled	
+	modules[8] =	particles =		new ModuleParticles(true);
 
 	modules[9] =	collisions =	new ModuleCollisions(true);
 	modules[10] =	fade =			new ModuleFadeToBlack(true);

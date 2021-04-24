@@ -456,7 +456,7 @@ UpdateResult ModulePlayer::PostUpdate()
 		App->render->DrawTexture(texture, position.x - 14, position.y - 7, &rectTop);
 
 		//Render Portes
-		App->render->DrawTexture(textureDoorTop, 512 * topDoor, 0, nullptr);
+		App->render->DrawTexture(textureDoorTop, -512 * topDoor, 0, nullptr);
 		//Si no li enviem rectangle (li enviem un 'nullptr'), es posa la mateixa mida que la pantalla.
 		
 		//Render UI
