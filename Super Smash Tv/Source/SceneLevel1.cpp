@@ -31,8 +31,13 @@ bool SceneLevel1::Start()
 	//Bottomside collider  Primer numero x, Segundo numero y, 3r numero largo del cubo, 4o anchura del cubo
 	//Tendremos problemas con la hitbox y la entrada y salida tanto de personajes como de enemigos
 	//Posible solucion un bool de enemigos vivos 
-	App->collisions->AddCollider({ 0, 431,512, 16 }, Collider::Type::WALL);//Pared inferior
-	App->collisions->AddCollider({ 0, 62,512, 16 }, Collider::Type::WALL);//Pared Superior
+	App->collisions->AddCollider({ 0, 431,200, 16 }, Collider::Type::WALL);//Pared inferior-Parte izquierda
+	App->collisions->AddCollider({ 312, 431,200, 16 }, Collider::Type::WALL);//Pared inferior-Parte derecha
+
+
+	App->collisions->AddCollider({ 0, 50,208, 16 }, Collider::Type::WALL);//Pared Superior-Izquierda
+	App->collisions->AddCollider({ 304, 50,512, 16 }, Collider::Type::WALL);//Pared Superior-derecha
+
 	App->collisions->AddCollider({ 20, 0,16, 448 }, Collider::Type::WALL);//Pared lateral izquierdo
 	App->collisions->AddCollider({ 492, 0,16, 448 }, Collider::Type::WALL);//Pared lateral derecho
 
