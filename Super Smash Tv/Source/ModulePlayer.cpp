@@ -164,7 +164,7 @@ bool ModulePlayer::Start()
 	//GodMode
 	//No funciona aun el godMode. Está tanto aqui como en el modulecollisions en la zona de update
 	
-	/*if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) {
+	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) {
 		if (bandera_GodMode == false) {
 			bandera_GodMode = true;
 		}
@@ -172,7 +172,7 @@ bool ModulePlayer::Start()
 			bandera_GodMode = false;
 		}
 	}
-
+	/*
 	if (bandera_GodMode==true) {
 		collider = App->collisions->AddCollider({ position.x, position.y, 0, 0 }, Collider::Type::PLAYER, this);
 	}
@@ -469,7 +469,7 @@ UpdateResult ModulePlayer::PostUpdate()
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	// L6: DONE 5: Detect collision with a wall. If so, destroy the player.
-	if ((c1 == collider) && (destroyed == false))
+	if ((c1 == collider) && (destroyed == false) && bandera_GodMode)
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y,0, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11,0, Collider::Type::NONE, 14);

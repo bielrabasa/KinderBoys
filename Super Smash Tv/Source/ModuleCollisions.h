@@ -32,6 +32,7 @@ public:
 	// Removes all existing colliders
 	bool CleanUp();
 
+	bool bandera_GodMode = false;
 
 	// Adds a new collider to the list
 	Collider* AddCollider(SDL_Rect rect, Collider::Type type, Module* listener = nullptr);
@@ -51,7 +52,6 @@ private:
 	bool debug = false;
 
 	//GodMode
-	bool bandera_GodMode = false;
 };
 
 #endif // __MODULECOLLISIONS_H__
