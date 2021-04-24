@@ -165,8 +165,8 @@ bool ModulePlayer::Start()
 	//No funciona aun el godMode. Está tanto aqui como en el modulecollisions en la zona de update
 	
 
-	/*
-	if (bandera_GodMode==true) {
+	
+	/*if (bandera_GodMode==true) {
 		collider = App->collisions->AddCollider({ position.x, position.y, 0, 0 }, Collider::Type::PLAYER, this);
 	}
 	if (bandera_GodMode == false) {
@@ -179,7 +179,7 @@ UpdateResult ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
 	//App->player->position.x += 0;
-	if (App->input->keys[SDL_SCANCODE_F2] == KeyState::KEY_DOWN) {
+	/*if (App->input->keys[SDL_SCANCODE_F2] == KeyState::KEY_DOWN) {
 		if (bandera_GodMode == false) {
 			bandera_GodMode = true;
 		}
@@ -187,7 +187,7 @@ UpdateResult ModulePlayer::Update()
 			bandera_GodMode = false;
 		}
 		
-	}
+	}*/
 
 
 	//Preguntar pk no funciona el martes
@@ -604,7 +604,7 @@ UpdateResult ModulePlayer::PostUpdate()
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
 	// L6: DONE 5: Detect collision with a wall. If so, destroy the player.
-	if ((c1 == collider) && (destroyed == false) && (bandera_GodMode == 1))
+	if ((c1 == collider) && (destroyed == false) && (bandera_GodMode == false))
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y,0, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11,0, Collider::Type::NONE, 14);

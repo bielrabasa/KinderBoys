@@ -33,6 +33,8 @@ bool SceneLevel1::Start()
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV.png");
 	App->audio->PlayMusic("Assets/", 1.0f);
 
+	App->enemies->Enable();
+
 	//Bottomside collider  Primer numero x, Segundo numero y, 3r numero largo del cubo, 4o anchura del cubo
 	//Tendremos problemas con la hitbox y la entrada y salida tanto de personajes como de enemigos
 	//Posible solucion un bool de enemigos vivos 
