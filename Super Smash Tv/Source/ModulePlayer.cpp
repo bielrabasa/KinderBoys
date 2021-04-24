@@ -158,7 +158,7 @@ bool ModulePlayer::Start()
 	destroyed = false;
 
 	// L6: DONE 3: Add a collider to the player
-	collider = App->collisions->AddCollider({ position.x, position.y, 30, 45 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 25, 35 }, Collider::Type::PLAYER, this);
 
 	
 	//GodMode
@@ -481,7 +481,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootURAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserUR, position.x + 8, position.y - 10, 6, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserUR, position.x + 7, position.y - 12, 6, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -501,7 +501,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootDLAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserDL, position.x - 10, position.y + 15, 7, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserDL, position.x - 12, position.y + 11, 7, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -511,7 +511,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootDRAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserDR, position.x + 15, position.y + 15, 8, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserDR, position.x + 8, position.y + 8, 8, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -522,7 +522,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootUpAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserU, position.x + 7, position.y - 7, 1, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserU, position.x + 2, position.y - 7, 1, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 			cont = 0;
 		}
@@ -534,7 +534,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootLeftAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserL, position.x - 10, position.y + 6, 2, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserL, position.x - 10, position.y + 1, 2, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -544,7 +544,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootDownAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserD, position.x + 6, position.y + 20, 4, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserD, position.x + 5, position.y + 15, 4, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -554,7 +554,7 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootRightAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserR, position.x + 20, position.y + 6, 3, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laserR, position.x + 10, position.y + 1, 3, Collider::Type::PLAYER_SHOT);
 			//App->audio->PlayFx(laserFx);
 		}
 	}
@@ -585,10 +585,10 @@ UpdateResult ModulePlayer::PostUpdate()
 	if (!destroyed)
 	{
 		SDL_Rect rect = currentAnimation->GetCurrentFrame();
-		App->render->DrawTexture(texture, position.x + 2, position.y + 25, &rect);
+		App->render->DrawTexture(texture, position.x + 2, position.y + 17, &rect);
 		
 		SDL_Rect rectTop = currentTopAnimation->GetCurrentFrame();
-		App->render->DrawTexture(texture, position.x - 14, position.y - 7, &rectTop);
+		App->render->DrawTexture(texture, position.x - 10, position.y - 7, &rectTop);
 
 		//Render Portes
 		App->render->DrawTexture(textureDoorTop, -512 * topDoor, 0, nullptr);

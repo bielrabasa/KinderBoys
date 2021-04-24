@@ -98,8 +98,8 @@ bool ModuleRender::DrawTexture(SDL_Texture* texture, int x, int y, SDL_Rect* sec
 	
 	if (section != nullptr)
 	{
-		rect.w = section->w * 2; // Augmentar mida sprites
-		rect.h = section->h * 2;
+		rect.w = section->w * 1.5f; // Augmentar mida sprites
+		rect.h = section->h * 1.5f;
 	}
 	else
 	{

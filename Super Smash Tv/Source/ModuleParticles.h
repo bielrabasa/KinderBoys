@@ -53,6 +53,7 @@ public:
 
 	int randmoX = 225;
 	int randmoY = 200;
+	int randomSpawn = 0;
 
 private:
 	// Particles spritesheet loaded into an SDL Texture
@@ -69,6 +70,7 @@ public:
 
 
 	Particle Gold;
+	Particle Silver;
 
 	//Template particle for a laser
 	Particle laserL;

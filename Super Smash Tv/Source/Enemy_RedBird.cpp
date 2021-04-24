@@ -14,7 +14,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	flyAnim.PushBack({ 48, 32, 16, 16 });
 	flyAnim.PushBack({ 64, 32, 16, 16 });
 	flyAnim.PushBack({ 0, 96, 16, 16 });
-	flyAnim.speed = 0.2f;
+	flyAnim.speed = 0.1f;
 
 	currentAnim = &flyAnim;
 
@@ -26,8 +26,16 @@ void Enemy_RedBird::Update()
 	waveRatio += waveRatioSpeed;
 
 	position.y = spawnPos.y + (waveHeight * sinf(waveRatio));
-	position.x -= 1;
+	position.x -= 0;
 
+	/*if ((c1 == collider) && (destroyed == false)
+	{
+		position.x -= 1;
+	}
+	else
+	{
+		position.x -= 1;
+	}*/
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();
