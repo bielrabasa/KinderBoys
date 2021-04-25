@@ -1,5 +1,7 @@
 #include "ModulePlayer.h"
 
+#include <iostream>
+using namespace std;
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -602,10 +604,17 @@ UpdateResult ModulePlayer::PostUpdate()
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
-{
-	// L6: DONE 5: Detect collision with a wall. If so, destroy the player.
-	if ((c1 == collider) && (destroyed == false) && (bandera_GodMode == false))
+{		
+	if (Collider::Type::obejcts)
 	{
+		score++;
+		cout << score;
+	}
+	// L6: DONE 5: Detect collision with a wall. If so, destroy the player.
+	/*if ((c1 == collider) && (destroyed == false) && (bandera_GodMode == false))
+	{
+
+
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y,0, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11,0, Collider::Type::NONE, 14);
 		App->particles->AddParticle(App->particles->explosion, position.x - 7, position.y + 12,0, Collider::Type::NONE, 40);
@@ -618,6 +627,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
 
-		destroyed = true;
-	}
+		destroyed = false;
+	}*/
 }
