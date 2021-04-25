@@ -46,13 +46,22 @@ public:
 	SDL_Texture* texture = nullptr;
 	SDL_Texture* textureDoorTop = nullptr;
 	SDL_Texture* textureUI = nullptr;
-	//SDL_Texture* toptexture = nullptr;
+	SDL_Texture* textureFont = nullptr;
 
+	//SDL_Texture* toptexture = nullptr;
+	
+	int vides = 5;
+	int contadorVides = 0;
+
+	int score = 0;
+	int scoreCopia = 0;
+
+	int scoreN[8]; //arrai de digits score
+	int posicioFont = 160;
+	
 	int topDoor = 0;
 
 	bool bandera_GodMode = false;
-
-	int score = 0;
 
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction

@@ -24,22 +24,28 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 
 void Enemy_RedBird::Update()
 {
-	if (position.x - App->player->position.x < 0)
-	{
-		position.x += 1;
-	}
-	else if (position.x - App->player->position.x > 0)
-	{
-		position.x -= 1;
-	}
+	movementDelay++;
+	if (movementDelay >= 2) {
+		if (position.x - App->player->position.x < 0)
+		{
+			position.x += 1;
+		}
+		else if (position.x - App->player->position.x > 0)
+		{
+			position.x -= 1;
+		}
 
-	if (position.y - App->player->position.y < 0)
-	{
-		position.y += 1;
-	}
-	else if (position.y - App->player->position.y > 0)
-	{
-		position.y -= 1;
+		if (position.y - App->player->position.y < 0)
+		{
+			position.y += 1;
+		}
+		else if (position.y - App->player->position.y > 0)
+		{
+			position.y -= 1;
+		}
+
+
+		movementDelay = 0;
 	}
 
 	/*waveRatio += waveRatioSpeed;

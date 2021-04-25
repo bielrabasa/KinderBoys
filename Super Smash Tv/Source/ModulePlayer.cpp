@@ -150,6 +150,8 @@ bool ModulePlayer::Start()
 
 	textureUI = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV_UI.png");
 
+	textureFont = App->textures->Load("Assets/SpritesSSTV/Font.png"); //Font
+
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
@@ -579,6 +581,19 @@ UpdateResult ModulePlayer::Update()
 	currentAnimation->Update();
 	currentTopAnimation->Update();
 
+	//Gestió Array de la font
+	scoreCopia = score;
+	
+	for (int i = 0; i < 8; ++i) {
+		scoreN[i] = scoreCopia % 10;
+		scoreCopia /= 10;
+	}
+
+	--contadorVides;
+	if (contadorVides < -100) {
+		contadorVides = -1;
+	}
+
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
@@ -586,19 +601,120 @@ UpdateResult ModulePlayer::PostUpdate()
 {
 	if (!destroyed)
 	{
-		SDL_Rect rect = currentAnimation->GetCurrentFrame();
-		App->render->DrawTexture(texture, position.x + 2, position.y + 17, &rect);
-		
-		SDL_Rect rectTop = currentTopAnimation->GetCurrentFrame();
-		App->render->DrawTexture(texture, position.x - 10, position.y - 7, &rectTop);
+		//Render PressToPlay
+		SDL_Rect rectPTP = { 0, 30, 70, 32 };
+		App->render->DrawTexture(textureFont, 353, 98, &rectPTP);
 
-		//Render Portes
-		App->render->DrawTexture(textureDoorTop, -512 * topDoor, 0, nullptr);
-		//Si no li enviem rectangle (li enviem un 'nullptr'), es posa la mateixa mida que la pantalla.
-		
-		//Render UI
-		App->render->DrawTexture(textureUI, 0, 0, nullptr);
+		//Render Font
+		SDL_Rect rect0 = { 0, 0, 10, 16 };
+		SDL_Rect rect1 = { 10, 0, 10, 16 };
+		SDL_Rect rect2 = { 20, 0, 10, 16 };
+		SDL_Rect rect3 = { 30, 0, 10, 16 };
+		SDL_Rect rect4 = { 40, 0, 10, 16 };
+		SDL_Rect rect5 = { 50, 0, 10, 16 };
+		SDL_Rect rect6 = { 60, 0, 10, 16 };
+		SDL_Rect rect7 = { 70, 0, 10, 16 };
+		SDL_Rect rect8 = { 80, 0, 10, 16 };
+		SDL_Rect rect9 = { 90, 0, 10, 16 };
+
+		for (int i = 0; i < 8; ++i) {
+			
+			switch (scoreN[i]) {
+			case 0:
+				App->render->DrawTexture(textureFont, posicioFont, 100, &rect0);
+				break;
+			case 1:
+				App->render->DrawTexture(textureFont, posicioFont, 100, &rect1);
+				break;
+			case 2:
+				App->render->DrawTexture(textureFont, posicioFont, 100, &rect2);
+				break;
+			case 3:
+				App->render->DrawTexture(textureFont, posicioFont, 100, &rect3);
+				break;
+			case 4:
+				App->render->DrawTexture(textureFont, posicioFont, 100, &rect4);
+				break;
+			case 5:
+				App->render->DrawTexture(textureFont, posicioFont, 100, &rect5);
+				break;
+			case 6:
+				App->render->DrawTexture(textureFont, posicioFont, 100, &rect6);
+				break;
+			case 7:
+				App->render->DrawTexture(textureFont, posicioFont, 100, &rect7);
+				break;
+			case 8:
+				App->render->DrawTexture(textureFont, posicioFont, 100, &rect8);
+				break;
+			case 9:
+				App->render->DrawTexture(textureFont, posicioFont, 100, &rect9);
+				break;
+			}
+			
+			posicioFont -= 15; //Separació entre nombres
+		}
+		posicioFont = 160; //Posició del primer element de la dreta
 	}
+
+	SDL_Rect rect = currentAnimation->GetCurrentFrame();
+	App->render->DrawTexture(texture, position.x + 2, position.y + 17, &rect);
+
+	SDL_Rect rectTop = currentTopAnimation->GetCurrentFrame();
+	App->render->DrawTexture(texture, position.x - 10, position.y - 7, &rectTop);
+
+	//Render Portes
+	App->render->DrawTexture(textureDoorTop, -512 * topDoor, 0, nullptr);
+	//Si no li enviem rectangle (li enviem un 'nullptr'), es posa la mateixa mida que la pantalla.
+
+	//Render UI
+	App->render->DrawTexture(textureUI, 0, 0, nullptr);
+
+	//Render Vides
+	SDL_Rect rect0v = { 0, 16, 10, 14 };
+	SDL_Rect rect1v = { 10, 16, 10, 14 };
+	SDL_Rect rect2v = { 20, 16, 10, 14 };
+	SDL_Rect rect3v = { 30, 16, 10, 14 };
+	SDL_Rect rect4v = { 40, 16, 10, 14 };
+	SDL_Rect rect5v = { 50, 16, 10, 14 };
+	SDL_Rect rect6v = { 60, 16, 10, 14 };
+	SDL_Rect rect7v = { 70, 16, 10, 14 };
+	SDL_Rect rect8v = { 80, 16, 10, 14 };
+	SDL_Rect rect9v = { 90, 16, 10, 14 };
+
+	switch (vides) {
+	case 0:
+		App->render->DrawTexture(textureFont, 43, 54, &rect0v);
+		break;
+	case 1:
+		App->render->DrawTexture(textureFont, 43, 54, &rect1v);
+		break;
+	case 2:
+		App->render->DrawTexture(textureFont, 43, 54, &rect2v);
+		break;
+	case 3:
+		App->render->DrawTexture(textureFont, 43, 54, &rect3v);
+		break;
+	case 4:
+		App->render->DrawTexture(textureFont, 43, 54, &rect4v);
+		break;
+	case 5:
+		App->render->DrawTexture(textureFont, 43, 54, &rect5v);
+		break;
+	case 6:
+		App->render->DrawTexture(textureFont, 43, 54, &rect6v);
+		break;
+	case 7:
+		App->render->DrawTexture(textureFont, 43, 54, &rect7v);
+		break;
+	case 8:
+		App->render->DrawTexture(textureFont, 43, 54, &rect8v);
+		break;
+	case 9:
+		App->render->DrawTexture(textureFont, 43, 54, &rect9v);
+		break;
+	}
+
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
@@ -608,8 +724,13 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c2->type == c2->obejcts)
 	{
 		score++;
-		cout << score;
 	}
+
+	if (c2->type == c2->ENEMY && contadorVides < 0) {
+		if(vides>0)	--vides;
+		//contadorVides = 100; //100 frames de delay
+	}
+
 	// L6: DONE 5: Detect collision with a wall. If so, destroy the player.
 	/*if ((c1 == collider) && (destroyed == false) && (bandera_GodMode == false))
 	{

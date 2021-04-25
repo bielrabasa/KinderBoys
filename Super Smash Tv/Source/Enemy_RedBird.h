@@ -27,6 +27,9 @@ private:
 	// The total height of the wave
 	int waveHeight = 15;
 
+	// Delay entre els moviments de l'enemic
+	int movementDelay = 0;
+
 	// The enemy animation
 	Animation flyAnim;
 };

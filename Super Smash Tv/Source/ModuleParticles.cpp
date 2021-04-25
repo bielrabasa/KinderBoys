@@ -112,7 +112,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 {
 	if(c2->type == c2->ENEMY && c1->type == c1->PLAYER_SHOT)
 	{
-		App->player->score += 3;
+		App->player->score += 30;
 	}
 
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)

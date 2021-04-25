@@ -34,6 +34,7 @@ bool SceneLevel1::Start()
 	App->audio->PlayMusic("Assets/", 1.0f);
 
 	App->enemies->Enable();
+	App->particles->Enable();
 
 	//Bottomside collider  Primer numero x, Segundo numero y, 3r numero largo del cubo, 4o anchura del cubo
 	//Tendremos problemas con la hitbox y la entrada y salida tanto de personajes como de enemigos
