@@ -47,6 +47,7 @@ public:
 	SDL_Texture* textureDoorTop = nullptr;
 	SDL_Texture* textureUI = nullptr;
 	SDL_Texture* textureFont = nullptr;
+	SDL_Texture* texturePickups = nullptr;
 
 	//SDL_Texture* toptexture = nullptr;
 	

@@ -152,6 +152,8 @@ bool ModulePlayer::Start()
 
 	textureFont = App->textures->Load("Assets/SpritesSSTV/Font.png"); //Font
 
+	texturePickups = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
+
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
@@ -183,15 +185,9 @@ UpdateResult ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
 	//App->player->position.x += 0;
-	/*if (App->input->keys[SDL_SCANCODE_F2] == KeyState::KEY_DOWN) {
-		if (bandera_GodMode == false) {
-			bandera_GodMode = true;
-		}
-		if (bandera_GodMode == true) {
-			bandera_GodMode = false;
-		}
-		
-	}*/
+	if (App->input->keys[SDL_SCANCODE_F2] == KeyState::KEY_DOWN) {
+		bandera_GodMode = !bandera_GodMode;
+	}
 
 
 	//Preguntar pk no funciona el martes
@@ -594,6 +590,7 @@ UpdateResult ModulePlayer::Update()
 		contadorVides = -1;
 	}
 
+	
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
@@ -601,6 +598,12 @@ UpdateResult ModulePlayer::PostUpdate()
 {
 	if (!destroyed)
 	{
+		//Render Immunitat
+		SDL_Rect rectImmun = { 96, 56, 32, 32 };
+		if (contadorVides > 0 && contadorVides%3 == 0) {
+			App->render->DrawTexture(texturePickups, position.x - 11, position.y + 10, &rectImmun);
+		}
+
 		//Render PressToPlay
 		SDL_Rect rectPTP = { 0, 30, 70, 32 };
 		App->render->DrawTexture(textureFont, 353, 98, &rectPTP);
@@ -720,34 +723,31 @@ UpdateResult ModulePlayer::PostUpdate()
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
-{		
+{
 	if (c2->type == c2->obejcts)
 	{
 		score++;
 	}
 
-	if (c2->type == c2->ENEMY && contadorVides < 0) {
-		if(vides>0)	--vides;
-		contadorVides = 50; //100 frames de delay
+	//GESTIONAR LES VIDES I LA MORT
+	if ((c2->type == c2->ENEMY) && (contadorVides < 0) && (bandera_GodMode == false) && (destroyed == false)) {
+
+		if (vides > 0) {
+			--vides;
+		}
+		else if (vides <= 0) {		//FALTA PULIR MOLTISSIM!!!!!
+			App->particles->AddParticle(App->particles->explosion, position.x, position.y, 0, Collider::Type::NONE, 9);
+			App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, 0, Collider::Type::NONE, 14);
+			App->particles->AddParticle(App->particles->explosion, position.x - 7, position.y + 12, 0, Collider::Type::NONE, 40);
+			App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, 0, Collider::Type::NONE, 28);
+			App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, 0, Collider::Type::NONE, 21);
+
+			App->audio->PlayFx(explosionFx);
+
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
+
+			destroyed = false;
+		}
+		contadorVides = 50; //50 frames de delay
 	}
-
-	// L6: DONE 5: Detect collision with a wall. If so, destroy the player.
-	/*if ((c1 == collider) && (destroyed == false) && (bandera_GodMode == false))
-	{
-
-
-		App->particles->AddParticle(App->particles->explosion, position.x, position.y,0, Collider::Type::NONE, 9);
-		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11,0, Collider::Type::NONE, 14);
-		App->particles->AddParticle(App->particles->explosion, position.x - 7, position.y + 12,0, Collider::Type::NONE, 40);
-		App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5,0, Collider::Type::NONE, 28);
-		App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4,0,Collider::Type::NONE, 21);
-
-		App->audio->PlayFx(explosionFx);
-
-		// L10: TODO 3: Go back to the intro scene when the player gets killed
-
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
-
-		destroyed = false;
-	}*/
 }
