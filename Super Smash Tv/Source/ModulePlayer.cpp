@@ -285,7 +285,7 @@ UpdateResult ModulePlayer::Update()
 			}
 		}
 
-		if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT && position.y >= 37) //UP
+		if (App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_REPEAT && position.y >= 60) //UP
 		{
 			position.y -= speed;
 			++MovKeyPressed;

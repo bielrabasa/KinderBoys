@@ -44,15 +44,15 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 0, 16,208, 16 }, Collider::Type::WALL);//Pared Superior-Izquierda
 	App->collisions->AddCollider({ 304, 16,512, 16 }, Collider::Type::WALL);//Pared Superior-derecha
 
-	App->collisions->AddCollider({ 20, 0,16, 210 }, Collider::Type::WALL);//Pared lateral izquierdo-Superior
-	App->collisions->AddCollider({ 20, 289,16, 448 }, Collider::Type::WALL);//Pared lateral izquierdo-Inferior
+	App->collisions->AddCollider({ 10, 0,16, 210 }, Collider::Type::WALL);//Pared lateral izquierdo-Superior
+	App->collisions->AddCollider({ 10, 289,16, 448 }, Collider::Type::WALL);//Pared lateral izquierdo-Inferior
 
 	App->collisions->AddCollider({ 492, 0,16, 210 }, Collider::Type::WALL);//Pared lateral derecho-Superior
 	App->collisions->AddCollider({ 492, 289,16, 448 }, Collider::Type::WALL);//Pared lateral derecho-Inferior
 
 	App->collisions->AddCollider({ 208, 16,96, 16 }, Collider::Type::Door);//Puerta Superior
 	App->collisions->AddCollider({ 208, 431,104, 16 }, Collider::Type::Door);//Puerta inferior
-	App->collisions->AddCollider({ 20, 210,16, 79 }, Collider::Type::Door);//Puerta izquierda
+	App->collisions->AddCollider({ 10, 210,16, 79 }, Collider::Type::Door);//Puerta izquierda
 	App->collisions->AddCollider({ 492, 210,16, 79 }, Collider::Type::Door);//Puerta derecha
 
 

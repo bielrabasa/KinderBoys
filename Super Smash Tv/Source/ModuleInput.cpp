@@ -32,7 +32,7 @@ UpdateResult ModuleInput::PreUpdate()
 	SDL_Event event;
 	if (SDL_PollEvent(&event))
 	{
-		if (event.type == SDL_QUIT)	return UpdateResult::UPDATE_STOP;
+		if (event.type == SDL_QUIT || keys[SDL_SCANCODE_ESCAPE] == KeyState::KEY_REPEAT)	return UpdateResult::UPDATE_STOP;
 	}
 
 	// Read all keyboard data and update our custom array
