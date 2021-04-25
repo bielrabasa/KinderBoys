@@ -2,6 +2,7 @@
 
 #include "Application.h"
 #include "ModuleCollisions.h"
+#include "ModulePlayer.h"
 
 Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 {
@@ -23,12 +24,29 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 
 void Enemy_RedBird::Update()
 {
-	waveRatio += waveRatioSpeed;
+	if (position.x - App->player->position.x < 0)
+	{
+		position.x += 1;
+	}
+	else if (position.x - App->player->position.x > 0)
+	{
+		position.x -= 1;
+	}
+
+/*	if (position.y - App->player->position.y < 0)
+	{
+		position.y -= 0.2f;
+	}
+	else if (position.y - App->player->position.y > 0)
+	{
+		position.y += 0.2f;
+	}*/
+
+	/*waveRatio += waveRatioSpeed;
 
 	position.y = spawnPos.y + (waveHeight * sinf(waveRatio));
-	position.x -= 0;
 
-	/*if ((c1 == collider) && (destroyed == false)
+	if ((c1 == collider) && (destroyed == false)
 	{
 		position.x -= 1;
 	}
