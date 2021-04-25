@@ -225,7 +225,7 @@ UpdateResult ModulePlayer::Update()
 			}
 		}
 
-		if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT && position.x <= 450) //RIGHT
+		if (App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT && position.x <= 455) //RIGHT
 		{
 			position.x += speed;
 			++MovKeyPressed;
@@ -256,7 +256,7 @@ UpdateResult ModulePlayer::Update()
 			}
 		}
 
-		if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT && position.y <= 378) //DOWN
+		if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT && position.y <= 390) //DOWN
 		{
 			position.y += speed;
 			++MovKeyPressed;
@@ -605,7 +605,7 @@ UpdateResult ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {		
-	if (Collider::Type::obejcts)
+	if (c2->type == c2->obejcts)
 	{
 		score++;
 		cout << score;
