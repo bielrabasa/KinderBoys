@@ -64,6 +64,12 @@ bool SceneLevel1::Start()
 
 	// Enemies ---
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 200);
+	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 100);
+	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
+	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 400);
+	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 450);
+	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 50);
+
 	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 150);
 	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 250);
 	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);

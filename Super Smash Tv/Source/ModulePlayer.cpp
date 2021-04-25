@@ -728,7 +728,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 	if (c2->type == c2->ENEMY && contadorVides < 0) {
 		if(vides>0)	--vides;
-		//contadorVides = 100; //100 frames de delay
+		contadorVides = 50; //100 frames de delay
 	}
 
 	// L6: DONE 5: Detect collision with a wall. If so, destroy the player.
