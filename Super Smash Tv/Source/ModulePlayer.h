@@ -58,7 +58,6 @@ public:
 	int scoreCopia = 0;
 
 	int scoreN[8]; //arrai de digits score
-	int posicioFont = 160;
 	
 	int topDoor = 0;
 

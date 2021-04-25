@@ -60,6 +60,10 @@ public:
 	// Destroys any enemies that have moved outside the camera limits
 	void HandleEnemiesDespawn();
 
+	SDL_Texture* textureFont = nullptr;
+
+	int posicioFont = 160;
+
 
 private:
 	// Spawns a new enemy using the data from the queue

@@ -596,69 +596,7 @@ UpdateResult ModulePlayer::Update()
 
 UpdateResult ModulePlayer::PostUpdate()
 {
-	if (!destroyed)
-	{
-		//Render Immunitat
-		SDL_Rect rectImmun = { 96, 56, 32, 32 };
-		if (contadorVides > 0 && contadorVides%3 == 0) {
-			App->render->DrawTexture(texturePickups, position.x - 11, position.y + 10, &rectImmun);
-		}
-
-		//Render PressToPlay
-		SDL_Rect rectPTP = { 0, 30, 70, 32 };
-		App->render->DrawTexture(textureFont, 353, 98, &rectPTP);
-
-		//Render Font
-		SDL_Rect rect0 = { 0, 0, 10, 16 };
-		SDL_Rect rect1 = { 10, 0, 10, 16 };
-		SDL_Rect rect2 = { 20, 0, 10, 16 };
-		SDL_Rect rect3 = { 30, 0, 10, 16 };
-		SDL_Rect rect4 = { 40, 0, 10, 16 };
-		SDL_Rect rect5 = { 50, 0, 10, 16 };
-		SDL_Rect rect6 = { 60, 0, 10, 16 };
-		SDL_Rect rect7 = { 70, 0, 10, 16 };
-		SDL_Rect rect8 = { 80, 0, 10, 16 };
-		SDL_Rect rect9 = { 90, 0, 10, 16 };
-
-		for (int i = 0; i < 8; ++i) {
-			
-			switch (scoreN[i]) {
-			case 0:
-				App->render->DrawTexture(textureFont, posicioFont, 100, &rect0);
-				break;
-			case 1:
-				App->render->DrawTexture(textureFont, posicioFont, 100, &rect1);
-				break;
-			case 2:
-				App->render->DrawTexture(textureFont, posicioFont, 100, &rect2);
-				break;
-			case 3:
-				App->render->DrawTexture(textureFont, posicioFont, 100, &rect3);
-				break;
-			case 4:
-				App->render->DrawTexture(textureFont, posicioFont, 100, &rect4);
-				break;
-			case 5:
-				App->render->DrawTexture(textureFont, posicioFont, 100, &rect5);
-				break;
-			case 6:
-				App->render->DrawTexture(textureFont, posicioFont, 100, &rect6);
-				break;
-			case 7:
-				App->render->DrawTexture(textureFont, posicioFont, 100, &rect7);
-				break;
-			case 8:
-				App->render->DrawTexture(textureFont, posicioFont, 100, &rect8);
-				break;
-			case 9:
-				App->render->DrawTexture(textureFont, posicioFont, 100, &rect9);
-				break;
-			}
-			
-			posicioFont -= 15; //Separació entre nombres
-		}
-		posicioFont = 160; //Posició del primer element de la dreta
-	}
+	//TOTA L'IMPRESSIÓ D'SPRITES DE NOMBRES I IMMUNITAT S'HA PORTAT AL ModuleEnemies, ara ja estan en ordre.
 
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
 	App->render->DrawTexture(texture, position.x + 2, position.y + 17, &rect);

@@ -5,6 +5,8 @@
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
+#include "ModuleCollisions.h" //Per arreglar l'error
+#include "ModulePlayer.h"
 
 #include "Enemy.h"
 #include "Enemy_RedBird.h"
@@ -31,6 +33,8 @@ bool ModuleEnemies::Start()
 
 	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 
+	textureFont = App->textures->Load("Assets/SpritesSSTV/Font.png");
+
 	return true;
 }
 
@@ -51,13 +55,75 @@ UpdateResult ModuleEnemies::Update()
 
 UpdateResult ModuleEnemies::PostUpdate()
 {
+	//IMPRIMIR UI/PORTES ?
+	
+	//Render PressToPlay
+	SDL_Rect rectPTP = { 0, 30, 70, 32 };
+	App->render->DrawTexture(App->player->textureFont, 353, 98, &rectPTP);
+
+	//Render Font
+	SDL_Rect rect0 = { 0, 0, 10, 16 };
+	SDL_Rect rect1 = { 10, 0, 10, 16 };
+	SDL_Rect rect2 = { 20, 0, 10, 16 };
+	SDL_Rect rect3 = { 30, 0, 10, 16 };
+	SDL_Rect rect4 = { 40, 0, 10, 16 };
+	SDL_Rect rect5 = { 50, 0, 10, 16 };
+	SDL_Rect rect6 = { 60, 0, 10, 16 };
+	SDL_Rect rect7 = { 70, 0, 10, 16 };
+	SDL_Rect rect8 = { 80, 0, 10, 16 };
+	SDL_Rect rect9 = { 90, 0, 10, 16 };
+
+
+	for (int i = 0; i < 8; ++i) {
+
+		switch (App->player->scoreN[i]) {
+		case 0:
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect0);
+			break;
+		case 1:
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect1);
+			break;
+		case 2:
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect2);
+			break;
+		case 3:
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect3);
+			break;
+		case 4:
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect4);
+			break;
+		case 5:
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect5);
+			break;
+		case 6:
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect6);
+			break;
+		case 7:
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect7);
+			break;
+		case 8:
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect8);
+			break;
+		case 9:
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect9);
+			break;
+		}
+
+		posicioFont -= 15; //Separació entre nombres
+	}
+	posicioFont = 160; //Posició del primer element de la dreta
+	
+	//Render Immunitat
+	SDL_Rect rectImmun = { 96, 56, 32, 32 };
+	if (App->player->contadorVides > 0 && App->player->contadorVides % 3 == 0) {
+		App->render->DrawTexture(App->player->texturePickups, App->player->position.x - 11, App->player->position.y + 10, &rectImmun);
+	}
+
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if (enemies[i] != nullptr)
 			enemies[i]->Draw();
 	}
-
-	//IMPRIMIR UI/PORTES ?
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
