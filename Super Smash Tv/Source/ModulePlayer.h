@@ -37,7 +37,7 @@ public:
 	iPoint position;
 
 	// The speed in which we move the player (pixels per frame)
-	int speed = 1;
+	int speed = 2.5;
 	int cont = 25;
 	bool bandera = true;
 	//bool bandera_GodMode = false;

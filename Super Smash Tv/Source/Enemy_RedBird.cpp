@@ -33,14 +33,14 @@ void Enemy_RedBird::Update()
 		position.x -= 1;
 	}
 
-/*	if (position.y - App->player->position.y < 0)
+	if (position.y - App->player->position.y < 0)
 	{
-		position.y -= 0.2f;
+		position.y += 1;
 	}
 	else if (position.y - App->player->position.y > 0)
 	{
-		position.y += 0.2f;
-	}*/
+		position.y -= 1;
+	}
 
 	/*waveRatio += waveRatioSpeed;
 
