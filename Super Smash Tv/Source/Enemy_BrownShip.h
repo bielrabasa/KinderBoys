@@ -23,6 +23,10 @@ private:
 	// This enemy has one sprite and one frame
 	// We are keeping it an animation for consistency with other enemies
 	Animation fly;
+
+
+	// Delay entre els moviments de l'enemic
+	int movementDelay = 0;
 };
 
 #endif // __ENEMY_BROWNSHIP_H__

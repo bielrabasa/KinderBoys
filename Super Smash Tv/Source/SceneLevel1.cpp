@@ -79,10 +79,10 @@ bool SceneLevel1::Start()
 	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 775, 120);
 	//App->enemies->AddEnemy(Enemy_Type::REDBIRD, 790, 120);
 
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 830, 100);
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 850, 100);
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 870, 100);
-	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 890, 100);
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 100);
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 200);
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 300);
+	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 400);
 
 	App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);
 
