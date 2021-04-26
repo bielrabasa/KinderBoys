@@ -678,6 +678,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		score++;
 	}
+	if (c2->type == c2->Door) {
+
+	}
 	
 
 

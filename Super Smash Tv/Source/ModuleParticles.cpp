@@ -88,7 +88,7 @@ bool ModuleParticles::Start()
 	laserUR.anim.speed = 0.2f;
 
 
-	Gold.anim.PushBack({ 0, 40, 16, 16 }); 
+	Gold.anim.PushBack({ 0, 40, 17, 17 }); 
 	Silver.anim.PushBack({ 16, 40, 16, 16 }); 
 	SilverGold.anim.PushBack({ 32, 40, 16, 16 });
 	Cash.anim.PushBack({ 48, 40, 16, 16 }); 

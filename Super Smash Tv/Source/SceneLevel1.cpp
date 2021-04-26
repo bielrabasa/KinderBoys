@@ -54,7 +54,7 @@ bool SceneLevel1::Start()
 	App->collisions->AddCollider({ 208, 16,96, 16 }, Collider::Type::Door);//Puerta Superior
 	App->collisions->AddCollider({ 208, 431,104, 16 }, Collider::Type::Door);//Puerta inferior
 	App->collisions->AddCollider({ 10, 210,16, 79 }, Collider::Type::Door);//Puerta izquierda
-	App->collisions->AddCollider({ 492, 210,16, 79 }, Collider::Type::Door);//Puerta derecha
+	App->collisions->AddCollider({ 480, 210,16, 79 }, Collider::Type::Door);//Puerta derecha
 
 
 	//First two columns colliders
