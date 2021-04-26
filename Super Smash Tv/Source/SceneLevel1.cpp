@@ -111,13 +111,17 @@ UpdateResult SceneLevel1::Update()
 	{
 		App->particles->randmoX = (rand() % 395 + 30);
 		App->particles->randmoY = (rand() % 285 + 120);
-		App->particles->randomSpawn = (rand() % 2);
+		App->particles->randomSpawn = (rand() % 4);
 		if(App->particles->randomSpawn == 0)
 		App->particles->AddParticle(App->particles->Gold, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::obejcts);
 		else if(App->particles->randomSpawn == 1)
 		App->particles->AddParticle(App->particles->Silver, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::obejcts);
+		else if(App->particles->randomSpawn == 2)
+		App->particles->AddParticle(App->particles->Cash, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::obejcts);
+		else if(App->particles->randomSpawn == 3)
+		App->particles->AddParticle(App->particles->SilverGold, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::obejcts);
 		num = 0;
-		randomcont = (rand() % 500 + 10);
+		randomcont = (rand() % 300 + 5);
 
 	}
 
