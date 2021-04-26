@@ -115,10 +115,16 @@ bool ModuleParticles::CleanUp()
 
 void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 {
-	if(c2->type == c2->ENEMY && c1->type == c1->PLAYER_SHOT)
+	if (c2->type == c2->ENEMY && c1->type == c1->PLAYER_SHOT 
+		|| c2->type == c2->Door && c1->type == c1->PLAYER_SHOT 
+		|| c2->type == c2->WALL && c1->type == c1->PLAYER_SHOT)
 	{
-		App->player->score += 30;
+		
 		App->audio->PlayFx(explosionFx);
+	}
+	if (c2->type == c2->ENEMY && c1->type == c1->PLAYER_SHOT)
+	{
+	App->player->score += 30;
 	}
 
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
