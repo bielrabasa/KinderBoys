@@ -600,8 +600,8 @@ UpdateResult ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) { //necessita col·lidir amb un enemic al final per morir
 		vides--;
 	}
-//	if (App->input->keys[SDL_SCANCODE_F4] == KeyState::KEY_DOWN)
-//	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+	if (App->input->keys[SDL_SCANCODE_F4] == KeyState::KEY_DOWN)
+	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
 
 	
 	return UpdateResult::UPDATE_CONTINUE;
@@ -682,6 +682,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	
 	if (c2->type == c2->Door && App->sceneLevel_1->sceneTimer >= 3600) {
 		//	WIN CONDITION
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
 	}
 	
 
