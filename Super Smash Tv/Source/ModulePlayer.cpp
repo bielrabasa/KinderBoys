@@ -8,6 +8,7 @@ using namespace std;
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleParticles.h"
+#include "ModuleEnemies.h"
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
@@ -159,6 +160,8 @@ bool ModulePlayer::Start()
 
 	position.x = 150;
 	position.y = 120;
+
+	vides = 5;
 
 	// L10: TODO 4: Retrieve the player when playing a second time
 	destroyed = false;
@@ -682,7 +685,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 			App->audio->PlayFx(explosionFx);
 
-			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 60);
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+			
+			App->particles->CleanUp();
+			App->enemies->CleanUp();
 
 			destroyed = false;
 		}
