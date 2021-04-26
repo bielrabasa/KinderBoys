@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModulePlayer.h"
+#include "ModuleEnemies.h"
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleParticles.h"
@@ -35,6 +36,10 @@ bool SceneLose::Start()
 	
 	App->player->CleanUp();
 	App->collisions->CleanUp();
+	App->particles->CleanUp();
+	App->enemies->CleanUp();
+
+	App->enemies->Disable();
 
 	return ret;
 }

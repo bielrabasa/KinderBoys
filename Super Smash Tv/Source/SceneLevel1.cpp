@@ -115,7 +115,7 @@ UpdateResult SceneLevel1::Update()
 		else if(App->particles->randomSpawn == 1)
 		App->particles->AddParticle(App->particles->Silver, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::obejcts);
 		num = 0;
-		randomcont = (rand() % 300 + 10);
+		randomcont = (rand() % 500 + 10);
 
 	}
 

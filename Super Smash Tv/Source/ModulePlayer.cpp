@@ -592,6 +592,12 @@ UpdateResult ModulePlayer::Update()
 		contadorVides = -1;
 	}
 
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_DOWN)
+	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+
+//	if (App->input->keys[SDL_SCANCODE_F4] == KeyState::KEY_DOWN)
+//	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
+
 	
 	return UpdateResult::UPDATE_CONTINUE;
 }
@@ -686,10 +692,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 60);
 			
-			App->particles->CleanUp();
-			App->enemies->CleanUp();
 
-			App->enemies->Disable();
 
 			destroyed = false;
 		}
