@@ -39,6 +39,8 @@ public:
 	int num = 0;
 	int sceneTimer = 0;
 	int randomEnemySpawn = 0;
+	short portesSpawn[4][9][2];
+	int i = 0;
 };
 
 #endif  // __SCENELEVEL1_H__

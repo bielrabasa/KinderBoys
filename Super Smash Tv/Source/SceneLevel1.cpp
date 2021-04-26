@@ -63,7 +63,7 @@ bool SceneLevel1::Start()
 
 
 	// Enemies ---
-	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 200);
+	/*App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 200);
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 100);
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
 	App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 400);
@@ -83,7 +83,7 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 200);
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 300);
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 400);
-
+	*/
 	//App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);
 
 	App->render->camera.x = 0;
@@ -96,6 +96,7 @@ bool SceneLevel1::Start()
 	App->player->Enable();
 
 	srand(time(NULL));
+
 
 	return ret;
 }
@@ -128,28 +129,61 @@ UpdateResult SceneLevel1::Update()
 	if (sceneTimer % 150 == 0) {
 		randomEnemySpawn = (rand() % 10);
 		
+		
+		if (i == 0) { //porta de dalt
+			for (int j = 0; j < 9; ++j) {
+				portesSpawn[i][j][0] = (rand() % 105 + 195); //porta abaix X (random entre 195 i 300)
+				portesSpawn[i][j][1] = 10; //porta abaix Y
+			}
+		}
+
+		if (i == 1) { //porta esquerra
+			for (int j = 0; j < 9; ++j) {
+				portesSpawn[i][j][0] = 5;
+				portesSpawn[i][j][1] = (rand() % 65 + 185);
+			}
+		}
+
+		if (i == 2) { //porta dreta
+			for (int j = 0; j < 9; ++j) {
+				portesSpawn[i][j][0] = 500;
+				portesSpawn[i][j][1] = (rand() % 65 + 185);
+			}
+		}
+
+		if (i == 3) { //porta abaix
+			for (int j = 0; j < 9; ++j) {
+				portesSpawn[i][j][0] = (rand() % 105 + 195); //porta abaix X (random entre 195 i 300)
+				portesSpawn[i][j][1] = 400; //porta abaix Y
+			}
+		}
+
+
 		switch (randomEnemySpawn) {
 		case 9:
-			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
-			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
-			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, portesSpawn[i][0][0], portesSpawn[i][0][1]);
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, portesSpawn[i][1][0], portesSpawn[i][1][1]);
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, portesSpawn[i][2][0], portesSpawn[i][2][1]);
 		case 8:
 		case 7:
-			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
-			App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 200);
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, portesSpawn[i][3][0], portesSpawn[i][3][1]);
+			App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, portesSpawn[i][4][0], portesSpawn[i][4][1]);
 		case 6:
-			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, portesSpawn[i][5][0], portesSpawn[i][5][1]);
 		case 5:
 		case 4:
 		case 3:
 		case 2:
-			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, portesSpawn[i][6][0], portesSpawn[i][6][1]);
 		case 1:
-			App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 200);
+			App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, portesSpawn[i][7][0], portesSpawn[i][7][1]);
 		case 0:
-			App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 200);
+			App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, portesSpawn[i][8][0], portesSpawn[i][8][1]);
 			break;
 		}
+		
+		++i;
+		if (i == 4) i = 0;
 	}
 
 

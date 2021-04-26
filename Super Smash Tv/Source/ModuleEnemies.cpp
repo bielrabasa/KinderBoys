@@ -55,7 +55,6 @@ UpdateResult ModuleEnemies::Update()
 
 UpdateResult ModuleEnemies::PostUpdate()
 {
-	//IMPRIMIR UI/PORTES ?
 	
 	//Render PressToPlay
 	SDL_Rect rectPTP = { 0, 30, 70, 32 };
