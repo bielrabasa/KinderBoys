@@ -156,7 +156,7 @@ bool ModulePlayer::Start()
 	texturePickups = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
-	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
+	
 
 	position.x = 150;
 	position.y = 120;
@@ -678,6 +678,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		score++;
 	}
+	
+
 
 	//GESTIONAR LES VIDES I LA MORT
 	if ((c2->type == c2->ENEMY) && (contadorVides < 0) && (bandera_GodMode == false) && (destroyed == false)) {

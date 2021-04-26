@@ -6,6 +6,8 @@
 #include "ModuleRender.h"
 #include "ModuleCollisions.h"
 #include "ModulePlayer.h"
+#include "moduleaudio.h"
+#include "ModulePlayer.h"
 
 #include "SDL/include/SDL_timer.h"
 
@@ -21,6 +23,7 @@ ModuleParticles::~ModuleParticles()
 
 bool ModuleParticles::Start()
 {
+	explosionFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
 	LOG("Loading particles");
 	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
 	//textureGold = App->textures->Load("Assets/SpritesSSTV/Entity_Objects.png");
@@ -115,6 +118,7 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	if(c2->type == c2->ENEMY && c1->type == c1->PLAYER_SHOT)
 	{
 		App->player->score += 30;
+		App->audio->PlayFx(explosionFx);
 	}
 
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
