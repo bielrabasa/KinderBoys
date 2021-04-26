@@ -161,7 +161,6 @@ bool ModulePlayer::Start()
 	position.x = 150;
 	position.y = 120;
 
-	vides = 5;
 
 	// L10: TODO 4: Retrieve the player when playing a second time
 	destroyed = false;
@@ -689,6 +688,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			
 			App->particles->CleanUp();
 			App->enemies->CleanUp();
+
+			App->enemies->Disable();
 
 			destroyed = false;
 		}

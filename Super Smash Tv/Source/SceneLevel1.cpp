@@ -89,6 +89,9 @@ bool SceneLevel1::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
+	App->player->vides = 5;
+	App->player->score = 0;
+
 	// L10: TODO 2: Enable (and properly disable) the player module
 	App->player->Enable();
 
