@@ -34,6 +34,9 @@ public:
 	
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
+
+	int randomcont = 50;
+	int num = 0;
 };
 
 #endif  // __SCENELEVEL1_H__

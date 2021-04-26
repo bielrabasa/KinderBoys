@@ -84,7 +84,7 @@ bool SceneLevel1::Start()
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 300);
 	App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 400);
 
-	App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);
+	//App->enemies->AddEnemy(Enemy_Type::MECH, 900, 195);
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
@@ -103,8 +103,9 @@ bool SceneLevel1::Start()
 UpdateResult SceneLevel1::Update()
 {
 	//App->render->camera.x += 3; //SCROLL
-
-	if ((App->input->keys[SDL_SCANCODE_Q] == KeyState::KEY_REPEAT) && (App->player->vides > 0)) //SpawnShit
+	num++;
+	//if ((App->input->keys[SDL_SCANCODE_Q] == KeyState::KEY_REPEAT) && (App->player->vides > 0)) //SpawnShit
+	if ((num == randomcont) && (App->player->vides > 0)) //SpawnShit
 	{
 		App->particles->randmoX = (rand() % 395 + 30);
 		App->particles->randmoY = (rand() % 285 + 120);
@@ -113,6 +114,9 @@ UpdateResult SceneLevel1::Update()
 		App->particles->AddParticle(App->particles->Gold, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::obejcts);
 		else if(App->particles->randomSpawn == 1)
 		App->particles->AddParticle(App->particles->Silver, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::obejcts);
+		num = 0;
+		randomcont = (rand() % 300 + 10);
+
 	}
 
 	return UpdateResult::UPDATE_CONTINUE;
