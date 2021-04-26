@@ -39,51 +39,51 @@ bool ModuleParticles::Start()
 	explosion.anim.speed = 0.3f;
 
 	laserL.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat
-	laserL.speed.x = 5;
-	laserL.speed.y = 5;
+	laserL.speed.x = 15;
+	laserL.speed.y = 15;
 	laserL.lifetime = 180;
 	laserL.anim.speed = 0.2f;
 
 	laserR.anim.PushBack({ 16, 11, 8, 3 }); //animació del laser Right    //Collider Arreglat
-	laserR.speed.x = 5;
-	laserR.speed.y = 5;
+	laserR.speed.x = 15;
+	laserR.speed.y = 15;
 	laserR.lifetime = 180;
 	laserR.anim.speed = 0.2f;
 
 	laserU.anim.PushBack({ 10, 1, 4, 8 }); //animació del laser Up		  //Collider Arreglat
-	laserU.speed.x = 5;
-	laserU.speed.y = 5;
+	laserU.speed.x = 15;
+	laserU.speed.y = 15;
 	laserU.lifetime = 180;
 	laserU.anim.speed = 0.2f;
 
 	laserD.anim.PushBack({ 10, 16, 3, 8 }); //animació del laser Down	  //Collider Arreglat	
-	laserD.speed.x = 5;
-	laserD.speed.y = 5;
+	laserD.speed.x = 15;
+	laserD.speed.y = 15;
 	laserD.lifetime = 180;
 	laserD.anim.speed = 0.2f;
 
 	laserDR.anim.PushBack({ 16, 16, 6, 6 }); //animació del laser Down & Right     //Collider Arreglat
-	laserDR.speed.x = 5;
-	laserDR.speed.y = 5;
+	laserDR.speed.x = 15;
+	laserDR.speed.y = 15;
 	laserDR.lifetime = 180;
 	laserDR.anim.speed = 0.2f;
 	
 
 	laserDL.anim.PushBack({ 0, 17, 9, 5 }); //animació del laser Down & Left  //Collider Arreglat *apaño
-	laserDL.speed.x = 5;
-	laserDL.speed.y = 5;
+	laserDL.speed.x = 15;
+	laserDL.speed.y = 15;
 	laserDL.lifetime = 180;
 	laserDL.anim.speed = 0.2f;	
 	
 	laserUL.anim.PushBack({ 0, 0, 6, 6 }); //animació del laser Up & Left     //Collider Arreglat
-	laserUL.speed.x = 5;
-	laserUL.speed.y = 5;
+	laserUL.speed.x = 15;
+	laserUL.speed.y = 15;
 	laserUL.lifetime = 180;
 	laserUL.anim.speed = 0.2f;
 
 	laserUR.anim.PushBack({ 16, 0, 8, 11 }); //animació del laser Up & Right	//Collider Arreglat *apaño
-	laserUR.speed.x = 5;
-	laserUR.speed.y = 5;
+	laserUR.speed.x = 15;
+	laserUR.speed.y = 15;
 	laserUR.lifetime = 180;
 	laserUR.anim.speed = 0.2f;
 

@@ -105,10 +105,10 @@ UpdateResult SceneLevel1::Update()
 {
 	//App->render->camera.x += 3; //SCROLL
 	++num;
-	++sceneTimer;
+	if(sceneTimer < 3601)	++sceneTimer;
 
 	//if ((App->input->keys[SDL_SCANCODE_Q] == KeyState::KEY_REPEAT) && (App->player->vides > 0)) //SpawnShit
-	if ((num == randomcont) && (App->player->vides > 0)) //SpawnShit
+	if ((num == randomcont) && (App->player->vides > 0) && (sceneTimer <= 3600)) //SpawnShit
 	{
 		App->particles->randmoX = (rand() % 395 + 30);
 		App->particles->randmoY = (rand() % 285 + 120);
@@ -121,19 +121,19 @@ UpdateResult SceneLevel1::Update()
 		App->particles->AddParticle(App->particles->Cash, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::obejcts);
 		else if(App->particles->randomSpawn == 3)
 		App->particles->AddParticle(App->particles->SilverGold, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::obejcts);
+		
 		num = 0;
 		randomcont = (rand() % 300 + 5);
-
 	}
 
-	if (sceneTimer % 150 == 0) {
+	if (sceneTimer % 150 == 0 && sceneTimer <= 3600) {//3600frames, 6 rondes, 24 aparicions random
 		randomEnemySpawn = (rand() % 10);
 		
 		
 		if (i == 0) { //porta de dalt
 			for (int j = 0; j < 9; ++j) {
 				portesSpawn[i][j][0] = (rand() % 105 + 195); //porta abaix X (random entre 195 i 300)
-				portesSpawn[i][j][1] = 10; //porta abaix Y
+				portesSpawn[i][j][1] = 10; //porta adalt Y
 			}
 		}
 
@@ -186,6 +186,9 @@ UpdateResult SceneLevel1::Update()
 		if (i == 4) i = 0;
 	}
 
+	if (i == 1) mapaActual = 7;
+	else mapaActual = 0;
+
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
@@ -193,7 +196,7 @@ UpdateResult SceneLevel1::Update()
 UpdateResult SceneLevel1::PostUpdate()
 {
 	// Draw everything
-	App->render->DrawTexture(bgTexture, 0, 0, NULL); //SPRITE del fons, podem posar els altres amb (bgTexture, -512*mapaActual, 0, NULL)
+	App->render->DrawTexture(bgTexture, -512*mapaActual, 0, NULL); //SPRITE del fons, podem posar els altres amb (bgTexture, -512*mapaActual, 0, NULL)
 
 	return UpdateResult::UPDATE_CONTINUE;
 }

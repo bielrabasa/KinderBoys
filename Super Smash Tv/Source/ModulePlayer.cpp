@@ -12,6 +12,7 @@ using namespace std;
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
+#include "SceneLevel1.h"
 
 #include "SDL/include/SDL_render.h"
 
@@ -458,7 +459,7 @@ UpdateResult ModulePlayer::Update()
 	//Direccion de donde va la bala
 		//DIAGONALS
 	cont++;
-	if (cont >= 25) { //DELAY
+	if (cont >= 10) { //DELAY
 		bandera = true;
 		cont = 0;
 	}
@@ -678,8 +679,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		score++;
 	}
-	if (c2->type == c2->Door) {
-
+	
+	if (c2->type == c2->Door && App->sceneLevel_1->sceneTimer >= 3600) {
+		//	WIN CONDITION
 	}
 	
 
