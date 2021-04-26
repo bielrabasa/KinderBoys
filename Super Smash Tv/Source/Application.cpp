@@ -7,6 +7,7 @@
 #include "ModuleAudio.h"
 #include "ModulePlayer.h"
 #include "SceneIntro.h"
+#include "SceneUPC.h"
 #include "SceneLevel1.h"
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
@@ -26,7 +27,8 @@ Application::Application()
 	modules[3] =	audio =			new ModuleAudio(true);
 
 	modules[4] =	sceneIntro =	new SceneIntro(true);
-	modules[5] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
+	modules[5] =	sceneUPC =		new SceneUPC(false);
+	modules[6] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
 	
 	//L'ORDRE D'SPRITES NO ÉS CORRECTE (Original)
 	//modules[6] =	player =		new ModulePlayer(false);	//Player starts disabled
@@ -34,14 +36,14 @@ Application::Application()
 	//modules[8] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
 	
 	//PLAYER HA D'ESTAR PER SOBRE DE ENEMIES (pels sprites de portes), i PARTICLES (ha d'estar necessariament per sobre dels 2, sinó dona problemes)
-	modules[6] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
-	modules[7] =	player =		new ModulePlayer(false);	//Player starts disabled	
-	modules[8] =	particles =		new ModuleParticles(false);
+	modules[7] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
+	modules[8] =	player =		new ModulePlayer(false);	//Player starts disabled	
+	modules[9] =	particles =		new ModuleParticles(false);
 
-	modules[9] =	collisions =	new ModuleCollisions(true);
-	modules[10] =	fade =			new ModuleFadeToBlack(true);
+	modules[10] =	collisions =	new ModuleCollisions(true);
+	modules[11] =	fade =			new ModuleFadeToBlack(true);
 
-	modules[11] =	render =		new ModuleRender(true);
+	modules[12] =	render =		new ModuleRender(true);
 }
 
 Application::~Application()

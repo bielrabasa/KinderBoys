@@ -1,4 +1,4 @@
-#include "SceneIntro.h"
+#include "SceneUPC.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -7,24 +7,25 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 
-SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
+SceneUPC::SceneUPC(bool startEnabled) : Module(startEnabled)
 {
 
 }
 
-SceneIntro::~SceneIntro()
+SceneUPC::~SceneUPC()
 {
 
 }
 
 // Load assets
-bool SceneIntro::Start()
+bool SceneUPC::Start()
 {
 	LOG("Loading background assets");
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/SpritesSSTV/Pantalla_Kinderboys.png");
+	bgTexture = App->textures->Load("Assets/SpritesSSTV/Pantalla_uni.png");
+	//bgTexture = App->textures->Load("Assets/SpritesSSTV/Pantalla_Kinderboys.png");
 	App->audio->PlayMusic("Assets/Music/", 1.0f);
 
 	App->render->camera.x = 0;
@@ -33,17 +34,17 @@ bool SceneIntro::Start()
 	return ret;
 }
 
-UpdateResult SceneIntro::Update()
+UpdateResult SceneUPC::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneUPC, 90);
+		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 90);
 	}
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
-UpdateResult SceneIntro::PostUpdate()
+UpdateResult SceneUPC::PostUpdate()
 {
 	// Draw everything
 	App->render->DrawTexture(bgTexture, 0, 0, NULL);
