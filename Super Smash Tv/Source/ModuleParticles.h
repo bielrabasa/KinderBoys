@@ -71,6 +71,8 @@ public:
 
 	Particle Gold;
 	Particle Silver;
+	Particle SilverGold;
+	Particle Cash;
 
 	//Template particle for a laser
 	Particle laserL;

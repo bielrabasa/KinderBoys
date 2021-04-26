@@ -87,6 +87,8 @@ bool ModuleParticles::Start()
 
 	Gold.anim.PushBack({ 0, 40, 16, 16 }); 
 	Silver.anim.PushBack({ 16, 40, 16, 16 }); 
+	SilverGold.anim.PushBack({ 32, 40, 16, 16 });
+	Cash.anim.PushBack({ 48, 40, 16, 16 }); 
 
 	return true;
 }
