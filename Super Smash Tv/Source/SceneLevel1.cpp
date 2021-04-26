@@ -101,7 +101,7 @@ UpdateResult SceneLevel1::Update()
 {
 	//App->render->camera.x += 3; //SCROLL
 
-	if (App->input->keys[SDL_SCANCODE_Q] == KeyState::KEY_REPEAT) //SpawnShit
+	if ((App->input->keys[SDL_SCANCODE_Q] == KeyState::KEY_REPEAT) && (App->player->vides > 0)) //SpawnShit
 	{
 		App->particles->randmoX = (rand() % 395 + 30);
 		App->particles->randmoY = (rand() % 285 + 120);
