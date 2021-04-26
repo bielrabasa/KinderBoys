@@ -37,6 +37,8 @@ public:
 
 	int randomcont = 50;
 	int num = 0;
+	int sceneTimer = 0;
+	int randomEnemySpawn = 0;
 };
 
 #endif  // __SCENELEVEL1_H__

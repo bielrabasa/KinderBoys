@@ -103,7 +103,9 @@ bool SceneLevel1::Start()
 UpdateResult SceneLevel1::Update()
 {
 	//App->render->camera.x += 3; //SCROLL
-	num++;
+	++num;
+	++sceneTimer;
+
 	//if ((App->input->keys[SDL_SCANCODE_Q] == KeyState::KEY_REPEAT) && (App->player->vides > 0)) //SpawnShit
 	if ((num == randomcont) && (App->player->vides > 0)) //SpawnShit
 	{
@@ -118,6 +120,34 @@ UpdateResult SceneLevel1::Update()
 		randomcont = (rand() % 500 + 10);
 
 	}
+
+	if (sceneTimer % 150 == 0) {
+		randomEnemySpawn = (rand() % 10);
+		
+		switch (randomEnemySpawn) {
+		case 9:
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
+		case 8:
+		case 7:
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
+			App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 200);
+		case 6:
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
+		case 5:
+		case 4:
+		case 3:
+		case 2:
+			App->enemies->AddEnemy(Enemy_Type::REDBIRD, 350, 300);
+		case 1:
+			App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 200);
+		case 0:
+			App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 100, 200);
+			break;
+		}
+	}
+
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
