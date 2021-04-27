@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModulePlayer.h"
+#include "SceneLevel1.h"
 
 Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 {
@@ -40,7 +41,26 @@ void Enemy_BrownShip::Update()
 	//path.Update();
 	//position = spawnPos + path.GetRelativePosition();
 	movementDelay++;
-	if (movementDelay >= 1) {
+	spawntimer++;
+
+	if (spawntimer <= 100) {
+		switch (App->sceneLevel_1->i) {
+		case 0:
+			position.y -= 1;
+			break;
+		case 1:
+			position.y += 1; //dalt
+			break;
+		case 2:
+			position.x += 1;
+			break;
+		case 3:
+			position.x -= 1;
+			break;
+		}
+	}
+	
+	if (movementDelay >= 1 && spawntimer > 100) {
 		if (position.x - App->player->position.x < 0)
 		{
 			position.x += 1;

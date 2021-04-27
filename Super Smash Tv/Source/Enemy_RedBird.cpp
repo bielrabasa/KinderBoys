@@ -3,6 +3,8 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModulePlayer.h"
+#include "ModuleEnemies.h"
+#include "SceneLevel1.h"
 
 Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 {
@@ -36,7 +38,26 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 void Enemy_RedBird::Update()
 {
 	movementDelay++;
-	if (movementDelay >= 2) {
+	spawntimer++;
+	
+	if (spawntimer <= 100) {
+		switch (App->sceneLevel_1->i) {
+		case 0:
+			position.y -= 1;
+			break;
+		case 1:
+			position.y += 1; //dalt
+			break; 
+		case 2:
+			position.x += 1;
+			break;
+		case 3:
+			position.x -= 1;
+			break;
+		}
+	}
+	
+	if (movementDelay >= 2 && spawntimer > 100) {
 		if (position.x - App->player->position.x < 0)
 		{
 			position.x += 1;
@@ -75,3 +96,12 @@ void Enemy_RedBird::Update()
 	// It will update the collider depending on the position
 	Enemy::Update();
 }
+
+/*void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
+{
+	if (c2->type == c2->WALL) {
+		
+	}
+
+}*/
+

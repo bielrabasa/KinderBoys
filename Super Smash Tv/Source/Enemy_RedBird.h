@@ -13,6 +13,8 @@ public:
 
 	// The enemy is going to perform a sinusoidal movement
 	void Update() override;
+	// Delay entre els moviments de l'enemic
+	int movementDelay = 0;
 
 private:
 	// The position (as ratio) in the wave at a specific moment
@@ -27,8 +29,10 @@ private:
 	// The total height of the wave
 	int waveHeight = 15;
 
-	// Delay entre els moviments de l'enemic
-	int movementDelay = 0;
+	int spawntimer = 0;
+
+
+	
 
 	// The enemy animation
 	Animation flyAnim;

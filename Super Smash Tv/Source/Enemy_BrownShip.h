@@ -27,6 +27,7 @@ private:
 
 	// Delay entre els moviments de l'enemic
 	int movementDelay = 0;
+	int spawntimer = 0;
 };
 
 #endif // __ENEMY_BROWNSHIP_H__
