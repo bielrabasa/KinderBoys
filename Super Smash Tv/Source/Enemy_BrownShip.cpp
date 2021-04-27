@@ -14,6 +14,16 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 32, 144, 16, 16 });
 	fly.PushBack({ 48, 144, 16, 16 });
 	fly.PushBack({ 64, 144, 16, 16 });
+	fly.PushBack({ 16, 160, 16, 16 });
+	fly.PushBack({ 32, 160, 16, 16 });
+	fly.PushBack({ 64, 160, 16, 16 });
+	fly.PushBack({ 80, 160, 16, 16 });
+	fly.PushBack({ 32, 176, 16, 16 });
+	fly.PushBack({ 48, 176, 16, 16 });
+	fly.PushBack({ 64, 176, 16, 16 });
+	fly.PushBack({ 16, 192, 16, 16 });
+	fly.PushBack({ 48, 192, 16, 16 });
+	fly.PushBack({ 80, 192, 16, 16 });
 	fly.PushBack({ 0, 208, 16, 16 });
 	fly.speed = 0.1f;
 	currentAnim = &fly;
