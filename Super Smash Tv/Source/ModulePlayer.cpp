@@ -163,10 +163,8 @@ bool ModulePlayer::Start()
 	position.y = 120;
 
 
-	// L10: TODO 4: Retrieve the player when playing a second time
 	destroyed = false;
 
-	// L6: DONE 3: Add a collider to the player
 	collider = App->collisions->AddCollider({ position.x, position.y, 25, 35 }, Collider::Type::PLAYER, this);
 
 	

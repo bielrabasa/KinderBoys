@@ -92,7 +92,6 @@ bool SceneLevel1::Start()
 	App->player->vides = 5;
 	App->player->score = 0;
 
-	// L10: TODO 2: Enable (and properly disable) the player module
 	App->player->Enable();
 
 	srand(time(NULL));
@@ -126,7 +125,7 @@ UpdateResult SceneLevel1::Update()
 		randomcont = (rand() % 300 + 5);
 	}
 
-	if (sceneTimer % 150 == 0 && sceneTimer <= 3600) {//3600frames, 6 rondes, 24 aparicions random
+	if (sceneTimer % 80 == 0 && sceneTimer <= 3600) {//3600frames, 6 rondes, 24 aparicions random (sceneTimer % 150)
 		randomEnemySpawn = (rand() % 10);
 		
 		

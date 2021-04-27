@@ -34,7 +34,6 @@ UpdateResult ModuleFadeToBlack::Update()
 		++frameCount;
 		if (frameCount >= maxFadeFrames)
 		{
-			// L10: TODO 1: Enable / Disable the modules received when FadeToBlack() gets called
 			moduleToDisable->Disable();
 			moduleToEnable->Enable();
 
@@ -78,7 +77,6 @@ bool ModuleFadeToBlack::FadeToBlack(Module* moduleToDisable, Module* moduleToEna
 		frameCount = 0;
 		maxFadeFrames = frames;
 
-		// L10: TODO 1: Keep track of the modules received in FadeToBlack()
 		this->moduleToDisable = moduleToDisable;
 		this->moduleToEnable = moduleToEnable;
 		ret = true;

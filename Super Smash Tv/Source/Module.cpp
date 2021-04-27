@@ -51,7 +51,6 @@ void Module::Enable()
 
 void Module::Disable()
 {
-	// L10: TODO 0: Call CleanUp() when disabling a module
 	if (isEnabled) {
 		isEnabled = false;
 		CleanUp();
