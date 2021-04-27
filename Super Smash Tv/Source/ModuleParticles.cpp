@@ -113,6 +113,7 @@ bool ModuleParticles::CleanUp()
 	//desinicialitzar sprites
 	App->textures->Unload(texture);
 
+
 	return true;
 }
 
