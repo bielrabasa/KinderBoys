@@ -20,6 +20,7 @@ public:
 	// Called when the module is activated
 	// Loads the necessary textures for the player
 	bool Start() override;
+	bool CleanUp() override;
 
 	// Called at the middle of the application loop
 	// Processes new input and handles player movement

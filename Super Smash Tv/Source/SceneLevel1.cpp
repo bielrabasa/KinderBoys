@@ -202,7 +202,11 @@ UpdateResult SceneLevel1::PostUpdate()
 
 bool SceneLevel1::CleanUp()
 {
+	App->textures->Unload(bgTexture);
 	App->player->Disable();
+	App->enemies->Disable();
+	App->particles->Disable();
+
 	// L10: TODO 5: Remove all memory leaks
 
 	return true;

@@ -721,3 +721,18 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		contadorVides = 50; //50 frames de delay
 	}
 }
+
+bool ModulePlayer::CleanUp() {
+	
+	LOG("Freeing player");
+
+	//desinicialitzar tots els sprites
+	App->textures->Unload(texture);
+	App->textures->Unload(textureDoorTop);
+	App->textures->Unload(textureUI);
+	App->textures->Unload(textureFont);
+	App->textures->Unload(texturePickups);
+
+
+	return true;
+}
