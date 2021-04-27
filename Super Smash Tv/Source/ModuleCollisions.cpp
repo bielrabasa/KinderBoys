@@ -269,8 +269,17 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::Door: // azul claro
 				App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 0, 255, 251, alpha });
 			break;
-			case Collider::Type::obejcts: // rosa
-				App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 255, 0, 236, alpha });
+			case Collider::Type::object_gold: // gold
+				App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 242, 234, 6, alpha });
+				break;
+			case Collider::Type::object_silver: // gris
+				App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 125, 125, 125, alpha });
+				break;
+			case Collider::Type::object_money: // verde
+				App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 124, 190, 52, alpha });
+				break;
+			case Collider::Type::object_silver_gold: // gold/gris
+				App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 178, 182, 120, alpha });
 				break;
 		}
 	}

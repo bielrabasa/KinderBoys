@@ -674,8 +674,20 @@ UpdateResult ModulePlayer::PostUpdate()
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
-{
-	if (c2->type == c2->obejcts)
+{		//Falta cambiar el sumatori de punts segons el tipus de objecte que agafes
+	if (c2->type == c2->object_gold)
+	{
+		score++;
+	}
+	if (c2->type == c2->object_silver)
+	{
+		score++;
+	}
+	if (c2->type == c2->object_silver_gold)
+	{
+		score++;
+	}
+	if (c2->type == c2->object_money)
 	{
 		score++;
 	}
