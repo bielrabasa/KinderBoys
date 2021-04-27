@@ -96,7 +96,7 @@ bool SceneLevel1::Start()
 	App->player->Enable();
 
 	srand(time(NULL));
-
+	sceneTimer = 0;
 
 	return ret;
 }

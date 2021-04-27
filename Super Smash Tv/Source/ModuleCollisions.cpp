@@ -18,7 +18,10 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::WALL][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::WALL][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::WALL][Collider::Type::Door] = false;
-	matrix[Collider::Type::WALL][Collider::Type::obejcts] = false;
+	matrix[Collider::Type::WALL][Collider::Type::object_gold] = false;
+	matrix[Collider::Type::WALL][Collider::Type::object_silver] = false;
+	matrix[Collider::Type::WALL][Collider::Type::object_silver_gold] = false;
+	matrix[Collider::Type::WALL][Collider::Type::object_money] = false;
 
 	matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
@@ -26,7 +29,10 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::Door] = true;
-	matrix[Collider::Type::PLAYER][Collider::Type::obejcts] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::object_gold] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::object_silver] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::object_silver_gold] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::object_money] = true;
 
 	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::PLAYER] = true;
@@ -34,7 +40,10 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::ENEMY][Collider::Type::Door] = false;
-	matrix[Collider::Type::ENEMY][Collider::Type::obejcts] = false;
+	matrix[Collider::Type::ENEMY][Collider::Type::object_gold] = false;
+	matrix[Collider::Type::ENEMY][Collider::Type::object_silver] = false;
+	matrix[Collider::Type::ENEMY][Collider::Type::object_silver_gold] = false;
+	matrix[Collider::Type::ENEMY][Collider::Type::object_money] = false;
 
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::WALL] = true;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER] = false;
@@ -42,7 +51,10 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::Door] = true;
-	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::obejcts] = false;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::object_gold] = false;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::object_silver] = false;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::object_silver_gold] = false;
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::object_money] = false;
 
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::WALL] = true;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PLAYER] = true;
@@ -50,7 +62,10 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::Door] = true;
-	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::obejcts] = false;
+	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::object_gold] = false;
+	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::object_silver] = false;
+	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::object_silver_gold] = false;
+	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::object_money] = false;
 
 	matrix[Collider::Type::Door][Collider::Type::WALL] = false;
 	matrix[Collider::Type::Door][Collider::Type::ENEMY] = false;
@@ -58,15 +73,55 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::Door][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::Door][Collider::Type::ENEMY_SHOT] = true;
 	matrix[Collider::Type::Door][Collider::Type::Door] = false;
-	matrix[Collider::Type::Door][Collider::Type::obejcts] = false;
+	matrix[Collider::Type::Door][Collider::Type::object_gold] = false;
+	matrix[Collider::Type::Door][Collider::Type::object_silver] = false;
+	matrix[Collider::Type::Door][Collider::Type::object_silver_gold] = false;
+	matrix[Collider::Type::Door][Collider::Type::object_money] = false;
 
-	matrix[Collider::Type::obejcts][Collider::Type::obejcts] = false;
-	matrix[Collider::Type::obejcts][Collider::Type::WALL] = false;
-	matrix[Collider::Type::obejcts][Collider::Type::Door] = false;
-	matrix[Collider::Type::obejcts][Collider::Type::ENEMY] = false;
-	matrix[Collider::Type::obejcts][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::obejcts][Collider::Type::PLAYER_SHOT] = false;
-	matrix[Collider::Type::obejcts][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::object_gold][Collider::Type::object_gold] = false;
+	matrix[Collider::Type::object_gold][Collider::Type::WALL] = false;
+	matrix[Collider::Type::object_gold][Collider::Type::Door] = false;
+	matrix[Collider::Type::object_gold][Collider::Type::ENEMY] = false;
+	matrix[Collider::Type::object_gold][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::object_gold][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::object_gold][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::object_gold][Collider::Type::object_silver] = false;
+	matrix[Collider::Type::object_gold][Collider::Type::object_silver_gold] = false;
+	matrix[Collider::Type::object_gold][Collider::Type::object_money] = false;
+
+	matrix[Collider::Type::object_silver][Collider::Type::object_silver] = false;
+	matrix[Collider::Type::object_silver][Collider::Type::WALL] = false;
+	matrix[Collider::Type::object_silver][Collider::Type::Door] = false;
+	matrix[Collider::Type::object_silver][Collider::Type::ENEMY] = false;
+	matrix[Collider::Type::object_silver][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::object_silver][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::object_silver][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::object_silver][Collider::Type::object_gold] = false;
+	matrix[Collider::Type::object_silver][Collider::Type::object_silver_gold] = false;
+	matrix[Collider::Type::object_silver][Collider::Type::object_money] = false;
+
+	matrix[Collider::Type::object_silver_gold][Collider::Type::object_silver_gold] = false;
+	matrix[Collider::Type::object_silver_gold][Collider::Type::object_silver] = false;
+	matrix[Collider::Type::object_silver_gold][Collider::Type::object_gold] = false;
+	matrix[Collider::Type::object_silver_gold][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::object_silver_gold][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::object_silver_gold][Collider::Type::ENEMY] = false;
+	matrix[Collider::Type::object_silver_gold][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::object_silver_gold][Collider::Type::WALL] = false;
+	matrix[Collider::Type::object_silver_gold][Collider::Type::Door] = false;
+	matrix[Collider::Type::object_silver_gold][Collider::Type::object_money] = false;
+
+	matrix[Collider::Type::object_money][Collider::Type::object_money] = false;
+	matrix[Collider::Type::object_money][Collider::Type::object_gold] = false;
+	matrix[Collider::Type::object_money][Collider::Type::object_silver] = false;
+	matrix[Collider::Type::object_money][Collider::Type::object_silver_gold] = false;
+	matrix[Collider::Type::object_money][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::object_money][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::object_money][Collider::Type::ENEMY] = false;
+	matrix[Collider::Type::object_money][Collider::Type::ENEMY_SHOT] = false;
+	matrix[Collider::Type::object_money][Collider::Type::WALL] = false;
+	matrix[Collider::Type::object_money][Collider::Type::Door] = false;
+
 }
 
 // Destructor

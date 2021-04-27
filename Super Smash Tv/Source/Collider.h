@@ -16,7 +16,10 @@ struct Collider
 		PLAYER_SHOT,
 		ENEMY_SHOT,
 		Door,
-		obejcts,
+		object_gold,
+		object_silver,
+		object_silver_gold,
+		object_money,
 
 		MAX
 	};
