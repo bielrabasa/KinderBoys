@@ -43,7 +43,7 @@ void Enemy_BrownShip::Update()
 	movementDelay++;
 	spawntimer++;
 
-	if (spawntimer <= 100) {
+	if (spawntimer <= 80) {
 		switch (App->sceneLevel_1->i) {
 		case 0:
 			position.y -= 1;
@@ -60,7 +60,7 @@ void Enemy_BrownShip::Update()
 		}
 	}
 	
-	if (movementDelay >= 1 && spawntimer > 100) {
+	if (movementDelay >= 1 && spawntimer > 80) {
 		if (position.x - App->player->position.x < 0)
 		{
 			position.x += 1;
