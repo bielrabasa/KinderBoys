@@ -11,6 +11,7 @@
 #include "ModulePlayer.h"
 #include "ModuleInput.h"
 #include "ModuleParticles.h"
+#include "SceneUPC.h"
 
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)

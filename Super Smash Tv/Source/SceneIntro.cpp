@@ -33,6 +33,11 @@ bool SceneIntro::Start()
 	return ret;
 }
 
+bool SceneIntro::CleanUp() {
+	App->textures->Unload(bgTexture);
+	return true;
+}
+
 UpdateResult SceneIntro::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN)

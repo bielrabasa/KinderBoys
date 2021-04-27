@@ -44,6 +44,11 @@ bool SceneLose::Start()
 	return ret;
 }
 
+bool SceneLose::CleanUp() {
+	App->textures->Unload(bgTexture);
+	return true;
+}
+
 UpdateResult SceneLose::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN)
