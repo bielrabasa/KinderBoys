@@ -132,7 +132,7 @@ UpdateResult SceneLevel1::Update()
 		
 		if (i == 0) { //porta de dalt
 			for (int j = 0; j < 9; ++j) {
-				portesSpawn[i][j][0] = (rand() % 105 + 195); //porta abaix X (random entre 195 i 300)
+				portesSpawn[i][j][0] = (rand() % 80 + 210); //porta adalt X
 				portesSpawn[i][j][1] = (rand() % 30 - 20); //porta adalt Y
 			}
 		}
@@ -153,7 +153,7 @@ UpdateResult SceneLevel1::Update()
 
 		if (i == 3) { //porta abaix
 			for (int j = 0; j < 9; ++j) {
-				portesSpawn[i][j][0] = (rand() % 105 + 195); //porta abaix X (random entre 195 i 300)
+				portesSpawn[i][j][0] = (rand() % 80 + 210); //porta abaix X
 				portesSpawn[i][j][1] = (rand() % 30 + 400); //porta abaix Y
 			}
 		}
