@@ -54,6 +54,7 @@ public:
 	int vides = 5;
 	int contadorVides = 0;
 
+	int money = 0;
 	int score = 0;
 	int scoreCopia = 0;
 

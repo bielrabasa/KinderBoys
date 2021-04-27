@@ -231,7 +231,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 {
 	for(uint i = 0; i < MAX_ENEMIES; ++i)
 	{
-		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
+		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == c2->PLAYER_SHOT))
 		{
 			enemies[i]->OnCollision(c2); //Notify the enemy of a collision
 

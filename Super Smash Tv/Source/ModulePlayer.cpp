@@ -677,19 +677,19 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {		//Falta cambiar el sumatori de punts segons el tipus de objecte que agafes
 	if (c2->type == c2->object_gold)
 	{
-		score++;
+		money += 100;
 	}
 	if (c2->type == c2->object_silver)
 	{
-		score++;
+		money += 50;
 	}
 	if (c2->type == c2->object_silver_gold)
 	{
-		score++;
+		money += 75;
 	}
 	if (c2->type == c2->object_money)
 	{
-		score++;
+		money += 5;
 	}
 	
 	if (c2->type == c2->Door && App->sceneLevel_1->sceneTimer >= 3600) {
