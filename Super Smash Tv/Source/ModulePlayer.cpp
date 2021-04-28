@@ -157,6 +157,7 @@ bool ModulePlayer::Start()
 	texturePickups = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
+	Coin = App->audio->LoadFx("Assets/Fx/Money.wav");
 	
 
 	position.x = 150;
@@ -675,18 +676,22 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {		//Falta cambiar el sumatori de punts segons el tipus de objecte que agafes
 	if (c2->type == c2->object_gold)
 	{
+		App->audio->PlayFx(Coin);
 		money += 100;
 	}
 	if (c2->type == c2->object_silver)
 	{
+		App->audio->PlayFx(Coin);
 		money += 50;
 	}
 	if (c2->type == c2->object_silver_gold)
 	{
+		App->audio->PlayFx(Coin);
 		money += 75;
 	}
 	if (c2->type == c2->object_money)
 	{
+		App->audio->PlayFx(Coin);
 		money += 5;
 	}
 	
