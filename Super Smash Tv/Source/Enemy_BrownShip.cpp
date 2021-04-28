@@ -46,16 +46,16 @@ void Enemy_BrownShip::Update()
 	if (spawntimer <= 80) {
 		switch (App->sceneLevel_1->i) {
 		case 0:
-			position.y -= 1;
+			position.y -= 1.25;
 			break;
 		case 1:
-			position.y += 1; //dalt
+			position.y += 1.25; //dalt
 			break;
 		case 2:
-			position.x += 1;
+			position.x += 1.25;
 			break;
 		case 3:
-			position.x -= 1;
+			position.x -= 1.25;
 			break;
 		}
 	}
@@ -63,20 +63,20 @@ void Enemy_BrownShip::Update()
 	if (movementDelay >= 1 && spawntimer > 80) {
 		if (position.x - App->player->position.x < 0)
 		{
-			position.x += 1;
+			position.x += 1.25;
 		}
 		else if (position.x - App->player->position.x > 0)
 		{
-			position.x -= 1;
+			position.x -= 1.25;
 		}
 
 		if (position.y - App->player->position.y < 0)
 		{
-			position.y += 1;
+			position.y += 1.25;
 		}
 		else if (position.y - App->player->position.y > 0)
 		{
-			position.y -= 1;
+			position.y -= 1.25;
 		}
 
 		movementDelay = 0;
