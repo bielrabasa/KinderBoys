@@ -29,7 +29,12 @@ bool SceneWin::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/Score_screen_2.png");
-	App->audio->PlayMusic("Assets/Music/", 1.0f);
+	//App->audio->PlayMusic("Assets/Audio/SFX/End point count.wav", 1.0f);
+	//App->audio->PlayMusic("Assets/Audio/SFX/End point count 2.wav", 1.0f);
+	Win = App->audio->LoadFx("Assets/Audio/SFX/End point count 2.wav");
+
+	
+	App->audio->PlayFx(Win);
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
