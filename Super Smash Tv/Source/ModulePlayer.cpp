@@ -157,7 +157,7 @@ bool ModulePlayer::Start()
 	texturePickups = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
-	Coin = App->audio->LoadFx("Assets/Fx/Money.wav");
+	Coin = App->audio->LoadFx("Assets/Audio/SFX/Money.wav");
 	
 
 	position.x = 150;
