@@ -46,16 +46,16 @@ void Enemy_BrownShip::Update()
 	if (spawntimer <= 80) {
 		switch (App->sceneLevel_1->i) {
 		case 0:
-			position.y -= 1.25;
+			position.y -= 1;
 			break;
 		case 1:
-			position.y += 1.25; //dalt
+			position.y += 1; //dalt
 			break;
 		case 2:
-			position.x += 1.25;
+			position.x += 1;
 			break;
 		case 3:
-			position.x -= 1.25;
+			position.x -= 1;
 			break;
 		}
 	}
