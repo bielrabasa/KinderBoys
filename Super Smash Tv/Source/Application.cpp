@@ -8,6 +8,7 @@
 #include "ModulePlayer.h"
 #include "SceneIntro.h"
 #include "SceneUPC.h"
+#include "SceneIntroGame.h"
 #include "SceneLevel1.h"
 #include "Lose.h"
 #include "SceneWin.h"
@@ -30,9 +31,10 @@ Application::Application()
 
 	modules[4] =	sceneIntro =	new SceneIntro(true);
 	modules[5] =	sceneUPC =		new SceneUPC(false);
-	modules[6] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
-	modules[7] =	sceneLose =		new SceneLose(false);		//Gameplay scene starts disabled
-	modules[8] =	sceneWin =		new SceneWin(false);		//Gameplay scene starts disabled
+	modules[6] =	sceneIntroGame =new SceneIntroGame(false);
+	modules[7] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
+	modules[8] =	sceneLose =		new SceneLose(false);		//Gameplay scene starts disabled
+	modules[9] =	sceneWin =		new SceneWin(false);		//Gameplay scene starts disabled
 	
 	//L'ORDRE D'SPRITES NO ÉS CORRECTE (Original)
 	//modules[6] =	player =		new ModulePlayer(false);	//Player starts disabled
@@ -40,14 +42,14 @@ Application::Application()
 	//modules[8] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
 	
 	//PLAYER HA D'ESTAR PER SOBRE DE ENEMIES (pels sprites de portes), i PARTICLES (ha d'estar necessariament per sobre dels 2, sinó dona problemes)
-	modules[9] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
-	modules[10] =	player =		new ModulePlayer(false);	//Player starts disabled	
-	modules[11] =	particles =		new ModuleParticles(false);
+	modules[10] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
+	modules[11] =	player =		new ModulePlayer(false);	//Player starts disabled	
+	modules[12] =	particles =		new ModuleParticles(false);
 
-	modules[12] =	collisions =	new ModuleCollisions(true);
-	modules[13] =	fade =			new ModuleFadeToBlack(true);
+	modules[13] =	collisions =	new ModuleCollisions(true);
+	modules[14] =	fade =			new ModuleFadeToBlack(true);
 
-	modules[14] =	render =		new ModuleRender(true);
+	modules[15] =	render =		new ModuleRender(true);
 }
 
 Application::~Application()

@@ -110,6 +110,7 @@
     <ClInclude Include="Path.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="SceneIntro.h" />
+    <ClInclude Include="SceneIntroGame.h" />
     <ClInclude Include="SceneLevel1.h" />
     <ClInclude Include="SceneUPC.h" />
     <ClInclude Include="SceneWin.h" />
@@ -138,6 +139,7 @@
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="SceneIntro.cpp" />
+    <ClCompile Include="SceneIntroGame.cpp" />
     <ClCompile Include="SceneLevel1.cpp" />
     <ClCompile Include="SceneUPC.cpp" />
     <ClCompile Include="SceneWin.cpp" />
