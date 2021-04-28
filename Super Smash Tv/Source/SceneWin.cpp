@@ -28,7 +28,7 @@ bool SceneWin::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/SpritesSSTV/Win.png");
+	bgTexture = App->textures->Load("Assets/SpritesSSTV/Score_screen_2.png");
 	App->audio->PlayMusic("Assets/Music/", 1.0f);
 
 	App->render->camera.x = 0;
