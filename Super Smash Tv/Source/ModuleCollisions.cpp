@@ -181,52 +181,6 @@ UpdateResult ModuleCollisions::Update()
 	if (App->input->keys[SDL_SCANCODE_F1] == KEY_DOWN) {
 		debug = !debug;
 	}
-
-	//El otro GodMode que tampoco funciona :)
-	/*if (App->input->keys[SDL_SCANCODE_F5] == KEY_DOWN) {
-		if (bandera_GodMode == false) {
-			bandera_GodMode = true;
-		}
-		if (bandera_GodMode == true) {
-			bandera_GodMode = false;
-		}
-	}
-	if (bandera_GodMode == false) {
-		matrix[Collider::Type::PLAYER][Collider::Type::WALL] = true;
-		matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
-		matrix[Collider::Type::PLAYER][Collider::Type::ENEMY] = true;
-		matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_SHOT] = false;
-		matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = true;
-		matrix[Collider::Type::PLAYER][Collider::Type::Door] = true;
-		matrix[Collider::Type::PLAYER][Collider::Type::obejcts] = true;
-
-		matrix[Collider::Type::WALL][Collider::Type::PLAYER] = true;
-		matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
-		matrix[Collider::Type::ENEMY][Collider::Type::PLAYER] = true;
-		matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER] = false;
-		matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PLAYER] = true;
-		matrix[Collider::Type::Door][Collider::Type::PLAYER] = true;
-		matrix[Collider::Type::obejcts][Collider::Type::PLAYER] = true;
-	}
-	if (bandera_GodMode == true) {
-		matrix[Collider::Type::PLAYER][Collider::Type::WALL] = false;
-		matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
-		matrix[Collider::Type::PLAYER][Collider::Type::ENEMY] = false;
-		matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_SHOT] = false;
-		matrix[Collider::Type::PLAYER][Collider::Type::ENEMY_SHOT] = false;
-		matrix[Collider::Type::PLAYER][Collider::Type::Door] = false;
-		matrix[Collider::Type::PLAYER][Collider::Type::obejcts] = false;
-
-		matrix[Collider::Type::WALL][Collider::Type::PLAYER] = false;
-		matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
-		matrix[Collider::Type::ENEMY][Collider::Type::PLAYER] = false;
-		matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER] = false;
-		matrix[Collider::Type::ENEMY_SHOT][Collider::Type::PLAYER] = false;
-		matrix[Collider::Type::Door][Collider::Type::PLAYER] = false;
-		matrix[Collider::Type::obejcts][Collider::Type::PLAYER] = false;
-	}*/
-	
-
 	return UpdateResult::UPDATE_CONTINUE;
 }
 

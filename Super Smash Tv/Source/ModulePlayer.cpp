@@ -168,18 +168,6 @@ bool ModulePlayer::Start()
 
 	collider = App->collisions->AddCollider({ position.x, position.y, 25, 35 }, Collider::Type::PLAYER, this);
 
-	
-	//GodMode
-	//No funciona aun el godMode. Está tanto aqui como en el modulecollisions en la zona de update
-	
-
-	
-	/*if (bandera_GodMode==true) {
-		collider = App->collisions->AddCollider({ position.x, position.y, 0, 0 }, Collider::Type::PLAYER, this);
-	}
-	if (bandera_GodMode == false) {
-		collider = App->collisions->AddCollider({ position.x, position.y, 30, 45 }, Collider::Type::PLAYER, this);
-	}*/
 	return ret;
 }
 
@@ -454,7 +442,6 @@ UpdateResult ModulePlayer::Update()
 		MovKeyPressed = 0;
 	}
 
-
 	//Direccion de donde va la bala
 		//DIAGONALS
 	cont++;
@@ -668,7 +655,6 @@ UpdateResult ModulePlayer::PostUpdate()
 		break;
 	}
 
-
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
@@ -700,8 +686,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 60);
 	}
 	
-
-
 	//GESTIONAR LES VIDES I LA MORT
 	if ((c2->type == c2->ENEMY) && (contadorVides < 0) && (bandera_GodMode == false) && (destroyed == false)) {
 
@@ -719,8 +703,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 20);
 			
-
-
 			destroyed = false;
 		}
 		contadorVides = 50; //50 frames de delay
@@ -737,7 +719,6 @@ bool ModulePlayer::CleanUp() {
 	App->textures->Unload(textureUI);
 	App->textures->Unload(textureFont);
 	App->textures->Unload(texturePickups);
-
 
 	return true;
 }
