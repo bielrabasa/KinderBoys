@@ -26,7 +26,7 @@ bool SceneIntroGame::Start()
 
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/sstv_Title.png");
 	//bgTexture = App->textures->Load("Assets/SpritesSSTV/Pantalla_Kinderboys.png");
-	App->audio->PlayMusic("Assets/Music/introTitle.ogg", 1.0f);
+	App->audio->PlayMusic("Assets/Music/02-_Super_Smash_TV_-_Title_Screen.ogg", 1.0f);
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
