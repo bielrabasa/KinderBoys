@@ -36,6 +36,15 @@ private:
 
 	// The enemy animation
 	Animation flyAnim;
+	Animation UpAnim;
+	Animation DownAnim;
+	Animation LeftAnim;
+	Animation RightAnim;
+	Animation ULAnim;
+	Animation URAnim;
+	Animation DRAnim;
+	Animation DLAnim;
+
 };
 
 #endif // __ENEMY_REDBIRD_H__

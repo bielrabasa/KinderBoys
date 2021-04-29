@@ -23,7 +23,14 @@ private:
 	// This enemy has one sprite and one frame
 	// We are keeping it an animation for consistency with other enemies
 	Animation fly;
-
+	Animation UpAnim;
+	Animation DownAnim;
+	Animation LeftAnim;
+	Animation RightAnim;
+	Animation ULAnim;
+	Animation URAnim;
+	Animation DRAnim;
+	Animation DLAnim;
 
 	// Delay entre els moviments de l'enemic
 	int movementDelay = 0;
