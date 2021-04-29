@@ -8,26 +8,26 @@
 
 Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 {
-	DLAnim.PushBack({ 0, 0, 16, 16 });
-	DRAnim.PushBack({ 96, 0, 16, 16 });
-	DLAnim.PushBack({ 16, 16, 16, 16 });
+	DRAnim.PushBack({ 0, 0, 16, 16 });
+	DLAnim.PushBack({ 96, 0, 16, 16 });
+	DRAnim.PushBack({ 16, 16, 16, 16 });
 	DownAnim.PushBack({ 48, 16, 16, 16 });
-	DRAnim.PushBack({ 80, 16, 16, 16 });
-	DLAnim.PushBack({ 32, 32, 16, 16 });
+	DLAnim.PushBack({ 80, 16, 16, 16 });
+	DRAnim.PushBack({ 32, 32, 16, 16 });
 	DownAnim.PushBack({ 48, 32, 16, 16 });
-	DRAnim.PushBack({ 64, 32, 16, 16 });
-	LeftAnim.PushBack({ 16, 48, 16, 16 });
-	LeftAnim.PushBack({ 32, 48, 16, 16 });
-	RightAnim.PushBack({ 64, 48, 16, 16 });
-	RightAnim.PushBack({ 80, 48, 16, 16 });
-	ULAnim.PushBack({ 32, 64, 16, 16 });
+	DLAnim.PushBack({ 64, 32, 16, 16 });
+	RightAnim.PushBack({ 16, 48, 16, 16 });
+	RightAnim.PushBack({ 32, 48, 16, 16 });
+	LeftAnim.PushBack({ 64, 48, 16, 16 });
+	LeftAnim.PushBack({ 80, 48, 16, 16 });
+	URAnim.PushBack({ 32, 64, 16, 16 });
 	UpAnim.PushBack({ 48, 64, 16, 16 });
-	URAnim.PushBack({ 64, 64, 16, 16 });
-	ULAnim.PushBack({ 16, 80, 16, 16 });
+	ULAnim.PushBack({ 64, 64, 16, 16 });
+	URAnim.PushBack({ 16, 80, 16, 16 });
 	UpAnim.PushBack({ 48, 80, 16, 16 });
-	URAnim.PushBack({ 80, 80, 16, 16 });
-	ULAnim.PushBack({ 0, 96, 16, 16 });
-	URAnim.PushBack({ 96, 96, 16, 16 });
+	ULAnim.PushBack({ 80, 80, 16, 16 });
+	URAnim.PushBack({ 0, 96, 16, 16 });
+	ULAnim.PushBack({ 96, 96, 16, 16 });
 	DownAnim.speed = 0.05f;
 	UpAnim.speed = 0.05f;
 	RightAnim.speed = 0.05f;
@@ -37,7 +37,7 @@ Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 	DLAnim.speed = 0.05f;
 	DRAnim.speed = 0.05f;
 
-	currentAnim = &flyAnim;
+	currentAnim = &DownAnim;
 
 	collider = App->collisions->AddCollider({0, 0, 16, 16}, Collider::Type::ENEMY, (Module*)App->enemies);
 }
@@ -59,38 +59,84 @@ void Enemy_RedBird::Update()
 			break; 
 		case 2:
 			position.x += 1;
-			currentAnim = &LeftAnim;
+			currentAnim = &RightAnim;
 			break;
 		case 3:
 			position.x -= 1;
-			currentAnim = &RightAnim;
+			currentAnim = &LeftAnim;
 			break;
 		}
 	}
 	
 	if (movementDelay >= 2 && spawntimer > 80) {
-		if (position.x - App->player->position.x < 0)
+		if (position.x - App->player->position.x < 0)			//right
 		{
-			currentAnim = &LeftAnim;
+			movementDirections++;
+			if (movementDirections < 2 && currentAnim != &RightAnim) { 
+				RightAnim.Reset();
+				currentAnim = &RightAnim; 
+			}
 			position.x += 1.25;
 		}
-		else if (position.x - App->player->position.x > 0)
+		else if (position.x - App->player->position.x > 0)		//left
 		{
-			currentAnim = &RightAnim;
+			movementDirections++;
+			if (movementDirections < 2 && currentAnim != &LeftAnim) {
+				LeftAnim.Reset();
+				currentAnim = &LeftAnim;
+			}
 			position.x -= 1.25;
 		}
+		else {
+			movementDirections = 0;
+		}
 
-		if (position.y - App->player->position.y < 0)
+		if (position.y - App->player->position.y < 0)			//down
 		{
-			currentAnim = &DownAnim;
+			movementDirections++;
+			if (movementDirections < 2 && currentAnim != &DownAnim) {
+				DownAnim.Reset();
+				currentAnim = &DownAnim;
+			}
 			position.y += 1.25;
 		}
-		else if (position.y - App->player->position.y > 0)
+		else if (position.y - App->player->position.y > 0)		//up
 		{
-			currentAnim = &UpAnim;
+			movementDirections++;
+			if (movementDirections < 2 && currentAnim != &UpAnim) {
+				UpAnim.Reset();
+				currentAnim = &UpAnim;
+			}
 			position.y -= 1.25;
 		}
+		else {
+			movementDirections = 0;
+		}
 
+		//DIAGONALS
+		if (movementDirections > 2) {
+			if (position.y - App->player->position.y > 0) { //up
+				
+				if (position.x - App->player->position.x > 0 && currentAnim != &ULAnim) { //left
+					ULAnim.Reset();
+					currentAnim = &ULAnim; 
+				}
+				else if (position.x - App->player->position.x < 0 && currentAnim != &URAnim) { //right
+					URAnim.Reset();
+					currentAnim = &URAnim;
+				}
+			}
+			else { //down
+				if (position.x - App->player->position.x > 0 && currentAnim != &DLAnim) { //left
+					DLAnim.Reset();
+					currentAnim = &DLAnim;
+				}
+				else if (position.x - App->player->position.x < 0 && currentAnim != &DRAnim) { //right
+					DRAnim.Reset();
+					currentAnim = &DRAnim;
+				}
+			}
+		}
 
 		movementDelay = 0;
 	}

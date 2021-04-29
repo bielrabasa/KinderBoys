@@ -32,6 +32,9 @@ private:
 	Animation DRAnim;
 	Animation DLAnim;
 
+	int movementDirections = 0;
+
+
 	// Delay entre els moviments de l'enemic
 	int movementDelay = 0;
 	int spawntimer = 0;

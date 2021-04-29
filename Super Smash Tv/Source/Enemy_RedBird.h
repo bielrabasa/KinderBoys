@@ -45,6 +45,8 @@ private:
 	Animation DRAnim;
 	Animation DLAnim;
 
+	int movementDirections = 0;
+
 };
 
 #endif // __ENEMY_REDBIRD_H__
