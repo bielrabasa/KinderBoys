@@ -33,6 +33,13 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 * Select - Intro
 * Start - Space
 
+### Debug:
+* F1 - Show collisions
+* F2 - Activate/Deactivate god mode
+* F3 - Show defeat screen
+* F4 - Show win screen
+* F5 - Subtract the remaining lives
+
 # Members
 
 [Biel Rabasa Galan](https://github.com/bielrabasa)
