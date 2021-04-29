@@ -30,7 +30,7 @@ bool SceneWin::Start()
 
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/Score_screen_2.png");
 	//App->audio->PlayMusic("Assets/Audio/SFX/End point count.wav", 1.0f);
-	App->audio->PlayMusic("Assets/Audio/06-_Super_Smash_TV_-_Win_Game", 1.0f);
+	App->audio->PlayMusic("Assets/Music/06-_Super_Smash_TV_-_Win_Game.ogg", 1.0f);
 	Win = App->audio->LoadFx("Assets/Audio/SFX/End point count 2.wav");
 
 	
