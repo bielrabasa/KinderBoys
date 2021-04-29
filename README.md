@@ -36,8 +36,8 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 ### Debug:
 * F1 - Show collisions
 * F2 - Activate/Deactivate god mode
-* F3 - Show defeat screen
-* F4 - Show win screen
+* F3 - Show the defeat screen
+* F4 - Show the victory screen
 * F5 - Subtract the remaining lives
 
 # Members
