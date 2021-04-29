@@ -59,7 +59,6 @@ public:
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;
-	SDL_Texture* textureGold = nullptr;
 
 
 	// An array to store and handle all the particles
@@ -74,6 +73,10 @@ public:
 	Particle Silver;
 	Particle SilverGold;
 	Particle Cash;
+
+
+
+	Particle blood;
 
 	//Template particle for a laser
 	Particle laserL;

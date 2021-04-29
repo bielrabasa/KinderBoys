@@ -93,6 +93,17 @@ bool ModuleParticles::Start()
 	SilverGold.anim.PushBack({ 32, 40, 16, 16 });
 	Cash.anim.PushBack({ 48, 40, 16, 16 }); 
 
+
+	blood.anim.PushBack({ 102, 0, 16, 16 }); 
+	blood.anim.PushBack({ 118, 0, 16, 16 }); 
+	blood.anim.PushBack({ 134, 0, 16, 16 }); 
+	blood.anim.PushBack({ 102, 16, 16, 16 }); 
+	blood.anim.PushBack({ 118, 16, 16, 16 }); 
+	blood.anim.PushBack({ 134, 16, 16, 16 }); 
+	//blood.lifetime = 10;
+	blood.anim.speed = 0.175f;
+	blood.anim.loop = false;
+
 	return true;
 }
 

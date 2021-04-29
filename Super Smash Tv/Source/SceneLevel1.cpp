@@ -33,7 +33,7 @@ bool SceneLevel1::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV.png");
-	App->audio->PlayMusic("Assets/Music/03-_Super_Smash_TV_-_Circuit_1", 1.0f);
+	App->audio->PlayMusic("Assets/Music/03-_Super_Smash_TV_-_Circuit_1.ogg", 1.0f);
 
 	App->enemies->Enable();
 	App->particles->Enable();
