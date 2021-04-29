@@ -87,11 +87,18 @@ bool ModuleParticles::Start()
 	laserUR.lifetime = 180;
 	laserUR.anim.speed = 0.2f;
 
-
 	Gold.anim.PushBack({ 0, 40, 17, 17 }); 
+
+	Gold.lifetime = 666;
+
 	Silver.anim.PushBack({ 16, 40, 16, 16 }); 
+	Silver.lifetime = 666;
+
 	SilverGold.anim.PushBack({ 32, 40, 16, 16 });
-	Cash.anim.PushBack({ 48, 40, 16, 16 }); 
+	SilverGold.lifetime = 666;
+
+	Cash.anim.PushBack({ 48, 40, 16, 16 });
+	Cash.lifetime = 666;
 
 
 	blood.anim.PushBack({ 102, 0, 16, 16 }); 
@@ -190,6 +197,7 @@ UpdateResult ModuleParticles::PostUpdate()
 			//App->render->DrawTexture(textureGold, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
 		}
 	}
+
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
