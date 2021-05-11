@@ -29,6 +29,7 @@ bool ModuleParticles::Start()
 	//textureGold = App->textures->Load("Assets/SpritesSSTV/Entity_Objects.png");
 
 	// Explosion particle
+	explosion.anim.Empty();
 	explosion.anim.PushBack({274, 296, 33, 30});
 	explosion.anim.PushBack({313, 296, 33, 30});
 	explosion.anim.PushBack({346, 296, 33, 30});
@@ -100,7 +101,7 @@ bool ModuleParticles::Start()
 	Cash.anim.PushBack({ 48, 40, 16, 16 });
 	Cash.lifetime = 666;
 
-
+	blood.anim.Empty();
 	blood.anim.PushBack({ 102, 0, 16, 16 }); 
 	blood.anim.PushBack({ 118, 0, 16, 16 }); 
 	blood.anim.PushBack({ 134, 0, 16, 16 }); 

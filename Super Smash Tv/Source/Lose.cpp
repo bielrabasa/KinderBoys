@@ -33,18 +33,12 @@ bool SceneLose::Start()
 
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
-	
-	App->player->CleanUp();
-	App->collisions->CleanUp();
-	App->particles->CleanUp();
-	App->enemies->CleanUp();
-
-	App->enemies->Disable();
 
 	return ret;
 }
 
-bool SceneLose::CleanUp() {
+bool SceneLose::CleanUp() 
+{
 	App->textures->Unload(bgTexture);
 	return true;
 }

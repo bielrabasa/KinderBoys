@@ -105,7 +105,7 @@ bool ModuleTextures::Unload(SDL_Texture* texture)
 				break;
 			}
 		}
-		SDL_DestroyTexture(texture);
+  		SDL_DestroyTexture(texture);
 	}
 
 	return ret;

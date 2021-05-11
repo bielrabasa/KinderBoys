@@ -37,6 +37,9 @@ bool SceneLevel1::Start()
 
 	App->enemies->Enable();
 	App->particles->Enable();
+	App->collisions->Enable();
+	App->player->Enable();
+
 
 	//Bottomside collider  Primer numero x, Segundo numero y, 3r numero largo del cubo, 4o anchura del cubo
 	//Tendremos problemas con la hitbox y la entrada y salida tanto de personajes como de enemigos
@@ -94,7 +97,6 @@ bool SceneLevel1::Start()
 	App->player->vides = 5;
 	App->player->score = 0;
 
-	App->player->Enable();
 
 	srand(time(NULL));
 	sceneTimer = 0;
@@ -208,6 +210,7 @@ bool SceneLevel1::CleanUp()
 	App->player->Disable();
 	App->enemies->Disable();
 	App->particles->Disable();
+	App->collisions->Disable();
 
 	// L10: TODO 5: Remove all memory leaks
 

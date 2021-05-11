@@ -28,6 +28,11 @@ public:
 		frames[totalFrames++] = rect;
 	}
 
+	void Empty()
+	{
+		totalFrames = 0;
+	}
+
 	void Reset()
 	{
 		currentFrame = 0;

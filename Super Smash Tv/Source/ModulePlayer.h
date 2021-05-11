@@ -59,7 +59,7 @@ public:
 	int score = 0;
 	int scoreCopia = 0;
 
-	int scoreN[8]; //arrai de digits score
+	int scoreN[8] = { 0 }; //arrai de digits score
 	
 	int topDoor = 0;
 
