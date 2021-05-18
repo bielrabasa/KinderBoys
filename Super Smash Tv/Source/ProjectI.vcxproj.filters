@@ -103,6 +103,9 @@
     <ClInclude Include="SceneIntroGame.h">
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
+    <ClInclude Include="SceneSwap.h">
+      <Filter>Source Files\Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Module.cpp">
@@ -184,6 +187,9 @@
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
     <ClCompile Include="SceneIntroGame.cpp">
+      <Filter>Source Files\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneSwap.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
   </ItemGroup>

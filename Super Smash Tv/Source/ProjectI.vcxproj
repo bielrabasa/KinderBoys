@@ -112,6 +112,7 @@
     <ClInclude Include="SceneIntro.h" />
     <ClInclude Include="SceneIntroGame.h" />
     <ClInclude Include="SceneLevel1.h" />
+    <ClInclude Include="SceneSwap.h" />
     <ClInclude Include="SceneUPC.h" />
     <ClInclude Include="SceneWin.h" />
   </ItemGroup>
@@ -141,6 +142,7 @@
     <ClCompile Include="SceneIntro.cpp" />
     <ClCompile Include="SceneIntroGame.cpp" />
     <ClCompile Include="SceneLevel1.cpp" />
+    <ClCompile Include="SceneSwap.cpp" />
     <ClCompile Include="SceneUPC.cpp" />
     <ClCompile Include="SceneWin.cpp" />
   </ItemGroup>

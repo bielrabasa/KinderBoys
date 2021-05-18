@@ -44,6 +44,10 @@ UpdateResult ModuleInput::PreUpdate()
 		else keys[i] = (keys[i] == KEY_REPEAT || keys[i] == KEY_DOWN) ? KEY_UP : KEY_IDLE;
 	}
 
+	if (App->input->keys[SDL_SCANCODE_P] == KeyState::KEY_DOWN) {
+		App->pause = !App->pause;
+		
+	}
 	return UpdateResult::UPDATE_CONTINUE;
 }
 

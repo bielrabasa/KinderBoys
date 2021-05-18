@@ -12,6 +12,7 @@
 #include "SceneLevel1.h"
 #include "Lose.h"
 #include "SceneWin.h"
+#include "SceneSwap.h"
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
 #include "ModuleCollisions.h"
@@ -35,6 +36,7 @@ Application::Application()
 	modules[7] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
 	modules[8] =	sceneLose =		new SceneLose(false);		//Gameplay scene starts disabled
 	modules[9] =	sceneWin =		new SceneWin(false);		//Gameplay scene starts disabled
+	modules[10] =	sceneSwap =		new SceneSwap(false);		//Gameplay scene starts disabled
 	
 	//L'ORDRE D'SPRITES NO ÉS CORRECTE (Original)
 	//modules[6] =	player =		new ModulePlayer(false);	//Player starts disabled
@@ -42,14 +44,14 @@ Application::Application()
 	//modules[8] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
 	
 	//PLAYER HA D'ESTAR PER SOBRE DE ENEMIES (pels sprites de portes), i PARTICLES (ha d'estar necessariament per sobre dels 2, sinó dona problemes)
-	modules[10] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
-	modules[11] =	player =		new ModulePlayer(false);	//Player starts disabled	
-	modules[12] =	particles =		new ModuleParticles(false);
+	modules[11] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
+	modules[12] =	player =		new ModulePlayer(false);	//Player starts disabled	
+	modules[13] =	particles =		new ModuleParticles(false);
 
-	modules[13] =	collisions =	new ModuleCollisions(true);
-	modules[14] =	fade =			new ModuleFadeToBlack(true);
+	modules[14] =	collisions =	new ModuleCollisions(true);
+	modules[15] =	fade =			new ModuleFadeToBlack(true);
 
-	modules[15] =	render =		new ModuleRender(true);
+	modules[16] =	render =		new ModuleRender(true);
 }
 
 Application::~Application()
@@ -85,8 +87,11 @@ UpdateResult Application::Update()
 	for (int i = 0; i < NUM_MODULES && ret == UpdateResult::UPDATE_CONTINUE; ++i)
 		ret = modules[i]->IsEnabled() ? modules[i]->PreUpdate() : UpdateResult::UPDATE_CONTINUE;
 
-	for (int i = 0; i < NUM_MODULES && ret == UpdateResult::UPDATE_CONTINUE; ++i)
-		ret = modules[i]->IsEnabled() ? modules[i]->Update() : UpdateResult::UPDATE_CONTINUE;
+	if (!pause)
+	{
+		for (int i = 0; i < NUM_MODULES && ret == UpdateResult::UPDATE_CONTINUE; ++i)
+			ret = modules[i]->IsEnabled() ? modules[i]->Update() : UpdateResult::UPDATE_CONTINUE;
+	}
 
 	for (int i = 0; i < NUM_MODULES && ret == UpdateResult::UPDATE_CONTINUE; ++i)
 		ret = modules[i]->IsEnabled() ? modules[i]->PostUpdate() : UpdateResult::UPDATE_CONTINUE;

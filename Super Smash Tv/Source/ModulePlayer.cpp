@@ -655,6 +655,17 @@ UpdateResult ModulePlayer::PostUpdate()
 		break;
 	}
 
+	if (App->input->keys[SDL_SCANCODE_P] == KeyState::KEY_DOWN)
+	{
+		shootRightAnim.Reset();
+		currentTopAnimation = &shootRightAnim;
+
+		if (bandera) {
+			App->particles->AddParticle(App->particles->laserR, position.x + 10, position.y + 1, 3, Collider::Type::PLAYER_SHOT);
+			App->audio->PlayFx(laserFx);
+		}
+	}
+
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
