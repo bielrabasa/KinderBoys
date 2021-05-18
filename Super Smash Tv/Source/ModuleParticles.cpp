@@ -39,65 +39,76 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	explosion.anim.speed = 0.3f;
 
+	laserL.anim.Empty();
 	laserL.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat
 	laserL.speed.x = 15;
 	laserL.speed.y = 15;
 	laserL.lifetime = 180;
 	laserL.anim.speed = 0.2f;
 
+	laserR.anim.Empty();
 	laserR.anim.PushBack({ 16, 11, 8, 3 }); //animació del laser Right    //Collider Arreglat
 	laserR.speed.x = 15;
 	laserR.speed.y = 15;
 	laserR.lifetime = 180;
 	laserR.anim.speed = 0.2f;
 
+	laserU.anim.Empty();
 	laserU.anim.PushBack({ 10, 1, 4, 8 }); //animació del laser Up		  //Collider Arreglat
 	laserU.speed.x = 15;
 	laserU.speed.y = 15;
 	laserU.lifetime = 180;
 	laserU.anim.speed = 0.2f;
 
+	laserD.anim.Empty();
 	laserD.anim.PushBack({ 10, 16, 3, 8 }); //animació del laser Down	  //Collider Arreglat	
 	laserD.speed.x = 15;
 	laserD.speed.y = 15;
 	laserD.lifetime = 180;
 	laserD.anim.speed = 0.2f;
 
+	laserDR.anim.Empty();
 	laserDR.anim.PushBack({ 16, 16, 6, 6 }); //animació del laser Down & Right     //Collider Arreglat
 	laserDR.speed.x = 15;
 	laserDR.speed.y = 15;
 	laserDR.lifetime = 180;
 	laserDR.anim.speed = 0.2f;
 	
-
+	laserDL.anim.Empty();
 	laserDL.anim.PushBack({ 0, 17, 9, 5 }); //animació del laser Down & Left  //Collider Arreglat *apaño
 	laserDL.speed.x = 15;
 	laserDL.speed.y = 15;
 	laserDL.lifetime = 180;
 	laserDL.anim.speed = 0.2f;	
 	
+	laserDL.anim.Empty();
 	laserUL.anim.PushBack({ 0, 0, 6, 6 }); //animació del laser Up & Left     //Collider Arreglat
 	laserUL.speed.x = 15;
 	laserUL.speed.y = 15;
 	laserUL.lifetime = 180;
 	laserUL.anim.speed = 0.2f;
 
+	laserUR.anim.Empty();
 	laserUR.anim.PushBack({ 16, 0, 8, 11 }); //animació del laser Up & Right	//Collider Arreglat *apaño
 	laserUR.speed.x = 15;
 	laserUR.speed.y = 15;
 	laserUR.lifetime = 180;
 	laserUR.anim.speed = 0.2f;
 
+	Gold.anim.Empty();
 	Gold.anim.PushBack({ 0, 40, 17, 17 }); 
 
 	Gold.lifetime = 666;
 
+	Silver.anim.Empty();
 	Silver.anim.PushBack({ 16, 40, 16, 16 }); 
 	Silver.lifetime = 666;
 
+	SilverGold.anim.Empty();
 	SilverGold.anim.PushBack({ 32, 40, 16, 16 });
 	SilverGold.lifetime = 666;
 
+	Cash.anim.Empty();
 	Cash.anim.PushBack({ 48, 40, 16, 16 });
 	Cash.lifetime = 666;
 

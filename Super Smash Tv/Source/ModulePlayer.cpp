@@ -16,7 +16,7 @@ using namespace std;
 
 #include "SDL/include/SDL_render.h"
 
-ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
+ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EMPTYes
 {
 	// Idle animation - just one sprite
 	idleDAnim.PushBack({ 128, 32, 16, 16 });
