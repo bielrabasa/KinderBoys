@@ -598,10 +598,10 @@ UpdateResult ModulePlayer::PostUpdate()
 	//TOTA L'IMPRESSIÓ D'SPRITES DE NOMBRES I IMMUNITAT S'HA PORTAT AL ModuleEnemies, ara ja estan en ordre.
 
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
-	App->render->DrawTexture(texture, position.x + 2, position.y + 17, &rect);
+	App->render->DrawTexture(texture, position.x + 2, position.y + 17, &rect, 1.5f);
 
 	SDL_Rect rectTop = currentTopAnimation->GetCurrentFrame();
-	App->render->DrawTexture(texture, position.x - 10, position.y - 7, &rectTop);
+	App->render->DrawTexture(texture, position.x - 10, position.y - 7, &rectTop, 1.5f);
 
 	//Render Portes
 	App->render->DrawTexture(textureDoorTop, -512 * topDoor, 0, nullptr);
@@ -624,34 +624,34 @@ UpdateResult ModulePlayer::PostUpdate()
 
 	switch (vides) {
 	case 0:
-		App->render->DrawTexture(textureFont, 43, 54, &rect0v);
+		App->render->DrawTexture(textureFont, 43, 54, &rect0v, 1.5f);
 		break;
 	case 1:
-		App->render->DrawTexture(textureFont, 43, 54, &rect1v);
+		App->render->DrawTexture(textureFont, 43, 54, &rect1v, 1.5f);
 		break;
 	case 2:
-		App->render->DrawTexture(textureFont, 43, 54, &rect2v);
+		App->render->DrawTexture(textureFont, 43, 54, &rect2v, 1.5f);
 		break;
 	case 3:
-		App->render->DrawTexture(textureFont, 43, 54, &rect3v);
+		App->render->DrawTexture(textureFont, 43, 54, &rect3v, 1.5f);
 		break;
 	case 4:
-		App->render->DrawTexture(textureFont, 43, 54, &rect4v);
+		App->render->DrawTexture(textureFont, 43, 54, &rect4v, 1.5f);
 		break;
 	case 5:
-		App->render->DrawTexture(textureFont, 43, 54, &rect5v);
+		App->render->DrawTexture(textureFont, 43, 54, &rect5v, 1.5f);
 		break;
 	case 6:
-		App->render->DrawTexture(textureFont, 43, 54, &rect6v);
+		App->render->DrawTexture(textureFont, 43, 54, &rect6v, 1.5f);
 		break;
 	case 7:
-		App->render->DrawTexture(textureFont, 43, 54, &rect7v);
+		App->render->DrawTexture(textureFont, 43, 54, &rect7v, 1.5f);
 		break;
 	case 8:
-		App->render->DrawTexture(textureFont, 43, 54, &rect8v);
+		App->render->DrawTexture(textureFont, 43, 54, &rect8v, 1.5f);
 		break;
 	case 9:
-		App->render->DrawTexture(textureFont, 43, 54, &rect9v);
+		App->render->DrawTexture(textureFont, 43, 54, &rect9v, 1.5f);
 		break;
 	}
 

@@ -205,7 +205,7 @@ UpdateResult ModuleParticles::PostUpdate()
 
 		if (particle != nullptr && particle->isAlive)
 		{
-			App->render->DrawTexture(texture, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
+			App->render->DrawTexture(texture, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()), 1.5f);
 			//App->render->DrawTexture(textureGold, particle->position.x, particle->position.y, &(particle->anim.GetCurrentFrame()));
 		}
 	}

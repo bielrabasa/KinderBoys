@@ -58,7 +58,7 @@ UpdateResult ModuleEnemies::PostUpdate()
 	
 	//Render PressToPlay
 	SDL_Rect rectPTP = { 0, 30, 70, 32 };
-	App->render->DrawTexture(App->player->textureFont, 353, 98, &rectPTP);
+	App->render->DrawTexture(App->player->textureFont, 353, 98, &rectPTP, 1.5f);
 
 	//Render Font
 	SDL_Rect rect0 = { 0, 0, 10, 16 };
@@ -77,34 +77,34 @@ UpdateResult ModuleEnemies::PostUpdate()
 
 		switch (App->player->scoreN[i]) {
 		case 0:
-			App->render->DrawTexture(textureFont, posicioFont, 100, &rect0);
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect0, 1.5f);
 			break;
 		case 1:
-			App->render->DrawTexture(textureFont, posicioFont, 100, &rect1);
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect1, 1.5f);
 			break;
 		case 2:
-			App->render->DrawTexture(textureFont, posicioFont, 100, &rect2);
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect2, 1.5f);
 			break;
 		case 3:
-			App->render->DrawTexture(textureFont, posicioFont, 100, &rect3);
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect3, 1.5f);
 			break;
 		case 4:
-			App->render->DrawTexture(textureFont, posicioFont, 100, &rect4);
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect4, 1.5f);
 			break;
 		case 5:
-			App->render->DrawTexture(textureFont, posicioFont, 100, &rect5);
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect5, 1.5f);
 			break;
 		case 6:
-			App->render->DrawTexture(textureFont, posicioFont, 100, &rect6);
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect6, 1.5f);
 			break;
 		case 7:
-			App->render->DrawTexture(textureFont, posicioFont, 100, &rect7);
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect7, 1.5f);
 			break;
 		case 8:
-			App->render->DrawTexture(textureFont, posicioFont, 100, &rect8);
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect8, 1.5f);
 			break;
 		case 9:
-			App->render->DrawTexture(textureFont, posicioFont, 100, &rect9);
+			App->render->DrawTexture(textureFont, posicioFont, 100, &rect9, 1.5f);
 			break;
 		}
 
@@ -115,7 +115,7 @@ UpdateResult ModuleEnemies::PostUpdate()
 	//Render Immunitat
 	SDL_Rect rectImmun = { 96, 56, 32, 32 };
 	if (App->player->contadorVides > 0 && App->player->contadorVides % 3 == 0) {
-		App->render->DrawTexture(App->player->texturePickups, App->player->position.x - 11, App->player->position.y + 10, &rectImmun);
+		App->render->DrawTexture(App->player->texturePickups, App->player->position.x - 11, App->player->position.y + 10, &rectImmun, 1.5f);
 	}
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
