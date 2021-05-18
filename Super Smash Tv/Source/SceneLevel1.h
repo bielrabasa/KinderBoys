@@ -35,7 +35,7 @@ public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
 
-	int mapaActual = 0;
+	int mapaActual = 2;
 	int randomcont = 50;
 	int num = 0;
 	int sceneTimer = 0;

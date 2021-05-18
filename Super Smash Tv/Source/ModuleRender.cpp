@@ -87,19 +87,20 @@ bool ModuleRender::CleanUp()
 }
 
 // Draw to screen
-bool ModuleRender::DrawTexture(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed)
+bool ModuleRender::DrawTexture(SDL_Texture* texture, int x, int y, SDL_Rect* section, float scale)
 {
 	bool ret = true;
 
 	SDL_Rect rect = {
-		(int)(-camera.x * speed) + x * SCREEN_SIZE,
-		(int)(-camera.y * speed) + y * SCREEN_SIZE,
-		0, 0 };
-	
+		(int)(-camera.x) + x * SCREEN_SIZE,
+		(int)(-camera.y) + y * SCREEN_SIZE,
+		0, 0
+	};
+
 	if (section != nullptr)
 	{
-		rect.w = section->w * 1.5f; // Augmentar mida sprites
-		rect.h = section->h * 1.5f;
+		rect.w = section->w;
+		rect.h = section->h;
 	}
 	else
 	{
@@ -107,8 +108,8 @@ bool ModuleRender::DrawTexture(SDL_Texture* texture, int x, int y, SDL_Rect* sec
 		SDL_QueryTexture(texture, nullptr, nullptr, &rect.w, &rect.h);
 	}
 
-	rect.w *= SCREEN_SIZE;
-	rect.h *= SCREEN_SIZE;
+	rect.w *= (scale*SCREEN_SIZE);
+	rect.h *= (scale*SCREEN_SIZE);
 
 	if (SDL_RenderCopy(renderer, texture, section, &rect) != 0)
 	{

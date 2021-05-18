@@ -199,7 +199,8 @@ UpdateResult SceneLevel1::Update()
 UpdateResult SceneLevel1::PostUpdate()
 {
 	// Draw everything
-	App->render->DrawTexture(bgTexture, -512*mapaActual, 0, NULL); //SPRITE del fons, podem posar els altres amb (bgTexture, -512*mapaActual, 0, NULL)
+	SDL_Rect section = { mapaActual * 512, 0, 512, 448 };
+	App->render->DrawTexture(bgTexture, 0, 0, &section); //SPRITE del fons, podem posar els altres amb (bgTexture, -512*mapaActual, 0, NULL)
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
