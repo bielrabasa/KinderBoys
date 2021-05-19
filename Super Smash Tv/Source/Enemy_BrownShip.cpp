@@ -7,6 +7,15 @@
 
 Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 {
+	DRAnim.Empty();
+	URAnim.Empty();
+	ULAnim.Empty();
+	DLAnim.Empty();
+	DownAnim.Empty();
+	fly.Empty();
+	UpAnim.Empty();
+	LeftAnim.Empty();
+	RightAnim.Empty();
 	DRAnim.PushBack({ 0, 112, 16, 16 });
 	DLAnim.PushBack({ 96, 112, 16, 16 });
 	DRAnim.PushBack({ 16, 128, 16, 16 });

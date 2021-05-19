@@ -8,6 +8,15 @@
 
 Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 {
+	DRAnim.Empty();
+	URAnim.Empty();
+	ULAnim.Empty();
+	DLAnim.Empty();
+	DownAnim.Empty();
+	flyAnim.Empty();
+	UpAnim.Empty();
+	LeftAnim.Empty();
+	RightAnim.Empty();
 	DRAnim.PushBack({ 0, 0, 16, 16 });
 	DLAnim.PushBack({ 96, 0, 16, 16 });
 	DRAnim.PushBack({ 16, 16, 16, 16 });

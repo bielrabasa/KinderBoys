@@ -19,6 +19,7 @@ using namespace std;
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EMPTYes
 {
 	// Idle animation - just one sprite
+	idleDAnim.Empty();
 	idleDAnim.PushBack({ 128, 32, 16, 16 });
 	idleURAnim.PushBack({ 144, 32, 16, 16 });
 	idleLRAnim.PushBack({ 160, 32, 16, 16 });
@@ -27,6 +28,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EM
 	//nome cames
 
 	// Move upwards
+	downAnim.Empty();
 	downAnim.PushBack({ 0, 32, 16, 16 });
 	downAnim.PushBack({ 16, 32, 16, 16 });
 	downAnim.PushBack({ 32, 32, 16, 16 });
@@ -37,6 +39,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EM
 	downAnim.speed = 0.1f;
 
 	// Move down
+	upAnim.Empty();
 	upAnim.PushBack({ 0, 0, 16, 16 });
 	upAnim.PushBack({ 16, 0, 16, 16 });
 	upAnim.PushBack({ 32, 0, 16, 16 });
@@ -48,6 +51,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EM
 	upAnim.speed = 0.1f;
 
 	//Move rigth 
+	rigthAnim.Empty(); 
 	rigthAnim.PushBack({ 0, 16, 16, 16 });
 	rigthAnim.PushBack({ 16, 16, 16, 16 });
 	rigthAnim.PushBack({ 32, 16, 16, 16 });
@@ -59,6 +63,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EM
 	rigthAnim.speed = 0.1f;
 
 	//Move left
+	leftAnim.Empty();
 	leftAnim.PushBack({ 0, 208, 16, 16 });
 	leftAnim.PushBack({ 16, 208, 16, 16 });
 	leftAnim.PushBack({ 32, 208, 16, 16 });
@@ -70,6 +75,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EM
 	leftAnim.speed = 0.1f;
 
 	//Diagonal Secundaria
+	diagonalSAnim.Empty(); 
 	diagonalSAnim.PushBack({ 128, 0, 16, 16 });
 	diagonalSAnim.PushBack({ 144, 0, 16, 16 });
 	diagonalSAnim.PushBack({ 160, 0, 16, 16 });
@@ -80,6 +86,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EM
 	diagonalSAnim.speed = 0.1f;
 
 	//Diagonal Principal
+	diagonalPAnim.Empty(); 
 	diagonalPAnim.PushBack({ 128, 16, 16, 16 });
 	diagonalPAnim.PushBack({ 144, 16, 16, 16 });
 	diagonalPAnim.PushBack({ 160, 16, 16, 16 });
@@ -91,6 +98,8 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EM
 	diagonalPAnim.speed = 0.1f;
 
 	//Diagonal Secundaria Reverse
+	
+	diagonalSRAnim.Empty();
 	diagonalSRAnim.PushBack({ 0, 224, 16, 16 });
 	diagonalSRAnim.PushBack({ 16, 224, 16, 16 });
 	diagonalSRAnim.PushBack({ 32, 224, 16, 16 });
@@ -101,6 +110,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EM
 	diagonalSRAnim.speed = 0.1f;
 
 	//Diagonal Principal Reverse
+	diagonalPRAnim.Empty();
 	diagonalPRAnim.PushBack({ 0, 240, 16, 16 });
 	diagonalPRAnim.PushBack({ 16, 240, 16, 16 });
 	diagonalPRAnim.PushBack({ 32, 240, 16, 16 });
@@ -113,6 +123,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EM
 
 
 	//ANIMACIONS TOP HOME
+	topDownAnim.Empty();
 	topDownAnim.PushBack({ 0, 48, 32, 32 });
 	topDRAnim.PushBack({ 32, 48, 32, 32 });
 	topDLAnim.PushBack({ 112, 208, 32, 32});
@@ -123,6 +134,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EM
 	topUpAnim.PushBack({ 128, 48, 32, 32 });
 	
 	//ANIMACIONS DISPARANT TOP HOME
+	shootDownAnim.Empty();
 	shootDownAnim.PushBack({ 160, 48, 32, 32 });
 	shootDRAnim.PushBack({ 192, 48, 32, 32 });
 	shootDLAnim.PushBack({ 256, 48, 32, 32 });
