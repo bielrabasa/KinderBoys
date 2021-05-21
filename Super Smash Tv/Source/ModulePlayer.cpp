@@ -724,6 +724,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 			App->audio->PlayFx(explosionFx);
 
+			//App->pause;
+
 			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 20);
 			
 			destroyed = false;
