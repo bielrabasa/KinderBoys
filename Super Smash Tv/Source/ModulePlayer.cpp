@@ -678,6 +678,8 @@ UpdateResult ModulePlayer::PostUpdate()
 		}
 	}
 
+
+
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
@@ -724,9 +726,9 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 			App->audio->PlayFx(explosionFx);
 
-			//App->pause;
+			App->pause = true;
 
-			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 20);
+			//App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 20);
 			
 			destroyed = false;
 		}
