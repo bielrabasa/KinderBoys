@@ -98,6 +98,7 @@ bool SceneLevel1::Start()
 	App->player->vides = 5;
 	App->player->score = 0;
 
+	sceneTimer = 0;
 
 	srand(time(NULL));
 
