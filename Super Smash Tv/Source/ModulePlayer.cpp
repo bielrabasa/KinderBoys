@@ -166,6 +166,8 @@ bool ModulePlayer::Start()
 
 	textureFont = App->textures->Load("Assets/SpritesSSTV/Font.png"); //Font
 
+	textureMort = App->textures->Load("Assets/SpritesSSTV/Game_Over.png"); //Mort
+
 	texturePickups = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
 
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
@@ -633,6 +635,7 @@ UpdateResult ModulePlayer::PostUpdate()
 	SDL_Rect rect7v = { 70, 16, 10, 14 };
 	SDL_Rect rect8v = { 80, 16, 10, 14 };
 	SDL_Rect rect9v = { 90, 16, 10, 14 };
+	SDL_Rect rect10v = { 0, 0, 512, 512 };
 
 	switch (vides) {
 	case 0:
@@ -671,14 +674,17 @@ UpdateResult ModulePlayer::PostUpdate()
 	{
 		shootRightAnim.Reset();
 		currentTopAnimation = &shootRightAnim;
-
 		if (bandera) {
 			App->particles->AddParticle(App->particles->laserR, position.x + 10, position.y + 1, 3, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(laserFx);
 		}
 	}
 
-
+	if(vides <= 0)
+	{
+		App->render->DrawTexture(textureMort, 0, 0, &rect10v, 1);
+		//App->pause = true;
+	}
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
@@ -726,6 +732,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 			App->audio->PlayFx(explosionFx);
 
+
 			App->pause = true;
 
 			//App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 20);
@@ -745,6 +752,7 @@ bool ModulePlayer::CleanUp() {
 	App->textures->Unload(textureDoorTop);
 	App->textures->Unload(textureUI);
 	App->textures->Unload(textureFont);
+	App->textures->Unload(textureMort);
 	App->textures->Unload(texturePickups);
 
 	return true;
