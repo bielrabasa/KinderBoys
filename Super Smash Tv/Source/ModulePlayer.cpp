@@ -718,7 +718,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	
 	if (c2->type == c2->Door && App->sceneLevel_1->sceneTimer >= 3600) {
 		//	WIN CONDITION
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 60); //sceneWin, sceneSwap
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 0); //sceneWin, sceneSwap
 	}
 	
 	//GESTIONAR LES VIDES I LA MORT
