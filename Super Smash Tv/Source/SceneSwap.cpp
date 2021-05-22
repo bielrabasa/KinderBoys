@@ -28,16 +28,9 @@ bool SceneSwap::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/SpritesSSTV/Score_screen_2.png");
-	//App->audio->PlayMusic("Assets/Audio/SFX/End point count.wav", 1.0f);
-	App->audio->PlayMusic("Assets/Music/06-_Super_Smash_TV_-_Win_Game.ogg", 1.0f);
-	Win = App->audio->LoadFx("Assets/Audio/SFX/End point count 2.wav");
+	bgTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV.png");
 
-
-	App->audio->PlayFx(Win);
-
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
+	Transicio = 0;
 
 	App->player->CleanUp();
 	App->collisions->CleanUp();
@@ -56,13 +49,17 @@ UpdateResult SceneSwap::Update()
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 20);
 	}
 
+	if (Transicio < 512)
+		Transicio += 4;
+
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
 UpdateResult SceneSwap::PostUpdate()
 {
 	// Draw everything
-	App->render->DrawTexture(bgTexture, 0, 0, NULL);
+	SDL_Rect fons1 = { (512*mapaTransicio) + Transicio, 0, 1024, 448 }; //512*primerMapaActual, 0, 1024(dosMapes), 448
+	App->render->DrawTexture(bgTexture, 0, 0, &fons1);
 
 	return UpdateResult::UPDATE_CONTINUE;
 }

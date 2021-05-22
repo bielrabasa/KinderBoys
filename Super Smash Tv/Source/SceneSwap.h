@@ -33,6 +33,9 @@ public:
 
 	uint Win = 0;
 
+	int mapaTransicio = 0;
+	int Transicio = 0; //contador que va fent la transició
+
 };
 
 #endif	// __SCENESWAP_H__
