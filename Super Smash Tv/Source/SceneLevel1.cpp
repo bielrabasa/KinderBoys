@@ -33,6 +33,7 @@ bool SceneLevel1::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV.png");
+	exitTexture = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
 	App->audio->PlayMusic("Assets/Music/03-_Super_Smash_TV_-_Circuit_1.ogg", 1.0f);
 
 	App->enemies->Enable();
@@ -99,7 +100,6 @@ bool SceneLevel1::Start()
 
 
 	srand(time(NULL));
-	sceneTimer = 0;
 
 	return ret;
 }
@@ -192,6 +192,9 @@ UpdateResult SceneLevel1::Update()
 	if (i == 1) mapaActual = 7;
 	else mapaActual = 0;
 
+	++exitTimer;
+	if (exitTimer > 40)
+		exitTimer = 0;
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
@@ -202,12 +205,27 @@ UpdateResult SceneLevel1::PostUpdate()
 	SDL_Rect section = { mapaActual * 512, 0, 512, 448 };
 	App->render->DrawTexture(bgTexture, 0, 0, &section); //SPRITE del fons, podem posar els altres amb (bgTexture, -512*mapaActual, 0, NULL)
 
+	SDL_Rect exit1 = { 64, 87, 25, 9 };
+	SDL_Rect exit2 = { 96, 87, 25, 9 };
+	SDL_Rect exitf1 = { 32, 88, 10, 16 };
+	SDL_Rect exitf2 = { 48, 88, 10, 16 };
+
+	if (sceneTimer > 3600 && exitTimer < 20) {	//La textura va fent pampallugues.
+		App->render->DrawTexture(exitTexture, 420, 244, &exit1, 2); //Exit1
+		App->render->DrawTexture(exitTexture, 280, 238, &exitf1, 2); //Fletxa1
+	}
+	else if(sceneTimer > 3600) {
+		App->render->DrawTexture(exitTexture, 420, 244, &exit2, 2); //Exit2
+		App->render->DrawTexture(exitTexture, 280, 238, &exitf2, 2); //Fletxa2
+	}
+
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
 bool SceneLevel1::CleanUp()
 {
 	App->textures->Unload(bgTexture);
+	App->textures->Unload(exitTexture);
 	App->player->Disable();
 	App->enemies->Disable();
 	App->particles->Disable();
