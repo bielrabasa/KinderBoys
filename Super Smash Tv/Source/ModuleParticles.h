@@ -56,6 +56,8 @@ public:
 	int randmoY = 200;
 	int randomSpawn = 0;
 
+	int parpa = 0;
+
 private:
 	// Particles spritesheet loaded into an SDL Texture
 	SDL_Texture* texture = nullptr;

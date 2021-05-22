@@ -96,9 +96,11 @@ bool ModuleParticles::Start()
 	laserUR.anim.speed = 0.2f;
 
 	Gold.anim.Empty();
-	Gold.anim.PushBack({ 0, 40, 17, 17 }); 
-
+	Gold.anim.PushBack({ 500, 500, 17, 17 });
+	Gold.anim.PushBack({ 0, 40, 17, 17 });
+	Gold.anim.loop = false;
 	Gold.lifetime = 666;
+	laserUR.anim.speed = 0.1f;
 
 	Silver.anim.Empty();
 	Silver.anim.PushBack({ 16, 40, 16, 16 }); 
@@ -191,8 +193,12 @@ UpdateResult ModuleParticles::Update()
 			particles[i] = nullptr;
 		}
 	}
-	
 
+	if (Gold.lifetime <= 300)
+	{
+		Gold.anim.loop = true;
+		App->pause = true;
+	}
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
