@@ -193,6 +193,10 @@ UpdateResult ModulePlayer::Update()
 		bandera_GodMode = !bandera_GodMode;
 	}
 
+	if (App->input->keys[SDL_SCANCODE_F7] == KeyState::KEY_DOWN) {
+		App->sceneLevel_1->sceneTimer = 3600;
+	}
+
 
 	//Preguntar pk no funciona el martes
 	if (bandera_GodMode == false) {

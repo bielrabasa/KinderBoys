@@ -46,6 +46,7 @@ UpdateResult SceneSwap::Update()
 {
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN)
 	{
+		//App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 0);
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 20);
 	}
 
