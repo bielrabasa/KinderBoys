@@ -142,7 +142,11 @@ bool ModuleParticles::Start()
 
 	Triple.anim.Empty();
 	Triple.anim.PushBack({33, 72, 15, 15});
-	Cash.lifetime = 666;
+	Triple.lifetime = 666;
+
+	vidaUp.anim.Empty();
+	vidaUp.anim.PushBack({33, 56, 15, 15});
+	vidaUp.lifetime = 666;
 
 	return true;
 }

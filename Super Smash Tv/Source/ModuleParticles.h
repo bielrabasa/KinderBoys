@@ -78,6 +78,7 @@ public:
 
 
 	Particle Triple;
+	Particle vidaUp;
 
 
 

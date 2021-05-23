@@ -874,6 +874,11 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		bandera_trip = true;
 		cont_Tripel = 500;
+	}	
+	
+	if (c2->type == c2->object_Vida)
+	{
+		vides++;
 	}
 
 	if (c2->type == c2->Door && App->sceneLevel_1->sceneTimer >= 3600) {

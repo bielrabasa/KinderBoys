@@ -116,7 +116,7 @@ UpdateResult SceneLevel1::Update()
 	{
 		App->particles->randmoX = (rand() % 395 + 30);
 		App->particles->randmoY = (rand() % 285 + 120);
-		App->particles->randomSpawn = (rand() % 5);
+		App->particles->randomSpawn = (rand() % 6);
 		if(App->particles->randomSpawn == 0)
 		App->particles->AddParticle(App->particles->Gold, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::object_gold);
 		else if(App->particles->randomSpawn == 1)
@@ -127,6 +127,8 @@ UpdateResult SceneLevel1::Update()
 		App->particles->AddParticle(App->particles->SilverGold, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::object_silver_gold);
 		else if(App->particles->randomSpawn == 4)
 		App->particles->AddParticle(App->particles->Triple, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::object_Triple);
+		else if(App->particles->randomSpawn == 5)
+		App->particles->AddParticle(App->particles->vidaUp, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::object_Vida);
 		
 		num = 0;
 		randomcont = (rand() % 300 + 5);
