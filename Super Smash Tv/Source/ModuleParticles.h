@@ -77,6 +77,9 @@ public:
 	Particle Cash;
 
 
+	Particle Triple;
+
+
 
 	Particle blood;
 
@@ -89,6 +92,10 @@ public:
 	Particle laserDL;
 	Particle laserUL;
 	Particle laserUR;
+
+	Particle TripleShoot;
+	Particle TripleShoot1;
+	Particle TripleShoot2;
 };
 
 #endif // __MODULEPARTICLES_H__

@@ -177,6 +177,7 @@ bool ModulePlayer::Start()
 	position.x = 150;
 	position.y = 120;
 
+	bandera_trip = false;
 
 	destroyed = false;
 
@@ -195,6 +196,11 @@ UpdateResult ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_F7] == KeyState::KEY_DOWN) {
 		App->sceneLevel_1->sceneTimer = 3600;
+	}
+
+	if (App->input->keys[SDL_SCANCODE_F] == KeyState::KEY_DOWN) {
+		bandera_trip = true;
+		cont_Tripel = 1000000;
 	}
 
 
@@ -460,6 +466,10 @@ UpdateResult ModulePlayer::Update()
 		MovKeyPressed = 0;
 	}
 
+	if (bandera_trip == true)
+	{
+		cont_Tripel--;
+	}
 	//Direccion de donde va la bala
 		//DIAGONALS
 	cont++;
@@ -488,8 +498,26 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootURAnim;
 
 		if (bandera) {
+			if (bandera_trip && cont_Tripel > 0)
+			{
+				App->particles->TripleShoot.speed.y = 3;
+				App->particles->TripleShoot.speed.x = 3;
+				App->particles->TripleShoot1.speed.x = 2;
+				App->particles->TripleShoot1.speed.y = 4;
+				App->particles->TripleShoot2.speed.x = 4;
+				App->particles->TripleShoot2.speed.y = 2;
+
+				App->particles->AddParticle(App->particles->TripleShoot1, position.x + 5, position.y + -16, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot, position.x + 7, position.y + -15, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 9, position.y - 14, 6, Collider::Type::PLAYER_SHOT);
+				App->audio->PlayFx(laserFx);
+				cont = 0;
+			}
+			else
+			{
 			App->particles->AddParticle(App->particles->laserUR, position.x + 7, position.y - 12, 6, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(laserFx);
+			}
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_UP] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_LEFT] == KeyState::KEY_REPEAT) //Esq, amunt
@@ -498,8 +526,26 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootULAnim;
 
 		if (bandera) {
+			if (bandera_trip && cont_Tripel > 0)
+			{
+				App->particles->TripleShoot.speed.y = 3;
+				App->particles->TripleShoot.speed.x = -3;
+				App->particles->TripleShoot1.speed.x = -2;
+				App->particles->TripleShoot1.speed.y = 4;
+				App->particles->TripleShoot2.speed.x = -4;
+				App->particles->TripleShoot2.speed.y = 2;
+
+				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -8, position.y + -12, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot, position.x + -10, position.y + -11, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot2, position.x + -12, position.y + -10, 6, Collider::Type::PLAYER_SHOT);
+				App->audio->PlayFx(laserFx);
+				cont = 0;
+			}
+			else
+			{
 			App->particles->AddParticle(App->particles->laserUL, position.x - 5, position.y - 10, 5, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(laserFx);
+			}
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_LEFT] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT) //Esq, avall
@@ -508,8 +554,26 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootDLAnim;
 
 		if (bandera) {
+			if (bandera_trip && cont_Tripel > 0)
+			{
+				App->particles->TripleShoot.speed.y = -3;
+				App->particles->TripleShoot.speed.x = -3;
+				App->particles->TripleShoot1.speed.x = -2;
+				App->particles->TripleShoot1.speed.y = -4;
+				App->particles->TripleShoot2.speed.x = -4;
+				App->particles->TripleShoot2.speed.y = -2;
+
+				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -8, position.y + 12, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot, position.x + -10, position.y + 11, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot2, position.x + -12, position.y + 10, 6, Collider::Type::PLAYER_SHOT);
+				App->audio->PlayFx(laserFx);
+				cont = 0;
+			}
+			else
+			{
 			App->particles->AddParticle(App->particles->laserDL, position.x - 12, position.y + 11, 7, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(laserFx);
+			}
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_RIGHT] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT) //drt, avall
@@ -518,8 +582,26 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootDRAnim;
 
 		if (bandera) {
+			if (bandera_trip && cont_Tripel > 0)
+			{
+				App->particles->TripleShoot.speed.y = -3;
+				App->particles->TripleShoot.speed.x = 3;
+				App->particles->TripleShoot1.speed.x = 2;
+				App->particles->TripleShoot1.speed.y = -4;
+				App->particles->TripleShoot2.speed.x = 4;
+				App->particles->TripleShoot2.speed.y = -2;
+
+				App->particles->AddParticle(App->particles->TripleShoot1, position.x + 5, position.y + 12, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot, position.x + 7, position.y + 11, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 9, position.y + 10, 6, Collider::Type::PLAYER_SHOT);
+				App->audio->PlayFx(laserFx);
+				cont = 0;
+			}
+			else
+			{
 			App->particles->AddParticle(App->particles->laserDR, position.x + 8, position.y + 8, 8, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(laserFx);
+			}
 		}
 	}
 	//RECTES
@@ -529,9 +611,27 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootUpAnim;
 
 		if (bandera) {
-			App->particles->AddParticle(App->particles->laserU, position.x + 2, position.y - 7, 1, Collider::Type::PLAYER_SHOT);
+			if(bandera_trip && cont_Tripel > 0)
+			{
+			App->particles->TripleShoot.speed.y = 5;
+			App->particles->TripleShoot.speed.x = 0;
+			App->particles->TripleShoot1.speed.x = 1;
+			App->particles->TripleShoot1.speed.y = 5;
+			App->particles->TripleShoot2.speed.x = -1;
+			App->particles->TripleShoot2.speed.y = 5;
+
+			App->particles->AddParticle(App->particles->TripleShoot, position.x + -2, position.y - 7, 6, Collider::Type::PLAYER_SHOT);		
+			App->particles->AddParticle(App->particles->TripleShoot1, position.x + 1, position.y - 7, 6, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->TripleShoot2, position.x + -5, position.y - 7, 6, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(laserFx);
 			cont = 0;
+			}
+			else
+			{
+				App->particles->AddParticle(App->particles->laserU, position.x + -2, position.y + -7, 1, Collider::Type::PLAYER_SHOT);
+				App->audio->PlayFx(laserFx);
+				cont = 0;
+			}
 		}
 
 	}
@@ -541,8 +641,26 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootLeftAnim;
 
 		if (bandera) {
+			if (bandera_trip && cont_Tripel > 0)
+			{
+				App->particles->TripleShoot.speed.y = 0;
+				App->particles->TripleShoot.speed.x = -5;
+				App->particles->TripleShoot1.speed.x = -5;
+				App->particles->TripleShoot1.speed.y = -1;
+				App->particles->TripleShoot2.speed.x = -5;
+				App->particles->TripleShoot2.speed.y = 1;
+
+				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -20, position.y + 4, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot, position.x + -20, position.y + 1, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot2, position.x + -20, position.y - 2, 6, Collider::Type::PLAYER_SHOT);
+				App->audio->PlayFx(laserFx);
+				cont = 0;
+			}
+			else
+			{
 			App->particles->AddParticle(App->particles->laserL, position.x - 10, position.y + 1, 2, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(laserFx);
+			}
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT) // avall
@@ -551,8 +669,26 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootDownAnim;
 
 		if (bandera) {
+			if (bandera_trip && cont_Tripel > 0)
+			{
+				App->particles->TripleShoot.speed.y = -5;
+				App->particles->TripleShoot.speed.x = -0;
+				App->particles->TripleShoot1.speed.x = -1;
+				App->particles->TripleShoot1.speed.y = -5;
+				App->particles->TripleShoot2.speed.x = 1;
+				App->particles->TripleShoot2.speed.y = -5;
+
+				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -3, position.y + 15, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot, position.x + 0, position.y + 15, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 3, position.y + 15, 6, Collider::Type::PLAYER_SHOT);
+				App->audio->PlayFx(laserFx);
+				cont = 0;
+			}
+			else
+			{
 			App->particles->AddParticle(App->particles->laserD, position.x + 5, position.y + 15, 4, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(laserFx);
+			}
 		}
 	}
 	else if (App->input->keys[SDL_SCANCODE_RIGHT] == KeyState::KEY_REPEAT) //drt
@@ -561,8 +697,26 @@ UpdateResult ModulePlayer::Update()
 		currentTopAnimation = &shootRightAnim;
 
 		if (bandera) {
+			if (bandera_trip && cont_Tripel > 0)
+			{
+				App->particles->TripleShoot.speed.y = 0;
+				App->particles->TripleShoot.speed.x = 5;
+				App->particles->TripleShoot1.speed.x = 5;
+				App->particles->TripleShoot1.speed.y = -1;
+				App->particles->TripleShoot2.speed.x = 5;
+				App->particles->TripleShoot2.speed.y = 1;
+
+				App->particles->AddParticle(App->particles->TripleShoot1, position.x + 20, position.y + 4, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot, position.x + 20, position.y + 1, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 20, position.y + -2, 6, Collider::Type::PLAYER_SHOT);
+				App->audio->PlayFx(laserFx);
+				cont = 0;
+			}
+			else
+			{
 			App->particles->AddParticle(App->particles->laserR, position.x + 10, position.y + 1, 3, Collider::Type::PLAYER_SHOT);
 			App->audio->PlayFx(laserFx);
+			}
 		}
 	}
 
@@ -716,6 +870,12 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		money += 5;
 	}
 	
+	if (c2->type == c2->object_Triple)
+	{
+		bandera_trip = true;
+		cont_Tripel = 500;
+	}
+
 	if (c2->type == c2->Door && App->sceneLevel_1->sceneTimer >= 3600) {
 		//	WIN CONDITION
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 0); //sceneWin, sceneSwap

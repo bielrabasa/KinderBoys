@@ -95,6 +95,21 @@ bool ModuleParticles::Start()
 	laserUR.lifetime = 180;
 	laserUR.anim.speed = 0.2f;
 
+	TripleShoot.anim.Empty();	//animació del Triple Shoot	//Collider Arreglat *apaño
+	TripleShoot1.anim.Empty();	//animació del Triple Shoot	//Collider Arreglat *apaño
+	TripleShoot2.anim.Empty();	//animació del Triple Shoot	//Collider Arreglat *apaño
+	TripleShoot.anim.PushBack({56, 8, 7, 7});
+	TripleShoot1.anim.PushBack({56, 8, 7, 7});
+	TripleShoot2.anim.PushBack({56, 8, 7, 7});
+	//TripleShoot.speed.x = 15;
+	//TripleShoot.speed.y = 15;
+	TripleShoot.lifetime = 180;
+	TripleShoot1.lifetime = 180;
+	TripleShoot2.lifetime = 180;
+	TripleShoot.anim.speed = 0.2f;
+	TripleShoot1.anim.speed = 0.2f;
+	TripleShoot2.anim.speed = 0.2f;
+
 	Gold.anim.Empty();
 	Gold.anim.PushBack({ 500, 500, 17, 17 });
 	Gold.anim.PushBack({ 0, 40, 17, 17 });
@@ -124,6 +139,10 @@ bool ModuleParticles::Start()
 	//blood.lifetime = 10;
 	blood.anim.speed = 0.175f;
 	blood.anim.loop = false;
+
+	Triple.anim.Empty();
+	Triple.anim.PushBack({33, 72, 15, 15});
+	Cash.lifetime = 666;
 
 	return true;
 }

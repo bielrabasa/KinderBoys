@@ -20,6 +20,7 @@ struct Collider
 		object_silver,
 		object_silver_gold,
 		object_money,
+		object_Triple,
 
 		MAX
 	};

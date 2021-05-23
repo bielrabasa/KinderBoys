@@ -41,6 +41,9 @@ public:
 	int speed = 3;
 	int cont = 25;
 	bool bandera = true;
+
+	int cont_Tripel = 0;
+	bool bandera_trip = false;
 	//bool bandera_GodMode = false;
 
 	// The player spritesheet loaded into an SDL_Texture
