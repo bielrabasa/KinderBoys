@@ -752,7 +752,7 @@ UpdateResult ModulePlayer::Update()
 	}
 
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_DOWN)
-	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 20);
+	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->SceneLevel2, 20);
 
 
 	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) { //necessita col·lidir amb un enemic al final per morir
@@ -904,7 +904,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 			App->pause = true;
 
-			//App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLose, 20);
+			//App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->SceneLevel2, 20);
 			
 			destroyed = false;
 		}
