@@ -215,11 +215,11 @@ UpdateResult SceneLevel1::PostUpdate()
 	SDL_Rect exitf1 = { 32, 88, 10, 16 };
 	SDL_Rect exitf2 = { 48, 88, 10, 16 };
 
-	if (sceneTimer > 3600 && exitTimer < 20) {	//La textura va fent pampallugues.
+	if (sceneTimer > 3600 && exitTimer < 20 && App->enemies->enemyNum == 0) {	//La textura va fent pampallugues.
 		App->render->DrawTexture(exitTexture, 420, 244, &exit1, 2); //Exit1
 		App->render->DrawTexture(exitTexture, 280, 238, &exitf1, 2); //Fletxa1
 	}
-	else if(sceneTimer > 3600) {
+	else if(sceneTimer > 3600 && App->enemies->enemyNum == 0) {
 		App->render->DrawTexture(exitTexture, 420, 244, &exit2, 2); //Exit2
 		App->render->DrawTexture(exitTexture, 280, 238, &exitf2, 2); //Fletxa2
 	}

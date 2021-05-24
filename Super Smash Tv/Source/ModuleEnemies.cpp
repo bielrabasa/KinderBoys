@@ -35,6 +35,8 @@ bool ModuleEnemies::Start()
 
 	textureFont = App->textures->Load("Assets/SpritesSSTV/Font.png");
 
+	enemyNum = 0;
+
 	return true;
 }
 
@@ -156,6 +158,9 @@ bool ModuleEnemies::AddEnemy(Enemy_Type type, int x, int y)
 			spawnQueue[i].x = x;
 			spawnQueue[i].y = y;
 			ret = true;
+
+			enemyNum++;
+
 			break;
 		}
 	}
@@ -234,6 +239,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && (c2->type == c2->PLAYER_SHOT))
 		{
 			enemies[i]->OnCollision(c2); //Notify the enemy of a collision
+
+			enemyNum--;
 
 			delete enemies[i];
 			enemies[i] = nullptr;

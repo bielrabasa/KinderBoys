@@ -94,9 +94,6 @@
     <ClInclude Include="SceneUPC.h">
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="Lose.h">
-      <Filter>Source Files\Modules</Filter>
-    </ClInclude>
     <ClInclude Include="SceneWin.h">
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
@@ -104,6 +101,9 @@
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
     <ClInclude Include="SceneSwap.h">
+      <Filter>Source Files\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="level2.h">
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
   </ItemGroup>
@@ -180,9 +180,6 @@
     <ClCompile Include="SceneUPC.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Lose.cpp">
-      <Filter>Source Files\Modules</Filter>
-    </ClCompile>
     <ClCompile Include="SceneWin.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
@@ -190,6 +187,9 @@
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
     <ClCompile Include="SceneSwap.cpp">
+      <Filter>Source Files\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="level2.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
   </ItemGroup>

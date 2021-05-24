@@ -66,6 +66,8 @@ public:
 
 	int posicioFont = 160;
 
+	int enemyNum = 0;
+
 
 private:
 	// Spawns a new enemy using the data from the queue
