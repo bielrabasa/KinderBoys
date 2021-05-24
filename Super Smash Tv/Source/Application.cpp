@@ -10,7 +10,7 @@
 #include "SceneUPC.h"
 #include "SceneIntroGame.h"
 #include "SceneLevel1.h"
-#include "Lose.h"
+#include "level2.h"
 #include "SceneWin.h"
 #include "SceneSwap.h"
 #include "ModuleParticles.h"
@@ -34,7 +34,7 @@ Application::Application()
 	modules[5] =	sceneUPC =		new SceneUPC(false);
 	modules[6] =	sceneIntroGame =new SceneIntroGame(false);
 	modules[7] =	sceneLevel_1 =	new SceneLevel1(false);		//Gameplay scene starts disabled
-	modules[8] =	sceneLose =		new SceneLose(false);		//Gameplay scene starts disabled
+	modules[8] =	sceneLevel2 =	new SceneLevel2(false);		//Gameplay scene starts disabled
 	modules[9] =	sceneWin =		new SceneWin(false);		//Gameplay scene starts disabled
 	modules[10] =	sceneSwap =		new SceneSwap(false);		//Gameplay scene starts disabled
 	

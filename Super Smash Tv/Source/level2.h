@@ -1,19 +1,19 @@
-#ifndef __SCENELOSE_H__
-#define __SCENELOSE_H__
+#ifndef __SceneLevel2_H__
+#define __SceneLevel2_H__
 
 #include "Module.h"
 #include "Animation.h"
 
 struct SDL_Texture;
 
-class SceneLose : public Module
+class SceneLevel2 : public Module
 {
 public:
 	// Constructor
-	SceneLose(bool startEnabled);
+	SceneLevel2(bool startEnabled);
 
 	// Destructor
-	~SceneLose();
+	~SceneLevel2();
 
 	// Called when the module is activated
 	// Loads the necessary textures for the map background
@@ -28,9 +28,22 @@ public:
 	// Performs the render call of all the parts of the scene's background
 	UpdateResult PostUpdate() override;
 
+	// Disables the player and the enemies
+
 public:
+
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
+	SDL_Texture* exitTexture = nullptr;
+
+	int mapaActual = 2;
+	int randomcont = 50;
+	int num = 0;
+	int sceneTimer = 0; //3601 si vols veure el final directe, 0 per default.
+	int randomEnemySpawn = 0;
+	short portesSpawn[4][9][2];
+	int i = 0;
+	int exitTimer = 0;
 };
 
-#endif	// __SCENELOSE_H__
+#endif	// __SceneLevel2_H__

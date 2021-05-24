@@ -15,7 +15,7 @@ class SceneIntro;
 class SceneUPC;
 class SceneIntroGame;
 class SceneLevel1;
-class SceneLose;
+class SceneLevel2;
 class SceneWin;
 class SceneSwap;
 class ModuleParticles;
@@ -61,7 +61,7 @@ public:
 	SceneIntroGame* sceneIntroGame = nullptr;
 	SceneIntro* sceneIntro = nullptr;
 	SceneLevel1* sceneLevel_1 = nullptr;
-	SceneLose* sceneLose = nullptr;
+	SceneLevel2* sceneLevel2 = nullptr;
 	SceneWin* sceneWin = nullptr;
 	SceneSwap* sceneSwap = nullptr;
 
