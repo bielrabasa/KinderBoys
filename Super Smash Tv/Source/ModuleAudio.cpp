@@ -71,6 +71,15 @@ bool ModuleAudio::CleanUp()
 	return true;
 }
 
+bool ModuleAudio::CleanFX(uint fx) //PREGUNTAR RAY
+{
+	LOG("Freeing sound FX");
+
+		if (soundFx[fx] != nullptr) Mix_FreeChunk(soundFx[fx]);
+
+	return true;
+}
+
 bool ModuleAudio::PlayMusic(const char* path, float fade_time)
 {
 	bool ret = true;

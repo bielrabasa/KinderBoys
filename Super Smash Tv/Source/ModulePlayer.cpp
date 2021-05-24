@@ -16,7 +16,7 @@ using namespace std;
 
 #include "SDL/include/SDL_render.h"
 
-ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled) //FALTEN EMPTYes
+ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	// Idle animation - just one sprite
 	idleDAnim.Empty();
@@ -923,6 +923,8 @@ bool ModulePlayer::CleanUp() {
 	App->textures->Unload(textureFont);
 	App->textures->Unload(textureMort);
 	App->textures->Unload(texturePickups);
+
+	//App->audio->CleanFX(laserFx);
 
 	return true;
 }

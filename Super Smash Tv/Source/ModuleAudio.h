@@ -28,6 +28,7 @@ public:
 	// Uninitializes the SDL_Mixer library
 	bool CleanUp();
 
+	bool CleanFX(uint);
 	// Plays a new music file from a file path
 	// First loads the music file into the Mix_Music structure
 	// Then plays the music indefinetely

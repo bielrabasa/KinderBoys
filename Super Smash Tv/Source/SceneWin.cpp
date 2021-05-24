@@ -66,3 +66,13 @@ UpdateResult SceneWin::PostUpdate()
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
+
+bool SceneWin::CleanUp() {
+
+	LOG("Freeing swap");
+
+	//desinicialitzar tots els sprites
+	App->textures->Unload(bgTexture);
+
+	return true;
+}

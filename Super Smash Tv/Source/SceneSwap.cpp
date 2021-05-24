@@ -38,7 +38,7 @@ bool SceneSwap::Start()
 	App->enemies->CleanUp();
 
 	App->enemies->Disable();
-
+	
 	return ret;
 }
 
@@ -63,4 +63,14 @@ UpdateResult SceneSwap::PostUpdate()
 	App->render->DrawTexture(bgTexture, 0, 0, &fons1);
 
 	return UpdateResult::UPDATE_CONTINUE;
+}
+
+bool SceneSwap::CleanUp() {
+
+	LOG("Freeing swap");
+
+	//desinicialitzar tots els sprites
+	App->textures->Unload(bgTexture);
+
+	return true;
 }
