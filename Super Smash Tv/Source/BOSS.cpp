@@ -1,11 +1,11 @@
-#include "Enemy_BrownShip.h"
+#include "BOSS.h"
 
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModulePlayer.h"
 #include "SceneLevel1.h"
 
-Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
+Enemy_BOSS::Enemy_BOSS(int x, int y) : Enemy(x, y)
 {
 	DRAnim.Empty();
 	URAnim.Empty();
@@ -16,7 +16,6 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	UpAnim.Empty();
 	LeftAnim.Empty();
 	RightAnim.Empty();
-
 	DRAnim.PushBack({ 0, 112, 16, 16 });
 	DLAnim.PushBack({ 96, 112, 16, 16 });
 	DRAnim.PushBack({ 16, 128, 16, 16 });
@@ -47,15 +46,15 @@ Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 	DRAnim.speed = 0.05f;
 
 	currentAnim = &DownAnim;
-	
+
 	//path.PushBack({-1.0f, -0.5f}, 100);
 	//path.PushBack({-1.0f, 0.5f}, 80);
 	//path.PushBack({-1.0f, 1.0f}, 80);
-	
-	collider = App->collisions->AddCollider({0, 0, 16, 16}, Collider::Type::ENEMY, (Module*)App->enemies);
+
+	collider = App->collisions->AddCollider({ 0, 0, 16, 16 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
-void Enemy_BrownShip::Update()
+void Enemy_BOSS::Update()
 {
 	//path.Update();
 	//position = spawnPos + path.GetRelativePosition();
@@ -82,7 +81,7 @@ void Enemy_BrownShip::Update()
 			break;
 		}
 	}
-	
+
 	if (movementDelay >= 1 && spawntimer > 80) {
 		if (position.x - App->player->position.x < 0)			//right
 		{

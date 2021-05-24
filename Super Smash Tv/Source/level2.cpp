@@ -95,7 +95,6 @@ bool SceneLevel2::Start()
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
 
-	App->player->vides = 5;
 	App->player->score = 0;
 
 	sceneTimer = 0;
@@ -113,8 +112,6 @@ bool SceneLevel2::CleanUp()
 	App->enemies->Disable();
 	App->particles->Disable();
 	App->collisions->Disable();
-
-	// L10: TODO 5: Remove all memory leaks
 
 	return true;
 }
@@ -208,35 +205,14 @@ UpdateResult SceneLevel2::Update()
 		if (i == 4) i = 0;
 	}
 
-	if (i == 1) mapaActual = 7;
-	else mapaActual = 0;
-
-	++exitTimer;
-	if (exitTimer > 40)
-		exitTimer = 0;
-
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
 UpdateResult SceneLevel2::PostUpdate()
 {
 	// Draw everything
-	SDL_Rect section = { mapaActual * 512, 0, 512, 448 };
+	SDL_Rect section = { 6 * 512, 0, 512, 448 }; //MAPA BOSS
 	App->render->DrawTexture(bgTexture, 0, 0, &section); //SPRITE del fons, podem posar els altres amb (bgTexture, -512*mapaActual, 0, NULL)
-
-	SDL_Rect exit1 = { 64, 87, 25, 9 };
-	SDL_Rect exit2 = { 96, 87, 25, 9 };
-	SDL_Rect exitf1 = { 32, 88, 10, 16 };
-	SDL_Rect exitf2 = { 48, 88, 10, 16 };
-
-	if (sceneTimer > 3600 && exitTimer < 20) {	//La textura va fent pampallugues.
-		App->render->DrawTexture(exitTexture, 420, 244, &exit1, 2); //Exit1
-		App->render->DrawTexture(exitTexture, 280, 238, &exitf1, 2); //Fletxa1
-	}
-	else if (sceneTimer > 3600) {
-		App->render->DrawTexture(exitTexture, 420, 244, &exit2, 2); //Exit2
-		App->render->DrawTexture(exitTexture, 280, 238, &exitf2, 2); //Fletxa2
-	}
 
 	return UpdateResult::UPDATE_CONTINUE;
 }

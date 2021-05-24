@@ -36,14 +36,12 @@ public:
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* exitTexture = nullptr;
 
-	int mapaActual = 2;
 	int randomcont = 50;
 	int num = 0;
 	int sceneTimer = 0; //3601 si vols veure el final directe, 0 per default.
 	int randomEnemySpawn = 0;
 	short portesSpawn[4][9][2];
 	int i = 0;
-	int exitTimer = 0;
 };
 
 #endif	// __SceneLevel2_H__
