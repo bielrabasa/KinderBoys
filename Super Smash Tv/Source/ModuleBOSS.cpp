@@ -14,6 +14,31 @@ ModuleBOSS::ModuleBOSS(bool startEnabled) : Module(startEnabled)
 
 ModuleBOSS::~ModuleBOSS()
 {
+	IdleHead.Empty();
+	IdleHead.PushBack({ 32, 0, 32, 32});
+	IdleHead.PushBack({ 32, 32, 32, 32 });
+
+	RHead.Empty();
+	RHead.PushBack({ 64, 0, 32, 32 });
+	RHead.PushBack({ 64, 32, 32, 32 });
+
+	LHead.Empty();
+	LHead.PushBack({ 0, 0, 32, 32 });
+	LHead.PushBack({ 0, 32, 32, 32 });
+
+	Body.Empty();
+	Body.PushBack({ 0, 64, 128, 64 });
+	Body.PushBack({ 128, 64, 128, 64 });
+	Body.PushBack({ 0, 128, 128, 64 });
+	Body.PushBack({ 128, 128, 128, 64 });
+	
+	Wheels.Empty();
+	Wheels.PushBack({ 0, 192, 64, 96 });
+	Wheels.PushBack({ 64, 192, 64, 96 });
+	Wheels.PushBack({ 128, 192, 64, 96 });
+
+	//Pit Trencat	{ 128, 0, 64, 64 }
+	//Pit Trencat2	{ 196, 0, 64, 64 }
 
 }
 
