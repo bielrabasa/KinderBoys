@@ -106,8 +106,8 @@
     <ClInclude Include="level2.h">
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="BOSS.h">
-      <Filter>Source Files\Classes</Filter>
+    <ClInclude Include="ModuleBOSS.h">
+      <Filter>Source Files\Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -195,8 +195,8 @@
     <ClCompile Include="level2.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="BOSS.cpp">
-      <Filter>Source Files\Classes</Filter>
+    <ClCompile Include="ModuleBOSS.cpp">
+      <Filter>Source Files\Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

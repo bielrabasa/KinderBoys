@@ -38,6 +38,11 @@ public:
 	Animation Body;
 	Animation Wheels;
 
+	Animation* HeadAnimation = nullptr;
+	Animation* BodyAnimation = nullptr;
+	Animation* WheelsAnimation = nullptr;
+
+
 };
 
 #endif	// __ModuleBOSS_H__

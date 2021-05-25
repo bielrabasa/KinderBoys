@@ -37,6 +37,10 @@ ModuleBOSS::~ModuleBOSS()
 	Wheels.PushBack({ 64, 192, 64, 96 });
 	Wheels.PushBack({ 128, 192, 64, 96 });
 
+	HeadAnimation = &IdleHead;
+	BodyAnimation = &Body;
+	WheelsAnimation = &Wheels;
+	
 	//Pit Trencat	{ 128, 0, 64, 64 }
 	//Pit Trencat2	{ 196, 0, 64, 64 }
 
