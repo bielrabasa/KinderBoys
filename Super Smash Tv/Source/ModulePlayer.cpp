@@ -20,6 +20,10 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 	// Idle animation - just one sprite
 	idleDAnim.Empty();
+	idleURAnim.Empty();
+	idleLRAnim.Empty();
+	idleULAnim.Empty();
+	idleUAnim.Empty();
 	idleDAnim.PushBack({ 128, 32, 16, 16 });
 	idleURAnim.PushBack({ 144, 32, 16, 16 });
 	idleLRAnim.PushBack({ 160, 32, 16, 16 });
@@ -203,7 +207,7 @@ UpdateResult ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_F] == KeyState::KEY_DOWN) {
 		bandera_trip = true;
-		cont_Tripel = 1000000;
+		cont_Tripel = 500;
 	}
 
 
@@ -731,11 +735,7 @@ UpdateResult ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_W] == KeyState::KEY_IDLE
 		&& App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_IDLE
-		&& App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_IDLE
-		&& pad.left_x > 0.0f
-		&& pad.left_x < 0.0f
-		&& pad.left_y > 0.0f
-		&& pad.left_y < 0.0f) {
+		&& App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_IDLE) {
 		
 		currentAnimation = &idleUAnim;
 		if (!shooting) {

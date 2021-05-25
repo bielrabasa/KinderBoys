@@ -32,14 +32,16 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV.png");
-	exitTexture = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
-	App->audio->PlayMusic("Assets/Music/03-_Super_Smash_TV_-_Circuit_1.ogg", 1.0f);
-
 	App->enemies->Enable();
 	App->particles->Enable();
 	App->collisions->Enable();
 	App->player->Enable();
+
+	bgTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV.png");
+	exitTexture = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
+	App->audio->PlayMusic("Assets/Music/03-_Super_Smash_TV_-_Circuit_1.ogg", 1.0f);
+
+
 
 
 	//Bottomside collider  Primer numero x, Segundo numero y, 3r numero largo del cubo, 4o anchura del cubo
@@ -99,6 +101,7 @@ bool SceneLevel1::Start()
 	App->player->score = 0;
 
 	sceneTimer = 0;
+	num = 0;
 
 	srand(time(NULL));
 
