@@ -1,19 +1,19 @@
-#ifndef __SCENEBOSS_H__
-#define __SCENEBOSS_H__
+#ifndef __MODULEBOSS_H__
+#define __MODULEBOSS_H__
 
 #include "Module.h"
 #include "Animation.h"
 
 struct SDL_Texture;
 
-class SceneBOSS : public Module
+class ModuleBOSS : public Module
 {
 public:
 	// Constructor
-	SceneBOSS(bool startEnabled);
+	ModuleBOSS(bool startEnabled);
 
 	// Destructor
-	~SceneBOSS();
+	~ModuleBOSS();
 
 	// Called when the module is activated
 	// Loads the necessary textures for the map background
@@ -33,4 +33,4 @@ public:
 	SDL_Texture* bgTexture = nullptr;
 };
 
-#endif	// __SCENEBOSS_H__
+#endif	// __ModuleBOSS_H__

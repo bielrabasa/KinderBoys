@@ -1,4 +1,4 @@
-#include "SceneIntro.h"
+#include "ModuleBOSS.h"
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -7,50 +7,44 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 
-SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
+ModuleBOSS::ModuleBOSS(bool startEnabled) : Module(startEnabled)
 {
 
 }
 
-SceneIntro::~SceneIntro()
+ModuleBOSS::~ModuleBOSS()
 {
 
 }
 
 // Load assets
-bool SceneIntro::Start()
+bool ModuleBOSS::Start()
 {
 	LOG("Loading background assets");
 
 	bool ret = true;
 
-	bgTexture = App->textures->Load("Assets/SpritesSSTV/Pantalla_Kinderboys.png");
-	App->audio->PlayMusic("Assets/Music/", 1.0f);
+	bgTexture = App->textures->Load("Assets/SpritesSSTV/Entity_BOSS.png");
 
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
+	//CARREGAR ANIMACIONS
 
 	return ret;
 }
 
-bool SceneIntro::CleanUp() {
+bool ModuleBOSS::CleanUp() {
 	App->textures->Unload(bgTexture);
 	return true;
 }
 
-UpdateResult SceneIntro::Update()
+UpdateResult ModuleBOSS::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN)
-	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneUPC, 20);
-	}
-
+	
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
-UpdateResult SceneIntro::PostUpdate()
+UpdateResult ModuleBOSS::PostUpdate()
 {
-	// Draw everything
+
 	App->render->DrawTexture(bgTexture, 0, 0, NULL);
 
 	return UpdateResult::UPDATE_CONTINUE;
