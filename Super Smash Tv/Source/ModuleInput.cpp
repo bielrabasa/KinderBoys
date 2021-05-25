@@ -66,7 +66,7 @@ UpdateResult ModuleInput::PreUpdate()
 	}
 
 	// Read new SDL events
-	SDL_Event event;
+
 	while (SDL_PollEvent(&event) != 0)
 	{
 		switch (event.type)
