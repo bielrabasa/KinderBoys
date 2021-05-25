@@ -128,6 +128,13 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 
 	//ANIMACIONS TOP HOME
 	topDownAnim.Empty();
+	topDRAnim.Empty();
+	topDLAnim.Empty();
+	topLeftAnim.Empty();
+	topRightAnim.Empty();
+	topURAnim.Empty();
+	topULAnim.Empty();
+	topUpAnim.Empty();
 	topDownAnim.PushBack({ 0, 48, 32, 32 });
 	topDRAnim.PushBack({ 32, 48, 32, 32 });
 	topDLAnim.PushBack({ 112, 208, 32, 32});
@@ -139,6 +146,13 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 	
 	//ANIMACIONS DISPARANT TOP HOME
 	shootDownAnim.Empty();
+	shootDRAnim.Empty();
+	shootDLAnim.Empty();
+	shootLeftAnim.Empty();
+	shootRightAnim.Empty();
+	shootURAnim.Empty();
+	shootULAnim.Empty();
+	shootUpAnim.Empty();
 	shootDownAnim.PushBack({ 160, 48, 32, 32 });
 	shootDRAnim.PushBack({ 192, 48, 32, 32 });
 	shootDLAnim.PushBack({ 256, 48, 32, 32 });
