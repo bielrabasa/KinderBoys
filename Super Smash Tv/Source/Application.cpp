@@ -18,6 +18,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleRender.h"
+#include "ModuleBOSS.h"
 
 Application::Application()
 {
@@ -48,10 +49,12 @@ Application::Application()
 	modules[12] =	player =		new ModulePlayer(false);	//Player starts disabled	
 	modules[13] =	particles =		new ModuleParticles(false);
 
-	modules[14] =	collisions =	new ModuleCollisions(true);
-	modules[15] =	fade =			new ModuleFadeToBlack(true);
+	modules[14] =	boss =			new ModuleBOSS(false);
 
-	modules[16] =	render =		new ModuleRender(true);
+	modules[15] =	collisions =	new ModuleCollisions(true);
+	modules[16] =	fade =			new ModuleFadeToBlack(true);
+
+	modules[17] =	render =		new ModuleRender(true);
 }
 
 Application::~Application()

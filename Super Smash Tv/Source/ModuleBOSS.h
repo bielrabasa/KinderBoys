@@ -42,6 +42,8 @@ public:
 	Animation* BodyAnimation = nullptr;
 	Animation* WheelsAnimation = nullptr;
 
+	int x;
+	int y;
 
 };
 
