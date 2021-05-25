@@ -192,8 +192,8 @@ bool ModulePlayer::Start()
 	Coin = App->audio->LoadFx("Assets/Audio/SFX/Money.wav");
 	
 
-	position.x = 150;
-	position.y = 120;
+	position.x = 245;
+	position.y = 225;
 
 	bandera_trip = false;
 

@@ -3,6 +3,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleFadeToBlack.h"
+#include "ModulePlayer.h"
 
 #include "SDL/include/SDL.h"
 
@@ -102,12 +103,16 @@ UpdateResult ModuleInput::PreUpdate()
 		{
 			App->pause = !App->pause;
 			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
+			App->player->vides = 5;
+			App->player->score = 0;
 		}
 
 		if (App->input->keys[SDL_SCANCODE_BACKSPACE] == KeyState::KEY_REPEAT)
 		{
 			App->pause = !App->pause;
 			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 20);
+			App->player->vides = 5;
+			App->player->score = 0;
 		}
 		
 		if (App->input->keys[SDL_SCANCODE_RETURN] == KeyState::KEY_REPEAT)
