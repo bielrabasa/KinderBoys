@@ -288,6 +288,11 @@ UpdateResult ModulePlayer::Update()
 				}
 			}
 		}
+		/* MANDO PROVA
+		if (pad.left_y > 0.0f) {
+				App->input->keys[SDL_SCANCODE_S] = (SDL_SCANCODE_S == KeyState::KEY_IDLE) ? KeyState::KEY_DOWN : KeyState::KEY_REPEAT;
+				App->input->keys[SDL_SCANCODE_S] = (SDL_SCANCODE_S == KeyState::KEY_REPEAT || SDL_SCANCODE_S == KeyState::KEY_DOWN) ? KeyState::KEY_UP : KeyState::KEY_IDLE;
+		}*/
 
 		if (((App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) || pad.left_y > 0.0f) && position.y <= 390) //DOWN
 		{
