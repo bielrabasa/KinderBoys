@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleCollisions.h"
 
 ModuleBOSS::ModuleBOSS(bool startEnabled) : Module(startEnabled)
 {
@@ -65,7 +66,9 @@ bool ModuleBOSS::Start()
 
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/Entity_BOSS.png");
 
-	//CARREGAR ANIMACIONS
+	bossTimer = 0;
+
+	collider = App->collisions->AddCollider({ x, y, 64, 96 }, Collider::Type::NONE, this); //CANVIAR COLLIDER TYPE
 
 	return ret;
 }
@@ -77,14 +80,22 @@ bool ModuleBOSS::CleanUp() {
 
 UpdateResult ModuleBOSS::Update()
 {
-	
+	//Treballar amb 'x' i 'y' del Boss
+
+
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
 UpdateResult ModuleBOSS::PostUpdate()
 {
+	SDL_Rect RectHead = HeadAnimation->GetCurrentFrame();
+	App->render->DrawTexture(bgTexture, x + 16, y - 100, &RectHead); //ajustar 'x' i 'y' en tots per quadrar els sprites (són un exemple)
 
-	App->render->DrawTexture(bgTexture, 0, 0, NULL);
+	SDL_Rect RectBody = BodyAnimation->GetCurrentFrame();
+	App->render->DrawTexture(bgTexture, x, y - 64, &RectBody);
+
+	SDL_Rect RectWheels = WheelsAnimation->GetCurrentFrame();
+	App->render->DrawTexture(bgTexture, x, y, &RectWheels); //aquestes 'x' i 'y' estan bé (el colider està en les rodes)
 
 	return UpdateResult::UPDATE_CONTINUE;
 }

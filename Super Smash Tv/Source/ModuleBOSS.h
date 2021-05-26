@@ -42,8 +42,12 @@ public:
 	Animation* BodyAnimation = nullptr;
 	Animation* WheelsAnimation = nullptr;
 
-	int x;
-	int y;
+	Collider* collider = nullptr;
+
+	int x = 208; //Wheels centered (horizontal)
+	int y = -64; //Wheels out of the map (top)
+
+	int bossTimer = 0;
 
 };
 
