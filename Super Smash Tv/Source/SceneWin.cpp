@@ -10,6 +10,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleParticles.h"
+#include "ModuleBOSS.h"
 
 SceneWin::SceneWin(bool startEnabled) : Module(startEnabled)
 {
@@ -45,6 +46,7 @@ bool SceneWin::Start()
 	App->enemies->CleanUp();
 
 	App->enemies->Disable();
+	App->boss->Disable();
 
 	return ret;
 }

@@ -32,20 +32,20 @@ public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
 
+	Animation* HeadAnimation = nullptr;
+	Animation* BodyAnimation = nullptr;
+	Animation* WheelsAnimation = nullptr;
+
 	Animation IdleHead;
 	Animation RHead;
 	Animation LHead;
 	Animation Body;
 	Animation Wheels;
 
-	Animation* HeadAnimation = nullptr;
-	Animation* BodyAnimation = nullptr;
-	Animation* WheelsAnimation = nullptr;
-
 	Collider* collider = nullptr;
 
-	int x = 208; //Wheels centered (horizontal)
-	int y = -64; //Wheels out of the map (top)
+	int x = 192; //Wheels centered (horizontal), 192 està perfecte
+	int y = 150; //Wheels out of the map (top), 150 està perfecte
 
 	int bossTimer = 0;
 

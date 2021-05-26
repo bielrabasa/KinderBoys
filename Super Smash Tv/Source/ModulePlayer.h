@@ -69,6 +69,8 @@ public:
 
 	bool bandera_GodMode = false;
 
+	bool ImprimirPortes = true;
+
 	// The pointer to the current player animation
 	// It will be switched depending on the player's movement direction
 	Animation* currentAnimation = nullptr;

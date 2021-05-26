@@ -52,7 +52,7 @@ UpdateResult SceneSwap::Update()
 	if (Transicio < 512)
 		Transicio += 4;
 
-	if(Transicio >= 512)App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 10);
+	if(Transicio >= 512)App->fade->FadeToBlack(this, (Module*)App->sceneLevel2, 10);
 	return UpdateResult::UPDATE_CONTINUE;
 }
 

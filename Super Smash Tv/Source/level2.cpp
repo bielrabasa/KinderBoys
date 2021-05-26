@@ -14,6 +14,7 @@
 #include "SceneUPC.h"
 #include "SceneLevel1.h"
 #include "SceneIntroGame.h"
+#include "ModuleBOSS.h"
 
 SceneLevel2::SceneLevel2(bool startEnabled) : Module(startEnabled)
 {
@@ -40,6 +41,7 @@ bool SceneLevel2::Start()
 	App->particles->Enable();
 	App->collisions->Enable();
 	App->player->Enable();
+	App->boss->Enable();
 
 
 	//Bottomside collider  Primer numero x, Segundo numero y, 3r numero largo del cubo, 4o anchura del cubo
@@ -144,7 +146,7 @@ UpdateResult SceneLevel2::Update()
 		num = 0;
 		randomcont = (rand() % 300 + 5);
 	}
-
+	/*
 	if (sceneTimer % 80 == 0 && sceneTimer <= 3600) {//3600frames, 6 rondes, 24 aparicions random (sceneTimer % 150)
 		randomEnemySpawn = (rand() % 10);
 
@@ -177,7 +179,7 @@ UpdateResult SceneLevel2::Update()
 			}
 		}
 
-
+		
 		switch (randomEnemySpawn) {
 		case 9:
 			App->enemies->AddEnemy(Enemy_Type::REDBIRD, portesSpawn[i][0][0], portesSpawn[i][0][1]);
@@ -203,7 +205,7 @@ UpdateResult SceneLevel2::Update()
 
 		++i;
 		if (i == 4) i = 0;
-	}
+	}*/
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
@@ -212,7 +214,7 @@ UpdateResult SceneLevel2::PostUpdate()
 {
 	// Draw everything
 	SDL_Rect section = { 6 * 512, 0, 512, 448 }; //MAPA BOSS
-	App->render->DrawTexture(bgTexture, 0, 0, &section); //SPRITE del fons, podem posar els altres amb (bgTexture, -512*mapaActual, 0, NULL)
+	App->render->DrawTexture(bgTexture, 0, 0, &section); //SPRITE del fons, podem posar els altres amb (bgTexture, 512*mapaActual, 0, rect)
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
