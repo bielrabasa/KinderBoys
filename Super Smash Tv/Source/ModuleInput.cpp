@@ -52,7 +52,7 @@ UpdateResult ModuleInput::PreUpdate()
 	SDL_Event event;
 	if (SDL_PollEvent(&event))
 	{
-		if (event.type == SDL_QUIT || keys[SDL_SCANCODE_ESCAPE] == KeyState::KEY_REPEAT)	return UpdateResult::UPDATE_STOP;
+		if (event.type == SDL_QUIT || keys[SDL_SCANCODE_ESCAPE] == KeyState::KEY_REPEAT || App->input->pads->l1)	return UpdateResult::UPDATE_STOP;
 	}
 
 	// Read all keyboard data and update our custom array
@@ -99,7 +99,7 @@ UpdateResult ModuleInput::PreUpdate()
 
 	if (App->pause)
 	{
-		if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_REPEAT)
+		if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_REPEAT || App->input->pads->a == KeyState::KEY_DOWN)
 		{
 			App->pause = !App->pause;
 			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
@@ -110,7 +110,7 @@ UpdateResult ModuleInput::PreUpdate()
 		if (App->input->keys[SDL_SCANCODE_BACKSPACE] == KeyState::KEY_REPEAT)
 		{
 			App->pause = !App->pause;
-			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 20);
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneIntro, 20 || App->input->pads->a == KeyState::KEY_DOWN);
 			App->player->vides = 5;
 			App->player->score = 0;
 		}

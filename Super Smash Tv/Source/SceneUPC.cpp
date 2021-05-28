@@ -42,6 +42,7 @@ bool SceneUPC::CleanUp() {
 UpdateResult SceneUPC::Update()
 {
 	GamePad& pad = App->input->pads[0];
+
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN || pad.a == KeyState::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntroGame, 20);

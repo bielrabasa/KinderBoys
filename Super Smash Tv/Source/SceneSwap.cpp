@@ -44,10 +44,10 @@ bool SceneSwap::Start()
 
 UpdateResult SceneSwap::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN)
+	/*if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 0);
-	}
+	}*/
 
 	if (Transicio < 512)
 		Transicio += 4;
