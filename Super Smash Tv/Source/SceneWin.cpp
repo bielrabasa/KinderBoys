@@ -53,7 +53,9 @@ bool SceneWin::Start()
 
 UpdateResult SceneWin::Update()
 {
-	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN)
+	GamePad& pad = App->input->pads[0];
+
+	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN || pad.a == KeyState::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 20);
 	}

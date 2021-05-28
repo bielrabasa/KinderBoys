@@ -294,7 +294,7 @@ UpdateResult ModulePlayer::Update()
 				App->input->keys[SDL_SCANCODE_S] = (SDL_SCANCODE_S == KeyState::KEY_REPEAT || SDL_SCANCODE_S == KeyState::KEY_DOWN) ? KeyState::KEY_UP : KeyState::KEY_IDLE;
 		}*/
 
-		if (((App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) || pad.left_y > 0.0f) && position.y <= 390) //DOWN
+		if (((App->input->keys[SDL_SCANCODE_S] == KeyState::KEY_REPEAT) || pad.left_y < 0.0f == KeyState::KEY_REPEAT) && position.y <= 390) //DOWN
 		{
 			position.y += speed;
 			++MovKeyPressed;
