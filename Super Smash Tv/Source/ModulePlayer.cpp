@@ -330,7 +330,7 @@ UpdateResult ModulePlayer::Update()
 			position.y -= speed;
 			++MovKeyPressed;
 
-			if ((App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) || pad.left_x > 0.0f == KeyState::KEY_REPEAT) { // UP RIGHT
+			if ((App->input->keys[SDL_SCANCODE_D] == KeyState::KEY_REPEAT) || pad.left_x > 0.0f) { // UP RIGHT
 				diagonal = true;
 				if (currentAnimation != &diagonalSAnim)
 				{
