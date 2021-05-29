@@ -123,7 +123,11 @@ UpdateResult SceneLevel2::Update()
 	//App->render->camera.x += 3; //SCROLL
 	++num;
 	if (sceneTimer < 3601)	++sceneTimer;
+	else sceneTimer = 300;
 
+	if (sceneTimer < 300) {
+		App->boss->y += 1;
+	}
 	//if ((App->input->keys[SDL_SCANCODE_Q] == KeyState::KEY_REPEAT) && (App->player->vides > 0)) //SpawnShit
 	if ((num == randomcont) && (App->player->vides > 0) && (sceneTimer <= 3600)) //SpawnShit
 	{
