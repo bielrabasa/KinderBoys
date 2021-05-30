@@ -31,7 +31,7 @@ ModuleBOSS::ModuleBOSS(bool startEnabled) : Module(startEnabled)
 	LHead.PushBack({ -2, 0, 32, 32 });
 	LHead.PushBack({ -2, 0, 32, 32 });
 	LHead.PushBack({ -2, 0, 32, 32 });
-	LHead.PushBack({ -2, 32, 32, 32 });
+	LHead.PushBack({ 0, 32, 32, 32 });
 	LHead.loop = true;
 	LHead.speed = 0.01f;
 
@@ -110,7 +110,18 @@ UpdateResult ModuleBOSS::Update()
 {
 	//Treballar amb 'x' i 'y' del Boss
 
-
+	
+	
+	//Animacions
+	if (App->player->position.x < x - 50) {
+		HeadAnimation = &LHead;
+	}
+	else if (App->player->position.x > x + 150) {
+		HeadAnimation = &RHead;
+	}
+	else {
+		HeadAnimation = &IdleHead;
+	}
 
 	WheelsAnimation->Update();
 	BodyAnimation->Update();
@@ -131,4 +142,8 @@ UpdateResult ModuleBOSS::PostUpdate()
 	App->render->DrawTexture(bgTexture, x + 32, y - 64, &RectHead, 2); //x+32 y-64 centrat
 
 	return UpdateResult::UPDATE_CONTINUE;
+}
+
+void ModuleBOSS::OnCollision(Collider* c1, Collider* c2) {
+
 }
