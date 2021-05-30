@@ -736,9 +736,9 @@ UpdateResult ModulePlayer::Update()
 				App->particles->TripleShoot2.speed.x = 5;
 				App->particles->TripleShoot2.speed.y = 1;
 
-				App->particles->AddParticle(App->particles->TripleShoot1, position.x + 20, position.y + 4, 6, Collider::Type::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->TripleShoot, position.x + 20, position.y + 1, 6, Collider::Type::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 20, position.y + -2, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot1, position.x + 20, position.y + 4, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot, position.x + 20, position.y + 1, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 20, position.y + -2, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->audio->PlayFx(laserFx);
 				cont = 0;
 			}

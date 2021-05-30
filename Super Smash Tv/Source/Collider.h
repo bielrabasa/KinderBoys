@@ -22,6 +22,8 @@ struct Collider
 		object_money,
 		object_Triple,
 		object_Vida,
+		BOSS,
+		PLAYER_TRIPLE_SHOT,
 
 		MAX
 	};

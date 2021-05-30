@@ -93,7 +93,7 @@ bool ModuleBOSS::Start()
 
 	bossTimer = 0;
 
-	collider = App->collisions->AddCollider({ x, y, 64, 96 }, Collider::Type::NONE, this); //CANVIAR COLLIDER TYPE
+	collider = App->collisions->AddCollider({ x, y, 64, 96 }, Collider::Type::BOSS, this); //CANVIAR COLLIDER TYPE
 
 	App->player->ImprimirPortes = false;
 
@@ -145,5 +145,8 @@ UpdateResult ModuleBOSS::PostUpdate()
 }
 
 void ModuleBOSS::OnCollision(Collider* c1, Collider* c2) {
-
+	if (c2->type == c2->PLAYER_TRIPLE_SHOT)
+	{
+		
+	}
 }
