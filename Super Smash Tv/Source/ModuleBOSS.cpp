@@ -86,6 +86,9 @@ bool ModuleBOSS::Start()
 
 	bool ret = true;
 
+	x = 192; //Wheels centered (horizontal), 192 està perfecte
+	y = -150; //Wheels out of the map (top), 150 està perfecte
+
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/sprite_boss.png");
 
 	bossTimer = 0;

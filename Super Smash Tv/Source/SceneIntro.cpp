@@ -44,8 +44,8 @@ UpdateResult SceneIntro::Update()
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN || pad.a == KeyState::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneLevel2, 20);
-		//App->fade->FadeToBlack(this, (Module*)App->sceneUPC, 20); //Canviar sceneUPC per la que vulguis per anar ràpid
+		//App->fade->FadeToBlack(this, (Module*)App->sceneLevel2, 20);
+		App->fade->FadeToBlack(this, (Module*)App->sceneUPC, 20); //Canviar sceneUPC per la que vulguis per anar ràpid
 	}
 
 	return UpdateResult::UPDATE_CONTINUE;
