@@ -32,6 +32,8 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
+	lvl1 = true;	//detecta que estas a lvl1
+
 	App->enemies->Enable();
 	App->particles->Enable();
 	App->collisions->Enable();
@@ -232,6 +234,7 @@ UpdateResult SceneLevel1::PostUpdate()
 
 bool SceneLevel1::CleanUp()
 {
+	lvl1 = false;	//detecta que no estas a lvl1
 	App->textures->Unload(bgTexture);
 	App->textures->Unload(exitTexture);
 	App->player->Disable();

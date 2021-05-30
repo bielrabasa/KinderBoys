@@ -13,6 +13,7 @@ using namespace std;
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "SceneLevel1.h"
+#include "level2.h"
 
 #include "SDL/include/SDL_render.h"
 
@@ -784,13 +785,15 @@ UpdateResult ModulePlayer::Update()
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_DOWN)
 	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel2, 20);
 
-
 	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) { //necessita col·lidir amb un enemic al final per morir
 		vides--;
 	}
-	if (App->input->keys[SDL_SCANCODE_F4] == KeyState::KEY_DOWN)
-	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 20);
 
+	if (App->input->keys[SDL_SCANCODE_F4] == KeyState::KEY_DOWN && App->sceneLevel_1->lvl1)
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneWin, 20);
+
+	if (App->input->keys[SDL_SCANCODE_F4] == KeyState::KEY_DOWN && App->sceneLevel2->lvl2)
+		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneWin, 20);
 	/*if (pad.enabled)
 	{
 		if (pad.left_x == 0.0f && pad.left_y == 0.0f) currentAnimation = &idleAnim;

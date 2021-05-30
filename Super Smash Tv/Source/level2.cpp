@@ -32,6 +32,7 @@ bool SceneLevel2::Start()
 	LOG("Loading background assets");
 
 	bool ret = true;
+	lvl2 = true;
 
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV.png");
 	exitTexture = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
@@ -108,6 +109,7 @@ bool SceneLevel2::Start()
 
 bool SceneLevel2::CleanUp() 
 {
+	lvl2 = false;
 	App->textures->Unload(bgTexture);
 	App->textures->Unload(exitTexture);
 	App->player->Disable();

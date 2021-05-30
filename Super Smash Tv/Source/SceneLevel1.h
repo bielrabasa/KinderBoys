@@ -20,6 +20,8 @@ public:
 	bool Start() override;
 	bool CleanUp() override;
 
+	bool lvl1;	//estas a lvl 1
+
 	// Called at the middle of the application loop
 	// Updates the scene's background animations
 	UpdateResult Update() override;
