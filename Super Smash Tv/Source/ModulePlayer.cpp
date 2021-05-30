@@ -650,9 +650,9 @@ UpdateResult ModulePlayer::Update()
 			App->particles->TripleShoot2.speed.x = -1;
 			App->particles->TripleShoot2.speed.y = 5;
 
-			App->particles->AddParticle(App->particles->TripleShoot, position.x + -2, position.y - 7, 6, Collider::Type::PLAYER_SHOT);		
-			App->particles->AddParticle(App->particles->TripleShoot1, position.x + 1, position.y - 7, 6, Collider::Type::PLAYER_SHOT);
-			App->particles->AddParticle(App->particles->TripleShoot2, position.x + -5, position.y - 7, 6, Collider::Type::PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->TripleShoot, position.x + -2, position.y - 7, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
+			App->particles->AddParticle(App->particles->TripleShoot1, position.x + 1, position.y - 7, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
+			App->particles->AddParticle(App->particles->TripleShoot2, position.x + -5, position.y - 7, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 			App->audio->PlayFx(laserFx);
 			cont = 0;
 			}
@@ -680,9 +680,9 @@ UpdateResult ModulePlayer::Update()
 				App->particles->TripleShoot2.speed.x = -5;
 				App->particles->TripleShoot2.speed.y = 1;
 
-				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -20, position.y + 4, 6, Collider::Type::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->TripleShoot, position.x + -20, position.y + 1, 6, Collider::Type::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->TripleShoot2, position.x + -20, position.y - 2, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -20, position.y + 4, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot, position.x + -20, position.y + 1, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot2, position.x + -20, position.y - 2, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->audio->PlayFx(laserFx);
 				cont = 0;
 			}
@@ -708,9 +708,9 @@ UpdateResult ModulePlayer::Update()
 				App->particles->TripleShoot2.speed.x = 1;
 				App->particles->TripleShoot2.speed.y = -5;
 
-				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -3, position.y + 15, 6, Collider::Type::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->TripleShoot, position.x + 0, position.y + 15, 6, Collider::Type::PLAYER_SHOT);
-				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 3, position.y + 15, 6, Collider::Type::PLAYER_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -3, position.y + 15, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot, position.x + 0, position.y + 15, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
+				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 3, position.y + 15, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->audio->PlayFx(laserFx);
 				cont = 0;
 			}

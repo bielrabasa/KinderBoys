@@ -55,9 +55,6 @@ ModuleBOSS::ModuleBOSS(bool startEnabled) : Module(startEnabled)
 	Body.PushBack({ 128, 73, 128, 80 });	//4
 	Body.PushBack({ 0, 73, 128, 80 });		//3
 	Body.PushBack({ 384, 73, 128, 80 });	//2
-
-
-
 	Body.loop = true;
 	Body.speed = 0.03f;
 
@@ -93,7 +90,7 @@ bool ModuleBOSS::Start()
 
 	bossTimer = 0;
 
-	collider = App->collisions->AddCollider({ x, y, 64, 96 }, Collider::Type::BOSS, this); //CANVIAR COLLIDER TYPE
+	collider = App->collisions->AddCollider({ x, y, 64, 96 }, Collider::Type::BOSS, this); //CANVIAR COLLIDER, NO FUNCIONA
 
 	App->player->ImprimirPortes = false;
 
@@ -147,6 +144,7 @@ UpdateResult ModuleBOSS::PostUpdate()
 void ModuleBOSS::OnCollision(Collider* c1, Collider* c2) {
 	if (c2->type == c2->PLAYER_TRIPLE_SHOT)
 	{
-		
+		if (vidaBOSS > 0)
+			vidaBOSS--;
 	}
 }

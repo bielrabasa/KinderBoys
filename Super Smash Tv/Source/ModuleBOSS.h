@@ -49,6 +49,8 @@ public:
 	int x = 192; //Wheels centered (horizontal), 192 està perfecte
 	int y = -150; //Wheels out of the map (top), 150 està perfecte
 
+	int vidaBOSS = 150;
+
 	int bossTimer = 0;
 
 };

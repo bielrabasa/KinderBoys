@@ -40,7 +40,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER][Collider::Type::object_Triple] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::object_Vida] = true;
 	matrix[Collider::Type::PLAYER][Collider::Type::BOSS] = true;
-	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_TRIPLE_SHOT] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER_TRIPLE_SHOT] = false;
 
 	matrix[Collider::Type::ENEMY][Collider::Type::WALL] = true;
 	matrix[Collider::Type::ENEMY][Collider::Type::PLAYER] = true;
@@ -209,7 +209,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::BOSS][Collider::Type::PLAYER_TRIPLE_SHOT] = true;
 	
 	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::WALL] = true;
-	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::PLAYER] = false;
 	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::ENEMY_SHOT] = false;
@@ -335,6 +335,13 @@ void ModuleCollisions::DebugDraw()
 			case Collider::Type::object_silver_gold: // gold/gris
 				App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 178, 182, 120, alpha });
 				break;
+			case Collider::Type::BOSS: //canviar color
+				App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 247, 191, 190, alpha });
+				break;
+			case Collider::Type::PLAYER_TRIPLE_SHOT: //canviar color
+				App->render->DrawRectangle(colliders[i]->rect, SDL_Color{ 178, 182, 120, alpha });
+				break;
+
 		}
 	}
 }
