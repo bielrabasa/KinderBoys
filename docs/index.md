@@ -2,7 +2,7 @@
 
 ## Super Smash Tv from SNES | Produced by KINDER BOYS
 
-logo kinder boys
+![image](https://user-images.githubusercontent.com/79161085/120228069-b2ea4c80-c24a-11eb-9e27-a2796ebe85ef.png)
 
 ## About the game
 
@@ -25,28 +25,37 @@ Adrián Martín, Biel Rabasa, Gerard Ramon, Pau Olmos and Roger Salas
 ### Biel Rabasa
 
 Coder and Manager
-https://github.com/bielrabasa
+
+[GitHub account](https://github.com/bielrabasa)
 
 ### Gerard Ramon
 
 Coder
-https://github.com/kramtron
+
+[GitHub account](https://github.com/kramtron)
 
 ### Roger Salas
 
 Coder
-https://github.com/Draquian
+
+[GitHub account](https://github.com/Draquian)
 
 ### Adrián Martín
 
 Art/Design
-https://github.com/Astrorey776
+
+[GitHub account](https://github.com/Astrorey776)
 
 ### Pau Olmos
 
 Art/Design
-https://github.com/PauOlmos
+
+[GitHub account](https://github.com/PauOlmos)
 
 ## Gameplay Video
 
 link del video
+
+## Last Release
+
+Link to download the latest version of the game:
