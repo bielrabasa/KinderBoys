@@ -65,7 +65,18 @@ UpdateResult ModuleInput::PreUpdate()
 		else
 			keys[i] = (keys[i] == KeyState::KEY_REPEAT || keys[i] == KeyState::KEY_DOWN) ? KeyState::KEY_UP : KeyState::KEY_IDLE;
 	}
-
+	if (pads->left_x < 0.0f) {
+		keys[SDL_SCANCODE_A] = KeyState::KEY_REPEAT;
+	}
+	if (pads->left_x > 0.0f) {
+		keys[SDL_SCANCODE_D] = KeyState::KEY_REPEAT;
+	}
+	if (pads->left_y < 0.0f) {
+		keys[SDL_SCANCODE_W] = KeyState::KEY_REPEAT;
+	}
+	if (pads->left_y > 0.0f) {
+		keys[SDL_SCANCODE_S] = KeyState::KEY_REPEAT;
+	}
 	// Read new SDL events
 
 	while (SDL_PollEvent(&event) != 0)
