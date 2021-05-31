@@ -23,27 +23,27 @@ Adrián Martín, Biel Rabasa, Gerard Ramon, Pau Olmos and Roger Salas
 
 ##Contributors' responsabilities
 
-###*Biel Rabasa*
+###*Biel Rabasa
 
 Coder and Manager
 https://github.com/bielrabasa
 
-###*Gerard Ramon*
+###*Gerard Ramon
 
 Coder
 https://github.com/kramtron
 
-###*Roger Salas*
+###*Roger Salas
 
 Coder
 https://github.com/Draquian
 
-###*Adrián Martín*
+###*Adrián Martín
 
 Art/Design
 https://github.com/Astrorey776
 
-###*Pau Olmos*
+###*Pau Olmos
 
 Art/Design
 https://github.com/PauOlmos
