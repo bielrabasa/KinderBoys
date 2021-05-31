@@ -145,7 +145,7 @@ bool ModuleParticles::Start()
 	Triple.lifetime = 666;
 
 	vidaUp.anim.Empty();
-	vidaUp.anim.PushBack({33, 56, 15, 15});
+	vidaUp.anim.PushBack({17, 104, 15, 15});
 	vidaUp.lifetime = 666;
 
 	return true;
