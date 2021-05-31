@@ -77,6 +77,30 @@ UpdateResult ModuleInput::PreUpdate()
 	if (pads->left_y > 0.0f) {
 		keys[SDL_SCANCODE_S] = KeyState::KEY_REPEAT;
 	}
+	if (pads->x) {
+		keys[SDL_SCANCODE_LEFT] = KeyState::KEY_REPEAT;
+	}
+	if (pads->a) {
+		keys[SDL_SCANCODE_DOWN] = KeyState::KEY_REPEAT;
+	}
+	if (pads->b) {
+		keys[SDL_SCANCODE_RIGHT] = KeyState::KEY_REPEAT;
+	}
+	if (pads->y) {
+		keys[SDL_SCANCODE_UP] = KeyState::KEY_REPEAT;
+	}
+	if (pads->left) {
+		keys[SDL_SCANCODE_A] = KeyState::KEY_REPEAT;
+	}
+	if (pads->down) {
+		keys[SDL_SCANCODE_S] = KeyState::KEY_REPEAT;
+	}
+	if (pads->right) {
+		keys[SDL_SCANCODE_D] = KeyState::KEY_REPEAT;
+	}
+	if (pads->up) {
+		keys[SDL_SCANCODE_W] = KeyState::KEY_REPEAT;
+	}
 	// Read new SDL events
 
 	while (SDL_PollEvent(&event) != 0)

@@ -216,15 +216,12 @@ UpdateResult ModulePlayer::Update()
 		bandera_GodMode = !bandera_GodMode;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_F7] == KeyState::KEY_DOWN) {
+	if (App->input->keys[SDL_SCANCODE_F9] == KeyState::KEY_DOWN && App->sceneLevel_1->lvl1) {
 		App->sceneLevel_1->sceneTimer = 3600;
 	}
-
-	if (App->input->keys[SDL_SCANCODE_F] == KeyState::KEY_DOWN) {
-		bandera_trip = true;
-		cont_Tripel = 500;
+	if (App->input->keys[SDL_SCANCODE_F9] == KeyState::KEY_DOWN && App->sceneLevel2->lvl2) {
+		App->sceneLevel2->sceneTimer = 3600;
 	}
-
 
 	//Preguntar pk no funciona el martes
 	if (bandera_GodMode == false) {
@@ -636,7 +633,7 @@ UpdateResult ModulePlayer::Update()
 		}
 	}
 	//RECTES
-	else if (App->input->keys[SDL_SCANCODE_UP] == KeyState::KEY_REPEAT || pad.right_y < 0.0f) //amunt
+	else if (App->input->keys[SDL_SCANCODE_UP] == KeyState::KEY_REPEAT || pad.right_y < 0.0f || pad.y) //amunt
 	{
 		shootUpAnim.Reset();
 		currentTopAnimation = &shootUpAnim;
@@ -666,7 +663,7 @@ UpdateResult ModulePlayer::Update()
 		}
 
 	}
-	else if (App->input->keys[SDL_SCANCODE_LEFT] == KeyState::KEY_REPEAT || pad.right_x < 0.0f) //Esq
+	else if (App->input->keys[SDL_SCANCODE_LEFT] == KeyState::KEY_REPEAT || pad.right_x < 0.0f || pad.x) //Esq
 	{
 		shootLeftAnim.Reset();
 		currentTopAnimation = &shootLeftAnim;
@@ -694,7 +691,7 @@ UpdateResult ModulePlayer::Update()
 			}
 		}
 	}
-	else if (App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT || pad.right_y > 0.0f) // avall
+	else if (App->input->keys[SDL_SCANCODE_DOWN] == KeyState::KEY_REPEAT || pad.right_y > 0.0f || pad.a) // avall
 	{
 		shootDownAnim.Reset();
 		currentTopAnimation = &shootDownAnim;
@@ -722,7 +719,7 @@ UpdateResult ModulePlayer::Update()
 			}
 		}
 	}
-	else if (App->input->keys[SDL_SCANCODE_RIGHT] == KeyState::KEY_REPEAT || pad.right_x > 0.0f) //drt
+	else if (App->input->keys[SDL_SCANCODE_RIGHT] == KeyState::KEY_REPEAT || pad.right_x > 0.0f || pad.b) //drt
 	{
 		shootRightAnim.Reset();
 		currentTopAnimation = &shootRightAnim;
@@ -782,8 +779,60 @@ UpdateResult ModulePlayer::Update()
 		contadorVides = -1;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_DOWN)
+	//F6 TripleShoot
+	if (App->input->keys[SDL_SCANCODE_F6] == KeyState::KEY_REPEAT) {
+		bandera_trip = true;
+		cont_Tripel = 500;
+	}
+
+	//F7 spawnea todos los objetos
+	if (App->input->keys[SDL_SCANCODE_F7] == KeyState::KEY_REPEAT){
+		App->particles->AddParticle(App->particles->Gold, 100, 140, 6, Collider::Type::object_gold);
+		App->particles->AddParticle(App->particles->Silver, 235, 140, 6, Collider::Type::object_silver);
+		App->particles->AddParticle(App->particles->Cash, 370, 140, 6, Collider::Type::object_money);
+		App->particles->AddParticle(App->particles->SilverGold, 100, 190, 6, Collider::Type::object_silver_gold);
+		App->particles->AddParticle(App->particles->Triple, 235, 190, 6, Collider::Type::object_Triple);
+		App->particles->AddParticle(App->particles->vidaUp, 370, 190, 6, Collider::Type::object_Vida);
+	}
+
+	//F8 spawnea todos los enemigos
+	if (App->input->keys[SDL_SCANCODE_F8] == KeyState::KEY_DOWN){
+		App->enemies->AddEnemy(Enemy_Type::REDBIRD, 100, 400);
+		App->enemies->AddEnemy(Enemy_Type::BROWNSHIP, 370, 400);
+	}
+
+	//F9 Teimpo del nivel
+	if (App->input->keys[SDL_SCANCODE_F9] == KeyState::KEY_DOWN && App->sceneLevel_1->lvl1) {
+		App->sceneLevel_1->sceneTimer = 3600;
+	}
+	if (App->input->keys[SDL_SCANCODE_F9] == KeyState::KEY_DOWN && App->sceneLevel2->lvl2) {
+		App->sceneLevel2->sceneTimer = 3600;
+	}
+
+	//F3 mas el numero de la sala pasa a aquella sala
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
+	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
 	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel2, 20);
+	/*if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
+	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->BOSS, 20);		//Escena del boss per implementar  */
+
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2)
+		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneLevel_1, 20);
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2)
+		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneLevel2, 20);
+	/*if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
+	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->BOSS, 20);		//Escena del boss per implementar  */
+
+	/*//Escen del boss per implementar
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel2, 20);
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
+	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->BOSS, 20); */
+
+
 
 	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) { //necessita col·lidir amb un enemic al final per morir
 		vides--;
