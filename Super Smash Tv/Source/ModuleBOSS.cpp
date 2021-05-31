@@ -94,7 +94,7 @@ bool ModuleBOSS::Start()
 
 	bossTimer = 0;
 
-	collider = App->collisions->AddCollider({ x + 30, y, 60, 120 }, Collider::Type::BOSS, this); //CANVIAR COLLIDER, NO FUNCIONA
+	collider = App->collisions->AddCollider({ x, y, 64, 120 } , Collider::Type::BOSS, this); //CANVIAR coordenades
 
 	App->player->ImprimirPortes = false;
 
