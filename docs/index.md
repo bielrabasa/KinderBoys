@@ -1,37 +1,53 @@
-## Welcome to GitHub Pages
+# SUPER SMASH TV
 
-You can use the [editor on GitHub](https://github.com/bielrabasa/KinderBoys/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+## Super Smash Tv from SNES
+## produced by KINDER BOYS
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+logo kinder boys
 
-### Markdown
+## About the game
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Description of the game
 
-```markdown
-Syntax highlighted code block
+Super Smash TV is a game set in a dystopic future where the main way of entertain the public is with a TV Show called Super Smash Tv, where the contestant (player) has to survive multiple stages where tons of enemies will try to kill him. The player has to collect items, money and extra lives by killing the enemies and finally, after having completed a certain number of rooms, will have to defeat a boss to win the TV show and become rich.
 
-# Header 1
-## Header 2
-### Header 3
+![image](https://user-images.githubusercontent.com/79161085/120226091-cd222b80-c246-11eb-80a0-590557c3cbf5.png)
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+Our version of the game includes 2 standard rooms, 1 boss rooms, x enemeies and x pick ups, all of them following the criteria given and trying to make the game playable and enjoyable with the reduced amount of other pick ups, enemies and rooms compared to the whole original game.
 
-**Bold** and _Italic_ and `Code` text
+# Contributors
 
-[Link](url) and ![Image](src)
-```
+![image](https://user-images.githubusercontent.com/79161085/120226145-e925cd00-c246-11eb-9b5c-40c827884a88.png)
+Adrián Martín, Biel Rabasa, Gerard Ramon, Pau Olmos and Roger Salas
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Contributors' responsabilities
 
-### Jekyll Themes
+### Biel Rabasa
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/bielrabasa/KinderBoys/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Coder and Manager
+https://github.com/bielrabasa
 
-### Support or Contact
+### Gerard Ramon
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Coder
+https://github.com/kramtron
+
+### Roger Salas
+
+Coder
+https://github.com/Draquian
+
+### Adrián Martín
+
+Art/Design
+https://github.com/Astrorey776
+
+### Pau Olmos
+
+Art/Design
+https://github.com/PauOlmos
+
+## Gameplay Video
+
+link del video
