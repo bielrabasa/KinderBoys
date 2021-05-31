@@ -1,7 +1,6 @@
 # SUPER SMASH TV
 
-## Super Smash Tv from SNES
-## produced by KINDER BOYS
+## Super Smash Tv from SNES | Produced by KINDER BOYS
 
 logo kinder boys
 
