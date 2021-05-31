@@ -69,7 +69,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::object_money] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::object_Triple] = false;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::object_Vida] = false;
-	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::BOSS] = false; //important
+	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::BOSS] = true;
 	matrix[Collider::Type::PLAYER_SHOT][Collider::Type::PLAYER_TRIPLE_SHOT] = false;
 
 	matrix[Collider::Type::ENEMY_SHOT][Collider::Type::WALL] = true;
@@ -196,7 +196,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::BOSS][Collider::Type::WALL] = true;
 	matrix[Collider::Type::BOSS][Collider::Type::PLAYER] = true;
 	matrix[Collider::Type::BOSS][Collider::Type::ENEMY] = false;
-	matrix[Collider::Type::BOSS][Collider::Type::PLAYER_SHOT] = false;
+	matrix[Collider::Type::BOSS][Collider::Type::PLAYER_SHOT] = true;
 	matrix[Collider::Type::BOSS][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::BOSS][Collider::Type::Door] = false;
 	matrix[Collider::Type::BOSS][Collider::Type::object_gold] = false;

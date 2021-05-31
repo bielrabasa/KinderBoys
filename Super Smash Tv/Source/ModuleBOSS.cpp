@@ -8,6 +8,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleCollisions.h"
 #include "ModulePlayer.h"
+#include "Particle.h"
 
 ModuleBOSS::ModuleBOSS(bool startEnabled) : Module(startEnabled)
 {
@@ -93,7 +94,7 @@ bool ModuleBOSS::Start()
 
 	bossTimer = 0;
 
-	collider = App->collisions->AddCollider({ x, y, 64, 96 }, Collider::Type::BOSS, this); //CANVIAR COLLIDER, NO FUNCIONA
+	collider = App->collisions->AddCollider({ x + 30, y, 60, 120 }, Collider::Type::BOSS, this); //CANVIAR COLLIDER, NO FUNCIONA
 
 	App->player->ImprimirPortes = false;
 
@@ -123,6 +124,8 @@ UpdateResult ModuleBOSS::Update()
 		HeadAnimation = &IdleHead;
 	}
 
+	collider->SetPos(x, y);
+
 	WheelsAnimation->Update();
 	BodyAnimation->Update();
 	HeadAnimation->Update();
@@ -149,5 +152,6 @@ void ModuleBOSS::OnCollision(Collider* c1, Collider* c2) {
 	{
 		if (vidaBOSS > 0)
 			vidaBOSS--;
+
 	}
 }
