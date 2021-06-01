@@ -91,11 +91,14 @@ bool ModuleRender::DrawTexture(SDL_Texture* texture, int x, int y, SDL_Rect* sec
 {
 	bool ret = true;
 
-	SDL_Rect rect = {
-		(int)(-camera.x) + x * SCREEN_SIZE,
-		(int)(-camera.y) + y * SCREEN_SIZE,
-		0, 0
-	};
+	//fullscreen pantalla centrada
+	if (WIN_FULLSCREEN_DESKTOP == 1) {
+		SDL_Rect rect = {
+			(int)(-camera.x + 704) + x * SCREEN_SIZE,
+			(int)(-camera.y + 100) + y * SCREEN_SIZE,
+			0, 0
+		};
+	
 
 	if (section != nullptr)
 	{
@@ -118,6 +121,38 @@ bool ModuleRender::DrawTexture(SDL_Texture* texture, int x, int y, SDL_Rect* sec
 	}
 
 	return ret;
+	}
+	else if (WIN_FULLSCREEN_DESKTOP == 0)//no fullscreen
+	{
+		SDL_Rect rect = {
+	(int)(-camera.x) + x * SCREEN_SIZE,
+	(int)(-camera.y) + y * SCREEN_SIZE,
+	0, 0
+		};
+
+
+		if (section != nullptr)
+		{
+			rect.w = section->w;
+			rect.h = section->h;
+		}
+		else
+		{
+			// Collect the texture size into rect.w and rect.h variables
+			SDL_QueryTexture(texture, nullptr, nullptr, &rect.w, &rect.h);
+		}
+
+		rect.w *= (scale * SCREEN_SIZE);
+		rect.h *= (scale * SCREEN_SIZE);
+
+		if (SDL_RenderCopy(renderer, texture, section, &rect) != 0)
+		{
+			LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
+			ret = false;
+		}
+
+		return ret;
+	}
 }
 
 bool ModuleRender::DrawRectangle(const SDL_Rect& rect, SDL_Color color, float speed)

@@ -7,7 +7,10 @@
 
 ModuleFadeToBlack::ModuleFadeToBlack(bool startEnabled) : Module(startEnabled)
 {
-	screenRect = {0, 0, SCREEN_WIDTH * SCREEN_SIZE, SCREEN_HEIGHT * SCREEN_SIZE};
+	if (WIN_FULLSCREEN_DESKTOP == 1)//fullscreen fadetoblack centrat
+		screenRect = {0, 0, SCREEN_WIDTH * SCREEN_SIZE + 704, SCREEN_HEIGHT * SCREEN_SIZE + 100 };
+	else if (WIN_FULLSCREEN_DESKTOP == 0)//fullscreen off
+		screenRect = { 0, 0, SCREEN_WIDTH * SCREEN_SIZE, SCREEN_HEIGHT * SCREEN_SIZE};
 }
 
 ModuleFadeToBlack::~ModuleFadeToBlack()
