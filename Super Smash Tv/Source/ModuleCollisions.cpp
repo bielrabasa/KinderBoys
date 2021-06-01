@@ -213,7 +213,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::ENEMY] = true;
 	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::ENEMY_SHOT] = false;
-	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::Door] = false;
+	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::Door] = true;
 	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::object_gold] = false;
 	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::object_silver] = false;
 	matrix[Collider::Type::PLAYER_TRIPLE_SHOT][Collider::Type::object_silver_gold] = false;
