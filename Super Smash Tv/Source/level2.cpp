@@ -116,6 +116,7 @@ bool SceneLevel2::CleanUp()
 	App->enemies->Disable();
 	App->particles->Disable();
 	App->collisions->Disable();
+	App->boss->Disable();
 
 	return true;
 }

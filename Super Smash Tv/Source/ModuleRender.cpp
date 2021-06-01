@@ -94,7 +94,7 @@ bool ModuleRender::DrawTexture(SDL_Texture* texture, int x, int y, SDL_Rect* sec
 	//fullscreen pantalla centrada
 	if (WIN_FULLSCREEN_DESKTOP == 1) {
 		SDL_Rect rect = {
-			(int)(-camera.x + 704) + x * SCREEN_SIZE,
+			(int)(-camera.x + 500) + x * SCREEN_SIZE,
 			(int)(-camera.y + 100) + y * SCREEN_SIZE,
 			0, 0
 		};
@@ -163,8 +163,8 @@ bool ModuleRender::DrawRectangle(const SDL_Rect& rect, SDL_Color color, float sp
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
 	SDL_Rect dstRect {
-		(int)(-camera.x * speed) + rect.x * SCREEN_SIZE,
-		(int)(-camera.y * speed) + rect.y * SCREEN_SIZE,
+		(int)(-camera.x * speed) + rect.x * SCREEN_SIZE + 500,
+		(int)(-camera.y * speed) + rect.y * SCREEN_SIZE + 100,
 		rect.w * SCREEN_SIZE, rect.h * SCREEN_SIZE };
 
 	if (SDL_RenderFillRect(renderer, &dstRect) != 0)

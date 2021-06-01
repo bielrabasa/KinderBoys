@@ -94,7 +94,7 @@ bool ModuleBOSS::Start()
 
 	bossTimer = 0;
 
-	collider = App->collisions->AddCollider({ x, y, 64, 120 } , Collider::Type::BOSS, this); //CANVIAR coordenades
+	collider = App->collisions->AddCollider({ x + xoffset, y + yoffset, 108, 120 } , Collider::Type::BOSS, this);
 
 	App->player->ImprimirPortes = false;
 
@@ -124,7 +124,7 @@ UpdateResult ModuleBOSS::Update()
 		HeadAnimation = &IdleHead;
 	}
 
-	collider->SetPos(x, y);
+	collider->SetPos(x + xoffset, y + yoffset);
 
 	WheelsAnimation->Update();
 	BodyAnimation->Update();
