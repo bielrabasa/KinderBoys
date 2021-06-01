@@ -47,7 +47,10 @@ public:
 	Collider* collider = nullptr;
 
 	int x = 192; //Wheels centered (horizontal), 192 està perfecte
-	int y = -150; //Wheels out of the map (top), 150 està perfecte
+	int y = -150; //Wheels out of the map (top), -150 està perfecte
+
+	int xoffset = 10; //10
+	int yoffset = 10; //10
 
 	int vidaBOSS = 150;
 
