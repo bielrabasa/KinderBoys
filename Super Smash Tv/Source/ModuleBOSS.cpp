@@ -1,4 +1,5 @@
 #include "ModuleBOSS.h"
+using namespace std;
 
 #include "Application.h"
 #include "ModuleTextures.h"
@@ -9,6 +10,7 @@
 #include "ModuleCollisions.h"
 #include "ModulePlayer.h"
 #include "Particle.h"
+#include "ModuleParticles.h"
 
 ModuleBOSS::ModuleBOSS(bool startEnabled) : Module(startEnabled)
 {
@@ -83,6 +85,7 @@ ModuleBOSS::~ModuleBOSS()
 // Load assets
 bool ModuleBOSS::Start()
 {
+	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	LOG("Loading background assets");
 
 	bool ret = true;
@@ -112,7 +115,50 @@ UpdateResult ModuleBOSS::Update()
 	//Treballar amb 'x' i 'y' del Boss
 
 	
+	if (App->input->keys[SDL_SCANCODE_M] == KeyState::KEY_DOWN&&bandera==true) {
+		bandera = false;
+	}
+	else if (App->input->keys[SDL_SCANCODE_M] == KeyState::KEY_DOWN&&bandera==false) {
+		bandera = true;
+	}
+	if (bandera==false) {
+		
+		contShot+=5;
+		if (contShot >= 200) {
+			if (Shots >= 60) {
+				contShot = 0;
+				Shots = 0;
+			}
+			cont++;
+			if (cont >= 10) { //DELAY
+				Shots+=10;
+				baderaShot = true;
+				cont = 0;
+				TimeShot = true;
+				
+			}
+			
+			else if(cont<=9) {
+				baderaShot = false;
+			}
+		}
+		}
+		if (baderaShot) {
+			App->particles->AddParticle(App->particles->laserBossL, x, y, 2, Collider::Type::ENEMY_SHOT);
+			App->audio->PlayFx(laserFx);
+			//App->particles->AddParticle(App->particles->laserBossLEx, x - 150, y, 0, Collider::Type::ExplosionEnemicShot);
+		}
+		/*if (TimeShot) {
+			explosiontimer++;
+		}
+		if (explosiontimer >= 29) {
+			App->particles->AddParticle(App->particles->laserBossLEx, x - 150, y, 0, Collider::Type::ExplosionEnemicShot);
+			TimeShot = false;
+		}*/
 	
+		
+	
+
 	//Animacions
 	if (App->player->position.x < x - 50) {
 		HeadAnimation = &LHead;

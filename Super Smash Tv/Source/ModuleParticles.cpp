@@ -95,6 +95,22 @@ bool ModuleParticles::Start()
 	laserUR.lifetime = 180;
 	laserUR.anim.speed = 0.2f;
 
+	//BossShot
+	laserBossL.anim.Empty();
+	laserBossL.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que cambiar el sprite per el del BossShot
+	laserBossL.speed.x = 5;
+	laserBossL.speed.y = 5;
+	laserBossL.lifetime = 30;
+	laserBossL.anim.speed = 0.2f;
+
+	//BossShotExplosion
+	laserBossLEx.anim.Empty();
+	laserBossLEx.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que ficar el sprite de la explosio de la enemicshot
+	laserBossLEx.speed.x = 0;
+	laserBossLEx.speed.y = 0;
+	laserBossLEx.lifetime = 50;
+	laserBossLEx.anim.speed = 0.2f;
+
 	TripleShoot.anim.Empty();	//animació del Triple Shoot	//Collider Arreglat *apaño
 	TripleShoot1.anim.Empty();	//animació del Triple Shoot	//Collider Arreglat *apaño
 	TripleShoot2.anim.Empty();	//animació del Triple Shoot	//Collider Arreglat *apaño

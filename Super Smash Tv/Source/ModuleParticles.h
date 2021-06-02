@@ -94,6 +94,12 @@ public:
 	Particle laserUL;
 	Particle laserUR;
 
+	//LaserBoss
+	Particle laserBossL;
+
+	//LaserBossExplosion
+	Particle laserBossLEx;
+
 	Particle TripleShoot;
 	Particle TripleShoot1;
 	Particle TripleShoot2;

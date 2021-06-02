@@ -24,6 +24,7 @@ struct Collider
 		object_Vida,
 		BOSS,
 		PLAYER_TRIPLE_SHOT,
+		ExplosionEnemicShot,
 
 		MAX
 	};

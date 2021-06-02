@@ -54,8 +54,18 @@ public:
 
 	int vidaBOSS = 150;
 
-	int bossTimer = 0;
+	bool bandera = true;
+	bool baderaShot = false;
+	int cont = 0;
+	int contShot = 200;
+	int Shots = 0;
+	int explosiontimer = 0;
+	bool TimeShot = false;
+	int TimeShotInt = 0;
+	
 
+	int bossTimer = 0;
+	uint laserFx = 0;
 };
 
 #endif	// __ModuleBOSS_H__
