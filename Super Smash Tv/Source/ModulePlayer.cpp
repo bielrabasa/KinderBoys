@@ -854,6 +854,10 @@ UpdateResult ModulePlayer::Update()
 
 	currentAnimation->Update();
 	
+	if (vdelay < 100)
+	{
+		vdelay++;
+	}
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
@@ -971,9 +975,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		cont_Tripel = 500;
 	}	
 	
-	if (c2->type == c2->object_Vida)
+	if (c2->type == c2->object_Vida && vdelay >= 100)
 	{
 		vides++;
+		vdelay = 0;
 	}
 
 	if (c2->type == c2->Door && App->sceneLevel_1->sceneTimer >= 3600 && App->enemies->enemyNum == 0) {

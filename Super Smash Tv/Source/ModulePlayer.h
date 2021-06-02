@@ -40,6 +40,7 @@ public:
 	// The speed in which we move the player (pixels per frame)
 	int speed = 3;
 	int cont = 25;
+	int vdelay = 0;
 	bool bandera = true;
 
 	int cont_Tripel = 0;
