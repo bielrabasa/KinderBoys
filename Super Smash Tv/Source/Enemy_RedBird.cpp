@@ -155,22 +155,55 @@ void Enemy_RedBird::Update()
 
 	if (randomMove == 37 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
 	{
-		if (position.x - App->player->position.x < 0){
-		position.x -= 1.25;
-		position.y -= 1.25;
+		position.x -= 1.25f;
+		position.y -= 1.25f;
 		movedelay++;
 		//RightAnim.Reset();
 		currentAnim = &RightAnim;
-		if (movedelay == 20) {
+		if (movedelay == 30) {
 			movedelay = 0;
 			randomMove = 0;
-
 		}
+	}
+	else if (randomMove == 73 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
+	{
+		position.x += 1.25f;
+		position.y += 1.25f;
+		movedelay++;
+		//RightAnim.Reset();
+		currentAnim = &RightAnim;
+		if (movedelay == 30) {
+			movedelay = 0;
+			randomMove = 0;
+		}
+	}
+	else if (randomMove == 123 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
+	{
+		position.x -= 1.25f;
+		position.y += 1.25f;
+		movedelay++;
+		//RightAnim.Reset();
+		currentAnim = &RightAnim;
+		if (movedelay == 30) {
+			movedelay = 0;
+			randomMove = 0;
+		}
+	}
+	else if (randomMove == 179 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
+	{
+		position.x += 1.25f;
+		position.y -= 1.25f;
+		movedelay++;
+		//RightAnim.Reset();
+		currentAnim = &RightAnim;
+		if (movedelay == 30) {
+			movedelay = 0;
+			randomMove = 0;
 		}
 	}
 	else
 	{
-		randomMove = (rand() % 200);
+		randomMove = (rand() % 700);
 	}
 	/*waveRatio += waveRatioSpeed;
 

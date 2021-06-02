@@ -32,6 +32,9 @@ private:
 	Animation DRAnim;
 	Animation DLAnim;
 
+	int randomMove = 0;
+	int movedelay = 0;
+
 	int movementDirections = 0;
 
 

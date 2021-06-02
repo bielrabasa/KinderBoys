@@ -4,6 +4,8 @@
 #include "ModuleCollisions.h"
 #include "ModulePlayer.h"
 #include "SceneLevel1.h"
+#include <time.h>
+#include <stdlib.h>
 
 Enemy_BrownShip::Enemy_BrownShip(int x, int y) : Enemy(x, y)
 {
@@ -154,6 +156,59 @@ void Enemy_BrownShip::Update()
 		}
 
 		movementDelay = 0;
+	}
+
+	if (randomMove == 200 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
+	{
+		position.x -= 1.5f;
+		position.y -= 1.5f;
+		movedelay++;
+		//RightAnim.Reset();
+		currentAnim = &RightAnim;
+		if (movedelay == 30) {
+			movedelay = 0;
+			randomMove = 0;
+		}
+	}
+	else if (randomMove == 300 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
+	{
+		position.x += 1.5f;
+		position.y += 1.5f;
+		movedelay++;
+		//RightAnim.Reset();
+		currentAnim = &RightAnim;
+		if (movedelay == 30) {
+			movedelay = 0;
+			randomMove = 0;
+		}
+	}
+	else if (randomMove == 400 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
+	{
+		position.x -= 1.5f;
+		position.y += 1.5f;
+		movedelay++;
+		//RightAnim.Reset();
+		currentAnim = &RightAnim;
+		if (movedelay == 30) {
+			movedelay = 0;
+			randomMove = 0;
+		}
+	}
+	else if (randomMove == 500 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
+	{
+		position.x += 1.5f;
+		position.y -= 1.5f;
+		movedelay++;
+		//RightAnim.Reset();
+		currentAnim = &RightAnim;
+		if (movedelay == 30) {
+			movedelay = 0;
+			randomMove = 0;
+		}
+	}
+	else
+	{
+		randomMove = (rand() % 700);
 	}
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
