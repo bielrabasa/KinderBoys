@@ -6,12 +6,15 @@
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h" //Per arreglar l'error
+#include "ModuleInput.h"
 #include "ModulePlayer.h"
 
 #include "Enemy.h"
 #include "Enemy_RedBird.h"
 #include "Enemy_BrownShip.h"
 #include "Enemy_Mech.h"
+#include <time.h>
+#include <stdlib.h>
 
 #define SPAWN_MARGIN 50
 
@@ -37,6 +40,8 @@ bool ModuleEnemies::Start()
 
 	enemyNum = 0;
 
+	srand(time(NULL));
+
 	return true;
 }
 
@@ -50,6 +55,15 @@ UpdateResult ModuleEnemies::Update()
 			enemies[i]->Update();
 	}
 
+	if (App->input->keys[SDL_SCANCODE_ESCAPE] == KeyState::KEY_REPEAT)
+	{
+		for (uint i = 0; i < MAX_ENEMIES; ++i) {
+			enemyNum--;
+
+			delete enemies[i];
+			enemies[i] = nullptr;
+		}
+	}
 	HandleEnemiesDespawn();
 
 	return UpdateResult::UPDATE_CONTINUE;

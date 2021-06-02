@@ -5,6 +5,8 @@
 #include "ModulePlayer.h"
 #include "ModuleEnemies.h"
 #include "SceneLevel1.h"
+#include <time.h>
+#include <stdlib.h>
 
 Enemy_RedBird::Enemy_RedBird(int x, int y) : Enemy(x, y)
 {
@@ -77,7 +79,7 @@ void Enemy_RedBird::Update()
 		}
 	}
 	
-	if (movementDelay >= 2 && spawntimer > 80) {
+	if (movementDelay >= 2 && spawntimer > 80 && movedelay == 0) {
 		if (position.x - App->player->position.x < 0)			//right
 		{
 			movementDirections++;
@@ -150,6 +152,26 @@ void Enemy_RedBird::Update()
 		movementDelay = 0;
 	}
 
+
+	if (randomMove == 37 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
+	{
+		if (position.x - App->player->position.x < 0){
+		position.x -= 1.25;
+		position.y -= 1.25;
+		movedelay++;
+		//RightAnim.Reset();
+		currentAnim = &RightAnim;
+		if (movedelay == 20) {
+			movedelay = 0;
+			randomMove = 0;
+
+		}
+		}
+	}
+	else
+	{
+		randomMove = (rand() % 200);
+	}
 	/*waveRatio += waveRatioSpeed;
 
 	position.y = spawnPos.y + (waveHeight * sinf(waveRatio));

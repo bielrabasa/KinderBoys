@@ -31,7 +31,8 @@ private:
 
 	int spawntimer = 0;
 
-
+	int randomMove = 0;
+	int movedelay = 0;
 	
 
 	// The enemy animation
