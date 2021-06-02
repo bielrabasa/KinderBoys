@@ -13,7 +13,23 @@
 
 SceneSwap::SceneSwap(bool startEnabled) : Module(startEnabled)
 {
+	rightAnim.Empty();
+	rightAnim.PushBack({ 0, 16, 16, 16 });
+	rightAnim.PushBack({ 16, 16, 16, 16 });
+	rightAnim.PushBack({ 32, 16, 16, 16 });
+	rightAnim.PushBack({ 48, 16, 16, 16 });
+	rightAnim.PushBack({ 64, 16, 16, 16 });
+	rightAnim.PushBack({ 80, 16, 16, 16 });
+	rightAnim.PushBack({ 96, 16, 16, 16 });
+	rightAnim.loop = true;
+	rightAnim.speed = 0.1f;
 
+	currentAnimation = &rightAnim;
+
+	topRightAnim.Empty();
+	topRightAnim.PushBack({ 64, 48, 32, 32 });
+
+	currentTopAnimation = &topRightAnim;
 }
 
 SceneSwap::~SceneSwap()
@@ -29,6 +45,7 @@ bool SceneSwap::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV.png");
+	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Player.png");
 
 	Transicio = 0;
 
@@ -51,6 +68,12 @@ UpdateResult SceneSwap::Update()
 
 	if (Transicio < 512)
 		Transicio += 4;
+	
+	if(Transicio % 4 == 0 && Transicio != 512)
+		xplayer -= 3;
+
+
+	currentAnimation->Update();
 
 	if(Transicio >= 512)App->fade->FadeToBlack(this, (Module*)App->sceneLevel2, 10);
 	return UpdateResult::UPDATE_CONTINUE;
@@ -62,6 +85,12 @@ UpdateResult SceneSwap::PostUpdate()
 	SDL_Rect fons1 = { (512*mapaTransicio) + Transicio, 0, 512, 448 }; //512*primerMapaActual, 0, 512, 448
 	App->render->DrawTexture(bgTexture, 0, 0, &fons1);
 
+	SDL_Rect rect2 = currentAnimation->GetCurrentFrame();
+	App->render->DrawTexture(texture, xplayer + 2, yplayer + 17, &rect2, 1.5f);
+
+	SDL_Rect rectTop2 = currentTopAnimation->GetCurrentFrame();
+	App->render->DrawTexture(texture, xplayer - 10, yplayer - 7, &rectTop2, 1.5f);
+
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
@@ -71,6 +100,7 @@ bool SceneSwap::CleanUp() {
 
 	//desinicialitzar tots els sprites
 	App->textures->Unload(bgTexture);
+	App->textures->Unload(texture);
 
 	return true;
 }

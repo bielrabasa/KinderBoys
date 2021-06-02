@@ -32,8 +32,17 @@ public:
 public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
+	SDL_Texture* texture = nullptr;
 
 	uint Win = 0;
+
+	Animation rightAnim;
+	Animation* currentAnimation;
+	Animation topRightAnim;
+	Animation* currentTopAnimation;
+
+	int xplayer = 440;
+	int yplayer = 225;
 
 	int mapaTransicio = 0;
 	int Transicio = 0; //contador que va fent la transició
