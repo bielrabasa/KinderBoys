@@ -868,8 +868,10 @@ UpdateResult ModulePlayer::PostUpdate()
 	App->render->DrawTexture(texture, position.x - 10, position.y - 7, &rectTop, 1.5f);
 
 	//Render Portes
-	if(ImprimirPortes)
-	App->render->DrawTexture(textureDoorTop, -512 * topDoor, 0, nullptr);
+	if (ImprimirPortes) {
+		SDL_Rect rectTopPortes = {512 * topDoor, 0, 512, 448};
+		App->render->DrawTexture(textureDoorTop, 0, 0, &rectTopPortes);
+	}
 	//Si no li enviem rectangle (li enviem un 'nullptr'), es posa la mateixa mida que la pantalla.
 
 	//Render UI

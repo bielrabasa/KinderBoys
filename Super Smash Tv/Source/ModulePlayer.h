@@ -65,7 +65,7 @@ public:
 
 	int scoreN[8] = { 0 }; //arrai de digits score
 	
-	int topDoor = 0;
+	int topDoor = 0; //0 porta standard
 
 	bool bandera_GodMode = false;
 

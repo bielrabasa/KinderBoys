@@ -59,7 +59,7 @@ UpdateResult SceneSwap::Update()
 UpdateResult SceneSwap::PostUpdate()
 {
 	// Draw everything
-	SDL_Rect fons1 = { (512*mapaTransicio) + Transicio, 0, 1024, 448 }; //512*primerMapaActual, 0, 1024(dosMapes), 448
+	SDL_Rect fons1 = { (512*mapaTransicio) + Transicio, 0, 512, 448 }; //512*primerMapaActual, 0, 512, 448
 	App->render->DrawTexture(bgTexture, 0, 0, &fons1);
 
 	return UpdateResult::UPDATE_CONTINUE;
