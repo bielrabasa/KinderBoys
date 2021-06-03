@@ -34,6 +34,7 @@ public:
 	SDL_Texture* bgTexture = nullptr;
 	SDL_Texture* texture = nullptr;
 	SDL_Texture* portaTexture = nullptr;
+	SDL_Texture* porta2Texture = nullptr;
 
 	uint Win = 0;
 
@@ -46,6 +47,7 @@ public:
 	int yplayer = 225;
 
 	int mapaTransicio = 0;
+	int portaTransicio = 0;
 	int Transicio = 0; //contador que va fent la transició
 
 };

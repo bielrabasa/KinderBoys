@@ -48,6 +48,7 @@ bool SceneSwap::Start()
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV.png");
 	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Player.png");
 	portaTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV_Portes.png");
+	porta2Texture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV_Portes2.png");
 
 	Transicio = 0;
 
@@ -59,7 +60,19 @@ bool SceneSwap::Start()
 	xplayer = 440;
 	yplayer = 225;
 
-	mapaTransicio = 0;
+	if (App->sceneLevel_1->levelcont == 0) {
+		mapaTransicio = 3;
+		portaTransicio = 0;
+	}
+	if (App->sceneLevel_1->levelcont == 1) {
+		mapaTransicio = 0;
+		portaTransicio = 0;
+	}
+
+	if (App->sceneLevel_1->levelcont == 2) {
+		mapaTransicio = 1;
+		portaTransicio = 1;
+	}
 
 	return ret;
 }
@@ -89,7 +102,7 @@ UpdateResult SceneSwap::Update()
 UpdateResult SceneSwap::PostUpdate()
 {
 	// Draw everything
-	SDL_Rect fons1 = { (512*mapaTransicio) + Transicio, 0, 512, 448 }; //512*primerMapaActual, 0, 512, 448
+	SDL_Rect fons1 = { (512 * mapaTransicio) + Transicio, 0, 512, 448 }; //512*primerMapaActual, 0, 512, 448
 	App->render->DrawTexture(bgTexture, 0, 0, &fons1);
 
 	SDL_Rect rect2 = currentAnimation->GetCurrentFrame();	//Down personatge
@@ -98,9 +111,17 @@ UpdateResult SceneSwap::PostUpdate()
 	SDL_Rect rectTop2 = currentTopAnimation->GetCurrentFrame();	//Top personatge
 	App->render->DrawTexture(texture, xplayer - 10, yplayer - 7, &rectTop2, 1.5f);
 
-	SDL_Rect porta1 = { 0, 0, 512, 448 }; //Rectangle Porta
-	App->render->DrawTexture(portaTexture, 0 - Transicio, 0, &porta1);
-	App->render->DrawTexture(portaTexture, 512 - Transicio, 0, &porta1);
+	if (mapaTransicio == 3) {
+		SDL_Rect porta2 = { Transicio, 0, 512, 448 }; //Rectangle Porta
+		App->render->DrawTexture(porta2Texture, 0, 0, &porta2);
+		
+		SDL_Rect cameras = { (5 * 512) + Transicio, 0, 512, 448 }; //Rectangle Porta
+		App->render->DrawTexture(bgTexture, 0, 0, &cameras);
+	}
+	else {
+		SDL_Rect porta1 = { (512 * portaTransicio) + Transicio, 0, 512, 448 }; //Rectangle Porta
+		App->render->DrawTexture(portaTexture, 0, 0, &porta1);
+	}
 
 	return UpdateResult::UPDATE_CONTINUE;
 }

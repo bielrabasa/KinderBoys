@@ -220,7 +220,7 @@ UpdateResult SceneLevel2::Update()
 UpdateResult SceneLevel2::PostUpdate()
 {
 	// Draw everything
-	SDL_Rect section = { 6 * 512, 0, 512, 448 }; //MAPA BOSS
+	SDL_Rect section = { 2 * 512, 0, 512, 448 }; //MAPA BOSS
 	App->render->DrawTexture(bgTexture, 0, 0, &section); //SPRITE del fons, podem posar els altres amb (bgTexture, 512*mapaActual, 0, rect)
 
 	return UpdateResult::UPDATE_CONTINUE;
