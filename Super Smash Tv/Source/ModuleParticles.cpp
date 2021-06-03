@@ -100,15 +100,71 @@ bool ModuleParticles::Start()
 	laserBossL.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que cambiar el sprite per el del BossShot
 	laserBossL.speed.x = 5;
 	laserBossL.speed.y = 5;
-	laserBossL.lifetime = 30;
+	laserBossL.lifetime = 40;
 	laserBossL.anim.speed = 0.2f;
+
+	laserBossLD1.anim.Empty();
+	laserBossLD1.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que cambiar el sprite per el del BossShot
+	laserBossLD1.speed.x = 5;
+	laserBossLD1.speed.y = 5;
+	laserBossLD1.lifetime = 40;
+	laserBossLD1.anim.speed = 0.2f;
+
+	laserBossLD2.anim.Empty();
+	laserBossLD2.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que cambiar el sprite per el del BossShot
+	laserBossLD2.speed.x = 5;
+	laserBossLD2.speed.y = 5;
+	laserBossLD2.lifetime = 40;
+	laserBossLD2.anim.speed = 0.2f;
+
+	laserBossLD3.anim.Empty();
+	laserBossLD3.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que cambiar el sprite per el del BossShot
+	laserBossLD3.speed.x = 5;
+	laserBossLD3.speed.y = 5;
+	laserBossLD3.lifetime = 40;
+	laserBossLD3.anim.speed = 0.2f;
+
+	laserBossR.anim.Empty();
+	laserBossR.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que cambiar el sprite per el del BossShot
+	laserBossR.speed.x = 5;
+	laserBossR.speed.y = 5;
+	laserBossR.lifetime = 40;
+	laserBossR.anim.speed = 0.2f;
+
+	laserBossRD1.anim.Empty();
+	laserBossRD1.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que cambiar el sprite per el del BossShot
+	laserBossRD1.speed.x = 5;
+	laserBossRD1.speed.y = 5;
+	laserBossRD1.lifetime = 40;
+	laserBossRD1.anim.speed = 0.2f;
+
+	laserBossRD2.anim.Empty();
+	laserBossRD2.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que cambiar el sprite per el del BossShot
+	laserBossRD2.speed.x = 5;
+	laserBossRD2.speed.y = 5;
+	laserBossRD2.lifetime = 40;
+	laserBossRD2.anim.speed = 0.2f;
+
+	laserBossRD3.anim.Empty();
+	laserBossRD3.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que cambiar el sprite per el del BossShot
+	laserBossRD3.speed.x = 5;
+	laserBossRD3.speed.y = 5;
+	laserBossRD3.lifetime = 40;
+	laserBossRD3.anim.speed = 0.2f;
+
+	laserBossD.anim.Empty();
+	laserBossD.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que cambiar el sprite per el del BossShot
+	laserBossD.speed.x = 5;
+	laserBossD.speed.y = 5;
+	laserBossD.lifetime = 40;
+	laserBossD.anim.speed = 0.2f;
 
 	//BossShotExplosion
 	laserBossLEx.anim.Empty();
 	laserBossLEx.anim.PushBack({ 0, 11, 8, 3 }); //animació del laser Left	  //Collider Arreglat  //Es te que ficar el sprite de la explosio de la enemicshot
 	laserBossLEx.speed.x = 0;
 	laserBossLEx.speed.y = 0;
-	laserBossLEx.lifetime = 40;
+	laserBossLEx.lifetime = 50;
 	laserBossLEx.anim.speed = 0.2f;
 
 	TripleShoot.anim.Empty();	//animació del Triple Shoot	//Collider Arreglat *apaño

@@ -144,25 +144,91 @@ UpdateResult ModuleBOSS::Update()
 		}
 		}
 		if (baderaShot) {
-		if(App->player->position.x < x+40){//Posicio mes esquerra adalt
-			if (App->player->position.y < y +20) {
-				App->particles->laserBossL.speed.x = 3;
-				App->particles->laserBossL.speed.y = 1;
-				App->particles->AddParticle(App->particles->laserBossL, x + 35, y - 40, 6, Collider::Type::ENEMY_SHOT);
-				App->audio->PlayFx(laserFx);
+			if(App->player->position.x < x+40){//Posicio mes esquerra adalt
+				if (App->player->position.y < y +20) {
+					App->particles->laserBossL.speed.x = -3;
+					App->particles->laserBossL.speed.y =-1;
+					App->particles->AddParticle(App->particles->laserBossL, x + 35, y - 40, 6, Collider::Type::ENEMY_SHOT);
+					App->audio->PlayFx(laserFx);
+					if (explosiontimer >= 39) {
+						explosiontimer = 0;
+						App->particles->AddParticle(App->particles->laserBossLEx, x - 90, y , 0, Collider::Type::ExplosionEnemicShot);
+						TimeShot = false;
+					}
+				}
 			}
-			
-		}
+			if (App->player->position.x > x + 40) {//Posicio mes esquerra adalt
+				if (App->player->position.y < y + 20) {
+					App->particles->laserBossR.speed.x = 3;
+					App->particles->laserBossR.speed.y = -1;
+					App->particles->AddParticle(App->particles->laserBossR, x + 35, y - 40, 6, Collider::Type::ENEMY_SHOT);
+					App->audio->PlayFx(laserFx);
+					if (explosiontimer >= 39) {
+						explosiontimer = 0;
+						App->particles->AddParticle(App->particles->laserBossLEx, x + 154, y, 0, Collider::Type::ExplosionEnemicShot);
+						TimeShot = false;
+					}
+				}
+			}
+			if (App->player->position.x < x + 40) {//Posicio mes esquerra adalt
+				if (App->player->position.y > y + 21 && App->player->position.y<y+100) {
+					App->particles->laserBossLD1.speed.x = -3;
+					App->particles->laserBossLD1.speed.y = -2;
+					App->particles->AddParticle(App->particles->laserBossLD1, x + 35, y - 40, 6, Collider::Type::ENEMY_SHOT);
+					App->audio->PlayFx(laserFx);
+					if (explosiontimer >= 39) {
+						explosiontimer = 0;
+						App->particles->AddParticle(App->particles->laserBossLEx, x - 84, y+37, 0, Collider::Type::ExplosionEnemicShot);
+						TimeShot = false;
+					}
+				}
+			}
+			if (App->player->position.x < x + 40) {//Posicio mes esquerra adalt
+				if (App->player->position.y > y + 101 && App->player->position.y < y + 180) {
+					App->particles->laserBossLD2.speed.x = -3;
+					App->particles->laserBossLD2.speed.y = -4;
+					App->particles->AddParticle(App->particles->laserBossLD2, x + 35, y - 40, 6, Collider::Type::ENEMY_SHOT);
+					App->audio->PlayFx(laserFx);
+					if (explosiontimer >= 39) {
+						explosiontimer = 0;
+						App->particles->AddParticle(App->particles->laserBossLEx, x - 81, y + 117, 0, Collider::Type::ExplosionEnemicShot);
+						TimeShot = false;
+					}
+				}
+			}
+			if (App->player->position.x < x + 40) {//Posicio mes esquerra adalt
+				if (App->player->position.y > y + 180 && App->player->position.y < y + 500) {
+					App->particles->laserBossLD3.speed.x = -3;
+					App->particles->laserBossLD3.speed.y = -6;
+					App->particles->AddParticle(App->particles->laserBossLD3, x + 35, y - 40, 6, Collider::Type::ENEMY_SHOT);
+					App->audio->PlayFx(laserFx);
+					if (explosiontimer >= 39) {
+						explosiontimer = 0;
+						App->particles->AddParticle(App->particles->laserBossLEx, x - 78, y + 197, 0, Collider::Type::ExplosionEnemicShot);
+						TimeShot = false;
+					}
+				}
+			}
+			if (App->player->position.x > x + 40) {//Posicio mes esquerra adalt
+				if (App->player->position.y > y + 21 && App->player->position.y < y + 100) {
+					App->particles->laserBossRD1.speed.x = 3;
+					App->particles->laserBossRD1.speed.y = -2;
+					App->particles->AddParticle(App->particles->laserBossRD1, x + 35, y - 40, 6, Collider::Type::ENEMY_SHOT);
+					App->audio->PlayFx(laserFx);
+					if (explosiontimer >= 39) {
+						explosiontimer = 0;
+						App->particles->AddParticle(App->particles->laserBossLEx, x + 148, y + 37, 0, Collider::Type::ExplosionEnemicShot);
+						TimeShot = false;
+					}
+				}
+			}
+
 			
 		}
 		if (TimeShot) {
 			explosiontimer++;
 		}
-		if (explosiontimer >= 29) {
-			explosiontimer = 0;
-			App->particles->AddParticle(App->particles->laserBossLEx, x - 115, y-40, 0, Collider::Type::ExplosionEnemicShot);
-			TimeShot = false;
-		}
+		
 	
 		
 	

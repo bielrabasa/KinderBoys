@@ -96,6 +96,14 @@ public:
 
 	//LaserBoss
 	Particle laserBossL;
+	Particle laserBossR;
+	Particle laserBossLD1;
+	Particle laserBossLD2;
+	Particle laserBossLD3;
+	Particle laserBossD;
+	Particle laserBossRD1;
+	Particle laserBossRD2;
+	Particle laserBossRD3;
 
 	//LaserBossExplosion
 	Particle laserBossLEx;
