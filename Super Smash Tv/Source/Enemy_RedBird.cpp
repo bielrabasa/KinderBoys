@@ -155,8 +155,10 @@ void Enemy_RedBird::Update()
 
 	if (randomMove == 37 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
 	{
-		position.x -= 1.25f;
-		position.y -= 1.25f;
+		if (position.x > 28)
+			position.x -= 1.25f;
+		if (position.y > 60)
+			position.y -= 1.25f;
 		movedelay++;
 		//RightAnim.Reset();
 		currentAnim = &RightAnim;
@@ -167,8 +169,10 @@ void Enemy_RedBird::Update()
 	}
 	else if (randomMove == 73 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
 	{
-		position.x += 1.25f;
-		position.y += 1.25f;
+		if (position.x < 455)
+			position.x += 1.25f;
+		if (position.y < 390)
+			position.y += 1.25f;
 		movedelay++;
 		//RightAnim.Reset();
 		currentAnim = &RightAnim;
@@ -179,8 +183,10 @@ void Enemy_RedBird::Update()
 	}
 	else if (randomMove == 123 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
 	{
-		position.x -= 1.25f;
-		position.y += 1.25f;
+		if (position.x > 28)
+			position.x -= 1.25f;
+		if (position.y < 390)
+			position.y += 1.25f;
 		movedelay++;
 		//RightAnim.Reset();
 		currentAnim = &RightAnim;
@@ -191,8 +197,10 @@ void Enemy_RedBird::Update()
 	}
 	else if (randomMove == 179 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
 	{
-		position.x += 1.25f;
-		position.y -= 1.25f;
+		if (position.x < 455)
+			position.x += 1.25f;
+		if (position.y > 60)
+			position.y -= 1.25f;
 		movedelay++;
 		//RightAnim.Reset();
 		currentAnim = &RightAnim;
