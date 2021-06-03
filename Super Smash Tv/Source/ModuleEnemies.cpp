@@ -195,6 +195,9 @@ bool ModuleEnemies::CleanUp()
 		}
 	}
 
+	App->textures->Unload(texture);
+	App->textures->Unload(textureFont);
+
 	return true;
 }
 
