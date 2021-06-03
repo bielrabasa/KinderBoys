@@ -144,11 +144,11 @@ UpdateResult ModuleBOSS::Update()
 		}
 		}
 		if (baderaShot) {
-		if(App->player->position.x<x+40){//Posicio mes esquerra adalt
+		if(App->player->position.x < x+40){//Posicio mes esquerra adalt
 			if (App->player->position.y < y +20) {
-				App->particles->laserBossL.speed.x;
-				App->particles->laserBossL.speed.y+ 5;
-				App->particles->AddParticle(App->particles->laserBossL, x + 35, y - 40, 2, Collider::Type::ENEMY_SHOT);
+				App->particles->laserBossL.speed.x = 3;
+				App->particles->laserBossL.speed.y = 1;
+				App->particles->AddParticle(App->particles->laserBossL, x + 35, y - 40, 6, Collider::Type::ENEMY_SHOT);
 				App->audio->PlayFx(laserFx);
 			}
 			
