@@ -197,7 +197,13 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 		
 		App->audio->PlayFx(explosionFx);
 	}
+
 	if (c2->type == c2->ENEMY && c1->type == c1->PLAYER_SHOT)
+	{
+	App->player->score += 30;
+	}
+
+	if (c2->type == c2->ENEMY && c1->type == c1->PLAYER_TRIPLE_SHOT)
 	{
 	App->player->score += 30;
 	}

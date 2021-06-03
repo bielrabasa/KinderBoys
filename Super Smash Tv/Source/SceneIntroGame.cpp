@@ -7,6 +7,7 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "SceneLevel1.h"
+#include "ModulePlayer.h"
 
 SceneIntroGame::SceneIntroGame(bool startEnabled) : Module(startEnabled)
 {
@@ -47,7 +48,9 @@ UpdateResult SceneIntroGame::Update()
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN || pad.a == KeyState::KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneSwap, 20);
-		App->sceneLevel_1->levelcont == 0;
+		App->sceneLevel_1->levelcont = 0;
+		App->player->score = 0;
+		App->player->vides = 5;
 	}
 
 	return UpdateResult::UPDATE_CONTINUE;

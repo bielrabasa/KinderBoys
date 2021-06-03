@@ -839,7 +839,7 @@ UpdateResult ModulePlayer::Update()
 
 
 
-	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN) { //necessita col·lidir amb un enemic al final per morir
+	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN && vides < 0) { //necessita col·lidir amb un enemic al final per morir
 		vides--;
 	}
 
@@ -980,7 +980,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		cont_Tripel = 500;
 	}	
 	
-	if (c2->type == c2->object_Vida && vdelay >= 100)
+	if (c2->type == c2->object_Vida && vdelay >= 100 && vides < 9)
 	{
 		vides++;
 		vdelay = 0;
