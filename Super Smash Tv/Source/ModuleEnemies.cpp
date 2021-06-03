@@ -130,22 +130,23 @@ UpdateResult ModuleEnemies::PostUpdate()
 	
 
 	//IMPRIMIR RECTANGLES VERMELL TRIPLE SHOT
-	SDL_Rect rectTempos1 = {-202, 75, 14, 4};
+	//SDL_Rect rectTempos1 = { -202, 75, 14, 4 }; //Quan està en finestra
+	SDL_Rect rectTempos1 = { 48, 125, 14, 4};
 	App->render->DrawRectangle(rectTempos1, SDL_Color{ 255, 0, 0, 255 }); //L'ultim 255 és opac
 	
-	SDL_Rect rectTempos2 = { -185, 75, 14, 4 };
+	SDL_Rect rectTempos2 = { 65, 125, 14, 4 };
 	App->render->DrawRectangle(rectTempos2, SDL_Color{ 255, 0, 0, 255 });
 	
-	SDL_Rect rectTempos3 = { -168, 75, 14, 4 };
+	SDL_Rect rectTempos3 = { 82, 125, 14, 4 };
 	App->render->DrawRectangle(rectTempos3, SDL_Color{ 255, 0, 0, 255 });
 	
-	SDL_Rect rectTempos4 = { -151, 75, 14, 4 };
+	SDL_Rect rectTempos4 = { 99, 125, 14, 4 };
 	App->render->DrawRectangle(rectTempos4, SDL_Color{ 255, 0, 0, 255 });
 	
-	SDL_Rect rectTempos5 = { -134, 75, 14, 4 };
+	SDL_Rect rectTempos5 = { 116, 125, 14, 4 };
 	App->render->DrawRectangle(rectTempos5, SDL_Color{ 255, 0, 0, 255 });
 	
-	SDL_Rect rectTempos6 = { -117, 75, 14, 4 };
+	SDL_Rect rectTempos6 = { 133, 125, 14, 4 };
 	App->render->DrawRectangle(rectTempos6, SDL_Color{ 255, 0, 0, 255 });
 
 	if (App->player->cont_Tripel > 0) {
