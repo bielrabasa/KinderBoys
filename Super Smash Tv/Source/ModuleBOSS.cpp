@@ -87,7 +87,7 @@ bool ModuleBOSS::Start()
 {
 	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
 	LOG("Loading background assets");
-
+	
 	bool ret = true;
 
 	x = 192; //Wheels centered (horizontal), 192 està perfecte
@@ -144,7 +144,8 @@ UpdateResult ModuleBOSS::Update()
 		}
 		}
 		if (baderaShot) {
-			App->particles->AddParticle(App->particles->laserBossL, x, y, 2, Collider::Type::ENEMY_SHOT);
+		if(App->player->position.x){}
+			App->particles->AddParticle(App->particles->laserBossL, x+35, y-40, 2, Collider::Type::ENEMY_SHOT);
 			App->audio->PlayFx(laserFx);
 			//App->particles->AddParticle(App->particles->laserBossLEx, x - 150, y, 0, Collider::Type::ExplosionEnemicShot);
 		}

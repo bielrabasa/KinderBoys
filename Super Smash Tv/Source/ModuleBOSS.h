@@ -3,12 +3,17 @@
 
 #include "Module.h"
 #include "Animation.h"
+#include <stdlib.h>
+#include <time.h>
+#include <iostream>
+
 
 struct SDL_Texture;
 
 class ModuleBOSS : public Module
 {
 public:
+	
 	// Constructor
 	ModuleBOSS(bool startEnabled);
 
@@ -54,6 +59,7 @@ public:
 
 	int vidaBOSS = 150;
 
+	//Usado para la rafaga de disparos del boss
 	bool bandera = true;
 	bool baderaShot = false;
 	int cont = 0;
@@ -62,6 +68,9 @@ public:
 	int explosiontimer = 0;
 	bool TimeShot = false;
 	int TimeShotInt = 0;
+
+	//Angulo de disparo del boss
+	
 	
 
 	int bossTimer = 0;
