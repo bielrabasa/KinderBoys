@@ -804,39 +804,42 @@ UpdateResult ModulePlayer::Update()
 
 	//F3 mas el numero de la sala pasa a aquella sala
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 1){
+		App->sceneLevel_1->levelcont = 0;
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
-		App->sceneLevel_1->levelcont == 0;
 	}
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont ==1){
+		App->sceneLevel_1->levelcont = 1;
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
-		App->sceneLevel_1->levelcont == 1;
 	}
-	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 1)
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 1){
+		App->sceneLevel_1->levelcont = 2;
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
-
+	}
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 2){
+		App->sceneLevel_1->levelcont = 0;
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
-		App->sceneLevel_1->levelcont == 0;
 	}
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 2){
+		App->sceneLevel_1->levelcont = 1;
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
-		App->sceneLevel_1->levelcont == 1;
 	}
-	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 2)
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 2){
+		App->sceneLevel_1->levelcont = 2;
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
-
+	}
 	//Escen del boss
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2){
+		App->sceneLevel_1->levelcont = 0;
 		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneSwap, 20);
-		App->sceneLevel_1->levelcont == 0;
 	}
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2){
+		App->sceneLevel_1->levelcont = 1;
 		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneSwap, 20);
-		App->sceneLevel_1->levelcont == 1;
 	}
-	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2)
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2){
+		App->sceneLevel_1->levelcont = 2;
 		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneSwap, 20);
-
+	}
 
 
 	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN && vides < 0) { //necessita col·lidir amb un enemic al final per morir

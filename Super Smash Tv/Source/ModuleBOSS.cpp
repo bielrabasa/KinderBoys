@@ -144,17 +144,23 @@ UpdateResult ModuleBOSS::Update()
 		}
 		}
 		if (baderaShot) {
-		if(App->player->position.x){}
-			App->particles->AddParticle(App->particles->laserBossL, x+35, y-40, 2, Collider::Type::ENEMY_SHOT);
-			App->audio->PlayFx(laserFx);
-			//App->particles->AddParticle(App->particles->laserBossLEx, x - 150, y, 0, Collider::Type::ExplosionEnemicShot);
+		if(App->player->position.x < x+40){//Posicio mes esquerra adalt
+			if (App->player->position.y < y +20) {
+				App->particles->laserBossL.speed.x = 3;
+				App->particles->laserBossL.speed.y = 1;
+				App->particles->AddParticle(App->particles->laserBossL, x + 35, y - 40, 6, Collider::Type::ENEMY_SHOT);
+				App->audio->PlayFx(laserFx);
+			}
+			
+		}
+			
 		}
 		if (TimeShot) {
 			explosiontimer++;
 		}
 		if (explosiontimer >= 29) {
 			explosiontimer = 0;
-			App->particles->AddParticle(App->particles->laserBossLEx, x - 150, y, 0, Collider::Type::ExplosionEnemicShot);
+			App->particles->AddParticle(App->particles->laserBossLEx, x - 115, y-40, 0, Collider::Type::ExplosionEnemicShot);
 			TimeShot = false;
 		}
 	
