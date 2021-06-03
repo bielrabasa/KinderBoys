@@ -34,6 +34,8 @@ bool SceneLevel1::Start()
 
 	lvl1 = true;	//detecta que estas a lvl1
 
+	levelcont++;	//mira quants cops pases per el lvl1
+
 	App->enemies->Enable();
 	App->particles->Enable();
 	App->collisions->Enable();

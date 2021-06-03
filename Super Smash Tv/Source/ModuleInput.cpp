@@ -4,6 +4,7 @@
 #include "Application.h"
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
+#include "SceneLevel1.h"
 
 #include "SDL/include/SDL.h"
 
@@ -138,6 +139,7 @@ UpdateResult ModuleInput::PreUpdate()
 		{
 			App->pause = !App->pause;
 			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
+			App->sceneLevel_1->levelcont -= 1;
 			App->player->vides = 5;
 			App->player->score = 0;
 		}

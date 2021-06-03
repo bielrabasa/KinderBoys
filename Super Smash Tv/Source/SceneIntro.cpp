@@ -6,6 +6,7 @@
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "SceneLevel1.h"
 
 SceneIntro::SceneIntro(bool startEnabled) : Module(startEnabled)
 {
@@ -46,6 +47,7 @@ UpdateResult SceneIntro::Update()
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 20); //Comentar-Descomentar per probar la segona fase
 		//App->fade->FadeToBlack(this, (Module*)App->sceneUPC, 20);
+		App->sceneLevel_1->levelcont == 0;
 	}
 
 	return UpdateResult::UPDATE_CONTINUE;

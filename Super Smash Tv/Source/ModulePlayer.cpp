@@ -216,13 +216,6 @@ UpdateResult ModulePlayer::Update()
 		bandera_GodMode = !bandera_GodMode;
 	}
 
-	if (App->input->keys[SDL_SCANCODE_F9] == KeyState::KEY_DOWN && App->sceneLevel_1->lvl1) {
-		App->sceneLevel_1->sceneTimer = 3600;
-	}
-	if (App->input->keys[SDL_SCANCODE_F9] == KeyState::KEY_DOWN && App->sceneLevel2->lvl2) {
-		App->sceneLevel2->sceneTimer = 3600;
-	}
-
 	//Preguntar pk no funciona el martes
 	if (bandera_GodMode == false) {
 		if (((App->input->keys[SDL_SCANCODE_A] == KeyState::KEY_REPEAT) || pad.left_x < 0.0f || pad.left) && position.x >= 28) //LEFT
@@ -810,27 +803,39 @@ UpdateResult ModulePlayer::Update()
 	}
 
 	//F3 mas el numero de la sala pasa a aquella sala
-	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
-	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
-	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
-	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel2, 20);
-	/*if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
-	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->BOSS, 20);		//Escena del boss per implementar  */
-
-	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2)
-		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneLevel_1, 20);
-	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2)
-		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneLevel2, 20);
-	/*if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
-	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->BOSS, 20);		//Escena del boss per implementar  */
-
-	/*//Escen del boss per implementar
-	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 1){
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
-	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
+		App->sceneLevel_1->levelcont == 0;
+	}
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont ==1){
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel2, 20);
-	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1)
-	App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->BOSS, 20); */
+		App->sceneLevel_1->levelcont == 1;
+	}
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 1)
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel2, 20);		
+
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 2){
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
+		App->sceneLevel_1->levelcont == 0;
+	}
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 2){
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
+		App->sceneLevel_1->levelcont == 1;
+	}
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 2)
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel2, 20);
+
+	//Escen del boss
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2){
+		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneLevel_1, 20);
+		App->sceneLevel_1->levelcont == 0;
+	}
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2){
+		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneLevel_1, 20);
+		App->sceneLevel_1->levelcont == 1;
+	}
+	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2)
+		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneLevel2, 20);
 
 
 

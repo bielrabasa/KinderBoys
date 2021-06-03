@@ -46,6 +46,7 @@ public:
 	short portesSpawn[4][9][2];
 	int i = 0;
 	int exitTimer = 0;
+	int levelcont = 0;
 };
 
 #endif  // __SCENELEVEL1_H__
