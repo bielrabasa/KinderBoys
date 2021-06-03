@@ -141,6 +141,15 @@ UpdateResult ModuleBOSS::Update()
 			else if(cont<=9) {
 				baderaShot = false;
 			}
+			if (TimeShot) {
+				TimeShotInt++;
+				if (TimeShotInt >= 46) {
+					TimeShotInt = 0;
+					App->particles->AddParticle(App->particles->laserBossLEx, x - 150, y, 0, Collider::Type::ExplosionEnemicShot);
+					TimeShot = false;
+					
+				}
+			}
 		}
 		}
 		if (baderaShot) {
