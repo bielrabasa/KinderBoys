@@ -46,16 +46,20 @@ bool SceneSwap::Start()
 
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV.png");
 	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Player.png");
+	portaTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV_Portes.png");
 
 	Transicio = 0;
 
-	App->player->CleanUp();
-	App->collisions->CleanUp();
-	App->particles->CleanUp();
-	App->enemies->CleanUp();
-
+	App->player->Disable();
+	App->collisions->Disable();
+	App->particles->Disable();
 	App->enemies->Disable();
 	
+	xplayer = 440;
+	yplayer = 225;
+
+	mapaTransicio = 0;
+
 	return ret;
 }
 
@@ -85,11 +89,15 @@ UpdateResult SceneSwap::PostUpdate()
 	SDL_Rect fons1 = { (512*mapaTransicio) + Transicio, 0, 512, 448 }; //512*primerMapaActual, 0, 512, 448
 	App->render->DrawTexture(bgTexture, 0, 0, &fons1);
 
-	SDL_Rect rect2 = currentAnimation->GetCurrentFrame();
+	SDL_Rect rect2 = currentAnimation->GetCurrentFrame();	//Down personatge
 	App->render->DrawTexture(texture, xplayer + 2, yplayer + 17, &rect2, 1.5f);
 
-	SDL_Rect rectTop2 = currentTopAnimation->GetCurrentFrame();
+	SDL_Rect rectTop2 = currentTopAnimation->GetCurrentFrame();	//Top personatge
 	App->render->DrawTexture(texture, xplayer - 10, yplayer - 7, &rectTop2, 1.5f);
+
+	SDL_Rect porta1 = { 0, 0, 512, 448 }; //Rectangle Porta
+	App->render->DrawTexture(portaTexture, 0 - Transicio, 0, &porta1);
+	App->render->DrawTexture(portaTexture, 512 - Transicio, 0, &porta1);
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
@@ -101,6 +109,7 @@ bool SceneSwap::CleanUp() {
 	//desinicialitzar tots els sprites
 	App->textures->Unload(bgTexture);
 	App->textures->Unload(texture);
+	App->textures->Unload(portaTexture);
 
 	return true;
 }
