@@ -141,15 +141,6 @@ UpdateResult ModuleBOSS::Update()
 			else if(cont<=9) {
 				baderaShot = false;
 			}
-			if (TimeShot) {
-				TimeShotInt++;
-				if (TimeShotInt >= 46) {
-					TimeShotInt = 0;
-					App->particles->AddParticle(App->particles->laserBossLEx, x - 150, y, 0, Collider::Type::ExplosionEnemicShot);
-					TimeShot = false;
-					
-				}
-			}
 		}
 		}
 		if (baderaShot) {
@@ -157,13 +148,14 @@ UpdateResult ModuleBOSS::Update()
 			App->audio->PlayFx(laserFx);
 			//App->particles->AddParticle(App->particles->laserBossLEx, x - 150, y, 0, Collider::Type::ExplosionEnemicShot);
 		}
-		/*if (TimeShot) {
+		if (TimeShot) {
 			explosiontimer++;
 		}
 		if (explosiontimer >= 29) {
+			explosiontimer = 0;
 			App->particles->AddParticle(App->particles->laserBossLEx, x - 150, y, 0, Collider::Type::ExplosionEnemicShot);
 			TimeShot = false;
-		}*/
+		}
 	
 		
 	
