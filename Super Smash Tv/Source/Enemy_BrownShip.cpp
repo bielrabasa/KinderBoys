@@ -160,8 +160,10 @@ void Enemy_BrownShip::Update()
 
 	if (randomMove == 200 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
 	{
-		position.x -= 1.5f;
-		position.y -= 1.5f;
+		if (position.x > 28)
+			position.x -= 1.5f;
+		if (position.y > 60)
+			position.y -= 1.5f;
 		movedelay++;
 		//RightAnim.Reset();
 		currentAnim = &RightAnim;
@@ -172,8 +174,10 @@ void Enemy_BrownShip::Update()
 	}
 	else if (randomMove == 300 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
 	{
-		position.x += 1.5f;
-		position.y += 1.5f;
+		if (position.x < 455)
+			position.x += 1.5f;
+		if (position.y < 390)
+			position.y += 1.5f;
 		movedelay++;
 		//RightAnim.Reset();
 		currentAnim = &RightAnim;
@@ -184,8 +188,10 @@ void Enemy_BrownShip::Update()
 	}
 	else if (randomMove == 400 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
 	{
-		position.x -= 1.5f;
-		position.y += 1.5f;
+		if (position.x > 28)
+			position.x -= 1.5f;
+		if (position.y < 390)
+			position.y += 1.5f;
 		movedelay++;
 		//RightAnim.Reset();
 		currentAnim = &RightAnim;
@@ -196,8 +202,10 @@ void Enemy_BrownShip::Update()
 	}
 	else if (randomMove == 500 && spawntimer > 80)		//el randomMove esta a 37 xk em surt de la punta de la polla
 	{
-		position.x += 1.5f;
-		position.y -= 1.5f;
+		if (position.x < 455)
+			position.x += 1.5f;
+		if (position.y > 60)
+			position.y -= 1.5f;
 		movedelay++;
 		//RightAnim.Reset();
 		currentAnim = &RightAnim;
