@@ -138,8 +138,7 @@ UpdateResult ModuleInput::PreUpdate()
 		if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_REPEAT || App->input->pads->a == KeyState::KEY_DOWN)
 		{
 			App->pause = !App->pause;
-			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
-			App->sceneLevel_1->levelcont -= 1;
+			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
 			App->player->vides = 5;
 			App->player->score = 0;
 		}

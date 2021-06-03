@@ -10,6 +10,7 @@
 #include "ModuleCollisions.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleParticles.h"
+#include "SceneLevel1.h"
 
 SceneSwap::SceneSwap(bool startEnabled) : Module(startEnabled)
 {
@@ -79,7 +80,9 @@ UpdateResult SceneSwap::Update()
 
 	currentAnimation->Update();
 
-	if(Transicio >= 512)App->fade->FadeToBlack(this, (Module*)App->sceneLevel2, 10);
+	if(Transicio >= 512 && App->sceneLevel_1->levelcont == 0)App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 10);
+	if(Transicio >= 512 && App->sceneLevel_1->levelcont == 1)App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 10);
+	if(Transicio >= 512 && App->sceneLevel_1->levelcont == 2)App->fade->FadeToBlack(this, (Module*)App->sceneLevel2, 10);
 	return UpdateResult::UPDATE_CONTINUE;
 }
 

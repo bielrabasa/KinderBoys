@@ -46,7 +46,7 @@ UpdateResult SceneIntroGame::Update()
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_DOWN || pad.a == KeyState::KEY_DOWN)
 	{
-		App->fade->FadeToBlack(this, (Module*)App->sceneLevel_1, 20);
+		App->fade->FadeToBlack(this, (Module*)App->sceneSwap, 20);
 		App->sceneLevel_1->levelcont == 0;
 	}
 

@@ -804,38 +804,38 @@ UpdateResult ModulePlayer::Update()
 
 	//F3 mas el numero de la sala pasa a aquella sala
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 1){
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
 		App->sceneLevel_1->levelcont == 0;
 	}
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont ==1){
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel2, 20);
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
 		App->sceneLevel_1->levelcont == 1;
 	}
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 1)
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel2, 20);		
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
 
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 2){
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
 		App->sceneLevel_1->levelcont == 0;
 	}
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 2){
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 20);
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
 		App->sceneLevel_1->levelcont == 1;
 	}
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel_1->lvl1 && App->sceneLevel_1->levelcont == 2)
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel2, 20);
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
 
 	//Escen del boss
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_1] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2){
-		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneLevel_1, 20);
+		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneSwap, 20);
 		App->sceneLevel_1->levelcont == 0;
 	}
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_2] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2){
-		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneLevel_1, 20);
+		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneSwap, 20);
 		App->sceneLevel_1->levelcont == 1;
 	}
 	if (App->input->keys[SDL_SCANCODE_F3] == KeyState::KEY_REPEAT && App->input->keys[SDL_SCANCODE_3] == KeyState::KEY_REPEAT && App->sceneLevel2->lvl2)
-		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneLevel2, 20);
+		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneSwap, 20);
 
 
 
@@ -989,7 +989,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if (c2->type == c2->Door && App->sceneLevel_1->sceneTimer >= 3600 && App->enemies->enemyNum == 0) {
 		//	WIN CONDITION
 		if(App->sceneLevel_1->levelcont == 1)
-		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneLevel_1, 0); //sceneWin, sceneSwap
+		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 0); //sceneWin, sceneSwap
 		if(App->sceneLevel_1->levelcont == 2)
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 0); //sceneWin, sceneSwap
 	}
