@@ -128,6 +128,44 @@ UpdateResult ModuleEnemies::PostUpdate()
 	}
 	posicioFont = 160; //Posició del primer element de la dreta
 	
+
+	//IMPRIMIR RECTANGLES VERMELL TRIPLE SHOT
+	SDL_Rect rectTempos1 = {-202, 75, 14, 4};
+	App->render->DrawRectangle(rectTempos1, SDL_Color{ 255, 0, 0, 255 }); //L'ultim 255 és opac
+	
+	SDL_Rect rectTempos2 = { -185, 75, 14, 4 };
+	App->render->DrawRectangle(rectTempos2, SDL_Color{ 255, 0, 0, 255 });
+	
+	SDL_Rect rectTempos3 = { -168, 75, 14, 4 };
+	App->render->DrawRectangle(rectTempos3, SDL_Color{ 255, 0, 0, 255 });
+	
+	SDL_Rect rectTempos4 = { -151, 75, 14, 4 };
+	App->render->DrawRectangle(rectTempos4, SDL_Color{ 255, 0, 0, 255 });
+	
+	SDL_Rect rectTempos5 = { -134, 75, 14, 4 };
+	App->render->DrawRectangle(rectTempos5, SDL_Color{ 255, 0, 0, 255 });
+	
+	SDL_Rect rectTempos6 = { -117, 75, 14, 4 };
+	App->render->DrawRectangle(rectTempos6, SDL_Color{ 255, 0, 0, 255 });
+
+	if (App->player->cont_Tripel > 0) {
+		switch (App->player->cont_Tripel / 83) { //Dibuixa rectangles verds si el triple shot està actiu.
+		case 6:
+		case 5:
+			App->render->DrawRectangle(rectTempos6, SDL_Color{ 0, 255, 0, 255 });
+		case 4:
+			App->render->DrawRectangle(rectTempos5, SDL_Color{ 0, 255, 0, 255 });
+		case 3:
+			App->render->DrawRectangle(rectTempos4, SDL_Color{ 0, 255, 0, 255 });
+		case 2:
+			App->render->DrawRectangle(rectTempos3, SDL_Color{ 0, 255, 0, 255 });
+		case 1:
+			App->render->DrawRectangle(rectTempos2, SDL_Color{ 0, 255, 0, 255 });
+		case 0:
+			App->render->DrawRectangle(rectTempos1, SDL_Color{ 0, 255, 0, 255 });
+			break;
+		}
+	}
 	//Render Immunitat
 	SDL_Rect rectImmun = { 96, 56, 32, 32 };
 	if (App->player->contadorVides > 0 && App->player->contadorVides % 3 == 0) {
