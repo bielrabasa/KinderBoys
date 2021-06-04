@@ -25,7 +25,7 @@ Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 	TurretUpR.PushBack({202, 80, 20, 21});
 	TurretUpR.speed = 0.05f;
 	TurretUpL.Empty();
-	TurretUpL.PushBack({143, 50, 20, 21});
+	TurretUpL.PushBack({143, 80, 20, 21});
 	TurretUpL.speed = 0.05f;
 	TurretLeft.Empty();
 	TurretLeft.PushBack({135, 0, 24, 15});
@@ -64,10 +64,84 @@ Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 void Enemy_Mech::Update()
 {
 	position.x = App->boss->x + 20;
-	position.y = App->boss->y + 95;
+	position.y = App->boss->y + 170;
 
-	currentAnim = &TurretDown;
-
+	if (App->player->position.y > position.y){
+		if (App->player->position.x < position.x - 46){
+			TurretLeft.Reset();
+  			currentAnim = &TurretLeft;
+		}
+		else if (App->player->position.x > position.x - 30 && App->player->position.x < position.x - 15){
+			TurretLeftD1.Reset();
+			currentAnim = &TurretLeftD2;
+		}
+		else if(App->player->position.x > position.x - 45 && App->player->position.x < position.x - 31){
+			TurretLeftD2.Reset();
+			currentAnim = &TurretLeftD1;
+		}
+		else if(App->player->position.x > position.x - 14 && App->player->position.x < position.x - 5){
+			TurretDownL.Reset();
+			currentAnim = &TurretDownL;
+		}
+		else if(App->player->position.x > position.x - 4 && App->player->position.x < position.x + 4){
+			TurretDown.Reset();
+			currentAnim = &TurretDown;
+		}
+		else if(App->player->position.x > position.x + 5 && App->player->position.x < position.x + 15){
+			TurretDownR.Reset();
+			currentAnim = &TurretDownR;
+		}
+		else if (App->player->position.x > position.x + 46) {
+			TurretLeft.Reset();
+			currentAnim = &TurretRight;
+		}
+		else if (App->player->position.x < position.x + 30 && App->player->position.x > position.x + 15) {
+			TurretLeftD1.Reset();
+			currentAnim = &TurretRightD2;
+		}
+		else if (App->player->position.x < position.x + 45 && App->player->position.x > position.x + 31) {
+			TurretLeftD2.Reset();
+			currentAnim = &TurretRightD1;
+		}
+	}
+	else if(App->player->position.y < position.y){
+		if (App->player->position.x < position.x - 46) {
+			TurretLeft.Reset();
+			currentAnim = &TurretLeft;
+		}
+		else if (App->player->position.x > position.x - 30 && App->player->position.x < position.x - 15) {
+			TurretLeftD1.Reset();
+			currentAnim = &TurretLeftU2;
+		}
+		else if (App->player->position.x > position.x - 45 && App->player->position.x < position.x - 31) {
+			TurretLeftD2.Reset();
+			currentAnim = &TurretLeftU1;
+		}
+		else if (App->player->position.x > position.x - 14 && App->player->position.x < position.x - 5) {
+			TurretDownL.Reset();
+			currentAnim = &TurretUpL;
+		}
+		else if (App->player->position.x > position.x - 4 && App->player->position.x < position.x + 4) {
+			TurretDown.Reset();
+			currentAnim = &TurretUp;
+		}
+		else if (App->player->position.x > position.x + 5 && App->player->position.x < position.x + 15) {
+			TurretDownR.Reset();
+			currentAnim = &TurretUpR;
+		}
+		else if (App->player->position.x > position.x + 46) {
+			TurretLeft.Reset();
+			currentAnim = &TurretRight;
+		}
+		else if (App->player->position.x < position.x + 30 && App->player->position.x > position.x + 15) {
+			TurretLeftD1.Reset();
+			currentAnim = &TurretRightU2;
+		}
+		else if (App->player->position.x < position.x + 45 && App->player->position.x > position.x + 31) {
+			TurretLeftD2.Reset();
+			currentAnim = &TurretRightU1;
+		}
+	}
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();
