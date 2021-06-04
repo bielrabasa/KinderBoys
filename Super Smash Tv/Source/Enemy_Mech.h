@@ -20,7 +20,23 @@ private:
 	Path path;
 
 	// Enemy animations
-	Animation front, back;
+	Animation TurretDown;
+	Animation TurretDownR;
+	Animation TurretDownL;
+	Animation TurretUp;
+	Animation TurretUpR;
+	Animation TurretUpL;
+	Animation TurretLeft;
+	Animation TurretLeftD1;
+	Animation TurretLeftD2;
+	Animation TurretLeftU1;
+	Animation TurretLeftU2;
+	Animation TurretRight;
+	Animation TurretRightD1;
+	Animation TurretRightD2;
+	Animation TurretRightU1;
+	Animation TurretRightU2;
+
 };
 
 #endif // __ENEMY_MECH_H__
