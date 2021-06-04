@@ -32,8 +32,13 @@ public:
 public:
 	// The scene sprite sheet loaded into an SDL_Texture
 	SDL_Texture* bgTexture = nullptr;
+	SDL_Texture* fontTexture = nullptr;
 
 	uint Win = 0;
+	int diners = 0;
+	int dinerscopia = 0;
+	int arrdiners[7] = { 0 };
+	int posicioFont = 160;
 
 };
 
