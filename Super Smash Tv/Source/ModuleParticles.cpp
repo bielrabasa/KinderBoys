@@ -268,10 +268,12 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	App->player->score += 30;
 	}
 
-	if (c2->type == c2->WALL && c1->type == c1->PLAYER_SHOT)
+
+	//particules quan la bala colisiona contra la pared
+	/*if (c2->type == c2->WALL && c1->type == c1->PLAYER_SHOT)
 	{
 		App->particles->AddParticle(App->particles->ShootdeathT, App->player->position.x, App->particles->laserU.position.y, 6, Collider::Type::WALL);
-	}
+	}*/
 
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 	{
