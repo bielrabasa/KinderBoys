@@ -126,7 +126,7 @@ UpdateResult ModuleBOSS::Update()
 		//movimiento_y = rand() % 2;
 		contmovx++;
 		if (contmovx != 0) {
-			if (contmovx >= 35) {
+			if (contmovx >= 50) {
 				contmovx = 0;
 			}
 			if (movimiento_x == 0) { x--; }
@@ -339,19 +339,18 @@ UpdateResult ModuleBOSS::PostUpdate()
 void ModuleBOSS::OnCollision(Collider* c1, Collider* c2) {
 	if (startlvl >= 350) {
 		if (c2->type == c2->WALL) {
-			if(y==5){
-				y--;
-			}
-			if (y == 440) {
+			if(y==20){
 				y++;
 			}
-			if (x ==5) {
+			if (y == 430) {
+				y--;
+			}
+			if (x ==15) {
 				x++;
 			}
-			if (x == 47) {
+			if (x == 470) {
 				x--;
 			}
-			
 		}
 	}
 	

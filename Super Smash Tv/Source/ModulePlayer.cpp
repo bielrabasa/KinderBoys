@@ -1031,6 +1031,23 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		if (vides > 0) {
 			--vides;
 		}
+		else if (vides <= 0) {		//FALTA PULIR MOLTISSIM!!!!!
+			App->particles->AddParticle(App->particles->explosion, position.x, position.y, 0, Collider::Type::NONE, 9);
+			App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, 0, Collider::Type::NONE, 14);
+			App->particles->AddParticle(App->particles->explosion, position.x - 7, position.y + 12, 0, Collider::Type::NONE, 40);
+			App->particles->AddParticle(App->particles->explosion, position.x + 5, position.y - 5, 0, Collider::Type::NONE, 28);
+			App->particles->AddParticle(App->particles->explosion, position.x - 4, position.y - 4, 0, Collider::Type::NONE, 21);
+
+			App->audio->PlayFx(explosionFx);
+
+
+			App->pause = true;
+
+			//App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->SceneLevel2, 20);
+
+			destroyed = false;
+		}
+		contadorVides = 50; //50 frames de delay
 	}
 
 }
