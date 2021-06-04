@@ -58,4 +58,4 @@ link del video
 
 ## Last Release
 
-Link to download the latest version of the game:
+Link to download the latest version of the game: [Download](https://github.com/bielrabasa/KinderBoys.git)
