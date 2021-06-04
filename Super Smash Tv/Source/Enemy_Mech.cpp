@@ -64,7 +64,7 @@ Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 void Enemy_Mech::Update()
 {
 	position.x = App->boss->x + 20;
-	position.y = App->boss->y + 170;
+	position.y = App->boss->y + 130;
 
 	if (App->player->position.y > position.y){
 		if (App->player->position.x < position.x - 46){

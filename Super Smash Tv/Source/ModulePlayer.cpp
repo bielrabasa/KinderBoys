@@ -1027,6 +1027,12 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 		contadorVides = 50; //50 frames de delay
 	}
+	if ((c2->type == c2->ExplosionEnemicShot) && (contadorVides < 0) && (bandera_GodMode == false) && (destroyed == false)) {
+		if (vides > 0) {
+			--vides;
+		}
+	}
+
 }
 
 bool ModulePlayer::CleanUp() {

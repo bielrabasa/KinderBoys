@@ -69,9 +69,12 @@ public:
 	bool TimeShot = false;
 	int TimeShotInt = 0;
 
-	//Angulo de disparo del boss
-	
-	
+	//Movimiento de enemigo
+	int movimiento_x;
+	int movimiento_y;
+	int contmovx;
+	int contmovy;
+	int startlvl;
 
 	int bossTimer = 0;
 	uint laserFx = 0;

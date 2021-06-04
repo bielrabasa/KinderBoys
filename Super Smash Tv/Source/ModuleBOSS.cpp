@@ -116,6 +116,25 @@ bool ModuleBOSS::CleanUp() {
 UpdateResult ModuleBOSS::Update()
 {
 	//Treballar amb 'x' i 'y' del Boss
+	startlvl++;
+	if (startlvl >=350) {
+		if (contmovx == 0) {
+			movimiento_x = rand() % 4;
+			contmovx++;
+		}
+
+		//movimiento_y = rand() % 2;
+		contmovx++;
+		if (contmovx != 0) {
+			if (contmovx >= 35) {
+				contmovx = 0;
+			}
+			if (movimiento_x == 0) { x--; }
+			else if (movimiento_x == 1) { x++; }
+			else if (movimiento_x == 2) { y--; }
+			else if (movimiento_x == 3) { y++; }
+		}
+	}
 
 	
 	if (App->input->keys[SDL_SCANCODE_M] == KeyState::KEY_DOWN&&bandera==true) {
@@ -278,7 +297,7 @@ UpdateResult ModuleBOSS::Update()
 			explosiontimer = 0;
 		}
 		
-	
+		
 		
 	
 
@@ -299,6 +318,7 @@ UpdateResult ModuleBOSS::Update()
 	BodyAnimation->Update();
 	HeadAnimation->Update();
 
+	
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
@@ -317,10 +337,27 @@ UpdateResult ModuleBOSS::PostUpdate()
 }
 
 void ModuleBOSS::OnCollision(Collider* c1, Collider* c2) {
+	if (startlvl >= 350) {
+		if (c2->type == c2->WALL) {
+			if(y==5){
+				y--;
+			}
+			if (y == 440) {
+				y++;
+			}
+			if (x ==5) {
+				x++;
+			}
+			if (x == 47) {
+				x--;
+			}
+			
+		}
+	}
+	
 	if (c2->type == c2->PLAYER_TRIPLE_SHOT)
 	{
 		if (vidaBOSS > 0)
 			vidaBOSS--;
-
 	}
 }
