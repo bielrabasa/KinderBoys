@@ -14,6 +14,7 @@ using namespace std;
 #include "ModuleFadeToBlack.h"
 #include "SceneLevel1.h"
 #include "level2.h"
+#include "ModuleBOSS.h"
 
 #include "SDL/include/SDL_render.h"
 
@@ -998,7 +999,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		//	WIN CONDITION
 		if(App->sceneLevel_1->levelcont == 1)
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 0); //sceneWin, sceneSwap
-		if(App->sceneLevel_1->levelcont == 2)
+		if(App->sceneLevel_1->levelcont == 2 && App->sceneLevel2->sceneTimer == 0)
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 0); //sceneWin, sceneSwap
 	}
 	
