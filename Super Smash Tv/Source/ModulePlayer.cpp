@@ -210,6 +210,11 @@ UpdateResult ModulePlayer::Update()
 	// Get gamepad info
 	GamePad& pad = App->input->pads[0];
 
+	if (vides == 0)
+	{
+		App->sceneLevel_1->levelcont--;
+		App->pause = true;
+	}
 	// Moving the player with the camera scroll
 	//App->player->position.x += 0;
 	if (App->input->keys[SDL_SCANCODE_F2] == KeyState::KEY_DOWN) {
