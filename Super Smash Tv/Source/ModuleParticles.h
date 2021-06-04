@@ -111,6 +111,11 @@ public:
 	Particle TripleShoot;
 	Particle TripleShoot1;
 	Particle TripleShoot2;
+
+	Particle ShootdeathT;
+	Particle ShootdeathD;
+	Particle ShootdeathL;
+	Particle ShootdeathR;
 };
 
 #endif // __MODULEPARTICLES_H__

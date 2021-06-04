@@ -220,6 +220,10 @@ bool ModuleParticles::Start()
 	vidaUp.anim.PushBack({17, 104, 15, 15});
 	vidaUp.lifetime = 666;
 
+	ShootdeathT.anim.Empty();
+	ShootdeathT.anim.PushBack({0, 33, 7, 7});
+	ShootdeathT.lifetime = 10;
+
 	return true;
 }
 
@@ -262,6 +266,11 @@ void ModuleParticles::OnCollision(Collider* c1, Collider* c2)
 	if (c2->type == c2->ENEMY && c1->type == c1->PLAYER_TRIPLE_SHOT)
 	{
 	App->player->score += 30;
+	}
+
+	if (c2->type == c2->WALL && c1->type == c1->PLAYER_SHOT)
+	{
+		App->particles->AddParticle(App->particles->ShootdeathT, App->player->position.x, App->particles->laserU.position.y, 6, Collider::Type::WALL);
 	}
 
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
