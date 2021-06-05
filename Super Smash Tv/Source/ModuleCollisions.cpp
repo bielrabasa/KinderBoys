@@ -252,8 +252,8 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 
 
 	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::WALL] = true;
-	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::PLAYER] = false;
-	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::ENEMY] = true;
+	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::PLAYER] = true;
+	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::ENEMY] = false;
 	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::PLAYER_SHOT] = false;
 	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::ENEMY_SHOT] = false;
 	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::Door] = true;
@@ -263,7 +263,7 @@ ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::object_money] = false;
 	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::object_Triple] = false;
 	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::object_Vida] = false;
-	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::BOSS] = true;
+	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::BOSS] = false;
 	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::PLAYER_TRIPLE_SHOT] = false;
 	matrix[Collider::Type::ExplosionEnemicShot][Collider::Type::ExplosionEnemicShot] = false;
 }

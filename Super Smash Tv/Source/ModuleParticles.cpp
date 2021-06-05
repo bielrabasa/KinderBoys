@@ -226,7 +226,7 @@ bool ModuleParticles::Start()
 
 	Torreta.anim.Empty();
 	Torreta.anim.PushBack({64, 17, 7, 7});
-	Torreta.lifetime = 50;
+	Torreta.lifetime = 150;
 
 	return true;
 }
