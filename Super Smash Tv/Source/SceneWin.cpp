@@ -31,6 +31,7 @@ bool SceneWin::Start()
 
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/Score_screen_2.png");
 	fontTexture = App->textures->Load("Assets/SpritesSSTV/Font.png");
+
 	//App->audio->PlayMusic("Assets/Audio/SFX/End point count.wav", 1.0f);
 	App->audio->PlayMusic("Assets/Music/06-_Super_Smash_TV_-_Win_Game.ogg", 1.0f);
 	Win = App->audio->LoadFx("Assets/Audio/SFX/End point count 2.wav");
@@ -134,7 +135,7 @@ UpdateResult SceneWin::PostUpdate()
 
 		posicioFontx -= 14; //Separació entre nombres
 	}
-	posicioFontx = 200; //Posició del primer element de la dreta
+	posicioFontx = 150; //Posició del primer element de la dreta
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
@@ -145,6 +146,7 @@ bool SceneWin::CleanUp() {
 
 	//desinicialitzar tots els sprites
 	App->textures->Unload(bgTexture);
+	App->textures->Unload(fontTexture);
 
 	return true;
 }
