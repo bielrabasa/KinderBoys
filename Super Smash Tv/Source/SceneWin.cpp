@@ -49,7 +49,7 @@ bool SceneWin::Start()
 	App->enemies->Disable();
 	App->boss->Disable();
 
-	diners = 0;
+	diners = App->player->money / 10;
 
 	return ret;
 }
