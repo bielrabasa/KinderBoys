@@ -142,7 +142,7 @@ void Enemy_Turret2::Update()
 
 
 
-	/*if (App->player->position.y < position.y - 15 && App->player->position.y < position.y - 15)
+	if (App->player->position.y < position.y - 15 && App->player->position.y < position.y - 15)
 	{
 		if (App->player->position.x > position.x - 30 && App->player->position.x < position.x - 15) {
 			TurretLeftD1.Reset();
@@ -152,11 +152,11 @@ void Enemy_Turret2::Update()
 			TurretLeftD2.Reset();
 			currentAnim = &TurretLeftD1;
 		}
-	}*/
+	}
 
-	App->boss->torreta2x = position.x;
+	/*App->boss->torreta2x = position.x;
 	App->boss->torreta2y = position.y;
-	App->boss->RTurret = currentAnim;
+	App->boss->RTurret = currentAnim;*/
 
 
 	shootdelay++;
@@ -169,7 +169,7 @@ void Enemy_Turret2::Update()
 	}
 
 	//Move de la torreta seguint al player
-	/*if (App->player->position.y > position.y && App->boss->startlvl >= 320) {
+	if (App->player->position.y > position.y && App->boss->startlvl >= 320) {
 		if (App->player->position.x < position.x - 46) {
 			TurretLeft.Reset();
 			currentAnim = &TurretLeft;
@@ -442,7 +442,7 @@ void Enemy_Turret2::Update()
 				}
 			}
 		}
-	}*/
+	}
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
