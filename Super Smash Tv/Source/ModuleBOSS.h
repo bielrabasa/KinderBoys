@@ -42,12 +42,17 @@ public:
 	Animation* HeadAnimation = nullptr;
 	Animation* BodyAnimation = nullptr;
 	Animation* WheelsAnimation = nullptr;
+	Animation* ArmAnimation = nullptr;
 
 	Animation IdleHead;
 	Animation RHead;
 	Animation LHead;
 	Animation Body;
 	Animation Wheels;
+	Animation Body2;
+	Animation Body3;
+	Animation RightArm;
+	Animation emptyAnimation;
 
 	Collider* collider = nullptr;
 
@@ -57,7 +62,9 @@ public:
 	int xoffset = 10; //10
 	int yoffset = 10; //10
 
-	int vidaBOSS = 150;
+	int currentvidaBOSS = 150;
+
+	int offsetYhead = -64;
 
 	//Usado para la rafaga de disparos del boss
 	bool bandera = true;

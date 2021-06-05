@@ -62,6 +62,26 @@ ModuleBOSS::ModuleBOSS(bool startEnabled) : Module(startEnabled)
 	Body.loop = true;
 	Body.speed = 0.03f;
 
+	Body2.Empty();
+	Body2.PushBack({ 256, 0, 128, 64 });
+	Body2.loop = true;
+	Body2.speed = 0.5;
+
+	Body3.Empty();
+	Body3.PushBack({ 128, 0, 128, 64 });
+	Body3.loop = true;
+	Body3.speed = 0.5;
+
+	RightArm.Empty();
+	RightArm.PushBack({ 96, 0, 32, 32 });
+	RightArm.loop = true;
+	RightArm.speed = 0.5;
+
+	emptyAnimation.Empty();
+	emptyAnimation.PushBack({ 0, 0, 1, 1 });
+	emptyAnimation.loop = true;
+	emptyAnimation.speed = 0.5;
+
 	Wheels.Empty();
 	Wheels.PushBack({ 0, 192, 64, 96 });
 	Wheels.PushBack({ 64, 192, 64, 96 });
@@ -72,6 +92,7 @@ ModuleBOSS::ModuleBOSS(bool startEnabled) : Module(startEnabled)
 	HeadAnimation = &IdleHead;
 	BodyAnimation = &Body;
 	WheelsAnimation = &Wheels;
+	ArmAnimation = &emptyAnimation;
 
 	//Pit Trencat	{ 128, 0, 64, 64 }
 	//Pit Trencat2	{ 196, 0, 64, 64 }
@@ -98,6 +119,8 @@ bool ModuleBOSS::Start()
 
 	bossTimer = 0;
 
+	currentvidaBOSS = 150;
+
 	collider = App->collisions->AddCollider({ x + xoffset, y + yoffset, 108, 120 } , Collider::Type::BOSS, this);
 
 	App->enemies->AddEnemy(Enemy_Type::MECH, 0, 0);
@@ -116,6 +139,14 @@ bool ModuleBOSS::CleanUp() {
 
 UpdateResult ModuleBOSS::Update()
 {
+
+	if (currentvidaBOSS == 0) {
+		HeadAnimation = &emptyAnimation;
+		BodyAnimation = &emptyAnimation;
+		WheelsAnimation = &emptyAnimation;
+		ArmAnimation = &emptyAnimation;
+		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneWin, 20);
+	}
 
 	if (startlvl >= 350) {
 			if (y == 65) {
@@ -329,12 +360,40 @@ UpdateResult ModuleBOSS::Update()
 	else {
 		HeadAnimation = &IdleHead;
 	}
+	if (currentvidaBOSS != 0) {
+		switch (currentvidaBOSS / 30) {
+		case 5:
+		case 4:
+			ArmAnimation = &emptyAnimation;
+			BodyAnimation = &Body;
+			break;
+		case 3:
+			ArmAnimation = &RightArm;
+			BodyAnimation = &Body3;
+			break;
+		case 2:
+			ArmAnimation = &emptyAnimation;
+			BodyAnimation = &Body3;
+			break;
+		case 1:
+			ArmAnimation = &emptyAnimation;
+			BodyAnimation = &Body2;
+			break;
+		case 0:
+			offsetYhead = -10;
+			ArmAnimation = &emptyAnimation;
+			BodyAnimation = &emptyAnimation;
+		default:
+			break;
+		}
+	}
 
 	collider->SetPos(x + xoffset, y + yoffset);
 
 	WheelsAnimation->Update();
 	BodyAnimation->Update();
 	HeadAnimation->Update();
+	ArmAnimation->Update();
 
 	
 	return UpdateResult::UPDATE_CONTINUE;
@@ -349,7 +408,10 @@ UpdateResult ModuleBOSS::PostUpdate()
 	App->render->DrawTexture(bgTexture, x - 70, y - 70, &RectBody, 2); //x-70 y-70 centrat
 	
 	SDL_Rect RectHead = HeadAnimation->GetCurrentFrame();
-	App->render->DrawTexture(bgTexture, x + 32, y - 64, &RectHead, 2); //x+32 y-64 centrat
+	App->render->DrawTexture(bgTexture, x + 32, y + offsetYhead, &RectHead, 2); //x+32 y-64 centrat
+
+	SDL_Rect RectArm = ArmAnimation->GetCurrentFrame();
+	App->render->DrawTexture(bgTexture, x + 106, y - 38, &RectArm, 2); // 106 -38
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
@@ -359,7 +421,7 @@ void ModuleBOSS::OnCollision(Collider* c1, Collider* c2) {
 	
 	if (c2->type == c2->PLAYER_TRIPLE_SHOT)
 	{
-		if (vidaBOSS > 0)
-			vidaBOSS--;
+		if (currentvidaBOSS > 0)
+			currentvidaBOSS--;
 	}
 }

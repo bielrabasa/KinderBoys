@@ -164,7 +164,7 @@ void Enemy_Turret2::Update()
 	}
 
 	//Move de la torreta seguint al player
-	if (App->player->position.y > position.y && App->boss->startlvl >= 320) {
+	/*if (App->player->position.y > position.y && App->boss->startlvl >= 320) {
 		if (App->player->position.x < position.x - 46) {
 			TurretLeft.Reset();
 			currentAnim = &TurretLeft;
@@ -437,7 +437,7 @@ void Enemy_Turret2::Update()
 				}
 			}
 		}
-	}
+	}*/
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position

@@ -171,7 +171,7 @@ void Enemy_Mech::Update()
 			if (shootdelay >= 5 && rafagadelay >=50) {
 				App->particles->Torreta.speed.x = -3;
 				App->particles->Torreta.speed.y = -0;
-				App->particles->AddParticle(App->particles->Torreta, position.x - 7, position.y, 6, Collider::Type::ExplosionEnemicShot);
+				App->particles->AddParticle(App->particles->Torreta, position.x - 17, position.y, 6, Collider::Type::ExplosionEnemicShot);
 				shootdelay = 0;
 				contdispar++;
 				if (contdispar == 5) {
@@ -186,7 +186,7 @@ void Enemy_Mech::Update()
 			if (shootdelay >= 5 && rafagadelay >= 50) {
 				App->particles->Torreta.speed.x = -3;
 				App->particles->Torreta.speed.y = -1;
-				App->particles->AddParticle(App->particles->Torreta, position.x, position.y, 6, Collider::Type::ExplosionEnemicShot);
+				App->particles->AddParticle(App->particles->Torreta, position.x-5, position.y+12, 6, Collider::Type::ExplosionEnemicShot);
 				shootdelay = 0;
 				contdispar++;
 				if (contdispar == 5) {
@@ -201,7 +201,7 @@ void Enemy_Mech::Update()
 			if (shootdelay >= 5 && rafagadelay >= 50) {
 				App->particles->Torreta.speed.x = -2;
 				App->particles->Torreta.speed.y = -2;
-				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				App->particles->AddParticle(App->particles->Torreta, position.x-8, position.y + 12, 6, Collider::Type::ExplosionEnemicShot);
 				shootdelay = 0;
 				contdispar++;
 				if (contdispar == 5) {
@@ -216,7 +216,7 @@ void Enemy_Mech::Update()
 			if(shootdelay >= 5 && rafagadelay >= 50){
 				App->particles->Torreta.speed.x = -1;
 				App->particles->Torreta.speed.y = -3;
-				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				App->particles->AddParticle(App->particles->Torreta, position.x - 8, position.y + 25, 6, Collider::Type::ExplosionEnemicShot);
 				shootdelay = 0;
 				contdispar++;
 				if (contdispar == 5) {
@@ -231,7 +231,7 @@ void Enemy_Mech::Update()
 			if (shootdelay >= 5 && rafagadelay >= 50) {
 				App->particles->Torreta.speed.x = 0;
 				App->particles->Torreta.speed.y = -3;
-				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				App->particles->AddParticle(App->particles->Torreta,  position.x+1, position.y + 29, 6, Collider::Type::ExplosionEnemicShot);
 				shootdelay = 0;
 				contdispar++;
 				if (contdispar == 5) {
@@ -246,7 +246,7 @@ void Enemy_Mech::Update()
 			if (shootdelay >= 5 && rafagadelay >= 50) {
 				App->particles->Torreta.speed.x = +1;
 				App->particles->Torreta.speed.y = -3;
-				App->particles->AddParticle(App->particles->Torreta, position.x - 7, position.y, 6, Collider::Type::ExplosionEnemicShot);
+				App->particles->AddParticle(App->particles->Torreta,position.x + 5, position.y+30,6, Collider::Type::ExplosionEnemicShot);
 				shootdelay = 0;
 				contdispar++;
 				if (contdispar == 5) {
@@ -261,7 +261,7 @@ void Enemy_Mech::Update()
 			if (shootdelay >= 5 && rafagadelay >= 50) {
 				App->particles->Torreta.speed.x = +3;
 				App->particles->Torreta.speed.y = -0;
-				App->particles->AddParticle(App->particles->Torreta, position.x - 7, position.y, 6, Collider::Type::ExplosionEnemicShot);
+				App->particles->AddParticle(App->particles->Torreta, position.x + 17, position.y+4,6, Collider::Type::ExplosionEnemicShot);
 				shootdelay = 0;
 				contdispar++;
 				if (contdispar == 5) {
@@ -276,7 +276,7 @@ void Enemy_Mech::Update()
 			if (shootdelay >= 5 && rafagadelay >= 50) {
 				App->particles->Torreta.speed.x = +3;
 				App->particles->Torreta.speed.y = -1;
-				App->particles->AddParticle(App->particles->Torreta, position.x - 7, position.y, 6, Collider::Type::ExplosionEnemicShot);
+				App->particles->AddParticle(App->particles->Torreta, position.x + 11, position.y + 15, 6, Collider::Type::ExplosionEnemicShot);
 				shootdelay = 0;
 				contdispar++;
 				if (contdispar == 5) {
@@ -438,6 +438,7 @@ void Enemy_Mech::Update()
 			}
 		}
 	}
+			  
 
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
