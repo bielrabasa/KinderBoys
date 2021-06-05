@@ -186,7 +186,7 @@ void Enemy_Mech::Update()
 			if (shootdelay >= 5 && rafagadelay >= 50) {
 				App->particles->Torreta.speed.x = -3;
 				App->particles->Torreta.speed.y = -1;
-				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				App->particles->AddParticle(App->particles->Torreta, position.x, position.y, 6, Collider::Type::ExplosionEnemicShot);
 				shootdelay = 0;
 				contdispar++;
 				if (contdispar == 5) {
