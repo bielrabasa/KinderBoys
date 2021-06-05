@@ -101,6 +101,7 @@ bool ModuleBOSS::Start()
 	collider = App->collisions->AddCollider({ x + xoffset, y + yoffset, 108, 120 } , Collider::Type::BOSS, this);
 
 	App->enemies->AddEnemy(Enemy_Type::MECH, 0, 0);
+	App->enemies->AddEnemy(Enemy_Type::TURRET2, 0, 0);
 
 	App->player->ImprimirPortes = false;
 

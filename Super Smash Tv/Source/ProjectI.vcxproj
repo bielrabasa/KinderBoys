@@ -92,6 +92,7 @@
     <ClInclude Include="Enemy_BrownShip.h" />
     <ClInclude Include="Enemy_Mech.h" />
     <ClInclude Include="Enemy_RedBird.h" />
+    <ClInclude Include="Enemy_Turret2.h" />
     <ClInclude Include="level2.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleBOSS.h" />
@@ -124,6 +125,7 @@
     <ClCompile Include="Enemy_BrownShip.cpp" />
     <ClCompile Include="Enemy_Mech.cpp" />
     <ClCompile Include="Enemy_RedBird.cpp" />
+    <ClCompile Include="Enemy_Turret2.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="level2.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />

@@ -13,6 +13,7 @@
 #include "Enemy_RedBird.h"
 #include "Enemy_BrownShip.h"
 #include "Enemy_Mech.h"
+#include "Enemy_Turret2.h"
 #include "SceneLevel1.h"
 #include "level2.h"
 #include <time.h>
@@ -283,6 +284,9 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 					break;
 				case Enemy_Type::MECH:
 					enemies[i] = new Enemy_Mech(info.x, info.y);
+					break;
+				case Enemy_Type::TURRET2:
+					enemies[i] = new Enemy_Turret2(info.x, info.y);
 					break;
 			}
 			enemies[i]->texture = texture;
