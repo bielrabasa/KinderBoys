@@ -141,6 +141,10 @@ UpdateResult ModuleBOSS::Update()
 {
 
 	if (currentvidaBOSS == 0) {
+		HeadAnimation = &emptyAnimation;
+		BodyAnimation = &emptyAnimation;
+		WheelsAnimation = &emptyAnimation;
+		ArmAnimation = &emptyAnimation;
 		App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneWin, 20);
 	}
 
@@ -357,7 +361,7 @@ UpdateResult ModuleBOSS::Update()
 		HeadAnimation = &IdleHead;
 	}
 	if (currentvidaBOSS != 0) {
-		switch (0/*currentvidaBOSS / 30*/) {
+		switch (currentvidaBOSS / 30) {
 		case 5:
 		case 4:
 			ArmAnimation = &emptyAnimation;
