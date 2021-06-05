@@ -83,7 +83,8 @@ UpdateResult SceneWin::Update()
 UpdateResult SceneWin::PostUpdate()
 {
 	// Draw everything
-	App->render->DrawTexture(bgTexture, 0, 0, NULL);
+	SDL_Rect rectWin = { 0, 0, 512, 448 };
+	App->render->DrawTexture(bgTexture, 0, 0, &rectWin);
 
 	//Render Font
 	SDL_Rect rect0 = { 0, 108, 25, 42 };
@@ -135,7 +136,7 @@ UpdateResult SceneWin::PostUpdate()
 
 		posicioFontx -= 14; //Separació entre nombres
 	}
-	posicioFontx = 150; //Posició del primer element de la dreta
+	posicioFontx = 160; //Posició del primer element de la dreta
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
