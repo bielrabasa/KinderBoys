@@ -140,7 +140,9 @@ void Enemy_Mech::Update()
 	position.y = App->boss->y + 89;
 	}
 
-
+	App->boss->torreta1x = position.x;
+	App->boss->torreta1y = position.y;
+	App->boss->LTurret = currentAnim;
 
 	/*if (App->player->position.y < position.y - 15 && App->player->position.y < position.y - 15)
 	{
