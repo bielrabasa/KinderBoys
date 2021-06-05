@@ -62,7 +62,6 @@ public:
 	int xoffset = 10; //10
 	int yoffset = 10; //10
 
-	int vidaBOSS = 150;
 	int currentvidaBOSS = 150;
 
 	int offsetYhead = -64;

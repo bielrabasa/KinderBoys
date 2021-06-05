@@ -119,12 +119,12 @@ bool ModuleBOSS::Start()
 
 	bossTimer = 0;
 
-	currentvidaBOSS = vidaBOSS;
+	currentvidaBOSS = 150;
 
 	collider = App->collisions->AddCollider({ x + xoffset, y + yoffset, 108, 120 } , Collider::Type::BOSS, this);
 
 	App->enemies->AddEnemy(Enemy_Type::MECH, 0, 0);
-	//App->enemies->AddEnemy(Enemy_Type::TURRET2, 0, 0);
+	App->enemies->AddEnemy(Enemy_Type::TURRET2, 0, 0);
 
 	App->player->ImprimirPortes = false;
 
@@ -357,7 +357,7 @@ UpdateResult ModuleBOSS::Update()
 		HeadAnimation = &IdleHead;
 	}
 	if (currentvidaBOSS != 0) {
-		switch (currentvidaBOSS / 30) {
+		switch (0/*currentvidaBOSS / 30*/) {
 		case 5:
 		case 4:
 			ArmAnimation = &emptyAnimation;
@@ -376,7 +376,7 @@ UpdateResult ModuleBOSS::Update()
 			BodyAnimation = &Body2;
 			break;
 		case 0:
-			offsetYhead = 0;
+			offsetYhead = -10;
 			ArmAnimation = &emptyAnimation;
 			BodyAnimation = &emptyAnimation;
 		default:
@@ -407,7 +407,7 @@ UpdateResult ModuleBOSS::PostUpdate()
 	App->render->DrawTexture(bgTexture, x + 32, y + offsetYhead, &RectHead, 2); //x+32 y-64 centrat
 
 	SDL_Rect RectArm = ArmAnimation->GetCurrentFrame();
-	App->render->DrawTexture(bgTexture, x + 50, y - 50, &RectArm, 2);
+	App->render->DrawTexture(bgTexture, x + 106, y - 38, &RectArm, 2); // 106 -38
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
