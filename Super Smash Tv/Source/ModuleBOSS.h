@@ -59,6 +59,12 @@ public:
 	int x = 192; //Wheels centered (horizontal), 192 està perfecte
 	int y = -150; //Wheels out of the map (top), -150 està perfecte
 
+	int torreta1x = 0;
+	int torreta1y = 0;
+
+	int torreta2x = 0;
+	int torreta2y = 0;
+
 	int xoffset = 10; //10
 	int yoffset = 10; //10
 

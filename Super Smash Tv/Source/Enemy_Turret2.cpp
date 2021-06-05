@@ -154,6 +154,9 @@ void Enemy_Turret2::Update()
 		}
 	}*/
 
+	App->boss->torreta2x = position.x;
+	App->boss->torreta2y = position.y;
+
 	shootdelay++;
 	rafagadelay++;
 

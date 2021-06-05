@@ -12,6 +12,8 @@ using namespace std;
 #include "Particle.h"
 #include "ModuleParticles.h"
 #include "ModuleEnemies.h"
+#include "Enemy_Turret2.h"
+#include "Enemy_Mech.h"
 
 ModuleBOSS::ModuleBOSS(bool startEnabled) : Module(startEnabled)
 {

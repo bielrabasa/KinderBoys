@@ -313,7 +313,6 @@ UpdateResult ModuleParticles::Update()
 	if (Gold.lifetime <= 300)
 	{
 		Gold.anim.loop = true;
-		App->pause = true;
 	}
 	return UpdateResult::UPDATE_CONTINUE;
 }

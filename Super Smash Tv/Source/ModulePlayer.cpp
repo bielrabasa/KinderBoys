@@ -176,6 +176,8 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
+	IsAlive = true;
+
 	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Player.png");
 	currentAnimation = &idleUAnim;
 	currentTopAnimation = &topDownAnim;
@@ -216,7 +218,7 @@ UpdateResult ModulePlayer::Update()
 	if (vides == 0)
 	{
 		App->sceneLevel_1->levelcont--;
-		App->pause = true;
+		//App->pause = true;
 	}
 	// Moving the player with the camera scroll
 	//App->player->position.x += 0;
@@ -956,7 +958,7 @@ UpdateResult ModulePlayer::PostUpdate()
 	if(vides <= 0)
 	{
 		App->render->DrawTexture(textureMort, 0, 0, &rect10v, 1);
-		//App->pause = true;
+		App->pause = true;
 	}
 
 	return UpdateResult::UPDATE_CONTINUE;
@@ -1009,6 +1011,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if ((c2->type == c2->ENEMY) && (contadorVides < 0) && (bandera_GodMode == false) && (destroyed == false)) {
 
 		if (vides > 0) {
+			IsAlive = false;
 			--vides;
 		}
 		else if (vides <= 0) {		//FALTA PULIR MOLTISSIM!!!!!
@@ -1021,7 +1024,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			App->audio->PlayFx(explosionFx);
 
 
-			App->pause = true;
+			//App->pause = true;
 
 			//App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->SceneLevel2, 20);
 			
@@ -1043,7 +1046,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 			App->audio->PlayFx(explosionFx);
 
 
-			App->pause = true;
+			//App->pause = true;
 
 			//App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->SceneLevel2, 20);
 

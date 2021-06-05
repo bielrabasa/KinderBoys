@@ -14,6 +14,8 @@
 #include "SceneUPC.h"
 #include "SceneIntroGame.h"
 
+#include <iostream>
+using namespace std;
 
 SceneLevel1::SceneLevel1(bool startEnabled) : Module(startEnabled)
 {
@@ -114,9 +116,20 @@ bool SceneLevel1::Start()
 
 UpdateResult SceneLevel1::Update()
 {
+	if (App->player->IsAlive == false)
+	{
+		//cout << "YES";
+		App->enemies->Disable();
+		App->enemies->Enable();
+		App->player->position.x = 50;
+		App->player->position.y = 225;
+		App->player->IsAlive = true;
+	}
 	//App->render->camera.x += 3; //SCROLL
 	++num;
-	if(sceneTimer < 3601)	++sceneTimer;
+	if(sceneTimer < 3601 && App->player->IsAlive == true)	++sceneTimer;
+
+	cout << sceneTimer << endl;
 
 	//if ((App->input->keys[SDL_SCANCODE_Q] == KeyState::KEY_REPEAT) && (App->player->vides > 0)) //SpawnShit
 	if ((num == randomcont) && (App->player->vides > 0) && (sceneTimer <= 3600)) //SpawnShit
@@ -230,7 +243,6 @@ UpdateResult SceneLevel1::PostUpdate()
 		App->render->DrawTexture(exitTexture, 420, 244, &exit2, 2); //Exit2
 		App->render->DrawTexture(exitTexture, 280, 238, &exitf2, 2); //Fletxa2
 	}
-
 	return UpdateResult::UPDATE_CONTINUE;
 }
 
