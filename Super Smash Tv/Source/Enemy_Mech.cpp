@@ -66,12 +66,26 @@ void Enemy_Mech::Update()
 	position.x = App->boss->x + 9;
 	position.y = App->boss->y + 97;
 
+	/*if (App->player->position.y < position.y - 15 && App->player->position.y < position.y - 15)
+	{
+		if (App->player->position.x > position.x - 30 && App->player->position.x < position.x - 15) {
+			TurretLeftD1.Reset();
+			currentAnim = &TurretLeftD2;
+		}
+		else if (App->player->position.x > position.x - 45 && App->player->position.x < position.x - 31) {
+			TurretLeftD2.Reset();
+			currentAnim = &TurretLeftD1;
+		}
+	}*/
+
+
+	//Move de la torreta seguint al player
 	if (App->player->position.y > position.y){
 		if (App->player->position.x < position.x - 46){
 			TurretLeft.Reset();
   			currentAnim = &TurretLeft;
 		}
-		else if (App->player->position.x > position.x - 30 && App->player->position.x < position.x - 15){
+		else if ((App->player->position.x > position.x - 30 && App->player->position.x < position.x - 15 ) || (App->player->position.y > position.y - 20 && App->player->position.y < position.y - 50)){
 			TurretLeftD1.Reset();
 			currentAnim = &TurretLeftD2;
 		}
@@ -142,6 +156,7 @@ void Enemy_Mech::Update()
 			currentAnim = &TurretRightU1;
 		}
 	}
+
 	// Call to the base class. It must be called at the end
 	// It will update the collider depending on the position
 	Enemy::Update();
