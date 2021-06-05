@@ -197,6 +197,8 @@ bool ModulePlayer::Start()
 	position.x = 50; //245 centrat, 50 a l'esquerra
 	position.y = 225; //225 centrat
 
+	//money = 0001234; //COMENTAR IMPORTANT
+
 	bandera_trip = false;
 
 	destroyed = false;
