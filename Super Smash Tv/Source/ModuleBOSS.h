@@ -59,21 +59,6 @@ public:
 	Animation emptyAnimation;
 
 	Animation TurretDown;
-	Animation TurretDownR;
-	Animation TurretDownL;
-	Animation TurretUp;
-	Animation TurretUpR;
-	Animation TurretUpL;
-	Animation TurretLeft;
-	Animation TurretLeftD1;
-	Animation TurretLeftD2;
-	Animation TurretLeftU1;
-	Animation TurretLeftU2;
-	Animation TurretRight;
-	Animation TurretRightD1;
-	Animation TurretRightD2;
-	Animation TurretRightU1;
-	Animation TurretRightU2;
 
 	Collider* collider = nullptr;
 
