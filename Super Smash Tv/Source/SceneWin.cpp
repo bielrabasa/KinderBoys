@@ -36,7 +36,8 @@ bool SceneWin::Start()
 	App->audio->PlayMusic("Assets/Music/06-_Super_Smash_TV_-_Win_Game.ogg", 1.0f);
 	Win = App->audio->LoadFx("Assets/Audio/SFX/End point count 2.wav");
 
-	
+	diners = 0;
+
 	App->audio->PlayFx(Win);
 
 	App->render->camera.x = 0;
@@ -49,7 +50,6 @@ bool SceneWin::Start()
 	App->enemies->Disable();
 	App->boss->Disable();
 
-	diners = App->player->money / 10;
 
 	return ret;
 }
