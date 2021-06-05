@@ -30,7 +30,7 @@ bool SceneWin::Start()
 	bool ret = true;
 
 	bgTexture = App->textures->Load("Assets/SpritesSSTV/Score_screen_2.png");
-	fontTexture = App->textures->Load("Assets/SpritesSSTV/Font2.png");
+	fontTexture = App->textures->Load("Assets/SpritesSSTV/Font.png");
 	//App->audio->PlayMusic("Assets/Audio/SFX/End point count.wav", 1.0f);
 	App->audio->PlayMusic("Assets/Music/06-_Super_Smash_TV_-_Win_Game.ogg", 1.0f);
 	Win = App->audio->LoadFx("Assets/Audio/SFX/End point count 2.wav");
@@ -63,8 +63,8 @@ UpdateResult SceneWin::Update()
 	}
 
 	//Suma diners
-	if (diners < App->player->money && diners + 2 < App->player->money)
-		diners += 3; //velocitat de pujada de diners
+	if (diners < App->player->money && diners + 300 < App->player->money)
+		diners += 300; //velocitat de pujada de diners, 3 està bé
 	else if (diners < App->player->money)
 		diners++;
 
@@ -85,56 +85,56 @@ UpdateResult SceneWin::PostUpdate()
 	App->render->DrawTexture(bgTexture, 0, 0, NULL);
 
 	//Render Font
-	SDL_Rect rect0 = { 0, 0, 10, 16 };
-	SDL_Rect rect1 = { 10, 0, 10, 16 };
-	SDL_Rect rect2 = { 20, 0, 10, 16 };
-	SDL_Rect rect3 = { 30, 0, 10, 16 };
-	SDL_Rect rect4 = { 40, 0, 10, 16 };
-	SDL_Rect rect5 = { 50, 0, 10, 16 };
-	SDL_Rect rect6 = { 60, 0, 10, 16 };
-	SDL_Rect rect7 = { 70, 0, 10, 16 };
-	SDL_Rect rect8 = { 80, 0, 10, 16 };
-	SDL_Rect rect9 = { 90, 0, 10, 16 };
+	SDL_Rect rect0 = { 234, 64, 25, 42 };
+	SDL_Rect rect1 = { 0, 64, 25, 42 };
+	SDL_Rect rect2 = { 26, 64, 25, 42 };
+	SDL_Rect rect3 = { 52, 64, 25, 42 };
+	SDL_Rect rect4 = { 78, 64, 25, 42 };
+	SDL_Rect rect5 = { 104, 64, 25, 42 };
+	SDL_Rect rect6 = { 130, 64, 25, 42 };
+	SDL_Rect rect7 = { 156, 64, 25, 42 };
+	SDL_Rect rect8 = { 182, 64, 25, 42 };
+	SDL_Rect rect9 = { 208, 64, 25, 42 };
 
 
 	for (int i = 0; i < 7; ++i) {
 
 		switch (arrdiners[i]) {
 		case 0:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect0, 1.5f);
+			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect0, 0.5f);
 			break;
 		case 1:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect1, 1.5f);
+			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect1, 0.5f);
 			break;
 		case 2:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect2, 1.5f);
+			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect2, 0.5f);
 			break;
 		case 3:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect3, 1.5f);
+			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect3, 0.5f);
 			break;
 		case 4:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect4, 1.5f);
+			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect4, 0.5f);
 			break;
 		case 5:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect5, 1.5f);
+			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect5, 0.5f);
 			break;
 		case 6:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect6, 1.5f);
+			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect6, 0.5f);
 			break;
 		case 7:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect7, 1.5f);
+			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect7, 0.5f);
 			break;
 		case 8:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect8, 1.5f);
+			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect8, 0.5f);
 			break;
 		case 9:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect9, 1.5f);
+			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect9, 0.5f);
 			break;
 		}
 
-		posicioFont -= 15; //Separació entre nombres
+		posicioFont -= 14; //Separació entre nombres
 	}
-	posicioFont = 160; //Posició del primer element de la dreta
+	posicioFont = 200; //Posició del primer element de la dreta
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
