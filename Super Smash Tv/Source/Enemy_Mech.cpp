@@ -6,6 +6,8 @@
 #include "ModuleEnemies.h"
 #include "ModulePlayer.h"
 #include "ModuleBOSS.h"
+#include "Particle.h"
+#include "ModuleParticles.h"
 
 Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 {
@@ -176,6 +178,9 @@ void Enemy_Mech::Update()
 		else if(App->player->position.x > position.x - 4 && App->player->position.x < position.x + 4){
 			TurretDown.Reset();
 			currentAnim = &TurretDown;
+			App->particles->Torreta.speed.x = 0;
+			App->particles->Torreta.speed.y = -3;
+			App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ENEMY_SHOT);
 		}
 		else if(App->player->position.x > position.x + 5 && App->player->position.x < position.x + 15){
 			TurretDownR.Reset();

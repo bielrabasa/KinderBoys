@@ -116,6 +116,8 @@ public:
 	Particle ShootdeathD;
 	Particle ShootdeathL;
 	Particle ShootdeathR;
+
+	Particle Torreta;
 };
 
 #endif // __MODULEPARTICLES_H__

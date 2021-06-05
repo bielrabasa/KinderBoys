@@ -224,6 +224,10 @@ bool ModuleParticles::Start()
 	ShootdeathT.anim.PushBack({0, 33, 7, 7});
 	ShootdeathT.lifetime = 10;
 
+	Torreta.anim.Empty();
+	Torreta.anim.PushBack({64, 17, 7, 7});
+	Torreta.lifetime = 50;
+
 	return true;
 }
 
