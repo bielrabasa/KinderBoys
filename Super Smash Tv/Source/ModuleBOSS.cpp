@@ -115,6 +115,22 @@ bool ModuleBOSS::CleanUp() {
 
 UpdateResult ModuleBOSS::Update()
 {
+
+	if (startlvl >= 350) {
+			if (y == 65) {
+				y++;
+			}
+			if (y == 296) {
+				y--;
+			}
+			if (x == 18) {
+				x++;
+			}
+			if (x >= 360) {
+				x--;
+			}
+	}
+
 	//Treballar amb 'x' i 'y' del Boss
 	startlvl++;
 	if (startlvl >=350) {
@@ -134,6 +150,7 @@ UpdateResult ModuleBOSS::Update()
 			else if (movimiento_x == 2) { y--; }
 			else if (movimiento_x == 3) { y++; }
 		}
+		
 	}
 
 	
@@ -150,6 +167,7 @@ UpdateResult ModuleBOSS::Update()
 			if (Shots >= 60) {
 				contShot = 0;
 				Shots = 0;
+				explosiontimer = 0;
 			}
 			cont++;
 			if (cont >= 10) { //DELAY
@@ -157,7 +175,6 @@ UpdateResult ModuleBOSS::Update()
 				baderaShot = true;
 				cont = 0;
 				TimeShot = true;
-				
 			}
 			
 			else if(cont<=9) {
@@ -337,22 +354,7 @@ UpdateResult ModuleBOSS::PostUpdate()
 }
 
 void ModuleBOSS::OnCollision(Collider* c1, Collider* c2) {
-	if (startlvl >= 350) {
-		if (c2->type == c2->WALL) {
-			if(y==20){
-				y++;
-			}
-			if (y == 430) {
-				y--;
-			}
-			if (x ==15) {
-				x++;
-			}
-			if (x == 470) {
-				x--;
-			}
-		}
-	}
+	
 	
 	if (c2->type == c2->PLAYER_TRIPLE_SHOT)
 	{
