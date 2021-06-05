@@ -63,8 +63,8 @@ UpdateResult SceneWin::Update()
 	}
 
 	//Suma diners
-	if (diners < App->player->money && diners + 300 < App->player->money)
-		diners += 300; //velocitat de pujada de diners, 3 està bé
+	if (diners < App->player->money && diners + 3 < App->player->money)
+		diners += 3; //velocitat de pujada de diners, 3 està bé
 	else if (diners < App->player->money)
 		diners++;
 
@@ -85,7 +85,7 @@ UpdateResult SceneWin::PostUpdate()
 	App->render->DrawTexture(bgTexture, 0, 0, NULL);
 
 	//Render Font
-	SDL_Rect rect0 = { 234, 64, 25, 42 };
+	SDL_Rect rect0 = { 0, 108, 25, 42 };
 	SDL_Rect rect1 = { 0, 64, 25, 42 };
 	SDL_Rect rect2 = { 26, 64, 25, 42 };
 	SDL_Rect rect3 = { 52, 64, 25, 42 };
@@ -101,40 +101,40 @@ UpdateResult SceneWin::PostUpdate()
 
 		switch (arrdiners[i]) {
 		case 0:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect0, 0.5f);
+			App->render->DrawTexture(fontTexture, posicioFontx, posicioFonty, &rect0, 0.5f);
 			break;
 		case 1:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect1, 0.5f);
+			App->render->DrawTexture(fontTexture, posicioFontx, posicioFonty, &rect1, 0.5f);
 			break;
 		case 2:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect2, 0.5f);
+			App->render->DrawTexture(fontTexture, posicioFontx, posicioFonty, &rect2, 0.5f);
 			break;
 		case 3:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect3, 0.5f);
+			App->render->DrawTexture(fontTexture, posicioFontx, posicioFonty, &rect3, 0.5f);
 			break;
 		case 4:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect4, 0.5f);
+			App->render->DrawTexture(fontTexture, posicioFontx, posicioFonty, &rect4, 0.5f);
 			break;
 		case 5:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect5, 0.5f);
+			App->render->DrawTexture(fontTexture, posicioFontx, posicioFonty, &rect5, 0.5f);
 			break;
 		case 6:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect6, 0.5f);
+			App->render->DrawTexture(fontTexture, posicioFontx, posicioFonty, &rect6, 0.5f);
 			break;
 		case 7:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect7, 0.5f);
+			App->render->DrawTexture(fontTexture, posicioFontx, posicioFonty, &rect7, 0.5f);
 			break;
 		case 8:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect8, 0.5f);
+			App->render->DrawTexture(fontTexture, posicioFontx, posicioFonty, &rect8, 0.5f);
 			break;
 		case 9:
-			App->render->DrawTexture(fontTexture, posicioFont, 100, &rect9, 0.5f);
+			App->render->DrawTexture(fontTexture, posicioFontx, posicioFonty, &rect9, 0.5f);
 			break;
 		}
 
-		posicioFont -= 14; //Separació entre nombres
+		posicioFontx -= 14; //Separació entre nombres
 	}
-	posicioFont = 200; //Posició del primer element de la dreta
+	posicioFontx = 200; //Posició del primer element de la dreta
 
 	return UpdateResult::UPDATE_CONTINUE;
 }

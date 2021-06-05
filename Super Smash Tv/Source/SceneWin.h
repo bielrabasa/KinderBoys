@@ -38,7 +38,9 @@ public:
 	int diners = 0;
 	int dinerscopia = 0;
 	int arrdiners[7] = { 0 };
-	int posicioFont = 160;
+	
+	int posicioFontx = 200; //posició X de la font (es canvia en un altre lloc)
+	int posicioFonty = 200; //posició Y de la font
 
 };
 
