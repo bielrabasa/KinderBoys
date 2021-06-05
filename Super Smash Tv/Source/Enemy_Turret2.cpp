@@ -62,7 +62,7 @@ Enemy_Turret2::Enemy_Turret2(int x, int y) : Enemy(x, y)
 	TurretRightU2.PushBack({ 135, 135, 22, 18 });
 	TurretRightU2.speed = 0.05f;
 
-	collider = App->collisions->AddCollider({ 0, 0, 16, 16 }, Collider::Type::ENEMY, (Module*)App->enemies);
+	collider = App->collisions->AddCollider({ position.x + 20, 0, 30, 30 }, Collider::Type::ENEMY, (Module*)App->enemies);
 }
 
 void Enemy_Turret2::Update()
