@@ -103,8 +103,6 @@ void Enemy_Mech::Update()
 	position.x = App->boss->x + 9;
 	position.y = App->boss->y + 93;
 	}
-
-
 	else if(currentAnim == &TurretLeft){
 	position.x = App->boss->x + 5;
 	position.y = App->boss->y + 93;
@@ -156,85 +154,288 @@ void Enemy_Mech::Update()
 		}
 	}*/
 
+	shootdelay++;
+	rafagadelay++;
+
+	if (App->boss->startlvl <= 319)
+	{
+		TurretDown.Reset();
+		currentAnim = &TurretDown;
+	}
 
 	//Move de la torreta seguint al player
-	if (App->player->position.y > position.y){
+	if (App->player->position.y > position.y && App->boss->startlvl >=320){
 		if (App->player->position.x < position.x - 46){
 			TurretLeft.Reset();
   			currentAnim = &TurretLeft;
+			if (shootdelay >= 5 && rafagadelay >=50) {
+				App->particles->Torreta.speed.x = -3;
+				App->particles->Torreta.speed.y = -0;
+				App->particles->AddParticle(App->particles->Torreta, position.x - 7, position.y, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if ((App->player->position.x > position.x - 30 && App->player->position.x < position.x - 15 ) || (App->player->position.y > position.y - 20 && App->player->position.y < position.y - 50)){
 			TurretLeftD2.Reset();
 			currentAnim = &TurretLeftD2;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = -3;
+				App->particles->Torreta.speed.y = -1;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if(App->player->position.x > position.x - 45 && App->player->position.x < position.x - 31){
 			TurretLeftD1.Reset();
 			currentAnim = &TurretLeftD1;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = -2;
+				App->particles->Torreta.speed.y = -2;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if(App->player->position.x > position.x - 14 && App->player->position.x < position.x - 5){
 			TurretDownL.Reset();
 			currentAnim = &TurretDownL;
+			if(shootdelay >= 5 && rafagadelay >= 50){
+				App->particles->Torreta.speed.x = -1;
+				App->particles->Torreta.speed.y = -3;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if(App->player->position.x > position.x - 4 && App->player->position.x < position.x + 4){
 			TurretDown.Reset();
 			currentAnim = &TurretDown;
-			App->particles->Torreta.speed.x = 0;
-			App->particles->Torreta.speed.y = -3;
-			App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ENEMY_SHOT);
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = 0;
+				App->particles->Torreta.speed.y = -3;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if(App->player->position.x > position.x + 5 && App->player->position.x < position.x + 15){
 			TurretDownR.Reset();
 			currentAnim = &TurretDownR;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = +1;
+				App->particles->Torreta.speed.y = -3;
+				App->particles->AddParticle(App->particles->Torreta, position.x - 7, position.y, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if (App->player->position.x > position.x + 46) {
 			TurretRight.Reset();
 			currentAnim = &TurretRight;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = +3;
+				App->particles->Torreta.speed.y = -0;
+				App->particles->AddParticle(App->particles->Torreta, position.x - 7, position.y, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if (App->player->position.x < position.x + 30 && App->player->position.x > position.x + 15) {
 			TurretLeftD1.Reset();
 			currentAnim = &TurretRightD2;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = +3;
+				App->particles->Torreta.speed.y = -1;
+				App->particles->AddParticle(App->particles->Torreta, position.x - 7, position.y, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if (App->player->position.x < position.x + 45 && App->player->position.x > position.x + 31) {
 			TurretLeftD2.Reset();
 			currentAnim = &TurretRightD1;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = +2;
+				App->particles->Torreta.speed.y = -2;
+				App->particles->AddParticle(App->particles->Torreta, position.x - 7, position.y, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 	}
-	else if(App->player->position.y < position.y){
+	else if(App->player->position.y < position.y && App->boss->startlvl >= 320){
 		if (App->player->position.x < position.x - 46) {
 			TurretLeft.Reset();
 			currentAnim = &TurretLeft;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = -3;
+				App->particles->Torreta.speed.y = -0;
+				App->particles->AddParticle(App->particles->Torreta, position.x - 7, position.y, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if (App->player->position.x > position.x - 30 && App->player->position.x < position.x - 15) {
 			TurretLeftU2.Reset();
 			currentAnim = &TurretLeftU2;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = -3;
+				App->particles->Torreta.speed.y = +1;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if (App->player->position.x > position.x - 45 && App->player->position.x < position.x - 31) {
 			TurretLeftU1.Reset();
 			currentAnim = &TurretLeftU1;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = -2;
+				App->particles->Torreta.speed.y = +2;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if (App->player->position.x > position.x - 14 && App->player->position.x < position.x - 5) {
 			TurretUpL.Reset();
 			currentAnim = &TurretUpL;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = -1;
+				App->particles->Torreta.speed.y = +3;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if (App->player->position.x > position.x - 4 && App->player->position.x < position.x + 4) {
 			TurretUp.Reset();
 			currentAnim = &TurretUp;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = -0;
+				App->particles->Torreta.speed.y = +3;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if (App->player->position.x > position.x + 5 && App->player->position.x < position.x + 15) {
 			TurretUpR.Reset();
 			currentAnim = &TurretUpR;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = +1;
+				App->particles->Torreta.speed.y = +3;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if (App->player->position.x > position.x + 46) {
 			TurretRight.Reset();
 			currentAnim = &TurretRight;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = +3;
+				App->particles->Torreta.speed.y = +0;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if (App->player->position.x < position.x + 30 && App->player->position.x > position.x + 15) {
 			TurretRightU2.Reset();
 			currentAnim = &TurretRightU2;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = +2;
+				App->particles->Torreta.speed.y = +2;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if (contdispar == 5) {
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 		else if (App->player->position.x < position.x + 45 && App->player->position.x > position.x + 31) {
 			TurretRightU1.Reset();
 			currentAnim = &TurretRightU1;
+			if (shootdelay >= 5 && rafagadelay >= 50) {
+				App->particles->Torreta.speed.x = +3;
+				App->particles->Torreta.speed.y = +1;
+				App->particles->AddParticle(App->particles->Torreta, position.x + 35, position.y - 40, 6, Collider::Type::ExplosionEnemicShot);
+				shootdelay = 0;
+				contdispar++;
+				if(contdispar == 5){
+					contdispar = 0;
+					rafagadelay = 0;
+				}
+			}
 		}
 	}
 

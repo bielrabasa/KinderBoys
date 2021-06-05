@@ -37,6 +37,10 @@ private:
 	Animation TurretRightU1;
 	Animation TurretRightU2;
 
+	int shootdelay = 5;
+	int rafagadelay = 25;
+	int contdispar = 0;
+
 };
 
 #endif // __ENEMY_MECH_H__
