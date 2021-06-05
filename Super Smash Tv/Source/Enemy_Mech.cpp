@@ -63,8 +63,82 @@ Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 
 void Enemy_Mech::Update()
 {
+	if(currentAnim == &TurretLeft){
+	position.x = App->boss->x + 5;
+	position.y = App->boss->y + 93;
+	}
+	else if(currentAnim == &TurretLeftD2){
 	position.x = App->boss->x + 9;
-	position.y = App->boss->y + 97;
+	position.y = App->boss->y + 93;
+	}
+	else if(currentAnim == &TurretLeftD1){
+	position.x = App->boss->x + 10;
+	position.y = App->boss->y + 93;
+	}
+	else if(currentAnim == &TurretDownL){
+	position.x = App->boss->x + 14;
+	position.y = App->boss->y + 90;
+	}
+	else if(currentAnim == &TurretDown){
+	position.x = App->boss->x + 13;
+	position.y = App->boss->y + 90;
+	}
+	else if(currentAnim == &TurretDownR){
+	position.x = App->boss->x + 13;
+	position.y = App->boss->y + 90;
+	}
+	else if(currentAnim == &TurretRight){
+	position.x = App->boss->x + 12;
+	position.y = App->boss->y + 90;
+	}
+	else if(currentAnim == &TurretRightD2){
+	position.x = App->boss->x + 14;
+	position.y = App->boss->y + 90;
+	}
+	else if(currentAnim == &TurretRightD1){
+	position.x = App->boss->x + 9;
+	position.y = App->boss->y + 93;
+	}
+
+
+	else if(currentAnim == &TurretLeft){
+	position.x = App->boss->x + 5;
+	position.y = App->boss->y + 93;
+	}
+	else if(currentAnim == &TurretLeftU2){
+	position.x = App->boss->x + 10;
+	position.y = App->boss->y + 93;
+	}
+	else if(currentAnim == &TurretLeftU1){
+	position.x = App->boss->x + 10;
+	position.y = App->boss->y + 89;
+	}
+	else if(currentAnim == &TurretUpL){
+	position.x = App->boss->x + 12;
+	position.y = App->boss->y + 83;
+	}
+	else if(currentAnim == &TurretUp){
+	position.x = App->boss->x + 16;
+	position.y = App->boss->y + 82;
+	}
+	else if(currentAnim == &TurretUpR){
+	position.x = App->boss->x + 12;
+	position.y = App->boss->y + 90;
+	}
+	else if(currentAnim == &TurretRight){
+	position.x = App->boss->x + 12;
+	position.y = App->boss->y + 90;
+	}
+	else if(currentAnim == &TurretRightU2){
+	position.x = App->boss->x + 15;
+	position.y = App->boss->y + 86;
+	}	
+	else if(currentAnim == &TurretRightU1){
+	position.x = App->boss->x + 18;
+	position.y = App->boss->y + 89;
+	}
+
+
 
 	/*if (App->player->position.y < position.y - 15 && App->player->position.y < position.y - 15)
 	{
@@ -86,11 +160,11 @@ void Enemy_Mech::Update()
   			currentAnim = &TurretLeft;
 		}
 		else if ((App->player->position.x > position.x - 30 && App->player->position.x < position.x - 15 ) || (App->player->position.y > position.y - 20 && App->player->position.y < position.y - 50)){
-			TurretLeftD1.Reset();
+			TurretLeftD2.Reset();
 			currentAnim = &TurretLeftD2;
 		}
 		else if(App->player->position.x > position.x - 45 && App->player->position.x < position.x - 31){
-			TurretLeftD2.Reset();
+			TurretLeftD1.Reset();
 			currentAnim = &TurretLeftD1;
 		}
 		else if(App->player->position.x > position.x - 14 && App->player->position.x < position.x - 5){
@@ -106,7 +180,7 @@ void Enemy_Mech::Update()
 			currentAnim = &TurretDownR;
 		}
 		else if (App->player->position.x > position.x + 46) {
-			TurretLeft.Reset();
+			TurretRight.Reset();
 			currentAnim = &TurretRight;
 		}
 		else if (App->player->position.x < position.x + 30 && App->player->position.x > position.x + 15) {
@@ -124,35 +198,35 @@ void Enemy_Mech::Update()
 			currentAnim = &TurretLeft;
 		}
 		else if (App->player->position.x > position.x - 30 && App->player->position.x < position.x - 15) {
-			TurretLeftD1.Reset();
+			TurretLeftU2.Reset();
 			currentAnim = &TurretLeftU2;
 		}
 		else if (App->player->position.x > position.x - 45 && App->player->position.x < position.x - 31) {
-			TurretLeftD2.Reset();
+			TurretLeftU1.Reset();
 			currentAnim = &TurretLeftU1;
 		}
 		else if (App->player->position.x > position.x - 14 && App->player->position.x < position.x - 5) {
-			TurretDownL.Reset();
+			TurretUpL.Reset();
 			currentAnim = &TurretUpL;
 		}
 		else if (App->player->position.x > position.x - 4 && App->player->position.x < position.x + 4) {
-			TurretDown.Reset();
+			TurretUp.Reset();
 			currentAnim = &TurretUp;
 		}
 		else if (App->player->position.x > position.x + 5 && App->player->position.x < position.x + 15) {
-			TurretDownR.Reset();
+			TurretUpR.Reset();
 			currentAnim = &TurretUpR;
 		}
 		else if (App->player->position.x > position.x + 46) {
-			TurretLeft.Reset();
+			TurretRight.Reset();
 			currentAnim = &TurretRight;
 		}
 		else if (App->player->position.x < position.x + 30 && App->player->position.x > position.x + 15) {
-			TurretLeftD1.Reset();
+			TurretRightU2.Reset();
 			currentAnim = &TurretRightU2;
 		}
 		else if (App->player->position.x < position.x + 45 && App->player->position.x > position.x + 31) {
-			TurretLeftD2.Reset();
+			TurretRightU1.Reset();
 			currentAnim = &TurretRightU1;
 		}
 	}
