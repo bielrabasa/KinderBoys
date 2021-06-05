@@ -68,6 +68,7 @@ public:
 
 	int enemyNum = 0;
 
+	int videsTorreta = 7;
 
 private:
 	// Spawns a new enemy using the data from the queue

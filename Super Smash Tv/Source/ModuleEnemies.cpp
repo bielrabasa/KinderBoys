@@ -13,8 +13,12 @@
 #include "Enemy_RedBird.h"
 #include "Enemy_BrownShip.h"
 #include "Enemy_Mech.h"
+#include "SceneLevel1.h"
+#include "level2.h"
 #include <time.h>
 #include <stdlib.h>
+#include <iostream>
+using namespace std;
 
 #define SPAWN_MARGIN 50
 
@@ -289,18 +293,45 @@ void ModuleEnemies::SpawnEnemy(const EnemySpawnpoint& info)
 }
 
 void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
-{
-	for(uint i = 0; i < MAX_ENEMIES; ++i)
-	{
-		if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && ((c2->type == c2->PLAYER_SHOT)||(c2->type == c2->PLAYER_TRIPLE_SHOT)))
+{	
+	//mira si estas a lvl1 per matar d'un tir
+	if(App->sceneLevel_1->lvl1 == true && App->sceneLevel2->lvl2 == false){
+		for(uint i = 0; i < MAX_ENEMIES; ++i)
 		{
-			enemies[i]->OnCollision(c2); //Notify the enemy of a collision
+			if(enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && ((c2->type == c2->PLAYER_SHOT)||(c2->type == c2->PLAYER_TRIPLE_SHOT)))
+			{
+				enemies[i]->OnCollision(c2); //Notify the enemy of a collision
 
-			enemyNum--;
+				enemyNum--;
 
-			delete enemies[i];
-			enemies[i] = nullptr;
-			break;
+				delete enemies[i];
+				enemies[i] = nullptr;
+				break;
+			}
+		}
+	}
+	//mira si estas a lvl2 per matar de7 hits
+	else if(App->sceneLevel2->lvl2 == true && App->sceneLevel_1->lvl1 == false)
+	{
+		//cout << videsTorreta;
+		if(videsTorreta > 0 && (c2->type == c2->PLAYER_SHOT) || ( c2->type == c2->PLAYER_TRIPLE_SHOT))
+			videsTorreta--;
+
+		if (videsTorreta == 0)
+		{
+			for (uint i = 0; i < MAX_ENEMIES; ++i)
+			{
+				if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1 && ((c2->type == c2->PLAYER_SHOT) || (c2->type == c2->PLAYER_TRIPLE_SHOT)))
+				{
+					enemies[i]->OnCollision(c2); //Notify the enemy of a collision
+
+					enemyNum--;
+
+					delete enemies[i];
+					enemies[i] = nullptr;
+					break;
+				}
+			}
 		}
 	}
 }

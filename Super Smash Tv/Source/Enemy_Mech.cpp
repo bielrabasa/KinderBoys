@@ -9,6 +9,8 @@
 
 Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 {
+	App->enemies->videsTorreta = 7;
+
 	TurretDown.Empty();
 	TurretDown.PushBack({173, 50, 19, 28});
 	TurretDown.speed = 0.05f;
