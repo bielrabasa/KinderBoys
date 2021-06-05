@@ -138,6 +138,7 @@ bool ModuleBOSS::Start()
 
 bool ModuleBOSS::CleanUp() {
 	App->textures->Unload(bgTexture);
+	App->textures->Unload(enemyTexture);
 	App->player->ImprimirPortes = true;
 	return true;
 }
