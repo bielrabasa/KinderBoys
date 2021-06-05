@@ -118,13 +118,22 @@ UpdateResult SceneLevel1::Update()
 {
 	if (App->player->IsAlive == false)
 	{
-		//cout << "YES";
 		App->enemies->Disable();
 		App->enemies->Enable();
-		App->player->position.x = 50;
-		App->player->position.y = 225;
-		App->player->IsAlive = true;
+		App->player->speed = 0;
+		if(contmort >= 60){
+			App->player->position.x = 50;
+			App->player->position.y = 225;
+		}
+		if (contmort >= 100) {
+			App->player->IsAlive = true;
+			App->player->speed = 3;
+			contmort = 0;
+		}
+		else contmort++;
 	}
+
+
 	//App->render->camera.x += 3; //SCROLL
 	++num;
 	if(sceneTimer < 3601 && App->player->IsAlive == true)	++sceneTimer;

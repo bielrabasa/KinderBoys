@@ -47,6 +47,7 @@ public:
 	int i = 0;
 	int exitTimer = 0;
 	int levelcont = 0;
+	int contmort = 0;
 };
 
 #endif  // __SCENELEVEL1_H__
