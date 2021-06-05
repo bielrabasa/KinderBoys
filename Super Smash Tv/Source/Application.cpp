@@ -45,12 +45,9 @@ Application::Application()
 	//modules[8] =	enemies =		new ModuleEnemies(false);	//Enemies start disabled
 	
 	//PLAYER HA D'ESTAR PER SOBRE DE ENEMIES (pels sprites de portes), i PARTICLES (ha d'estar necessariament per sobre dels 2, sinó dona problemes)
-	
-	modules[11] = player = new ModulePlayer(false);//PLayer start disabled
-	
-	modules[12] = boss = new ModuleBOSS(false);
-	modules[13] = enemies = new ModuleEnemies(false);		//Enemies start disabled
-		
+	modules[11] = enemies = new ModuleEnemies(false);	//Enemies start disabled
+	modules[12] = player = new ModulePlayer(false);		//PLayer start disabled
+	modules[13] = boss = new ModuleBOSS(false);
 	modules[14] = particles = new ModuleParticles(false);
 
 	modules[15] =	collisions =	new ModuleCollisions(true);
