@@ -135,7 +135,7 @@ UpdateResult SceneWin::PostUpdate()
 
 		posicioFontx -= 14; //Separació entre nombres
 	}
-	posicioFontx = 150; //Posició del primer element de la dreta
+	posicioFontx = 160; //Posició del primer element de la dreta
 
 	return UpdateResult::UPDATE_CONTINUE;
 }
