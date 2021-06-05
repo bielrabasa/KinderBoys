@@ -139,13 +139,13 @@ UpdateResult SceneLevel2::Update()
 		App->particles->randomSpawn = (rand() % 46);
 		if (App->particles->randomSpawn >= 0 && App->particles->randomSpawn <= 9)
 			App->particles->AddParticle(App->particles->Gold, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::object_gold);
-		else if (App->particles->randomSpawn >= 10 && App->particles->randomSpawn <= 19)
+		else if (App->particles->randomSpawn >= 10 && App->particles->randomSpawn <= 15)
 			App->particles->AddParticle(App->particles->Silver, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::object_silver);
-		else if (App->particles->randomSpawn >= 20 && App->particles->randomSpawn <= 29)
+		else if (App->particles->randomSpawn >= 16 && App->particles->randomSpawn <= 22)
 			App->particles->AddParticle(App->particles->Cash, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::object_money);
-		else if (App->particles->randomSpawn >= 30 && App->particles->randomSpawn <= 39)
+		else if (App->particles->randomSpawn >= 23 && App->particles->randomSpawn <= 29)
 			App->particles->AddParticle(App->particles->SilverGold, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::object_silver_gold);
-		else if (App->particles->randomSpawn >= 40 && App->particles->randomSpawn <= 44)
+		else if (App->particles->randomSpawn >= 30 && App->particles->randomSpawn <= 44)
 			App->particles->AddParticle(App->particles->Triple, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::object_Triple);
 		else if (App->particles->randomSpawn >= 45)
 			App->particles->AddParticle(App->particles->vidaUp, App->particles->randmoX, App->particles->randmoY, 6, Collider::Type::object_Vida);
