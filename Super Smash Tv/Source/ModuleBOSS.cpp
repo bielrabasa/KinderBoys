@@ -111,7 +111,7 @@ ModuleBOSS::~ModuleBOSS()
 // Load assets
 bool ModuleBOSS::Start()
 {
-	laserFx = App->audio->LoadFx("Assets/Fx/laser.wav");
+	laserFx = App->audio->LoadFx("Assets/Audio/SFX/BossEyeLaser.wav");
 	LOG("Loading background assets");
 	
 	bool ret = true;

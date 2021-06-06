@@ -39,7 +39,7 @@ bool ModuleEnemies::Start()
 {
 	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Green_and_Pink.png");
 
-	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/explosion.wav");
+	enemyDestroyedFx = App->audio->LoadFx("Assets/Fx/EnemyBlood.wav");
 
 	textureFont = App->textures->Load("Assets/SpritesSSTV/Font.png");
 
