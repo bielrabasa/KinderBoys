@@ -164,7 +164,7 @@ bool ModuleParticles::Start()
 	laserBossLEx.anim.PushBack({ 64, 24, 15, 15 }); //animació del laser Left	  //Collider Arreglat  //Es te que ficar el sprite de la explosio de la enemicshot
 	laserBossLEx.speed.x = 0;
 	laserBossLEx.speed.y = 0;
-	laserBossLEx.lifetime = 50;
+	laserBossLEx.lifetime = 70;
 	laserBossLEx.anim.speed = 0.2f;
 
 	TripleShoot.anim.Empty();	//animació del Triple Shoot	//Collider Arreglat *apaño

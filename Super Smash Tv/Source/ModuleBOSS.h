@@ -79,7 +79,7 @@ public:
 	int offsetYhead = -64;
 
 	//Usado para la rafaga de disparos del boss
-	bool bandera = true;
+	bool bandera = false;
 	bool baderaShot = false;
 	int cont = 0;
 	int contShot = 200;
