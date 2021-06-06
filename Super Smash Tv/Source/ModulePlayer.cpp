@@ -1004,7 +1004,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 	if (c2->type == c2->Door && App->sceneLevel_1->sceneTimer >= 3600 && App->enemies->enemyNum == 0) {
 		//	WIN CONDITION
-		//if(App->sceneLevel_1->levelcont == 1)
+		if(App->sceneLevel_1->lvl1 == true)
 		App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 0); //sceneWin, sceneSwap
 		//if(App->sceneLevel_1->levelcont == 2 && App->sceneLevel2->sceneTimer == 0)
 		//App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 0); //sceneWin, sceneSwap
