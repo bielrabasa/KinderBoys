@@ -42,9 +42,13 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 ### Debug:
 * F1 - Show collisions
 * F2 - Activate/Deactivate god mode
-* F3 - Show the defeat screen
+* F3+ - 1- Scene 1 ; 2- Scene 2 ; 3- Scene 3 / Boss
 * F4 - Show the victory screen
-* F5 - Subtract the remaining lives
+* F5 - Subtract one live
+* F6 - Activate Triple shot
+* F7 - Show Pick Ups
+* F8 - Spawn all enemies
+* F9 - End actual scene
 
 # Members
 
