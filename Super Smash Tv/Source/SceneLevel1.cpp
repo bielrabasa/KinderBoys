@@ -138,7 +138,7 @@ UpdateResult SceneLevel1::Update()
 	++num;
 	if(sceneTimer < 3601 && App->player->IsAlive == true)	++sceneTimer;
 
-	cout << sceneTimer << endl;
+	//cout << sceneTimer << endl;
 
 	//if ((App->input->keys[SDL_SCANCODE_Q] == KeyState::KEY_REPEAT) && (App->player->vides > 0)) //SpawnShit
 	if ((num == randomcont) && (App->player->vides > 0) && (sceneTimer <= 3600)) //SpawnShit
