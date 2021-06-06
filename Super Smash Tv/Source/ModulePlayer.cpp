@@ -193,6 +193,7 @@ bool ModulePlayer::Start()
 	texturePickups = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
 
 	laserFx = App->audio->LoadFx("Assets/Audio/SFX/Pistol.wav");
+	shurikenFX = App->audio->LoadFx("Assets/Audio/SFX/ShurikensWind.wav");
 	Coin = App->audio->LoadFx("Assets/Audio/SFX/Money.wav");
 	
 
@@ -541,7 +542,7 @@ UpdateResult ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->TripleShoot1, position.x + 5, position.y + -16, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot, position.x + 7, position.y + -15, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 9, position.y - 14, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
-				App->audio->PlayFx(laserFx);
+				App->audio->PlayFx(shurikenFX);
 				cont = 0;
 			}
 			else
@@ -569,7 +570,7 @@ UpdateResult ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -8, position.y + -12, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot, position.x + -10, position.y + -11, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot2, position.x + -12, position.y + -10, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
-				App->audio->PlayFx(laserFx);
+				App->audio->PlayFx(shurikenFX);
 				cont = 0;
 			}
 			else
@@ -597,7 +598,7 @@ UpdateResult ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -8, position.y + 12, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot, position.x + -10, position.y + 11, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot2, position.x + -12, position.y + 10, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
-				App->audio->PlayFx(laserFx);
+				App->audio->PlayFx(shurikenFX);
 				cont = 0;
 			}
 			else
@@ -625,7 +626,7 @@ UpdateResult ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->TripleShoot1, position.x + 5, position.y + 12, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot, position.x + 7, position.y + 11, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 9, position.y + 10, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
-				App->audio->PlayFx(laserFx);
+				App->audio->PlayFx(shurikenFX);
 				cont = 0;
 			}
 			else
@@ -654,7 +655,7 @@ UpdateResult ModulePlayer::Update()
 			App->particles->AddParticle(App->particles->TripleShoot, position.x + -2, position.y - 7, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 			App->particles->AddParticle(App->particles->TripleShoot1, position.x + 1, position.y - 7, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 			App->particles->AddParticle(App->particles->TripleShoot2, position.x + -5, position.y - 7, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
-			App->audio->PlayFx(laserFx);
+			App->audio->PlayFx(shurikenFX);
 			cont = 0;
 			}
 			else
@@ -684,7 +685,7 @@ UpdateResult ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -20, position.y + 4, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot, position.x + -20, position.y + 1, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot2, position.x + -20, position.y - 2, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
-				App->audio->PlayFx(laserFx);
+				App->audio->PlayFx(shurikenFX);
 				cont = 0;
 			}
 			else
@@ -712,7 +713,7 @@ UpdateResult ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->TripleShoot1, position.x + -3, position.y + 15, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot, position.x + 0, position.y + 15, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 3, position.y + 15, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
-				App->audio->PlayFx(laserFx);
+				App->audio->PlayFx(shurikenFX);
 				cont = 0;
 			}
 			else
@@ -740,7 +741,7 @@ UpdateResult ModulePlayer::Update()
 				App->particles->AddParticle(App->particles->TripleShoot1, position.x + 20, position.y + 4, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot, position.x + 20, position.y + 1, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
 				App->particles->AddParticle(App->particles->TripleShoot2, position.x + 20, position.y + -2, 6, Collider::Type::PLAYER_TRIPLE_SHOT);
-				App->audio->PlayFx(laserFx);
+				App->audio->PlayFx(shurikenFX);
 				cont = 0;
 			}
 			else
