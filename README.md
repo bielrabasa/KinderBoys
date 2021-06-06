@@ -51,6 +51,8 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 ### Extra:
 * Select - Intro
 * Start - Space
+* Esc - close
+* L1 - close
 
 ### Debug:
 * F1 - Show collisions
