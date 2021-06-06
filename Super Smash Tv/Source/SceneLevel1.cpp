@@ -118,7 +118,7 @@ bool SceneLevel1::Start()
 
 UpdateResult SceneLevel1::Update()
 {
-	if (App->player->IsAlive == false)
+	/*if (App->player->IsAlive == false)
 	{
 		App->enemies->Disable();
 		App->enemies->Enable();
@@ -133,7 +133,7 @@ UpdateResult SceneLevel1::Update()
 			contmort = 0;
 		}
 		else contmort++;
-	}
+	}*/
 
 	if(sceneTimer == 3300)
 		App->audio->PlayFx(tenseconds);
@@ -147,7 +147,7 @@ UpdateResult SceneLevel1::Update()
 
 	//App->render->camera.x += 3; //SCROLL
 	++num;
-	if(sceneTimer < 3601 && App->player->IsAlive == true)	++sceneTimer;
+	if(sceneTimer < 3601)	++sceneTimer;
 
 	//cout << sceneTimer << endl;
 
