@@ -48,6 +48,8 @@ bool SceneLevel1::Start()
 	App->audio->PlayMusic("Assets/Music/03-_Super_Smash_TV_-_Circuit_1.ogg", 1.0f);
 
 	tenseconds = App->audio->LoadFx("Assets/Audio/Voices/Voice - Ten seconds!.wav");
+	goodluck = App->audio->LoadFx("Assets/Audio/Voices/Voice - Good luck!.wav");
+	youllneedit = App->audio->LoadFx("Assets/Audio/Voices/Voice - You'll need it!.wav");
 	
 
 	//Bottomside collider  Primer numero x, Segundo numero y, 3r numero largo del cubo, 4o anchura del cubo
@@ -135,6 +137,13 @@ UpdateResult SceneLevel1::Update()
 
 	if(sceneTimer == 3300)
 		App->audio->PlayFx(tenseconds);
+
+	if (sceneTimer == 1 && levelcont == 1)
+		App->audio->PlayFx(goodluck);
+
+	if (sceneTimer == 60 && levelcont == 1) 
+		App->audio->PlayFx(youllneedit);
+	
 
 	//App->render->camera.x += 3; //SCROLL
 	++num;

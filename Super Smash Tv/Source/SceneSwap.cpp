@@ -50,9 +50,6 @@ bool SceneSwap::Start()
 	portaTexture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV_Portes.png");
 	porta2Texture = App->textures->Load("Assets/SpritesSSTV/EditSpritesSSTV_Portes2.png");
 
-	goodluck = App->audio->LoadFx("Assets/Audio/Voices/Voice - Good luck!.wav");
-	youllneedit = App->audio->LoadFx("Assets/Audio/Voices/Voice - You'll need it!.wav");
-
 	Transicio = 0;
 
 	App->player->Disable();
@@ -66,8 +63,8 @@ bool SceneSwap::Start()
 	if (App->sceneLevel_1->levelcont == 0) {
 		mapaTransicio = 3;
 		portaTransicio = 0;
-		voices = true;
 	}
+
 	if (App->sceneLevel_1->levelcont == 1) {
 		mapaTransicio = 0;
 		portaTransicio = 0;
@@ -87,22 +84,12 @@ UpdateResult SceneSwap::Update()
 	{
 		App->fade->FadeToBlack(this, (Module*)App->sceneIntro, 0);
 	}*/
-	if (voices && Transicio == 4 && App->sceneLevel_1->levelcont == 0)
-		App->audio->PlayFx(goodluck);
-
-	if (voices && Transicio == 300 && App->sceneLevel_1->levelcont == 0) {
-		App->audio->PlayFx(youllneedit);
-		voices = false;
-	}
-
 
 	if (Transicio < 512)
 		Transicio += 4;
 	
 	if(Transicio % 4 == 0 && Transicio != 512)
 		xplayer -= 3;
-
-	
 
 	currentAnimation->Update();
 

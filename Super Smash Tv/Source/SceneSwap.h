@@ -49,10 +49,6 @@ public:
 	int mapaTransicio = 0;
 	int portaTransicio = 0;
 	int Transicio = 0; //contador que va fent la transició
-
-	uint goodluck = 0;
-	uint youllneedit = 0;
-	bool voices = false;
 };
 
 #endif	// __SCENESWAP_H__

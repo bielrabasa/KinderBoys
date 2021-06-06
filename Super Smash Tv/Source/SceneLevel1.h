@@ -48,7 +48,10 @@ public:
 	int exitTimer = 0;
 	int levelcont = 0;
 	int contmort = 0;
+
 	uint tenseconds = 0;
+	uint goodluck = 0;
+	uint youllneedit = 0;
 };
 
 #endif  // __SCENELEVEL1_H__
