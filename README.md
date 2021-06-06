@@ -4,6 +4,9 @@
 
 https://github.com/bielrabasa/KinderBoys/wiki
 
+Web
+https://bielrabasa.github.io/KinderBoys/
+
 # Description
 
 This is a dystopia where the main entertainment is a TV show called Smash TV, where the contestant (the main character) needs to pass some rooms killing all the enemies, recollecting the money given.
