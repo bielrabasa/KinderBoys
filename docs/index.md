@@ -54,7 +54,7 @@ Art/Design
 
 ## Gameplay Video
 
-link del video
+https://www.youtube.com/watch?v=s0SKI-6NhHQ
 
 ## Last Release
 
