@@ -54,7 +54,7 @@ Art/Design
 
 ## Gameplay Video
 
-[![Trailer of the game](https://github.com/bielrabasa/KinderBoys/blob/main/Images/64030bf22fc3ce21fb1e3b8e9581b4e6.png)](https://www.youtube.com/watch?v=s0SKI-6NhHQ)
+[![Trailer of the game](https://github.com/bielrabasa/KinderBoys/blob/main/Images/64030bf22fc3ce21fb1e3b8e9581b4e6.png)](https://youtu.be/cOv_5hWj7SU)
 
 ## Last Release
 
