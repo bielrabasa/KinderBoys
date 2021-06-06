@@ -154,7 +154,7 @@ UpdateResult ModuleEnemies::PostUpdate()
 	SDL_Rect rectTempos6 = { 133, 125, 14, 4 };
 	App->render->DrawRectangle(rectTempos6, SDL_Color{ 255, 0, 0, 255 });
 
-	if (App->player->cont_Tripel > 0) {
+	if (App->player->cont_Tripel > 0 && App->player->bandera_trip) {
 		switch (App->player->cont_Tripel / 83) { //Dibuixa rectangles verds si el triple shot està actiu.
 		case 6:
 		case 5:

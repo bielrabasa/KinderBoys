@@ -14,6 +14,7 @@ using namespace std;
 #include "ModuleEnemies.h"
 #include "Enemy_Turret2.h"
 #include "Enemy_Mech.h"
+#include "level2.h"
 
 ModuleBOSS::ModuleBOSS(bool startEnabled) : Module(startEnabled)
 {
@@ -133,6 +134,13 @@ bool ModuleBOSS::Start()
 
 	App->player->ImprimirPortes = false;
 
+	/*
+	HeadAnimation = &IdleHead;
+	BodyAnimation = &Body;
+	WheelsAnimation = &Wheels;
+	ArmAnimation = &emptyAnimation;
+	*/
+
 	return ret;
 }
 
@@ -140,6 +148,7 @@ bool ModuleBOSS::CleanUp() {
 	App->textures->Unload(bgTexture);
 	App->textures->Unload(enemyTexture);
 	App->player->ImprimirPortes = true;
+	App->sceneLevel2->sceneTimer = 0;
 	return true;
 }
 
@@ -493,18 +502,22 @@ UpdateResult ModuleBOSS::Update()
 		case 4:
 			ArmAnimation = &emptyAnimation;
 			BodyAnimation = &Body;
+			offsetYhead = -64;
 			break;
 		case 3:
 			ArmAnimation = &RightArm;
 			BodyAnimation = &Body3;
+			offsetYhead = -64;
 			break;
 		case 2:
 			ArmAnimation = &emptyAnimation;
 			BodyAnimation = &Body3;
+			offsetYhead = -64;
 			break;
 		case 1:
 			ArmAnimation = &emptyAnimation;
 			BodyAnimation = &Body2;
+			offsetYhead = -64;
 			break;
 		case 0:
 			bandera = true;
