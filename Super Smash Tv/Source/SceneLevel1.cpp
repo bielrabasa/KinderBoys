@@ -47,8 +47,8 @@ bool SceneLevel1::Start()
 	exitTexture = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
 	App->audio->PlayMusic("Assets/Music/03-_Super_Smash_TV_-_Circuit_1.ogg", 1.0f);
 
-
-
+	tenseconds = App->audio->LoadFx("Assets/Audio/Voices/Voice - Ten seconds!.wav");
+	
 
 	//Bottomside collider  Primer numero x, Segundo numero y, 3r numero largo del cubo, 4o anchura del cubo
 	//Tendremos problemas con la hitbox y la entrada y salida tanto de personajes como de enemigos
@@ -133,6 +133,8 @@ UpdateResult SceneLevel1::Update()
 		else contmort++;
 	}
 
+	if(sceneTimer == 3300)
+		App->audio->PlayFx(tenseconds);
 
 	//App->render->camera.x += 3; //SCROLL
 	++num;

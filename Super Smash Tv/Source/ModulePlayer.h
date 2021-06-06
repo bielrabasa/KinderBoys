@@ -126,6 +126,7 @@ public:
 	// Sound effects indices
 	uint laserFx = 0;
 	uint shurikenFX = 0;
+	uint shurikenPowerUP = 0;
 	uint explosionFx = 0;
 	uint Coin = 0;
 };

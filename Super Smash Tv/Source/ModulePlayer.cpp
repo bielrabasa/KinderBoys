@@ -194,6 +194,7 @@ bool ModulePlayer::Start()
 
 	laserFx = App->audio->LoadFx("Assets/Audio/SFX/Pistol.wav");
 	shurikenFX = App->audio->LoadFx("Assets/Audio/SFX/ShurikensWind.wav");
+	shurikenPowerUP = App->audio->LoadFx("Assets/Audio/SFX/ShurikenPowerUp.wav");
 	Coin = App->audio->LoadFx("Assets/Audio/SFX/Money.wav");
 	
 
@@ -992,6 +993,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	{
 		bandera_trip = true;
 		cont_Tripel = 500;
+		App->audio->PlayFx(shurikenPowerUP);
 	}	
 	
 	if (c2->type == c2->object_Vida && vdelay >= 100 && vides < 9)
