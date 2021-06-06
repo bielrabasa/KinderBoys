@@ -1,10 +1,13 @@
 # KinderBoys
 
-# GitHub Link
+# GitHub Links
+
+## Github
 
 https://github.com/bielrabasa/KinderBoys/wiki
 
-Web
+## Web
+
 https://bielrabasa.github.io/KinderBoys/
 
 # Description
