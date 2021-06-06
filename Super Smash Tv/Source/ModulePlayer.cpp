@@ -176,8 +176,6 @@ bool ModulePlayer::Start()
 
 	bool ret = true;
 
-	IsAlive = true;
-
 	texture = App->textures->Load("Assets/SpritesSSTV/Entity_Player.png");
 	currentAnimation = &idleUAnim;
 	currentTopAnimation = &topDownAnim;
@@ -1014,7 +1012,6 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	if ((c2->type == c2->ENEMY) && (contadorVides < 0) && (bandera_GodMode == false) && (destroyed == false)) {
 
 		if (vides > 0) {
-			IsAlive = false;
 			--vides;
 		}
 		else if (vides <= 0) {		//FALTA PULIR MOLTISSIM!!!!!
