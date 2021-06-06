@@ -62,6 +62,7 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 * F7 - Show Pick Ups
 * F8 - Spawn all enemies
 * F9 - End actual scene
+* P  - Pause
 
 # Members
 
