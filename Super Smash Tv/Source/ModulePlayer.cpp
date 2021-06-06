@@ -192,7 +192,7 @@ bool ModulePlayer::Start()
 
 	texturePickups = App->textures->Load("Assets/SpritesSSTV/Entity_Projectiles_and_gift.png");
 
-	laserFx = App->audio->LoadFx("Assets/Audio/Pistol.wav");
+	laserFx = App->audio->LoadFx("Assets/Audio/SFX/Pistol.wav");
 	Coin = App->audio->LoadFx("Assets/Audio/SFX/Money.wav");
 	
 
