@@ -160,8 +160,8 @@ void Enemy_RedBird::Update()
 		if (position.y > 60)
 			position.y -= 1.25f;
 		movedelay++;
-		//RightAnim.Reset();
-		currentAnim = &RightAnim;
+		DLAnim.Reset();
+		currentAnim = &DLAnim;
 		if (movedelay == 30) {
 			movedelay = 0;
 			randomMove = 0;
@@ -174,8 +174,8 @@ void Enemy_RedBird::Update()
 		if (position.y < 390)
 			position.y += 1.25f;
 		movedelay++;
-		//RightAnim.Reset();
-		currentAnim = &RightAnim;
+		URAnim.Reset();
+		currentAnim = &URAnim;
 		if (movedelay == 30) {
 			movedelay = 0;
 			randomMove = 0;
@@ -188,8 +188,8 @@ void Enemy_RedBird::Update()
 		if (position.y < 390)
 			position.y += 1.25f;
 		movedelay++;
-		//RightAnim.Reset();
-		currentAnim = &RightAnim;
+		ULAnim.Reset();
+		currentAnim = &ULAnim;
 		if (movedelay == 30) {
 			movedelay = 0;
 			randomMove = 0;
@@ -202,8 +202,8 @@ void Enemy_RedBird::Update()
 		if (position.y > 60)
 			position.y -= 1.25f;
 		movedelay++;
-		//RightAnim.Reset();
-		currentAnim = &RightAnim;
+		DRAnim.Reset();
+		currentAnim = &DRAnim;
 		if (movedelay == 30) {
 			movedelay = 0;
 			randomMove = 0;
