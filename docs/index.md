@@ -1,6 +1,6 @@
 # SUPER SMASH TV
 
-## Super Smash Tv from SNES | Produced by KINDER BOYS
+## Super Smash TV from SNES | Produced by KINDER BOYS
 
 ![image](https://user-images.githubusercontent.com/79161085/120228069-b2ea4c80-c24a-11eb-9e27-a2796ebe85ef.png)
 
