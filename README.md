@@ -24,16 +24,22 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 # Controls
 
 ### Movement:
+#### Keyboard:
 * W - Move Up
 * A - Move Left
 * S - Move Down
 * D - Move Right
+#### Command:
+* Left Joystick / Arrows
 
 ### Shoot:
+#### Keyboard:
 * Up Arrow - Shoot Up
 * Left Arrow - Shoot Left
 * Down Arrow - Shoot Down
 * Right Arrow - Shoot Right
+* #### Command:
+* Right Joystick / A, B, X, Y
 
 ### Extra:
 * Select - Intro
