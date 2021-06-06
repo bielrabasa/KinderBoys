@@ -852,7 +852,7 @@ UpdateResult ModulePlayer::Update()
 	}
 
 
-	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN && vides < 0) { //necessita col·lidir amb un enemic al final per morir
+	if (App->input->keys[SDL_SCANCODE_F5] == KeyState::KEY_DOWN && vides > 0) { //necessita col·lidir amb un enemic al final per morir
 		vides--;
 	}
 
