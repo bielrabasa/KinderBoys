@@ -30,8 +30,11 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 * S - Move Down
 * D - Move Right
 #### Command:
-* Left Joystick / Arrows
-
+* Left Joystick
+* Up Arrow - Shoot Up
+* Left Arrow - Shoot Left
+* Down Arrow - Shoot Down
+* Right Arrow - Shoot Right
 ### Shoot:
 #### Keyboard:
 * Up Arrow - Shoot Up
@@ -39,7 +42,11 @@ Come across different enemies and rooms to reach the final boss, glory is awaiti
 * Down Arrow - Shoot Down
 * Right Arrow - Shoot Right
 * #### Command:
-* Right Joystick / A, B, X, Y
+* Right Joystick 
+* Y - Shoot Up
+* X - Shoot Left
+* A - Shoot Down
+* B - Shoot Right
 
 ### Extra:
 * Select - Intro
