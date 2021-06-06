@@ -5,6 +5,8 @@
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
 #include "SceneLevel1.h"
+#include "level2.h"
+#include "ModuleBOSS.h"
 
 #include "SDL/include/SDL.h"
 
@@ -138,7 +140,19 @@ UpdateResult ModuleInput::PreUpdate()
 		if (App->input->keys[SDL_SCANCODE_SPACE] == KeyState::KEY_REPEAT || App->input->pads->a == KeyState::KEY_DOWN)
 		{
 			App->pause = !App->pause;
-			App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
+			if(App->sceneLevel_1->lvl1 = true)
+			{
+				App->sceneLevel_1->levelcont = 0;
+				App->fade->FadeToBlack((Module*)App->sceneLevel_1, (Module*)App->sceneSwap, 20);
+			}
+			if(App->sceneLevel2->lvl2 = true)
+			{
+				App->boss->Disable();
+				App->sceneLevel_1->levelcont = 0;
+				App->fade->FadeToBlack((Module*)App->sceneLevel2, (Module*)App->sceneSwap, 20);
+				App->sceneLevel2->Disable();
+
+			}
 			App->player->vides = 5;
 			App->player->score = 0;
 		}
