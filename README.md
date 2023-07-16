@@ -1,4 +1,4 @@
-# ssmashtv - KinderBoys port of Super Smash T.V. SNES
+# ssmashtv / KinderBoys - port of Super Smash T.V. SNES
 
 # Description
 
