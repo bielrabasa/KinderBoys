@@ -1,14 +1,4 @@
-# KinderBoys
-
-# GitHub Links
-
-## Github
-
-https://github.com/bielrabasa/KinderBoys/wiki
-
-## Web
-
-https://bielrabasa.github.io/KinderBoys/
+# ssmashtv / KinderBoys - port of Super Smash T.V. SNES
 
 # Description
 
